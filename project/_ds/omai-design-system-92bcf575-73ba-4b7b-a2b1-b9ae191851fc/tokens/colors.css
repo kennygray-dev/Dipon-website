@@ -1,0 +1,40 @@
+/* ============================================================
+   COLOR — Omai Villas
+   Fully monochromatic warm-neutral. No blue, no green, no
+   chromatic accent. Color lives in photography only.
+   ============================================================ */
+
+:root {
+  /* --- Base palette (raw values, named by the source brand) --- */
+  --light-200:     #F5F4F1; /* primary background */
+  --light-100:     #EAE7E3; /* cards / buttons / surfaces */
+  --white:         #FFFFFF; /* hover surface only */
+  --medium:        #CEC9C4; /* default border */
+  --dark-300:      #9C938C; /* strong border / divider (never text on light) */
+  --dark-200:      #6F6A66; /* decorative / large text only */
+  --dark-100:      #4D4945; /* subtext, primary button fill */
+  --dark-500:      #2C2927; /* body + headings */
+  --reva-dark-100: #5F514B; /* footer / dark sections */
+  --reva-dark-200: #7D6D67; /* secondary dark panels */
+  --error-red:     #D45656; /* form validation ONLY */
+
+  /* --- Semantic color roles (use these in components) --- */
+  --color-bg-page:              var(--light-200);
+  --color-bg-surface:           var(--light-100);
+  --color-bg-surface-alt:       var(--white);        /* hover only */
+  --color-bg-inverse:           var(--reva-dark-100);
+  --color-bg-inverse-alt:       var(--reva-dark-200);
+
+  --color-text-primary:         var(--dark-500);
+  --color-text-secondary:       var(--dark-100);
+  --color-text-tertiary:        var(--dark-200);      /* large/decorative only */
+  --color-text-on-inverse:      var(--light-200);
+  --color-text-on-inverse-muted:var(--light-100);
+
+  --color-border-default:       var(--medium);
+  --color-border-strong:        var(--dark-300);
+
+  --color-accent:               transparent;          /* deliberately absent */
+  --color-error:                var(--error-red);
+  --color-success:              var(--dark-500);       /* no dedicated success hue */
+}

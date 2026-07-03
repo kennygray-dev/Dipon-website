@@ -1,0 +1,30 @@
+/* ============================================================
+   SPACING & LAYOUT — Omai Villas
+   One 4px base unit. 180px macro vertical rhythm — "space to
+   breathe". Two gutters only. Named content-width caps.
+   ============================================================ */
+
+:root {
+  /* --- Base unit & tiers --- */
+  --space-unit:   4px;
+  --space-micro:  4px;   /* 1× */
+  --space-xs:     8px;   /* 2× */
+  --space-sm:     12px;  /* 3× */
+  --space-md:     20px;  /* 5× */
+  --space-lg:     40px;  /* 10× */
+  --space-xl:     80px;  /* 20× */
+
+  /* --- Macro vertical rhythm (single source) --- */
+  --space-section-y: 180px;
+
+  /* --- Page gutters (only two; components never set page-edge padding) --- */
+  --space-gutter-desktop: 60px;
+  --space-gutter-mobile:  20px;
+
+  /* --- Content-width caps (named, never magic numbers) --- */
+  --container-xs:   265px;
+  --container-sm:   320px;
+  --container-md:   380px;
+  --container-lg:   530px;
+  --container-full: 100%;
+}

@@ -1,0 +1,48 @@
+/* ============================================================
+   TYPOGRAPHY — Omai Villas
+   "Literary meets architectural": an ultra-thin display serif
+   in tension with a spaced, geometric uppercase label face.
+   Families below are SUBSTITUTES (see tokens/fonts.css).
+   ============================================================ */
+
+:root {
+  /* --- Families --- */
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; /* sub for Canela Text */
+  --font-label:   'Jost', 'Helvetica Neue', Arial, sans-serif;            /* sub for DecagramRegular */
+  --font-body:    'Mulish', 'Helvetica Neue', Arial, sans-serif;          /* sub for SilvanaTextLight */
+
+  /* --- Weights (Canela's 250 → 300 in the substitute) --- */
+  --weight-display: 300;
+  --weight-body:    400;
+  --weight-label:   600;
+
+  /* --- Label treatment --- */
+  --tracking-label:  1.3px;
+  --transform-label: uppercase; /* @kind other */
+
+  /* --- Type-scale role sizes --- */
+  --size-heading-xl: 64px;
+  --size-heading-l:  32px;
+  --size-heading-m:  24px;
+  --size-heading-s:  24px;
+  --size-label-lg:   13px;
+  --size-label-md:   11px;
+  --size-label-sm:   10px;
+  --size-body-lg:    18px;
+  --size-body:       16px;
+  --size-body-sm:    14px;
+}
+
+/* ---- Role utility classes (optional helpers) ---- */
+.heading-xl { font-family: var(--font-display); font-weight: var(--weight-display); font-size: var(--size-heading-xl); line-height: 1.08; letter-spacing: 0; }
+.heading-l  { font-family: var(--font-display); font-weight: var(--weight-display); font-size: var(--size-heading-l);  line-height: 1.08; letter-spacing: 0; }
+.heading-m  { font-family: var(--font-display); font-weight: 400; font-size: var(--size-heading-m); line-height: 1.25; }
+.heading-s  { font-family: var(--font-display); font-weight: 400; font-size: var(--size-heading-s); line-height: 1.10; }
+
+.label-lg { font-family: var(--font-label); font-weight: var(--weight-label); font-size: var(--size-label-lg); line-height: 1.23; letter-spacing: 1.3px; text-transform: uppercase; }
+.label-md { font-family: var(--font-label); font-weight: var(--weight-label); font-size: var(--size-label-md); line-height: 1.18; letter-spacing: 1.1px; text-transform: uppercase; }
+.label-sm { font-family: var(--font-label); font-weight: var(--weight-label); font-size: var(--size-label-sm); line-height: 1.50; letter-spacing: 1.0px; text-transform: uppercase; }
+
+.body-lg { font-family: var(--font-body); font-weight: 400; font-size: var(--size-body-lg); line-height: 1.5; }
+.body    { font-family: var(--font-body); font-weight: 400; font-size: var(--size-body);    line-height: 1.5; }
+.body-sm { font-family: var(--font-body); font-weight: 300; font-size: var(--size-body-sm); line-height: 1.5; }

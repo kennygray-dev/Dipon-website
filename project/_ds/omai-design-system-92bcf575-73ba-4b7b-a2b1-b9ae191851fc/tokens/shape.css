@@ -1,0 +1,20 @@
+/* ============================================================
+   SHAPE & ELEVATION — Omai Villas
+   Zero radius everywhere. No drop shadows. Depth comes from
+   photography, z-index layering, and color contrast only.
+   ============================================================ */
+
+:root {
+  --radius-sm:     0px;
+  --radius-md:     0px;
+  --radius-button: 0px;
+
+  --shadow-sm: none;
+  --shadow-md: none;
+
+  /* Hairline border weight used on forms & ghost buttons */
+  --border-hairline: 0.67px;
+
+  /* Scrim opacity over full-bleed media (token, never assumed) */
+  --scrim-opacity: 0.32; /* @kind other */
+}

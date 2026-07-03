@@ -1,0 +1,17 @@
+/* ============================================================
+   FONTS — Omai Villas
+   ------------------------------------------------------------
+   The brand ships three PROPRIETARY, self-hosted faces:
+     • Canela Text       (ultra-thin display serif, weight 250)
+     • DecagramRegular   (geometric uppercase label face)
+     • SilvanaTextLight  (light reading face, body)
+   These are not publicly available. The rules below substitute
+   the closest Google Fonts so the system is usable today:
+     • Canela Text      → Cormorant Garamond (high-contrast light serif)
+     • DecagramRegular  → Jost (geometric, tracks well in uppercase)
+     • SilvanaTextLight → Mulish (clean, light humanist sans)
+   Replace this @import + the --font-* vars in typography.css with
+   real @font-face rules once the .woff2 files are supplied.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@400;500;600&family=Mulish:wght@300;400;500;600&display=swap');

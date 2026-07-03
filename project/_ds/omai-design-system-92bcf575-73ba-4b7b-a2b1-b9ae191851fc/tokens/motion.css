@@ -1,0 +1,15 @@
+/* ============================================================
+   MOTION — Omai Villas
+   One easing curve, one duration, reused everywhere. Hover
+   feedback is subtle (opacity / color / scale). Respect
+   prefers-reduced-motion.
+   ============================================================ */
+
+:root {
+  --ease-standard:     cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --duration-standard: 0.2s; /* @kind other */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --duration-standard: 0.001s; /* @kind other */ }
+}

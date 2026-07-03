@@ -1,0 +1,1341 @@
+WEBSITE PROJECT
+MASTER DOCUMENT
+Company Overview · Business Goals · Audience Profiles · Brand Positioning · Sitemap · Page Architecture · Homepage Architecture · Content Strategy · Website Copy · SEO Strategy · Design Direction · Design Requirements · Technical Requirements · Conversion Strategy
+The single, end-to-end reference for the DIPON Group website project —
+strategy, structure, copy, design, technical, and conversion requirements in one document.
+Prepared for DIPON Group  |  June 2026
+Table of Contents
+TOC \h \o &quot;1-2&quot;
+1. Company Overview
+DIPON Group is a Nigerian-owned diversified conglomerate delivering integrated solutions across infrastructure development, construction, renewable energy, real estate, transportation, agriculture, and industrial trading. The Group combines technical expertise, operational excellence, and long-term partnerships to execute projects that drive economic growth and sustainable development across Africa.
+The Group operates through three legal subsidiaries, each with its own licensed scope of work, that together cover the full project lifecycle — from civil works and power infrastructure through to finished, occupiable property and ongoing supply chain support:
+Subsidiary
+Role Within the Group
+DIPON Construction Limited
+Civil engineering, building construction, roads and bridges, mechanical and electrical works, fabrication, and general contracting.
+DIPON Global Resources Limited
+General trading, import/export, product marketing, building materials supply, real estate, agriculture, transportation and logistics, and renewable energy solutions.
+DIPON Infrastructure Limited
+Renewable energy systems, solar infrastructure, street lighting, power infrastructure, housing and real estate development, transportation services, and equipment supply.
+The website&apos;s role is not promotional. It is the Group&apos;s primary credibility and lead-generation engine for government procurement teams, corporate clients, project owners, developers, and investors — audiences who need to verify capability, capacity, and trustworthiness before they will engage. Every decision in this document, from sitemap to sentence-level copy, is built around that requirement.
+This Master Document is the single, end-to-end reference for the project: it consolidates and supersedes the separate strategy, architecture, and brand notes produced earlier, and adds the two pieces that complete a build-ready brief — full draft website copy and the design/technical/conversion requirements needed to hand this to a development team.
+2. Business Goals
+2.1 Primary Goal
+Generate high-value business leads, partnerships, and contract opportunities across the Group&apos;s subsidiaries.
+2.2 Secondary Goals
+Establish credibility and corporate authority
+Showcase the Group&apos;s capabilities and project portfolio
+Attract investors and strategic partners
+Support government and private-sector procurement opportunities
+Present all subsidiaries under one unified corporate identity
+2.3 Competitive Advantages to Make Visible on the Site
+Multi-sector expertise
+Integrated service delivery
+Renewable energy capabilities
+Infrastructure development experience
+Real estate and property development services
+End-to-end project execution
+Strong procurement and supply chain capabilities
+Every section of this document — from the sitemap to the homepage copy — is designed to make these seven advantages legible to a skeptical, risk-averse buyer rather than simply asserting them.
+3. Audience Profiles
+3.1 Audience Tiers
+The brief defines three tiers of audience, which determine content priority and where each audience is served in the navigation.
+Primary Audience
+Government agencies
+Infrastructure procurement teams
+Construction project owners
+Real estate developers
+Corporate organizations
+Industrial clients
+Secondary Audience
+Investors
+Development partners
+International organizations
+Renewable energy clients
+Property buyers and tenants
+Agricultural business partners
+Tertiary Audience
+Potential employees
+Suppliers
+Contractors
+Media and stakeholders
+3.2 Audience Messaging Architecture
+Different audiences need different proof points from the same brand story. This table drives the language used in every audience-facing section of the site, particularly the homepage “Industries We Serve” section and the Website Copy in Section 9.
+Audience
+Primary Message
+Proof Needed
+Primary CTA
+Government / Procurement
+A single accountable, licensed partner for public infrastructure, from civil works to power.
+Certifications, licenses, safety record, past public-sector projects
+Download Company Profile / Request a Consultation
+Construction &amp; Real Estate Clients
+End-to-end delivery from design-stage civil works through to finished, occupiable property.
+Project portfolio, build quality imagery, timelines
+Request a Quotation
+Investors &amp; Development Partners
+A diversified, professionally governed group with a credible growth and sustainability story.
+Leadership profiles, governance information, group scale, sustainability initiatives
+Partner With Us
+Industrial &amp; Corporate Clients
+Reliable supply chain, trading, and logistics capability at scale.
+Trading/import-export track record, logistics capability, client list
+Submit a Project Inquiry
+Property Buyers &amp; Tenants
+Quality, well-located real estate backed by a serious developer.
+Property/project imagery, location detail, amenities
+Contact a Subsidiary / Schedule a Meeting
+Suppliers &amp; Contractors
+A scaled, professional group worth partnering with long-term.
+Procurement process clarity, company scale
+Contact Our Team
+Potential Employees
+A growing, multi-sector employer with real career paths.
+Careers content, culture, project variety
+View Careers
+3.3 Audience Journeys
+Mapping the primary journeys keeps every design and copy decision anchored to how each audience actually moves through the site.
+Audience
+Journey
+Government Procurement Officer
+Home → Industries We Serve / relevant Service → Projects (filtered to sector) → About (certifications, governance) → Download Company Profile → Request a Consultation
+Construction / Real Estate Client
+Home → Subsidiaries or Services → Featured Projects → Project detail page → Request a Quotation
+Investor / Development Partner
+Home → About (Leadership) → Sustainability → Subsidiaries Overview → Partner With Us → Contact
+Industrial / Corporate Buyer
+Home → Services (Trading &amp; Supply) → Submit a Project Inquiry
+Job Seeker
+Home → Careers → Open Roles → Apply
+4. Brand Positioning
+4.1 Core Value Proposition &amp; Positioning Statement
+The brief&apos;s value proposition — “Building Sustainable Infrastructure and Business Solutions for Africa’s Future” — is strong as an emotional, aspirational tagline, but on its own is too broad to drive a procurement or investment decision. It is retained as the tagline, paired with a sharper functional positioning statement that does the persuasive work:
+“For government agencies, project owners, and corporate organizations who need a single accountable partner across the build lifecycle, DIPON Group is the Nigerian-owned conglomerate that integrates construction, power infrastructure, real estate, and supply chain capability under one group — removing the coordination risk of multi-vendor projects and backing delivery with group-level scale, technical depth, and long-term accountability.”
+This reframes “diversified conglomerate” — which can read as unfocused — as integration, which reads as risk reduction. That reframe runs through every page, not just the homepage.
+4.2 Brand Pillars
+The brief&apos;s eight personality traits (Professional, Reliable, Innovative, Forward-thinking, Sustainable, Trusted, Corporate, Impact-driven) are accurate but too numerous to write to consistently. They are consolidated into five pillars that map directly to website content — each pillar is demonstrable on the site, not just claimed.
+Pillar
+What It Means On The Site
+Integrated Execution
+One group covering the full project lifecycle. Demonstrated via the Subsidiaries hub, cross-linked services, and projects that show multiple subsidiaries collaborating on one site.
+Engineering-Grade Reliability
+Technical depth, safety standards, and governance. Demonstrated via certifications, licenses, leadership credentials, and specific (not vague) project facts.
+Sustainable by Design
+Renewable energy is embedded in delivery, not a marketing add-on. Demonstrated via a dedicated Sustainability section and renewable-energy content woven into Construction and Infrastructure pages.
+Local Roots, Global Standards
+Nigerian-owned with international-grade delivery. Demonstrated via project locations, local workforce/community content, and quality/safety standards language.
+Partnership Over Transactions
+Long-term relationships with government and enterprise clients. Demonstrated via partner logos, repeat-client case studies, and a relationship-oriented CTA structure.
+4.3 Tone of Voice
+Government and corporate buyers are conditioned to discount marketing superlatives. The website&apos;s voice — and every line of copy in Section 9 — earns trust through specificity rather than enthusiasm.
+Confident, not boastful — state capability plainly (“We design, build, and power infrastructure”) rather than with adjectives (“world-class,” “unrivalled”).
+Specific over generic — wherever a real number, service, or location exists, use it; avoid filler claims that cannot be evidenced. Where a real figure isn&apos;t yet available, copy uses a clearly marked placeholder rather than an invented statistic.
+Plain, technical when needed — correct engineering and procurement terminology is acceptable, even preferable; this audience trusts precision.
+Calm urgency in CTAs — “Discuss Your Next Project” works because it is an invitation, not a hard sell; keep all CTA language in that register.
+5. Sitemap
+5.1 Navigation Structure
+Primary navigation is organized around what a visitor needs to do, with the corporate-structure view one click away — not the reverse.
+Primary nav (capability-first): Home · About · Services · Projects · Subsidiaries · Sustainability · Careers · Insights · Contact.
+Cross-linking rule: every Service page must link to the subsidiary that delivers it; every Subsidiary page must link to its relevant Service pages and a filtered view of Projects.
+Utility elements: a persistent header CTA (“Discuss Your Next Project”) and a one-click “Download Company Profile” link, since procurement officers often want it on first visit.
+Clean, descriptive URLs that mirror the sitemap, e.g. /subsidiaries/dipon-construction, /services/renewable-energy, /projects/[project-slug].
+5.2 Complete Sitemap
+A hub-and-spoke pattern is used for About, Subsidiaries, Services, and Careers — each hub gives a fast overview while pushing deep content to dedicated, indexable sub-pages.
+#
+Page
+URL Pattern
+Page Type
+1
+Home
+/
+Unique page
+2
+About Us
+/about
+Hub (unique)
+2.1
+Leadership &amp; Governance
+/about/leadership-governance
+Trust sub-page
+2.2
+Certifications &amp; Licenses
+/about/certifications-licenses
+Trust sub-page
+2.3
+Corporate Governance
+/about/corporate-governance
+Trust sub-page
+3
+Subsidiaries
+/subsidiaries
+Hub (unique)
+3.1
+DIPON Construction Limited
+/subsidiaries/dipon-construction
+Subsidiary template
+3.2
+DIPON Global Resources Limited
+/subsidiaries/dipon-global-resources
+Subsidiary template
+3.3
+DIPON Infrastructure Limited
+/subsidiaries/dipon-infrastructure
+Subsidiary template
+4
+Services
+/services
+Hub (unique)
+4.1
+Construction &amp; Civil Engineering
+/services/construction-civil-engineering
+Service template
+4.2
+Renewable Energy &amp; Power Infrastructure
+/services/renewable-energy-power-infrastructure
+Service template
+4.3
+Real Estate &amp; Property Development
+/services/real-estate-property-development
+Service template
+4.4
+Trading &amp; Supply Chain
+/services/trading-supply-chain
+Service template
+4.5
+Transportation &amp; Logistics
+/services/transportation-logistics
+Service template
+4.6
+Agriculture
+/services/agriculture
+Service template
+5
+Projects / Portfolio
+/projects
+Listing (unique)
+5.x
+Project Detail (per project)
+/projects/[project-slug]
+Project template
+6
+Sustainability
+/sustainability
+Unique page
+7
+Careers
+/careers
+Hub (unique)
+7.1
+Open Roles
+/careers/open-roles
+Listing (unique)
+7.2
+Role Detail (per role)
+/careers/open-roles/[role-slug]
+Detail template
+7.3
+Application Form
+/careers/apply
+Form (unique)
+8
+News &amp; Insights
+/news
+Listing (unique)
+8.x
+Article Detail (per article)
+/news/[article-slug]
+Article template
+9
+Contact
+/contact
+Form (unique)
+10
+Utility / Legal
+/privacy-policy, /terms-of-use, /cookie-policy, /sitemap, /404
+Legal template
+5.3 Sitemap Notes
+Company History is treated as an in-page section on the About Us overview rather than a standalone sub-page — it works better as connective narrative.
+Projects, Services, and Subsidiaries are cross-linked by structured relationship (not manual links), so the same project surfaces correctly from three entry points: its subsidiary page, its service page, and the Projects archive.
+A Company Profile PDF is a downloadable asset, not a page — linked from the header utility bar, About, and the footer, and intentionally left ungated to maximize procurement-officer use.
+Utility and legal pages use a single generic legal-text template and are out of scope for the copy in Section 9; they should be produced directly from legal counsel&apos;s text.
+6. Page Architecture
+Most of the site&apos;s roughly 40 individual URLs are produced from a small number of reusable templates, so the build scales as new subsidiaries, services, or projects are added without rework.
+6.1 Template Reference
+Template Type
+Definition
+Used For
+Unique page
+One-off layout, used once
+Home, About overview, Sustainability, Contact, Careers hub
+Hub page
+Routes to a set of children; light content, no deep detail
+About, Subsidiaries, Services, Careers
+Subsidiary template
+Repeats for each of the 3 legal entities
+DIPON Construction / Global Resources / Infrastructure
+Service template
+Repeats for each of the 6 cross-subsidiary services
+Construction &amp; Civil Engineering, Renewable Energy, etc.
+Listing / filter page
+Paginated or filterable card grid
+Projects archive, Open Roles, News &amp; Insights
+Detail template
+Repeats for each item in a listing
+Project Detail, Role Detail, Article Detail
+Trust sub-page
+Consistent layout pattern, occurs once each
+Leadership &amp; Governance, Certifications &amp; Licenses, Corporate Governance
+Form page
+Primary content is a lead-capture form
+Contact, Application Form
+6.2 Service Architecture
+DIPON Group delivers its capabilities through three legal entities, each with its own service list per the brief. The website needs to satisfy two visitor mental models at once: “which legal entity do I need to verify” and “what capability do I need done.” Both views point back to the same underlying content.
+Subsidiary Overview (Entity-First View)
+Subsidiary
+Core Services (per brief)
+DIPON Construction Limited
+Civil engineering; building construction; roads and bridges; mechanical works; electrical works; fabrication and steel works; aluminium manufacturing and installation; furniture and interior solutions; general contracting
+DIPON Global Resources Limited
+General trading; import and export; product marketing; building materials supply; real estate; agriculture; transportation and logistics; renewable energy solutions
+DIPON Infrastructure Limited
+Renewable energy systems; solar infrastructure; street lighting projects; power infrastructure; housing development; real estate development; transportation services; equipment supply
+Cross-Subsidiary Service Categories (Capability-First View)
+Service Category
+Delivered By
+Underlying Capabilities
+Construction &amp; Civil Engineering
+DIPON Construction Limited
+Civil engineering, building construction, roads &amp; bridges, mechanical and electrical works, fabrication and steel works, aluminium manufacturing/installation, furniture and interior solutions, general contracting
+Renewable Energy &amp; Power Infrastructure
+DIPON Infrastructure Limited (primary); DIPON Global Resources Limited
+Renewable energy systems, solar infrastructure, street lighting projects, power infrastructure, renewable energy solutions
+Real Estate &amp; Property Development
+DIPON Infrastructure Limited; DIPON Global Resources Limited
+Housing development, real estate development, real estate (trading-side)
+Trading &amp; Supply Chain
+DIPON Global Resources Limited (primary); DIPON Infrastructure Limited
+General trading, import and export, product marketing, building materials supply, equipment supply
+Transportation &amp; Logistics
+DIPON Global Resources Limited; DIPON Infrastructure Limited
+Transportation and logistics, transportation services
+Agriculture
+DIPON Global Resources Limited
+Agriculture
+Every Service page must link to the subsidiary (or subsidiaries) that deliver it — a mandatory, structural relationship, not a manual link.
+Every Subsidiary page must link to its relevant Service pages and a filtered view of Projects tagged to that entity.
+Project pages carry sector, subsidiary, and region as filterable taxonomies from day one.
+6.3 Master Page Summary, Conversion Goals &amp; Wireframe Priority
+Page / Template
+URL Pattern
+Type
+Form?
+Primary Conversion Goal
+Priority
+Home
+/
+Unique
+No
+Discuss Your Next Project
+High
+About Us
+/about
+Hub
+No
+Download Company Profile
+Medium
+Leadership &amp; Governance
+/about/leadership-governance
+Trust sub-page
+No
+Partner With Us
+Low
+Certifications &amp; Licenses
+/about/certifications-licenses
+Trust sub-page
+No
+Download Company Profile
+Medium
+Corporate Governance
+/about/corporate-governance
+Trust sub-page
+No
+Partner With Us
+Low
+Subsidiaries (hub)
+/subsidiaries
+Hub
+No
+Explore Our Companies
+High
+Subsidiary Page (×3)
+/subsidiaries/[entity]
+Template
+Yes
+Contact a Subsidiary
+High
+Services (hub)
+/services
+Hub
+No
+Submit a Project Inquiry
+High
+Service Page (×6)
+/services/[service]
+Template
+No
+Request a Quotation
+High
+Projects / Portfolio
+/projects
+Listing
+No
+View Project
+High
+Project Detail
+/projects/[slug]
+Template
+No
+Request a Quotation
+High
+Sustainability
+/sustainability
+Unique
+No
+Partner With Us
+Medium
+Careers (hub)
+/careers
+Unique
+No
+View Careers
+Medium
+Open Roles
+/careers/open-roles
+Listing
+No
+Apply
+Low
+Role Detail
+/careers/open-roles/[slug]
+Template
+No
+Apply
+Low
+Application Form
+/careers/apply
+Form
+Yes
+Apply
+Low
+News &amp; Insights
+/news
+Listing
+No
+Discuss Your Next Project
+Medium
+Article Detail
+/news/[slug]
+Template
+No
+—
+Low
+Contact
+/contact
+Form
+Yes
+Submit a Project Inquiry / Contact a Subsidiary
+High
+Utility / Legal
+various
+Template
+No
+—
+Low
+6.4 Cross-Page Patterns &amp; Recommended Website Features
+Global header — full-width, sticky on scroll; logo left; capability-first primary navigation; “Download Company Profile” icon-link and a persistent “Discuss Your Next Project” CTA button on the right; collapses to a hamburger menu below ~1024px.
+Global footer — 4–5 columns (Sitemap, Subsidiaries, Resources incl. Company Profile download, Offices, Legal + social); stacks vertically on mobile.
+Lead form pattern — consistent core fields (name, organization, sector of interest, message) across every form; forms launched from a specific page carry a hidden/pre-filled context field; on submit, a confirmation state states an expected response time.
+Filter / taxonomy pattern — shared component used on Projects (Sector / Subsidiary / Region), Open Roles (Department / Location), and News &amp; Insights (Category); collapses to a full-screen filter drawer on mobile.
+Call-to-action band pattern — full-width, high-contrast (typically Midnight), one headline and one button, repeated near the bottom of nearly every template.
+Structured data — Organization, LocalBusiness, and JobPosting schema to strengthen visibility for corporate and careers search.
+Responsive behavior — single-column stacking in the same top-to-bottom order at every breakpoint; minimum 44×44px tap targets on all forms.
+7. Homepage Architecture
+The homepage is the primary entry point for every audience and must establish credibility within the first viewport while splitting traffic fast across the two navigation modes the IA is built around: “what I need” and “which entity I need to verify.”
+7.1 Homepage Content Hierarchy
+#
+Section
+Purpose
+Content Need
+CTA
+1
+Hero
+Frame the value proposition; establish visual credibility immediately
+Positioning statement + rotating real project imagery
+Discuss Your Next Project
+2
+Group at a Glance
+Trust signal via scale
+Verified stats (years operating, projects delivered, sectors, regions)
+—
+3
+Group Overview
+Compress the brand story for skimmers
+2–3 sentence narrative
+Link to About
+4
+Subsidiaries Overview
+Self-routing by legal entity
+3 subsidiary cards
+Explore Our Companies
+5
+Industries We Serve
+Self-routing by need
+6–8 sector tiles
+Link to relevant Service
+6
+Featured Projects
+Concrete proof of execution
+Filterable project grid
+View Project / View All
+7
+Why Choose DIPON
+Convert capability into client benefit
+Rewritten competitive advantages (Brand Pillars)
+—
+8
+Sustainability &amp; Renewable Energy
+Differentiate on capability
+Renewable energy proof points
+Link to Sustainability
+9
+Client / Partner Logos
+Borrowed credibility
+Logo set (with permission)
+—
+10
+Leadership Message
+Humanize; signal governance
+Short quote + photo
+Link to Leadership
+11
+Call to Action Band
+Single closing action
+—
+Discuss Your Next Project
+12
+Footer
+Secondary navigation; conversion safety net
+Sitemap, offices, profile download, social
+Multiple
+7.2 Layout Notes (Desktop, Top to Bottom)
+Hero: full-bleed real-project image/video background; left-aligned H1 + subhead + primary CTA button.
+Group at a Glance: full-width band, 4-column animated stat grid (becomes 2×2 on mobile).
+Group Overview: 2-column split — narrative left (~40%), supporting image or integration diagram right (~60%).
+Subsidiaries Overview and Industries We Serve sit back-to-back, offering the two parallel self-routing paths without forcing a choice between navigation philosophies.
+Featured Projects: full-width carousel/grid, 3 large cards visible, optional sector filter chips (becomes a single swipeable card on mobile).
+Call to Action Band: full-width, Midnight background, centered headline + single button, positioned immediately before the footer.
+7.3 UX Rationale
+The Hero and Group at a Glance establish credibility before any navigation decision, addressing the Government Procurement Officer&apos;s need to confirm legitimacy fast. Featured Projects is positioned mid-page because project proof is the single highest-trust section for procurement audiences. The Call to Action Band immediately before the footer functions as a conversion safety net for the full scroll.
+8. Content Strategy
+This section defines the voice and the supporting content assets a copy and production team needs. The drafted copy itself — built on this voice — is in Section 9.
+8.1 Voice Attributes
+Attribute
+We Sound Like
+We Avoid Sounding Like
+Professional
+A technically credible delivery partner
+A corporate-stiff press release
+Reliable
+Specific, evidenced, accountable
+Boastful or vague (“the best,” “world-class”)
+Forward-thinking
+Practically innovative — new methods, real adoption
+Trend-chasing or buzzword-heavy
+Sustainable
+Sustainability built into delivery
+A sustainability slogan with no proof
+8.2 Trust-Building Content
+Per the brief, the following proof points must exist on the site, distributed to the pages defined in Section 6:
+Company history
+Certifications and licenses
+Safety standards
+Featured projects
+Client testimonials
+Industry partnerships
+Leadership profiles
+Sustainability initiatives
+Corporate governance information
+8.3 Content Assets to Produce Before Launch
+The copy in Section 9 is written so it reads correctly once these real assets are dropped in — every place a real fact is required, the copy marks it with a bracketed placeholder rather than an invented number or name.
+Downloadable company profile (PDF) — group-level and, ideally, per-subsidiary versions, kept ungated
+3–5 detailed project case studies spanning different subsidiaries and sectors
+Leadership bios and photography
+Certification and license documentation/badges, cleared for public display
+Sustainability statement or report
+Client/partner testimonials (with permission to publish)
+Client/partner logo set (with permission to display)
+Careers content — open roles, culture description, application process
+3–5 launch insight articles establishing topical authority (e.g. infrastructure policy, renewable energy adoption in Nigeria, procurement readiness) for News &amp; Insights
+9. Website Copy
+This section contains full draft copy for every page and template in the sitemap, written in the voice defined in Section 8 and structured against the content architecture defined in Section 6. It is a first creative draft, intended as the brief a copy editor or the client refines — not final, legally cleared copy.
+A note on placeholders: wherever a real number, name, date, or certification is required but not yet available (per Section 8.3), the copy below marks it with bracketed text, e.g. “[X]+ years.” These are deliberate gaps, not errors — filling them with DIPON Group&apos;s real figures is the single highest-priority task before this copy goes live, per the brand voice principle “specific over generic.” Sample projects, roles, and articles are clearly labeled as illustrative templates, since real instances depend on real data the Group will supply.
+9.1 Global Elements
+Primary Navigation Labels
+Home  ·  About  ·  Services  ·  Projects  ·  Subsidiaries  ·  Sustainability  ·  Careers  ·  Insights  ·  Contact
+Header Utility Elements
+Utility link:  Download Company Profile
+Persistent header CTA:  Discuss Your Next Project
+Footer
+Footer tagline (under logo):  Building Sustainable Infrastructure and Business Solutions for Africa&apos;s Future.
+Column 1:  Company — About Us, Leadership &amp; Governance, Certifications &amp; Licenses, Careers, Contact
+Column 2:  Subsidiaries — DIPON Construction, DIPON Global Resources, DIPON Infrastructure
+Column 3:  Resources — Download Company Profile, Projects, Sustainability, News &amp; Insights
+Column 4:  Offices — [City/Region office addresses]
+Column 5:  Legal — Privacy Policy, Terms of Use, Cookie Policy
+Legal line:  © [Year] DIPON Group. All rights reserved.
+9.2 Home
+1. Hero
+Headline (H1):  One Group. Every Stage of the Build.
+Subhead:  DIPON Group integrates construction, power infrastructure, real estate, and supply chain capability under one accountable Nigerian-owned group — so your project moves forward without the coordination risk of multiple vendors.
+Primary CTA:  Discuss Your Next Project
+2. Group at a Glance
+Stat 1:  [X]+ Years in Operation
+Stat 2:  [X]+ Projects Delivered
+Stat 3:  [X] Sectors Served
+Stat 4:  [X] Regions Across Nigeria
+3. Group Overview
+Body:  DIPON Group is a Nigerian-owned conglomerate delivering construction, renewable energy, real estate, and supply chain solutions through three specialized companies. Where most projects fail at the handoff between contractors, we remove that risk by keeping every stage — design, build, power, and occupancy — accountable to one group.
+CTA:  Learn More About Us
+4. Subsidiaries Overview
+Section intro:  Three companies. One accountable group.
+DIPON Construction Limited:  Civil engineering, building construction, and general contracting.
+DIPON Global Resources Limited:  Trading, supply chain, real estate, agriculture, and logistics.
+DIPON Infrastructure Limited:  Renewable energy, power infrastructure, and housing development.
+CTA:  Explore Our Companies
+5. Industries We Serve
+Section intro:  Tell us what you need built, powered, supplied, or developed — we&apos;ll show you who at DIPON Group delivers it.
+Tile 1:  Construction &amp; Civil Engineering
+Tile 2:  Renewable Energy &amp; Power Infrastructure
+Tile 3:  Real Estate &amp; Property Development
+Tile 4:  Trading &amp; Supply Chain
+Tile 5:  Transportation &amp; Logistics
+Tile 6:  Agriculture
+6. Featured Projects
+Section intro:  Proof, not promises — a look at what we&apos;ve delivered across sectors and subsidiaries.
+CTA:  View All Projects
+7. Why Choose DIPON
+Benefit 1 (Integrated Execution):  One group, one point of accountability — across civil works, power, and supply chain.
+Benefit 2 (Engineering-Grade Reliability):  Licensed, certified, and governed to a standard procurement teams can verify.
+Benefit 3 (Sustainable by Design):  Renewable energy capability built into how we deliver, not bolted on afterward.
+Benefit 4 (Local Roots, Global Standards):  Nigerian-owned, with delivery standards built for international-grade projects.
+Benefit 5 (Partnership Over Transactions):  We build relationships designed to outlast a single contract.
+8. Sustainability &amp; Renewable Energy
+Headline:  Sustainability Built Into How We Build.
+Body:  Renewable energy isn&apos;t a separate division at DIPON Group — it&apos;s woven into how we deliver construction and infrastructure projects, from solar-powered sites to street lighting and power infrastructure for the communities we build in.
+CTA:  Explore Our Sustainability Commitment
+9. Client / Partner Logos
+Section label:  Trusted by organizations across government and industry
+10. Leadership Message
+Quote (placeholder):  “[Quote from Group leadership on the Group&apos;s mission, accountability, or growth — to be supplied.]”
+Attribution (placeholder):  [Executive Name], [Title], DIPON Group
+CTA:  Meet Our Leadership
+11. Call to Action Band
+Headline:  Have a project in mind? Let&apos;s talk about how DIPON Group delivers it.
+Button:  Discuss Your Next Project
+9.3 About Us
+1. Page Intro
+Breadcrumb:  Home &gt; About
+Headline:  One Group, Built for Accountability.
+Body:  DIPON Group brings construction, power infrastructure, real estate, and supply chain capability together under one Nigerian-owned group — so the people who build, govern, and deliver your project are accountable to the same name from start to finish.
+2. Company History
+Headline:  How We Got Here
+Body:  Founded in [Founding Year], DIPON Group began as [brief founding narrative — to be supplied] and has grown into a multi-sector conglomerate operating through three specialized subsidiaries. [Add 2–3 milestone dates/achievements once confirmed.]
+3. Group at a Glance (recap)
+Stat labels:  Reuse Home Section 2 stats: [X]+ Years in Operation, [X]+ Projects Delivered, [X] Sectors Served, [X] Regions Across Nigeria
+4. Leadership Preview
+Headline:  Leadership That Stands Behind Every Project
+Body:  Meet the team responsible for DIPON Group&apos;s governance, technical standards, and long-term direction.
+CTA:  View Leadership &amp; Governance
+5. Certifications Preview
+Headline:  Licensed. Certified. Verifiable.
+Body:  DIPON Group and its subsidiaries hold [number] certifications and licenses across construction, safety, trading, and environmental standards.
+CTA:  View All Certifications
+6. Governance Preview
+Headline:  Governed Like a Group You Can Bid With Confidence In
+Body:  Our governance structure is built to give partners, regulators, and investors confidence in how decisions are made and accountability is held.
+CTA:  View Corporate Governance
+7. CTA Band
+Headline:  Want the full picture? Download our Company Profile.
+Buttons:  Download Company Profile  /  Request a Consultation
+9.3.1 Leadership &amp; Governance
+Breadcrumb:  Home &gt; About &gt; Leadership &amp; Governance
+Headline:  The People Accountable for Delivery
+Intro body:  DIPON Group is led by a team with direct experience across construction, infrastructure, and trading — governance built to match the scale of the projects we take on.
+Executive Grid (placeholder — repeat per leader)
+Name / Title:  [Executive Name], [Title]
+Bio:  [2-line biography covering relevant experience and tenure — to be supplied by DIPON Group.]
+Governance Structure Note
+Body:  DIPON Group operates under a board/oversight structure designed to separate strategic direction from day-to-day subsidiary operations, with [governance detail — to be supplied] ensuring consistent standards across all three companies.
+CTA:  Partner With Us
+9.3.2 Certifications &amp; Licenses
+Breadcrumb:  Home &gt; About &gt; Certifications &amp; Licenses
+Headline:  Our Credentials, on the Record
+Intro body:  Every certification below is current and verifiable — because a procurement decision shouldn&apos;t have to rely on taking our word for it.
+Category: Construction
+Badge (placeholder):  [Certification name], issued by [issuing body], valid through [year]
+Category: Safety
+Badge (placeholder):  [Certification name], issued by [issuing body], valid through [year]
+Category: Trading
+Badge (placeholder):  [Certification name], issued by [issuing body], valid through [year]
+Category: Environmental
+Badge (placeholder):  [Certification name], issued by [issuing body], valid through [year]
+CTA:  Download Company Profile
+9.3.3 Corporate Governance
+Breadcrumb:  Home &gt; About &gt; Corporate Governance
+Headline:  Structured to Be Accountable at Scale
+Body:  DIPON Group&apos;s governance approach separates board-level oversight from subsidiary management, with documented policies covering [compliance areas — to be supplied: e.g. financial controls, procurement ethics, HSE standards]. This structure exists so that every subsidiary operates to the same standard of accountability, regardless of which legal entity is delivering a given project.
+CTA:  Partner With Us
+9.4 Subsidiaries (Hub)
+Breadcrumb:  Home &gt; Subsidiaries
+Headline:  Three Companies. One Accountable Group.
+Body:  DIPON Construction, DIPON Global Resources, and DIPON Infrastructure each hold their own licenses and scope of work — but report to the same group standard of governance and delivery. Use this page to confirm exactly which entity you&apos;d be contracting, bidding with, or partnering with.
+Group Structure Visual
+Caption:  DIPON Group oversees three operating subsidiaries, each independently licensed within its sector.
+DIPON Construction Limited
+Role paragraph:  DIPON Construction Limited delivers civil engineering, building construction, roads and bridges, mechanical and electrical works, fabrication, aluminium installation, and general contracting — the Group&apos;s core build capability.
+Service tags:  Civil Engineering · Building Construction · Roads &amp; Bridges · Mechanical &amp; Electrical Works · General Contracting
+CTA:  Visit DIPON Construction
+DIPON Global Resources Limited
+Role paragraph:  DIPON Global Resources Limited handles the Group&apos;s trading, supply chain, real estate, agriculture, and logistics operations — the commercial and resourcing engine behind every project.
+Service tags:  General Trading · Import &amp; Export · Building Materials Supply · Real Estate · Agriculture · Transportation &amp; Logistics
+CTA:  Visit DIPON Global Resources
+DIPON Infrastructure Limited
+Role paragraph:  DIPON Infrastructure Limited delivers renewable energy systems, solar infrastructure, street lighting, power infrastructure, and housing development — the Group&apos;s power and property development arm.
+Service tags:  Renewable Energy Systems · Solar Infrastructure · Street Lighting · Power Infrastructure · Housing Development
+CTA:  Visit DIPON Infrastructure
+Cross-Link to Services
+Prompt line:  Looking for a capability instead? Browse Services.
+CTA Band
+Headline:  Need to confirm which entity to contract with?
+Buttons:  Partner With Us  /  Download Company Profile
+9.4.1 DIPON Construction Limited
+Breadcrumb:  Home &gt; Subsidiaries &gt; DIPON Construction Limited
+Hero headline:  Civil Works and Construction, Built to Last.
+Hero tagline:  The Group&apos;s build capability — from groundbreaking to handover.
+Hero CTA:  Request a Quote
+Overview
+Body:  DIPON Construction Limited is DIPON Group&apos;s civil engineering and building construction company, delivering roads, bridges, structures, and the mechanical, electrical, and fabrication work that goes into them. We operate as general contractor or specialist subcontractor, depending on what a project needs.
+Key facts (placeholder):  Founded: [Year]  ·  Headquarters: [City, Nigeria]  ·  Sectors: Civil Works, Buildings, Roads &amp; Bridges
+Core Services
+Civil Engineering
+Building Construction
+Roads and Bridges
+Mechanical Works
+Electrical Works
+Fabrication and Steel Works
+Aluminium Manufacturing and Installation
+Furniture and Interior Solutions
+General Contracting
+Capabilities / Equipment
+Body:  [List of owned/operated equipment, plant capacity, and crew scale — to be supplied. e.g. earthmoving equipment, fabrication workshop capacity, certified welding crews.]
+Featured Projects (entity-filtered)
+Section intro:  A selection of civil works and construction projects delivered by DIPON Construction Limited.
+CTA:  View All DIPON Construction Projects
+Certifications (entity-scoped)
+Body:  [Construction-specific certifications and licenses held by this entity — to be supplied.]
+CTA
+Buttons:  Request a Quote  /  Contact DIPON Construction
+9.4.2 DIPON Global Resources Limited
+Breadcrumb:  Home &gt; Subsidiaries &gt; DIPON Global Resources Limited
+Hero headline:  Trading, Supply, and Resourcing at Scale.
+Hero tagline:  The commercial engine behind every DIPON Group project.
+Hero CTA:  Submit a Project Inquiry
+Overview
+Body:  DIPON Global Resources Limited handles general trading, import and export, building materials supply, real estate, agriculture, transportation, and renewable energy solutions — keeping projects across the Group resourced and supplied without relying on third-party intermediaries.
+Key facts (placeholder):  Founded: [Year]  ·  Headquarters: [City, Nigeria]  ·  Sectors: Trading, Real Estate, Agriculture, Logistics
+Core Services
+General Trading
+Import and Export
+Product Marketing
+Building Materials Supply
+Real Estate
+Agriculture
+Transportation and Logistics
+Renewable Energy Solutions
+Capabilities / Equipment
+Body:  [Warehousing, fleet, import/export licensing, and sourcing network detail — to be supplied.]
+Featured Projects (entity-filtered)
+Section intro:  Trading, supply, real estate, and agriculture initiatives delivered by DIPON Global Resources Limited.
+CTA:  View All DIPON Global Resources Projects
+Certifications (entity-scoped)
+Body:  [Trading and import/export licenses held by this entity — to be supplied.]
+CTA
+Buttons:  Submit a Project Inquiry  /  Contact DIPON Global Resources
+9.4.3 DIPON Infrastructure Limited
+Breadcrumb:  Home &gt; Subsidiaries &gt; DIPON Infrastructure Limited
+Hero headline:  Power Infrastructure and Property Development.
+Hero tagline:  Renewable energy and housing development, delivered together.
+Hero CTA:  Request a Quote
+Overview
+Body:  DIPON Infrastructure Limited delivers renewable energy systems, solar infrastructure, street lighting, power infrastructure, housing development, and transportation services — the Group&apos;s capability for powering and developing the places it builds.
+Key facts (placeholder):  Founded: [Year]  ·  Headquarters: [City, Nigeria]  ·  Sectors: Renewable Energy, Power Infrastructure, Housing
+Core Services
+Renewable Energy Systems
+Solar Infrastructure
+Street Lighting Projects
+Power Infrastructure
+Housing Development
+Real Estate Development
+Transportation Services
+Equipment Supply
+Capabilities / Equipment
+Body:  [Solar installation capacity, power infrastructure equipment, and housing development pipeline detail — to be supplied.]
+Featured Projects (entity-filtered)
+Section intro:  Renewable energy, power infrastructure, and housing projects delivered by DIPON Infrastructure Limited.
+CTA:  View All DIPON Infrastructure Projects
+Certifications (entity-scoped)
+Body:  [Power and renewable energy certifications held by this entity — to be supplied.]
+CTA
+Buttons:  Request a Quote  /  Contact DIPON Infrastructure
+9.5 Services (Hub)
+Breadcrumb:  Home &gt; Services
+Headline:  What We Deliver, Across the Group.
+Body:  Six capabilities, delivered by whichever DIPON Group subsidiary is licensed and equipped to do it — sometimes one, sometimes working together on the same project.
+Service Category Grid
+Tile 1:  Construction &amp; Civil Engineering — Civil works, buildings, roads, and structural fabrication.
+Tile 2:  Renewable Energy &amp; Power Infrastructure — Solar systems, street lighting, and power infrastructure.
+Tile 3:  Real Estate &amp; Property Development — Housing and property development from groundbreaking to occupancy.
+Tile 4:  Trading &amp; Supply Chain — Import/export, materials supply, and product marketing.
+Tile 5:  Transportation &amp; Logistics — Movement of goods, materials, and equipment.
+Tile 6:  Agriculture — Agricultural production and supply.
+Cross-Link to Subsidiaries
+Prompt line:  Looking for a specific company instead? View Subsidiaries.
+Integration Case (optional)
+Body:  [Example: a project where DIPON Construction handled civil works while DIPON Infrastructure delivered the power systems on the same site — to be supplied once a real case study is available.]
+CTA:  See How We Work Together
+CTA Band
+Headline:  Tell us what you need delivered.
+Buttons:  Submit a Project Inquiry  /  Request a Consultation
+9.5.1 Construction &amp; Civil Engineering
+Breadcrumb:  Home &gt; Services &gt; Construction &amp; Civil Engineering
+Hero headline:  Civil Works and Construction, Engineered to Spec.
+Value statement:  From groundbreaking to structural handover, delivered to engineering standard.
+Hero CTA:  Request a Quotation
+What&apos;s Included
+Civil engineering and site works
+Building construction (residential, commercial, institutional)
+Roads and bridges
+Mechanical and electrical works
+Fabrication and steel works, aluminium manufacturing and installation
+Furniture and interior solutions
+Process / Methodology
+Site assessment and engineering survey
+Design review and project planning
+Civil works and structural build
+Mechanical, electrical, and fit-out works
+Inspection, handover, and post-completion support
+Delivering Subsidiary
+Body:  Delivered by DIPON Construction Limited.
+CTA:  View DIPON Construction Profile
+Relevant Case Study
+Body:  [Case study card pulling a tagged Construction project — populated once real project data is available.]
+CTA:  View Full Project
+Related Services
+Tiles:  Real Estate &amp; Property Development  ·  Renewable Energy &amp; Power Infrastructure
+CTA
+Buttons:  Request a Quotation  /  Submit a Project Inquiry
+9.5.2 Renewable Energy &amp; Power Infrastructure
+Breadcrumb:  Home &gt; Services &gt; Renewable Energy &amp; Power Infrastructure
+Hero headline:  Power Infrastructure, Built for Where You Operate.
+Value statement:  Solar systems, street lighting, and power infrastructure designed for real conditions, not showroom ones.
+Hero CTA:  Request a Quotation
+What&apos;s Included
+Renewable energy systems design and installation
+Solar infrastructure
+Street lighting projects
+Power infrastructure (generation, distribution, supporting works)
+Process / Methodology
+Site energy assessment
+System design and equipment specification
+Installation and commissioning
+Testing and handover
+Maintenance and monitoring support
+Delivering Subsidiary
+Body:  Delivered primarily by DIPON Infrastructure Limited, with supply support from DIPON Global Resources Limited.
+CTA:  View DIPON Infrastructure Profile
+Relevant Case Study
+Body:  [Case study card pulling a tagged Renewable Energy project — populated once real project data is available.]
+CTA:  View Full Project
+Related Services
+Tiles:  Construction &amp; Civil Engineering  ·  Real Estate &amp; Property Development
+CTA
+Buttons:  Request a Quotation  /  Submit a Project Inquiry
+9.5.3 Real Estate &amp; Property Development
+Breadcrumb:  Home &gt; Services &gt; Real Estate &amp; Property Development
+Hero headline:  Property Development, From Land to Occupancy.
+Value statement:  Housing and real estate development backed by the Group&apos;s own construction and infrastructure capability.
+Hero CTA:  Request a Quotation
+What&apos;s Included
+Housing development
+Real estate development and sales
+Site planning and development packaging
+Process / Methodology
+Site identification and feasibility
+Planning and design
+Construction and infrastructure delivery
+Sales, leasing, or handover
+Delivering Subsidiary
+Body:  Delivered by DIPON Infrastructure Limited and DIPON Global Resources Limited.
+CTA:  View DIPON Infrastructure Profile
+Relevant Case Study
+Body:  [Case study card pulling a tagged Real Estate project — populated once real project data is available.]
+CTA:  View Full Project
+Related Services
+Tiles:  Construction &amp; Civil Engineering  ·  Renewable Energy &amp; Power Infrastructure
+CTA
+Buttons:  Request a Quotation  /  Submit a Project Inquiry
+9.5.4 Trading &amp; Supply Chain
+Breadcrumb:  Home &gt; Services &gt; Trading &amp; Supply Chain
+Hero headline:  Sourcing and Supply You Can Build a Schedule Around.
+Value statement:  Import, export, and building materials supply backed by a group that also builds with what it supplies.
+Hero CTA:  Submit a Project Inquiry
+What&apos;s Included
+General trading
+Import and export
+Product marketing
+Building materials supply
+Equipment supply
+Process / Methodology
+Sourcing and supplier verification
+Import/export and customs handling
+Quality inspection
+Delivery and logistics coordination
+Delivering Subsidiary
+Body:  Delivered primarily by DIPON Global Resources Limited, with equipment supply support from DIPON Infrastructure Limited.
+CTA:  View DIPON Global Resources Profile
+Relevant Case Study
+Body:  [Case study card pulling a tagged Trading/Supply project — populated once real project data is available.]
+CTA:  View Full Project
+Related Services
+Tiles:  Transportation &amp; Logistics  ·  Agriculture
+CTA
+Buttons:  Submit a Project Inquiry  /  Request a Quotation
+9.5.5 Transportation &amp; Logistics
+Breadcrumb:  Home &gt; Services &gt; Transportation &amp; Logistics
+Hero headline:  Getting Materials and Equipment Where They Need to Be.
+Value statement:  Transportation and logistics support built around the Group&apos;s own project schedules — and available for yours.
+Hero CTA:  Submit a Project Inquiry
+What&apos;s Included
+Transportation and logistics coordination
+Transportation services for goods and equipment
+Fleet and route planning
+Process / Methodology
+Logistics assessment and route planning
+Scheduling and fleet allocation
+Transport and in-transit tracking
+Delivery confirmation
+Delivering Subsidiary
+Body:  Delivered by DIPON Global Resources Limited and DIPON Infrastructure Limited.
+CTA:  View DIPON Global Resources Profile
+Relevant Case Study
+Body:  [Case study card pulling a tagged Transportation project — populated once real project data is available.]
+CTA:  View Full Project
+Related Services
+Tiles:  Trading &amp; Supply Chain  ·  Agriculture
+CTA
+Buttons:  Submit a Project Inquiry  /  Request a Quotation
+9.5.6 Agriculture
+Breadcrumb:  Home &gt; Services &gt; Agriculture
+Hero headline:  Agricultural Capability, Backed by Group-Level Resourcing.
+Value statement:  Agricultural production and supply, supported by the same trading and logistics network behind every DIPON Group project.
+Hero CTA:  Submit a Project Inquiry
+What&apos;s Included
+Agricultural production
+Agricultural supply and distribution
+Process / Methodology
+Land and production assessment
+Input sourcing and planning
+Production and harvest management
+Distribution and supply
+Delivering Subsidiary
+Body:  Delivered by DIPON Global Resources Limited.
+CTA:  View DIPON Global Resources Profile
+Relevant Case Study
+Body:  [Case study card pulling a tagged Agriculture project — populated once real project data is available.]
+CTA:  View Full Project
+Related Services
+Tiles:  Trading &amp; Supply Chain  ·  Transportation &amp; Logistics
+CTA
+Buttons:  Submit a Project Inquiry  /  Request a Quotation
+9.6 Projects / Portfolio (Listing)
+Breadcrumb:  Home &gt; Projects
+Headline:  What We&apos;ve Delivered.
+Stat line:  [X]+ projects delivered across [X] sectors and [X] regions.
+Filter Bar Labels
+Filters:  Sector  ·  Subsidiary  ·  Region  ·  Sort: Newest / Featured
+CTA Band
+Headline:  See something close to what you need? Let&apos;s talk specifics.
+Button:  Discuss Your Next Project
+9.6.1 Project Detail — Template Example
+The page below is an illustrative template example, not a real completed project. Populate this structure with verified project data once available.
+Breadcrumb:  Projects &gt; [Project Name]
+Hero title:  [Project Name]
+Project Facts
+Client:  [Client name, or “Confidential” if NDA-restricted]
+Location:  [City/Region, Nigeria]
+Sector:  [e.g. Construction &amp; Civil Engineering]
+Scope:  [Brief scope summary, e.g. “Design-build of a 3km access road and drainage system”]
+Subsidiary:  [Delivering subsidiary]
+Completion Date:  [Month, Year]
+Narrative
+Challenge:  [What problem or constraint the client faced before DIPON Group&apos;s involvement.]
+Approach:  [How the relevant subsidiary approached and resourced the project.]
+Outcome:  [What was delivered, with a specific, verifiable result where possible — timeline, scale, or capacity figure.]
+CTA
+Button:  Request a Quotation
+9.7 Sustainability
+Breadcrumb:  Home &gt; Sustainability
+1. Hero
+Headline:  Sustainability Built Into How We Build.
+Subhead:  Renewable energy and sustainable practice aren&apos;t a separate initiative at DIPON Group — they&apos;re part of how our subsidiaries deliver every project.
+2. Approach / Philosophy
+Body:  Where many construction groups treat sustainability as a marketing layer, DIPON Group builds it into delivery: DIPON Infrastructure&apos;s renewable energy capability is woven into the same projects DIPON Construction delivers, not offered as a separate, optional service.
+3. Renewable Energy Capability
+Body:  From solar infrastructure to street lighting and power infrastructure, DIPON Infrastructure Limited brings renewable energy capability to projects across the Group — including those led by DIPON Construction and DIPON Global Resources.
+CTA:  Explore Renewable Energy &amp; Power Infrastructure
+4. Environmental &amp; Community Initiatives
+Initiative 1 (placeholder):  [Local workforce development or training initiative — to be supplied.]
+Initiative 2 (placeholder):  [Environmental management or waste-reduction practice on active sites — to be supplied.]
+Initiative 3 (placeholder):  [Community investment or infrastructure initiative — to be supplied.]
+5. Proof Points / Stats
+Stat row (placeholder):  [X] MW of renewable capacity installed  ·  [X] communities served  ·  [X] solar/street lighting projects delivered
+6. CTA
+Buttons:  Partner With Us  /  Download Sustainability Statement
+9.8 Careers (Hub)
+Breadcrumb:  Home &gt; Careers
+1. Hero
+Headline:  Build Your Career Across Seven Industries.
+Subhead:  Construction, renewable energy, real estate, trading, logistics, and agriculture — one employer, many paths.
+CTA:  View Open Roles
+2. Culture / Life at DIPON
+Body:  Working at DIPON Group means moving between sectors most employers keep separate — a civil engineer might collaborate with a renewable energy team on the same site, or a trading analyst might support a housing development&apos;s materials supply. [Add culture-specific detail — to be supplied.]
+3. Why DIPON (Benefits)
+Benefit 1:  Career paths across multiple sectors, not just one
+Benefit 2:  Hands-on experience on real infrastructure and construction projects
+Benefit 3:  Training and development support [detail to be supplied]
+Benefit 4:  Part of a Group with long-term, multi-year project pipelines
+4. Open Roles Preview
+Section intro:  A sample of roles currently open across the Group.
+CTA:  View All Open Roles
+5. CTA
+Buttons:  View Careers  /  Apply Speculatively
+9.8.1 Open Roles (Listing)
+Breadcrumb:  Home &gt; Careers &gt; Open Roles
+Headline:  Current Openings
+Filter Bar Labels
+Filters:  Department  ·  Location
+Empty state copy:  No roles currently match your filters — you&apos;re welcome to apply speculatively and we&apos;ll reach out when a fit opens up.
+9.8.2 Role Detail — Template Example
+The role below is an illustrative template example, not a current vacancy. Replace with real open roles as they become available.
+Breadcrumb:  Careers &gt; Open Roles &gt; [Role Title]
+Role title (placeholder):  Site Engineer — Civil Works
+Department / Location:  DIPON Construction Limited  ·  [City, Nigeria]
+Description
+Body:  We&apos;re looking for a Site Engineer to oversee civil works on an active construction site, ensuring delivery stays on schedule, on spec, and within safety standards.
+Responsibilities
+Supervise day-to-day civil works on site
+Coordinate with subcontractors and the project manager
+Monitor compliance with safety and quality standards
+Maintain site progress and reporting documentation
+Requirements
+[Degree requirement, e.g. B.Eng/B.Sc in Civil Engineering]
+[X]+ years of relevant site experience
+Familiarity with [relevant standards/software — to be supplied]
+CTA
+Button:  Apply for This Role
+9.8.3 Application Form
+Breadcrumb:  Home &gt; Careers &gt; Apply
+Headline:  Apply to DIPON Group
+Intro line:  Applying for a specific role, or reaching out speculatively — either way, tell us a bit about yourself below.
+Form Fields
+Fields:  Full Name  ·  Email  ·  Phone  ·  Role Applied For (pre-filled if arriving from a Role Detail page)  ·  CV Upload  ·  Cover Note
+Submit button:  Submit Application
+Confirmation State
+Confirmation message:  Thank you — your application has been received. Our recruitment team typically responds within [X] business days.
+9.9 News &amp; Insights (Listing)
+Breadcrumb:  Home &gt; News &amp; Insights
+Headline:  News &amp; Insights
+Intro line:  Company news and industry perspective from across DIPON Group.
+Category Tabs
+Tabs:  Company News  ·  Industry Insights
+9.9.1 Article Detail — Template Example
+The article below is an illustrative template example. Replace with real launch articles per Section 8.3 (3–5 pieces establishing topical authority).
+Breadcrumb:  News &amp; Insights &gt; [Article Title]
+Title (placeholder):  [Article headline — e.g. “What Nigeria&apos;s Infrastructure Pipeline Means for Procurement Teams in [Year]”]
+Date / Category / Author:  [Date]  ·  Industry Insights  ·  [Author name or “DIPON Group”]
+Body structure:  [Full article body — written per topic once the 3–5 launch articles named in Section 8.3 are commissioned. Each should target a specific procurement or renewable-energy search term, per the SEO Strategy in Section 10.]
+CTA Band
+Button:  Discuss Your Next Project
+9.10 Contact
+Breadcrumb:  Home &gt; Contact
+1. Intro
+Headline:  Let&apos;s Discuss Your Next Project.
+Response-time line:  We typically respond within [X] business days.
+2. General Enquiry Form
+Fields:  Name  ·  Organization  ·  Sector of Interest  ·  Purpose  ·  Message
+Purpose dropdown options:  Request a Consultation  ·  Request a Quotation  ·  Partner With Us  ·  Submit a Project Inquiry  ·  Other
+Submit button:  Send Message
+Confirmation message:  Thank you for reaching out — we&apos;ve received your message and will respond within [X] business days.
+3. Subsidiary Routing
+Section intro:  Know which company you need? Contact them directly.
+Card 1:  DIPON Construction Limited — Contact DIPON Construction
+Card 2:  DIPON Global Resources Limited — Contact DIPON Global Resources
+Card 3:  DIPON Infrastructure Limited — Contact DIPON Infrastructure
+4. Office Locations &amp; Map
+Section intro:  Visit us, or reach out to the office nearest your project.
+Office entry (placeholder):  [Office name/region] — [Full address] — [Phone] — [Email]
+5. Direct Contact Info
+Body:  General enquiries: [email]  ·  Procurement &amp; Partnerships: [email]  ·  Careers: [email]
+9.11 Lead Form &amp; Microcopy Standards
+These standards apply across every form on the site (header utility, Subsidiary pages, Service pages, Contact, and Application Form), per the Lead Form Pattern defined in Section 6.4.
+Standard fields:  Full Name  ·  Organization  ·  Sector of Interest  ·  Message
+Hidden context field:  Auto-populated with the originating page (e.g. subsidiary or service name) so leads arrive pre-tagged — not shown to the visitor.
+Generic confirmation message:  Thank you — we&apos;ve received your message and will respond within [X] business days.
+Error state copy:  Something went wrong on our end — please try again, or reach us directly at [email].
+Required-field validation copy:  Please complete this field before submitting.
+10. SEO Strategy
+10.1 Foundational Recommendations
+Build Service and Subsidiary pages around real procurement search intent (e.g. “solar street lighting contractor Nigeria,” “civil engineering construction company Abuja”) rather than generic corporate copy.
+Tag every Project with sector, subsidiary, and location/region taxonomies from launch — this powers SEO landing pages and the homepage filter without rework later.
+Use Organization, LocalBusiness, and JobPosting structured data where applicable, to strengthen visibility for both corporate and careers searches.
+Keep the Company Profile PDF ungated — gating it behind an email form would suppress exactly the procurement-officer use case named as a primary conversion goal.
+Optimize image weight carefully — the brand direction leans heavily on large project photography, which must be compressed/served responsively to avoid hurting load times and search rankings.
+Use clean, descriptive, sitemap-mirroring URLs (Section 5.1) so taxonomy and intent are legible in the URL itself, not just on-page.
+Treat News &amp; Insights as the primary topical-authority asset — launch articles should target the same procurement and renewable-energy search terms used to brief the Service pages.
+10.2 Per-Template Metadata Guidance
+Template
+Title Tag Pattern
+Meta Description Focus
+Home
+DIPON Group | Construction, Power &amp; Infrastructure – Nigeria
+Integration positioning + primary CTA
+Subsidiary
+[Subsidiary Name] | DIPON Group
+Entity&apos;s licensed scope + region served
+Service
+[Service Name] in Nigeria | DIPON Group
+Procurement search intent + delivering subsidiary
+Project Detail
+[Project Name] | DIPON Group Projects
+Sector, location, and scope — written for snippet display
+Article Detail
+[Article Title] | DIPON Group Insights
+Topic-specific, targeting the article&apos;s primary keyword
+10.3 Technical SEO Checklist
+XML sitemap auto-generated and submitted to Google Search Console / Bing Webmaster Tools.
+robots.txt configured to allow indexing of all public pages and disallow any staging/admin paths.
+Canonical tags on every page, especially filtered Project/Role/Article listing views, to avoid duplicate-content issues from query parameters.
+Descriptive, unique alt text on every project, leadership, and certification image — doubles as an accessibility requirement (see Section 12.2).
+Internal linking follows the cross-linking rules in Section 6.2 (Service, Subsidiary, and Project all link to one another) so link equity flows through the taxonomy, not just the main nav.
+11. Design Direction
+This section translates DIPON Group&apos;s official brand guideline — logo, color palette, and typography — into direction for the website. A fuller visual design system (components, page-level mockups, and interaction detail) is built out as Design Requirements in Section 12 and, beyond this document, in Claude Design.
+11.1 Logo Usage
+The DIPON Group mark pairs an orange-and-midnight geometric “D” — built from two interlocking forms, echoing the Group&apos;s integration positioning — with a bold wordmark. Two approved lockups exist, one for light backgrounds and one for dark:
+Light-background lockup (Midnight wordmark, Orange mark) — use on white, Custard, or other light surfaces.
+Dark-background lockup (Custard wordmark, Orange mark) — use on Midnight or other sufficiently dark surfaces, including photographic overlays with a scrim.
+Do not recolor, stretch, rotate, or reconstruct the mark; maintain clear space around it consistent with the source guideline.
+11.2 Color Palette
+Role
+Color
+Usage
+Primary — Midnight
+#233D4C
+Headers, navigation, footer, body text, primary buttons — the dominant dark tone
+Accent — Orange
+#FD802E
+CTAs, links, icons, hover/active states, the logo mark — reserved for action and emphasis, never used as a large fill
+Surface — Custard
+#FFF9EB
+Section backgrounds, cards, alternating rows — the brand&apos;s light, warm canvas in place of plain white
+These three colors are the complete official palette. Supporting neutrals needed for web UI (body-text contrast, disabled states, borders, focus rings) are specified in Section 12.1.
+11.3 Typography
+Role
+Typeface
+Usage
+Primary / Display
+Zalando Sans Expanded (Bold / Black)
+Hero headlines, H1/H2, “Group at a Glance” stat numbers — short, high-impact text
+Body / UI
+Zalando Sans (Regular / Medium)
+Body copy, navigation, forms, captions, project descriptions — long-form legibility
+Both typefaces are free, open-source releases (designed 2025 by Jakob Ekelund of KH Type, Stockholm), so they can be self-hosted as webfonts with no licensing cost or restriction.
+Keep the guideline&apos;s weight contrast on the site: bold/expanded for short, declarative headlines; regular-weight body font for anything a visitor needs to read at length.
+11.4 Photography &amp; Imagery
+The guideline&apos;s own reference photography — real workers in PPE on an active site — confirms the “real project photography over generic stock” direction; continue sourcing genuine DIPON Group site photography rather than stock wherever possible.
+Favor candid, people-at-work imagery (hard hats, hi-vis, hands-on work) over staged corporate portraiture.
+Where stock is needed temporarily, select imagery genuinely set in African infrastructure/construction contexts, never generic Western stock.
+11.5 Layout &amp; Brand Motifs
+Diagonal section transitions: the guideline uses an angled diagonal cut between Custard and Midnight color blocks — adapt this for section transitions (hero-to-content, CTA bands) instead of relying solely on horizontal dividers.
+Geometric line-art accents: a thin orange outline derived from the logo&apos;s angular form, reused sparingly as a background accent on dark sections without competing with content.
+Keep Orange disciplined: reserve it for action and emphasis, not as a large fill, so it keeps its “act now” meaning sitewide.
+Grid-based layouts with generous white space: Custard and white as the dominant canvas, Midnight for high-contrast sections, Orange reserved for action.
+12. Design Requirements
+This section translates the brand-level Design Direction (Section 11) into functional requirements for the visual design system to be built in Claude Design. It is the bridge between brand and build.
+12.1 Supporting Neutrals
+The official brand palette is deliberately limited to three colors (Section 11.2). The design system needs a small set of supporting neutrals to cover states the guideline doesn&apos;t define:
+Need
+Recommendation
+Base canvas
+White (#FFFFFF), used alongside Custard so large photography has room to breathe
+Secondary / disabled text
+A mid-gray derived from Midnight at reduced opacity (e.g. ~45%), confirmed during the Claude Design phase
+Borders &amp; dividers
+A light gray derived from Midnight at low opacity (e.g. ~12–15%), not a separate brand color
+Focus ring
+Orange at full opacity with a visible offset, to meet accessibility contrast requirements (Section 12.2)
+Error / form validation
+A standard red, chosen for sufficient contrast against Custard and White — not a brand color, used only for system feedback
+12.2 Accessibility
+Target WCAG 2.1 Level AA across the site, given the procurement/government audience and the likelihood of formal accessibility review.
+Body text on Custard or White must meet a minimum 4.5:1 contrast ratio against Midnight; verify Orange-on-Custard combinations for text (not just icons/buttons), which may need a darker shade for compliance.
+All interactive elements (buttons, links, form fields, filter chips) need visible focus states — not just hover states — for keyboard navigation.
+Every meaningful image (project photography, leadership portraits, certification badges) requires descriptive alt text; decorative graphics (line-art accents) should be marked as such for screen readers.
+Forms must associate labels with fields programmatically, and validation errors must be announced, not just shown as a color change.
+12.3 Responsive Breakpoints
+Breakpoint
+Range
+Layout Behavior
+Mobile
+&lt; 640px
+Single column; hamburger nav; filter bars collapse to a full-screen drawer; carousels become single-card swipe
+Tablet
+640px – 1023px
+2-column grids where the desktop grid is 3–4 columns; nav may remain collapsed
+Desktop
+1024px – 1439px
+Full grid layouts as specified per template (3–4 columns); primary nav expands
+Large Desktop
+≥ 1440px
+Content max-width constrained (e.g. ~1280–1440px) with generous side margins rather than stretching full-bleed
+12.4 Component Library Scope
+The following components cover every template in Section 6 and should be designed once, then reused, rather than designed per page:
+Global header (with scroll behavior) and global footer
+Primary button, secondary button, and text link, each with default/hover/active/focus/disabled states
+Hero block (image/video background + text overlay), in full-bleed and contained variants
+Stat counter (for “Group at a Glance”), with animated and static states
+Card components: subsidiary card, service tile, project card, role card, article card — sharing a common base with content-specific variants
+Filter bar / taxonomy component, with inline (desktop) and drawer (mobile) variants
+Lead form component, with field, label, validation-error, and confirmation states
+CTA band (full-width, one headline, one button)
+Breadcrumb component
+Certification/badge component
+Leadership/executive bio card
+Timeline component (for Company History)
+Tabs/category-switcher (for News &amp; Insights)
+Pagination / “Load More” control
+12.5 Asset Specifications
+Asset Type
+Specification
+Hero / project photography
+16:9 or wider, minimum 1920px wide source, served responsively (multiple sizes) and compressed for web
+Card thumbnails
+4:3 or 1:1 depending on card type, consistent within each component
+Logo files
+SVG preferred for web (scales cleanly); PNG fallback at 2x/3x resolution for raster contexts
+Icons
+Line-style, consistent stroke weight, SVG, single-color (inherits Midnight or Orange via CSS)
+Certification badges
+Consistent badge frame/aspect ratio across all certifications regardless of issuing body&apos;s original artwork
+12.6 Design Deliverables
+Figma source file(s) covering the component library (Section 12.4) and at least one fully designed instance of every template in Section 6
+A documented design token set (colors, type scale, spacing scale) matching Sections 11–12 exactly, for direct handoff to development
+Exported, optimized assets (icons, logo files) in the formats specified in Section 12.5
+13. Technical Requirements
+13.1 Platform &amp; Content Model
+A CMS (headless or traditional) capable of modeling Subsidiary, Service, Project, Role, and Article as structured content types, each carrying the taxonomies defined in Section 6.2 (sector, subsidiary, region, department, category).
+Content relationships (Service, Subsidiary, and Project) must be modeled as structured references that link to one another, not manually maintained links, per the cross-linking rule in Section 6.2 — this is what lets the same project surface correctly from three different entry points without duplication.
+Editors need the ability to add a new Subsidiary, Service, or Project without developer involvement, since the architecture is explicitly built to absorb growth (Section 6.1).
+13.2 Hosting &amp; Performance
+CDN-backed image delivery with automatic responsive sizing/format negotiation (e.g. WebP/AVIF with fallback), given how heavily the brand direction leans on large project photography (Section 11.4).
+Target Core Web Vitals: LCP under 2.5s, CLS under 0.1, INP under 200ms on a typical mobile connection — directly affects both SEO (Section 10) and the credibility-on-first-viewport goal of the Hero (Section 7).
+SSL/TLS by default across all pages and forms.
+13.3 Integrations
+Lead form submissions route to a CRM or shared inbox, tagged by the “Purpose” field (Consultation / Quotation / Partnership / Inquiry / Other) and by originating subsidiary or service — see the routing logic in Section 14.3.
+Analytics and tag management (e.g. GA4 + a tag manager) configured to track the conversion goals in Section 14.1 as distinct events, not just pageviews.
+Transactional email service for form confirmations and internal lead notifications, matching the response-time commitments stated in the copy (Section 9.10–9.11).
+Structured data (Organization, LocalBusiness, JobPosting) implemented per Section 10.1, ideally generated from the CMS content model rather than hand-coded per page.
+13.4 Security &amp; Compliance
+Spam protection on all public forms (e.g. honeypot fields or a privacy-respecting CAPTCHA alternative) without adding friction for legitimate procurement leads.
+Data handling for form submissions (CVs, contact details, project inquiries) should comply with Nigeria&apos;s Data Protection Act (NDPA) requirements for personal data collection and storage.
+Regular backups and a documented restore process, given the site is a primary lead-generation system, not a brochure.
+13.5 Browser &amp; Device Support
+Support the current and prior major version of Chrome, Safari, Edge, and Firefox, on both desktop and mobile, plus default mobile browsers (Safari iOS, Chrome Android). Given the B2G/B2B audience, graceful degradation matters more than support for legacy browsers — a procurement officer on a managed government laptop should never be blocked from submitting a form.
+13.6 Maintenance &amp; Admin
+Role-based CMS permissions so subsidiary-level staff can manage their own Projects/content without access to global settings or other subsidiaries&apos; content.
+A documented content update workflow for the items in Section 8.3 (certifications, leadership bios, case studies) so they can be refreshed post-launch without developer involvement.
+14. Conversion Strategy
+14.1 Conversion Goals &amp; Primary Placement
+The brief names seven conversion goals. Each is matched to where it naturally occurs in a visitor&apos;s journey, rather than placing every CTA everywhere.
+Conversion Goal
+Primary Placement
+Request a Consultation
+Hero, header utility bar, end of Service pages
+Request a Quotation
+Service pages, Project pages, Subsidiary pages
+Submit a Project Inquiry
+Industries We Serve tiles, Services hub, Contact page
+Partner With Us
+About / Leadership, Sustainability, footer
+Contact a Subsidiary
+Subsidiary pages (entity-specific form/contact)
+Download Company Profile
+Header utility link, About page, footer — kept ungated to maximize procurement use
+Schedule a Meeting
+Contact page, Leadership Message section
+14.2 Lead Form &amp; CTA Patterns
+Lead form pattern: every form shares the core fields (name, organization, sector of interest, message); forms launched from a specific page carry a hidden context field (originating subsidiary or service) so leads arrive pre-tagged; every form states an expected response time and confirms it again on submission (see copy in Section 9.10–9.11).
+CTA band pattern: full-width, high-contrast (Midnight), one headline and one button — never more than one primary action per band — repeated near the bottom of nearly every template so visitors learn to recognize “this is where I act.”
+Header utility CTA (“Discuss Your Next Project”) and “Download Company Profile” link persist across every page, since procurement officers may convert on first visit without browsing further (Section 5.1).
+14.3 Lead Routing &amp; Triage
+Conversion is only useful if the resulting lead reaches the right team quickly. The Contact form&apos;s “Purpose” field (Section 9.10) should drive internal routing, not just inbox labeling:
+Form Purpose
+Suggested Internal Routing
+Request a Consultation
+Business development / commercial team
+Request a Quotation
+The specific subsidiary named on the originating Service or Subsidiary page
+Partner With Us
+Leadership / partnerships team
+Submit a Project Inquiry
+Business development, triaged by sector
+Other
+General enquiries inbox for manual triage
+Subsidiary-specific forms (Section 9.4.1–9.4.3) route directly to that entity&apos;s contact point, bypassing general triage — this is what makes the “Contact a Subsidiary” goal meaningfully different from the general Contact form.
+Application Form submissions (Section 9.8.3) route to recruitment, tagged by department and, where present, the specific role applied for.
+14.4 Funnel Mapping by Audience
+Reusing the journeys defined in Section 3.3, each audience&apos;s funnel should resolve to a specific, trackable conversion event — not just “a pageview happened”:
+Audience
+Funnel
+Conversion Event
+Government Procurement Officer
+Home → Service/Industries → Projects (filtered) → About (certifications) → Profile download → Consultation
+Company Profile download + Consultation form submit
+Construction / Real Estate Client
+Home → Subsidiaries/Services → Featured Projects → Project detail → Quotation
+Quotation form submit
+Investor / Development Partner
+Home → About (Leadership) → Sustainability → Subsidiaries → Partner With Us → Contact
+Partner With Us form submit
+Industrial / Corporate Buyer
+Home → Services (Trading &amp; Supply) → Project Inquiry
+Project Inquiry form submit
+Job Seeker
+Home → Careers → Open Roles → Apply
+Application Form submit
+14.5 Measurement
+Lead form submissions by type (Consultation, Quotation, Partnership, Inquiry, Application) — directly measures the conversion goals in Section 14.1, segmented by intent.
+Company Profile downloads — tracks procurement-officer engagement even when no form is submitted.
+Time on Projects/Portfolio pages — indicates depth of credibility review by serious prospects.
+Organic traffic to sector-specific Service pages — validates the SEO targeting in Section 10 against real procurement search behavior.
+Bounce rate on Subsidiary pages — flags whether the hub-and-spoke navigation (Section 5) is working as intended.
+This Master Document consolidates and supersedes all earlier strategy, architecture, brand, and copy notes for the DIPON Group website project. The copy in Section 9 is a first creative draft built to the structure and voice defined elsewhere in this document; it is ready for client review, fact-checking against real figures and certifications, and legal clearance — not for direct publication. The next steps are: (1) fill every bracketed placeholder with verified data, (2) build the full visual design system in Claude Design against Sections 11–12, (3) hand Sections 13–14 to the development team, and (4) finalize copy with DIPON Group&apos;s sign-off.

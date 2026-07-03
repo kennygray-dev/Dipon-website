@@ -1,0 +1,267 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/content/**",
+              "components/core/**",
+              "components/forms/**",
+              "components/navigation/**",
+              "ui_kits/omai-villas-web/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Cormorant Garamond|Jost|Mulish))/i]",
+        "message": "Font not provided by the design system. Available: Cormorant Garamond, Jost, Mulish."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|size|withArrow|href|as|disabled|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: children, variant, size, withArrow, href, as, disabled."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|ghost)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:lg|md)$/]",
+        "message": "<Button> size must be one of 'lg' | 'md'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Eyebrow'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|as|tone|key|ref|className|style|children)$/]",
+        "message": "<Eyebrow> doesn't accept that prop. Declared props: children, as, tone."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Eyebrow'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:primary|inverse)$/]",
+        "message": "<Eyebrow> tone must be one of 'primary' | 'inverse'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HeaderLink'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|href|key|ref|className|style|children)$/]",
+        "message": "<HeaderLink> doesn't accept that prop. Declared props: label, href."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|error|multiline|rows|key|ref|className|style|children)$/]",
+        "message": "<Input> doesn't accept that prop. Declared props: label, error, multiline, rows."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute > JSXIdentifier[name!=/^(?:eyebrow|heading|body|actionLabel|actionHref|tone|align|maxWidth|key|ref|className|style|children)$/]",
+        "message": "<SectionHeading> doesn't accept that prop. Declared props: eyebrow, heading, body, actionLabel, actionHref, tone, align, maxWidth."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:primary|inverse)$/]",
+        "message": "<SectionHeading> tone must be one of 'primary' | 'inverse'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute[name.name='align'] > Literal[value!=/^(?:left|center)$/]",
+        "message": "<SectionHeading> align must be one of 'left' | 'center'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='VillaCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|alt|eyebrow|title|meta|href|withArrow|key|ref|className|style|children)$/]",
+        "message": "<VillaCard> doesn't accept that prop. Declared props: image, alt, eyebrow, title, meta, href, withArrow."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "Eyebrow": {
+        "replaces": []
+      },
+      "HeaderLink": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      },
+      "SectionHeading": {
+        "replaces": []
+      },
+      "VillaCard": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--border-hairline",
+      "--color-accent",
+      "--color-bg-inverse",
+      "--color-bg-inverse-alt",
+      "--color-bg-page",
+      "--color-bg-surface",
+      "--color-bg-surface-alt",
+      "--color-border-default",
+      "--color-border-strong",
+      "--color-error",
+      "--color-success",
+      "--color-text-on-inverse",
+      "--color-text-on-inverse-muted",
+      "--color-text-primary",
+      "--color-text-secondary",
+      "--color-text-tertiary",
+      "--container-full",
+      "--container-lg",
+      "--container-md",
+      "--container-sm",
+      "--container-xs",
+      "--dark-100",
+      "--dark-200",
+      "--dark-300",
+      "--dark-500",
+      "--duration-standard",
+      "--ease-standard",
+      "--error-red",
+      "--font-body",
+      "--font-display",
+      "--font-label",
+      "--light-100",
+      "--light-200",
+      "--medium",
+      "--radius-button",
+      "--radius-md",
+      "--radius-sm",
+      "--reva-dark-100",
+      "--reva-dark-200",
+      "--scrim-opacity",
+      "--shadow-md",
+      "--shadow-sm",
+      "--size-body",
+      "--size-body-lg",
+      "--size-body-sm",
+      "--size-heading-l",
+      "--size-heading-m",
+      "--size-heading-s",
+      "--size-heading-xl",
+      "--size-label-lg",
+      "--size-label-md",
+      "--size-label-sm",
+      "--space-gutter-desktop",
+      "--space-gutter-mobile",
+      "--space-lg",
+      "--space-md",
+      "--space-micro",
+      "--space-section-y",
+      "--space-sm",
+      "--space-unit",
+      "--space-xl",
+      "--space-xs",
+      "--tracking-label",
+      "--transform-label",
+      "--weight-body",
+      "--weight-display",
+      "--weight-label",
+      "--white"
+    ],
+    "tokenKinds": {
+      "--light-200": "color",
+      "--light-100": "color",
+      "--white": "color",
+      "--medium": "color",
+      "--dark-300": "color",
+      "--dark-200": "color",
+      "--dark-100": "color",
+      "--dark-500": "color",
+      "--reva-dark-100": "color",
+      "--reva-dark-200": "color",
+      "--error-red": "color",
+      "--color-bg-page": "color",
+      "--color-bg-surface": "color",
+      "--color-bg-surface-alt": "color",
+      "--color-bg-inverse": "color",
+      "--color-bg-inverse-alt": "color",
+      "--color-text-primary": "font",
+      "--color-text-secondary": "font",
+      "--color-text-tertiary": "font",
+      "--color-text-on-inverse": "font",
+      "--color-text-on-inverse-muted": "font",
+      "--color-border-default": "color",
+      "--color-border-strong": "color",
+      "--color-accent": "color",
+      "--color-error": "color",
+      "--color-success": "color",
+      "--font-display": "font",
+      "--font-label": "font",
+      "--font-body": "font",
+      "--weight-display": "font",
+      "--weight-body": "font",
+      "--weight-label": "font",
+      "--tracking-label": "font",
+      "--transform-label": "other",
+      "--size-heading-xl": "spacing",
+      "--size-heading-l": "spacing",
+      "--size-heading-m": "spacing",
+      "--size-heading-s": "spacing",
+      "--size-label-lg": "spacing",
+      "--size-label-md": "spacing",
+      "--size-label-sm": "spacing",
+      "--size-body-lg": "spacing",
+      "--size-body": "spacing",
+      "--size-body-sm": "spacing",
+      "--space-unit": "spacing",
+      "--space-micro": "spacing",
+      "--space-xs": "spacing",
+      "--space-sm": "spacing",
+      "--space-md": "spacing",
+      "--space-lg": "spacing",
+      "--space-xl": "spacing",
+      "--space-section-y": "spacing",
+      "--space-gutter-desktop": "spacing",
+      "--space-gutter-mobile": "spacing",
+      "--container-xs": "spacing",
+      "--container-sm": "spacing",
+      "--container-md": "spacing",
+      "--container-lg": "spacing",
+      "--container-full": "spacing",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-button": "radius",
+      "--shadow-sm": "shadow",
+      "--shadow-md": "shadow",
+      "--border-hairline": "spacing",
+      "--scrim-opacity": "other",
+      "--ease-standard": "other",
+      "--duration-standard": "other"
+    },
+    "fontFamilies": [
+      "Cormorant Garamond",
+      "Jost",
+      "Mulish"
+    ]
+  }
+}
