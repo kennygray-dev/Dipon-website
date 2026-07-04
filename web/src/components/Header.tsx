@@ -103,7 +103,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
   return (
     <>
       <header id="dipon-header" className={solid || drawerOpen ? "is-solid" : ""}>
-        <a href="#top" aria-label="DIPON Group — home" style={{ display: "flex", alignItems: "center" }}>
+        <a href="/" aria-label="DIPON Group — home" style={{ display: "flex", alignItems: "center" }}>
           <Image className="logo logo-light" src="/assets/dipon-logo-light.svg" alt="DIPON Group" width={493} height={142} priority />
           <Image className="logo logo-dark" src="/assets/dipon-logo-dark.svg" alt="DIPON Group" width={493} height={142} priority />
         </a>
