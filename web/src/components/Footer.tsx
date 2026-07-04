@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { SERVICES } from "@/lib/services";
+import { SUBSIDIARIES } from "@/lib/subsidiaries";
 
 const FOOTER_LINK_STYLE = {
   fontFamily: "var(--font-body)",
@@ -18,6 +20,15 @@ const FOOTER_HEAD_STYLE = {
   marginBottom: 16,
 } as const;
 
+const FOOTER_LIST_STYLE = {
+  listStyle: "none",
+  margin: 0,
+  padding: 0,
+  display: "flex",
+  flexDirection: "column",
+  gap: 11,
+} as const;
+
 export default function Footer() {
   return (
     <footer className="on-dark" style={{ background: "var(--color-bg-inverse-alt)", color: "var(--color-text-on-inverse)", padding: "72px var(--gutter) 36px" }}>
@@ -26,7 +37,7 @@ export default function Footer() {
           className="grid-3"
           style={{
             display: "grid",
-            gridTemplateColumns: "1.6fr 1fr 1fr 1fr 1.1fr",
+            gridTemplateColumns: "1.6fr 1fr 1.2fr 1fr 1.1fr",
             gap: 40,
             alignItems: "start",
             borderBottom: "1px solid rgba(255,249,235,0.16)",
@@ -41,29 +52,34 @@ export default function Footer() {
           </div>
           <nav aria-label="Company">
             <div style={FOOTER_HEAD_STYLE}>Company</div>
-            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 11 }}>
+            <ul style={FOOTER_LIST_STYLE}>
               <li><a href="/about" style={FOOTER_LINK_STYLE}>About Us</a></li>
-              <li><a href="/about#careers" style={FOOTER_LINK_STYLE}>Leadership & Governance</a></li>
-              <li><a href="/about" style={FOOTER_LINK_STYLE}>Certifications</a></li>
               <li><a href="/careers" style={FOOTER_LINK_STYLE}>Careers</a></li>
               <li><a href="/contact" style={FOOTER_LINK_STYLE}>Contact</a></li>
             </ul>
           </nav>
-          <nav aria-label="Subsidiaries">
-            <div style={FOOTER_HEAD_STYLE}>Subsidiaries</div>
-            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 11 }}>
-              <li><a href="/subsidiaries/dipon-construction" style={FOOTER_LINK_STYLE}>DIPON Construction</a></li>
-              <li><a href="/subsidiaries/dipon-global-resources" style={FOOTER_LINK_STYLE}>DIPON Global Resources</a></li>
-              <li><a href="/subsidiaries/dipon-infrastructure" style={FOOTER_LINK_STYLE}>DIPON Infrastructure</a></li>
+          <nav aria-label="Services">
+            <div style={FOOTER_HEAD_STYLE}>Services</div>
+            <ul style={FOOTER_LIST_STYLE}>
+              {SERVICES.map((service) => (
+                <li key={service.slug}>
+                  <a href={`/services/${service.slug}`} style={FOOTER_LINK_STYLE}>
+                    {service.title}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
-          <nav aria-label="Resources">
-            <div style={FOOTER_HEAD_STYLE}>Resources</div>
-            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 11 }}>
-              <li><a href="#cta" style={FOOTER_LINK_STYLE}>Company Profile</a></li>
-              <li><a href="#projects" style={FOOTER_LINK_STYLE}>Projects</a></li>
-              <li><a href="#sustainability" style={FOOTER_LINK_STYLE}>Sustainability</a></li>
-              <li><a href="#overview" style={FOOTER_LINK_STYLE}>News & Insights</a></li>
+          <nav aria-label="Subsidiaries">
+            <div style={FOOTER_HEAD_STYLE}>Subsidiaries</div>
+            <ul style={FOOTER_LIST_STYLE}>
+              {SUBSIDIARIES.map((subsidiary) => (
+                <li key={subsidiary.slug}>
+                  <a href={`/subsidiaries/${subsidiary.slug}`} style={FOOTER_LINK_STYLE}>
+                    {subsidiary.short}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
           <nav aria-label="Offices">
