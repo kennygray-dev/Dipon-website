@@ -2,12 +2,12 @@ import Reveal from "./Reveal";
 import { ArrowIcon } from "./icons";
 
 const INDUSTRIES = [
-  { num: "01", title: "Construction & Civil Engineering", desc: "Civil works, buildings, roads, and structural fabrication." },
-  { num: "02", title: "Renewable Energy & Power Infrastructure", desc: "Solar systems, street lighting, and power infrastructure." },
-  { num: "03", title: "Real Estate & Property Development", desc: "Housing and property development from groundbreaking to occupancy." },
-  { num: "04", title: "Trading & Supply Chain", desc: "Import/export, materials supply, and product marketing." },
-  { num: "05", title: "Transportation & Logistics", desc: "Movement of goods, materials, and equipment." },
-  { num: "06", title: "Agriculture", desc: "Agricultural production and supply." },
+  { num: "01", slug: "construction-civil-engineering", title: "Construction & Civil Engineering", desc: "Civil works, buildings, roads, and structural fabrication." },
+  { num: "02", slug: "renewable-energy-power", title: "Renewable Energy & Power Infrastructure", desc: "Solar systems, street lighting, and power infrastructure." },
+  { num: "03", slug: "real-estate-property", title: "Real Estate & Property Development", desc: "Housing and property development from groundbreaking to occupancy." },
+  { num: "04", slug: "trading-supply-chain", title: "Trading & Supply Chain", desc: "Import/export, materials supply, and product marketing." },
+  { num: "05", slug: "transportation-logistics", title: "Transportation & Logistics", desc: "Movement of goods, materials, and equipment." },
+  { num: "06", slug: "agriculture", title: "Agriculture", desc: "Agricultural production and supply." },
 ];
 
 export default function Industries() {
@@ -27,7 +27,7 @@ export default function Industries() {
           style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1px", background: "var(--color-border-default)", border: "1px solid var(--color-border-default)" }}
         >
           {INDUSTRIES.map((ind) => (
-            <a className="ind-tile" href="#industries" key={ind.num}>
+            <a className="ind-tile" href={`/services/${ind.slug}`} key={ind.num}>
               <span style={{ fontFamily: "var(--font-label)", fontWeight: 600, fontSize: 12, letterSpacing: "1px", color: "var(--color-accent)" }}>
                 {ind.num}
               </span>

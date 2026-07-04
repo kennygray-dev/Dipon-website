@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { ArrowIcon, BurgerIcon, CaretIcon, CloseIcon, ProfileIcon } from "./icons";
+import { ArrowIcon, BurgerIcon, CaretIcon, CloseIcon } from "./icons";
 
 type MegaLink = { title: string; href: string; desc: string; num?: string };
 type MegaGroup = {
@@ -21,35 +21,33 @@ const MEGA_GROUPS: MegaGroup[] = [
   {
     key: "company",
     label: "Company",
-    href: "#overview",
+    href: "/about",
     eyebrow: "The Group",
     heading: "A Nigerian-owned group, accountable across the full build lifecycle.",
     railLinkLabel: "About DIPON Group",
-    railHref: "#overview",
+    railHref: "/about",
     columns: 2,
     links: [
-      { title: "About Us", href: "#overview", desc: "Who we are, our mission, and how the Group is structured." },
-      { title: "Leadership & Governance", href: "#careers", desc: "The people and standards behind every project." },
-      { title: "Sustainability", href: "#sustainability", desc: "Renewable energy woven into how we deliver." },
-      { title: "Careers", href: "#careers", desc: "Build Africa's future with us." },
+      { title: "About Us", href: "/about", desc: "Who we are, our mission, and how the Group is structured." },
+      { title: "Careers", href: "/careers", desc: "Build Africa's future with us." },
     ],
   },
   {
     key: "services",
     label: "Services",
-    href: "#industries",
+    href: "/services",
     eyebrow: "Industries We Serve",
     heading: "Tell us what you need built, powered, supplied, or developed.",
     railLinkLabel: "All Services",
-    railHref: "#industries",
+    railHref: "/services",
     columns: 3,
     links: [
-      { num: "01", title: "Construction & Civil Engineering", href: "#industries", desc: "Civil works, buildings, roads, and structural fabrication." },
-      { num: "02", title: "Renewable Energy & Power", href: "#industries", desc: "Solar systems, street lighting, and power infrastructure." },
-      { num: "03", title: "Real Estate & Property", href: "#industries", desc: "Housing and property development to occupancy." },
-      { num: "04", title: "Trading & Supply Chain", href: "#industries", desc: "Import/export, materials supply, and marketing." },
-      { num: "05", title: "Transportation & Logistics", href: "#industries", desc: "Movement of goods, materials, and equipment." },
-      { num: "06", title: "Agriculture", href: "#industries", desc: "Agricultural production and supply." },
+      { num: "01", title: "Construction & Civil Engineering", href: "/services/construction-civil-engineering", desc: "Civil works, buildings, roads, and structural fabrication." },
+      { num: "02", title: "Renewable Energy & Power", href: "/services/renewable-energy-power", desc: "Solar systems, street lighting, and power infrastructure." },
+      { num: "03", title: "Real Estate & Property", href: "/services/real-estate-property", desc: "Housing and property development to occupancy." },
+      { num: "04", title: "Trading & Supply Chain", href: "/services/trading-supply-chain", desc: "Import/export, materials supply, and marketing." },
+      { num: "05", title: "Transportation & Logistics", href: "/services/transportation-logistics", desc: "Movement of goods, materials, and equipment." },
+      { num: "06", title: "Agriculture", href: "/services/agriculture", desc: "Agricultural production and supply." },
     ],
   },
   {
@@ -137,13 +135,8 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
               </div>
             </div>
           ))}
-          <a href="#projects">Projects</a>
         </nav>
         <div className="h-right">
-          <a className="h-util" href="#cta">
-            <ProfileIcon />
-            Company Profile
-          </a>
           <a className="btn" href="#cta" style={{ padding: "13px 20px", fontSize: 12 }}>
             Discuss Your Next Project
           </a>
@@ -186,30 +179,8 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
               </div>
             );
           })}
-          <a className="mobile-nav-plain" href="#projects" onClick={closeDrawer}>
-            Projects
-          </a>
         </div>
         <div className="mobile-drawer-foot">
-          <a
-            href="#cta"
-            onClick={closeDrawer}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              fontFamily: "var(--font-label)",
-              fontWeight: 600,
-              fontSize: 12,
-              letterSpacing: "1.3px",
-              textTransform: "uppercase",
-              color: "var(--color-text-primary)",
-              textDecoration: "none",
-            }}
-          >
-            <ProfileIcon />
-            Company Profile
-          </a>
           <a className="btn" href="#cta" onClick={closeDrawer} style={{ justifyContent: "center" }}>
             Discuss Your Next Project
           </a>

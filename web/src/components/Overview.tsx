@@ -26,7 +26,7 @@ export default function Overview() {
                 className="media-cover"
               />
             </div>
-            <a className="lk" href="#overview">
+            <a className="lk" href="/about">
               Learn More About Us <ArrowIcon width={24} height={10} />
             </a>
           </Reveal>

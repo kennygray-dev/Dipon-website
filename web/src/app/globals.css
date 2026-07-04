@@ -155,7 +155,9 @@ a {
 #dipon-header .h-item {
   display: flex;
   align-items: center;
-  position: relative;
+  /* Intentionally NOT position:relative — the full-width .mega panel is
+     positioned against the fixed #dipon-header so it spans the viewport.
+     Making .h-item a containing block would clamp .mega to the item width. */
 }
 #dipon-header .h-top {
   display: inline-flex;

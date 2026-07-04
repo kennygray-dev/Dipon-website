@@ -42,10 +42,10 @@ export default function Footer() {
           <nav aria-label="Company">
             <div style={FOOTER_HEAD_STYLE}>Company</div>
             <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 11 }}>
-              <li><a href="#overview" style={FOOTER_LINK_STYLE}>About Us</a></li>
-              <li><a href="#careers" style={FOOTER_LINK_STYLE}>Leadership & Governance</a></li>
-              <li><a href="#overview" style={FOOTER_LINK_STYLE}>Certifications</a></li>
-              <li><a href="#careers" style={FOOTER_LINK_STYLE}>Careers</a></li>
+              <li><a href="/about" style={FOOTER_LINK_STYLE}>About Us</a></li>
+              <li><a href="/about#careers" style={FOOTER_LINK_STYLE}>Leadership & Governance</a></li>
+              <li><a href="/about" style={FOOTER_LINK_STYLE}>Certifications</a></li>
+              <li><a href="/careers" style={FOOTER_LINK_STYLE}>Careers</a></li>
               <li><a href="#cta" style={FOOTER_LINK_STYLE}>Contact</a></li>
             </ul>
           </nav>
