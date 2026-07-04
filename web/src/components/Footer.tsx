@@ -52,9 +52,9 @@ export default function Footer() {
           <nav aria-label="Subsidiaries">
             <div style={FOOTER_HEAD_STYLE}>Subsidiaries</div>
             <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 11 }}>
-              <li><a href="#subsidiaries" style={FOOTER_LINK_STYLE}>DIPON Construction</a></li>
-              <li><a href="#subsidiaries" style={FOOTER_LINK_STYLE}>DIPON Global Resources</a></li>
-              <li><a href="#subsidiaries" style={FOOTER_LINK_STYLE}>DIPON Infrastructure</a></li>
+              <li><a href="/subsidiaries/dipon-construction" style={FOOTER_LINK_STYLE}>DIPON Construction</a></li>
+              <li><a href="/subsidiaries/dipon-global-resources" style={FOOTER_LINK_STYLE}>DIPON Global Resources</a></li>
+              <li><a href="/subsidiaries/dipon-infrastructure" style={FOOTER_LINK_STYLE}>DIPON Infrastructure</a></li>
             </ul>
           </nav>
           <nav aria-label="Resources">

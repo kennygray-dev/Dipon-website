@@ -3,6 +3,7 @@ import { ArrowIcon } from "./icons";
 
 type Subsidiary = {
   num: string;
+  slug: string;
   name: string;
   desc: string;
   tags: string[];
@@ -12,6 +13,7 @@ type Subsidiary = {
 const SUBSIDIARIES: Subsidiary[] = [
   {
     num: "Subsidiary 01",
+    slug: "dipon-construction",
     name: "DIPON Construction Limited",
     desc: "Civil engineering, building construction, and general contracting — the Group's core build capability.",
     tags: ["Civil Engineering", "Roads & Bridges", "General Contracting"],
@@ -19,6 +21,7 @@ const SUBSIDIARIES: Subsidiary[] = [
   },
   {
     num: "Subsidiary 02",
+    slug: "dipon-global-resources",
     name: "DIPON Global Resources Limited",
     desc: "Trading, supply chain, real estate, agriculture, and logistics — the commercial engine behind every project.",
     tags: ["General Trading", "Import & Export", "Real Estate", "Agriculture"],
@@ -26,6 +29,7 @@ const SUBSIDIARIES: Subsidiary[] = [
   },
   {
     num: "Subsidiary 03",
+    slug: "dipon-infrastructure",
     name: "DIPON Infrastructure Limited",
     desc: "Renewable energy, power infrastructure, and housing development — the Group's power and property arm.",
     tags: ["Renewable Energy", "Solar Infrastructure", "Housing"],
@@ -43,7 +47,7 @@ export default function Subsidiaries() {
           <div style={{ maxWidth: 560 }}>
             <h2 className="h2">Three companies. One accountable group.</h2>
           </div>
-          <a className="lk" href="#subsidiaries">
+          <a className="lk" href="/subsidiaries">
             Explore Our Companies <ArrowIcon width={24} height={10} />
           </a>
         </Reveal>
@@ -85,7 +89,7 @@ export default function Subsidiaries() {
                   </span>
                 ))}
               </div>
-              <a className="lk" href="#subsidiaries" style={{ marginTop: "auto" }}>
+              <a className="lk" href={`/subsidiaries/${sub.slug}`} style={{ marginTop: "auto" }}>
                 {sub.cta} <ArrowIcon />
               </a>
             </div>
