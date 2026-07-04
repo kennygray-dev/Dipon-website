@@ -137,8 +137,8 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
           ))}
         </nav>
         <div className="h-right">
-          <a className="btn" href="#cta" style={{ padding: "13px 20px", fontSize: 12 }}>
-            Discuss Your Next Project
+          <a className="btn" href="/contact" style={{ padding: "13px 20px", fontSize: 12 }}>
+            Start a Project
           </a>
           <button className="h-burger" aria-label="Open menu" aria-expanded={drawerOpen} onClick={() => setDrawerOpen(true)}>
             <BurgerIcon />
@@ -181,8 +181,8 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
           })}
         </div>
         <div className="mobile-drawer-foot">
-          <a className="btn" href="#cta" onClick={closeDrawer} style={{ justifyContent: "center" }}>
-            Discuss Your Next Project
+          <a className="btn" href="/contact" onClick={closeDrawer} style={{ justifyContent: "center" }}>
+            Start a Project
           </a>
         </div>
       </nav>

@@ -46,7 +46,7 @@ export default function Footer() {
               <li><a href="/about#careers" style={FOOTER_LINK_STYLE}>Leadership & Governance</a></li>
               <li><a href="/about" style={FOOTER_LINK_STYLE}>Certifications</a></li>
               <li><a href="/careers" style={FOOTER_LINK_STYLE}>Careers</a></li>
-              <li><a href="#cta" style={FOOTER_LINK_STYLE}>Contact</a></li>
+              <li><a href="/contact" style={FOOTER_LINK_STYLE}>Contact</a></li>
             </ul>
           </nav>
           <nav aria-label="Subsidiaries">

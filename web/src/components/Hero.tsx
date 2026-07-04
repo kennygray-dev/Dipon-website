@@ -60,8 +60,8 @@ export default function Hero() {
             one accountable Nigerian-owned group — so your project moves forward without the coordination risk of
             multiple vendors.
           </p>
-          <a className="btn" href="#cta">
-            Discuss Your Next Project <ArrowIcon width={26} height={11} />
+          <a className="btn" href="/contact">
+            Start a Project <ArrowIcon width={26} height={11} />
           </a>
         </div>
       </div>

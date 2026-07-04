@@ -53,8 +53,8 @@ export default function WhyChoose() {
             </div>
           ))}
           <div style={{ background: "var(--color-bg-inverse-alt)", padding: "34px 30px", display: "flex", alignItems: "center" }}>
-            <a className="lk" href="#cta">
-              Discuss Your Next Project <ArrowIcon width={24} height={10} />
+            <a className="lk" href="/contact">
+              Start a Project <ArrowIcon width={24} height={10} />
             </a>
           </div>
         </Reveal>

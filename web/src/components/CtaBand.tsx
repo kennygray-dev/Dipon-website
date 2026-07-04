@@ -18,8 +18,8 @@ export default function CtaBand() {
         <h2 className="h2" style={{ fontSize: "clamp(30px,4vw,50px)", margin: "0 0 32px" }}>
           Have a project in mind? Let&rsquo;s talk about how DIPON Group delivers it.
         </h2>
-        <a className="btn" href="#cta">
-          Discuss Your Next Project <ArrowIcon width={26} height={11} />
+        <a className="btn" href="/contact">
+          Start a Project <ArrowIcon width={26} height={11} />
         </a>
       </Reveal>
     </section>
