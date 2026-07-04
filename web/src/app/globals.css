@@ -224,10 +224,25 @@ a {
   visibility: hidden;
   transform: translateY(-8px);
   pointer-events: none;
+  /* On close, hold briefly before fading so the cursor has time to travel
+     from the nav label down into the panel. Opening stays instant via the
+     transition-delay:0s override on the hover state below. */
   transition:
-    opacity 0.22s var(--ease-standard),
-    transform 0.22s var(--ease-standard),
-    visibility 0s linear 0.22s;
+    opacity 0.2s var(--ease-standard) 0.18s,
+    transform 0.2s var(--ease-standard) 0.18s,
+    visibility 0s linear 0.38s;
+}
+/* Invisible bridge covering the gap between the nav label and the panel.
+   It inherits the panel's pointer-events, so it's only active while the
+   menu is open — keeping :hover alive as the cursor crosses the gap,
+   without creating a hover target when the menu is closed. */
+.mega::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 28px;
 }
 .h-item:hover .mega,
 .h-item:focus-within .mega {
