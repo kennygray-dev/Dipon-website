@@ -60,10 +60,12 @@ export default function ContactForm() {
               href={MAP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Open in Google Maps"
-              className="absolute right-5 bottom-5 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-dipon-accent text-white shadow-[0_4px_14px_rgba(253,128,46,0.45)] transition-[transform,background-color] duration-200 hover:scale-105 hover:bg-dipon-accent-deep sm:right-6 sm:bottom-6"
+              className="group absolute right-5 bottom-5 z-10 inline-flex items-center gap-2.5 rounded-full bg-white/95 py-1.5 pr-1.5 pl-4 font-body text-[12.5px] font-medium text-dipon-primary no-underline shadow-[0_4px_14px_rgba(0,0,0,0.22)] backdrop-blur-sm transition-shadow duration-300 hover:shadow-[0_8px_22px_rgba(0,0,0,0.3)] sm:right-6 sm:bottom-6"
             >
-              <DiagonalArrowIcon size={17} />
+              View on Map
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
+                <DiagonalArrowIcon size={12} />
+              </span>
             </a>
           </div>
 

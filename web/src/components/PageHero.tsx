@@ -86,7 +86,7 @@ export default function PageHero({
       {image && (
         <Reveal
           delay={150}
-          className="relative mb-10 aspect-[16/9] w-full overflow-hidden lg:hidden [clip-path:polygon(0_28px,100%_0,100%_100%,0_100%)]"
+          className="relative aspect-[16/9] w-full overflow-hidden lg:hidden [clip-path:polygon(0_28px,100%_0,100%_100%,0_100%)]"
         >
           <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
           <div
