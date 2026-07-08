@@ -97,7 +97,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[60] flex h-16 items-center border-b px-gutter transition-[background-color,border-color] duration-[420ms] ease-[var(--ease-premium)] ${
+        className={`fixed inset-x-0 top-0 z-[60] flex h-16 items-center justify-between border-b px-gutter transition-[background-color,border-color] duration-[420ms] ease-[var(--ease-premium)] ${
           isSolid ? "border-[rgba(35,61,76,0.08)] bg-white" : "border-transparent bg-transparent"
         } has-[.nav-item:hover]:border-[rgba(35,61,76,0.08)] has-[.nav-item:hover]:bg-white has-[.nav-item:focus-within]:border-[rgba(35,61,76,0.08)] has-[.nav-item:focus-within]:bg-white`}
       >
@@ -190,7 +190,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
             Discuss Your Next Project <ArrowIcon width={16} height={7} />
           </a>
           <button
-            className={`hidden cursor-pointer border-0 bg-none p-1.5 max-[1080px]:inline-flex ${isSolid ? "text-dipon-primary" : "text-dipon-cream"}`}
+            className={`-mr-2.5 hidden cursor-pointer items-center justify-center border-0 bg-none p-2.5 max-[1080px]:inline-flex ${isSolid ? "text-dipon-primary" : "text-dipon-cream"}`}
             aria-label="Open menu"
             aria-expanded={drawerOpen}
             onClick={() => setDrawerOpen(true)}
@@ -216,7 +216,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
       >
         <div className="flex items-center justify-between border-b border-[rgba(35,61,76,0.14)] px-5 py-4">
           <Image src="/assets/dipon-logo-dark.svg" alt="DIPON Group" width={493} height={142} className="h-[26px] w-auto" />
-          <button className="cursor-pointer border-0 bg-none p-1.5 text-dipon-primary" aria-label="Close menu" onClick={closeDrawer}>
+          <button className="-mr-2.5 cursor-pointer border-0 bg-none p-2.5 text-dipon-primary" aria-label="Close menu" onClick={closeDrawer}>
             <CloseIcon />
           </button>
         </div>

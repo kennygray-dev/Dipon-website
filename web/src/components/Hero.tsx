@@ -154,8 +154,8 @@ export default function Hero() {
           </svg>
         </div>
 
-        {/* Carousel bars — vertical, centered on the right edge */}
-        <div className="absolute top-1/2 right-6 z-20 flex -translate-y-1/2 flex-col items-center gap-[7px]">
+        {/* Carousel bars — horizontal row under the headline on mobile, vertical on the right edge from lg up */}
+        <div className="absolute right-1/2 bottom-6 z-20 flex translate-x-1/2 items-center gap-[7px] lg:top-1/2 lg:right-6 lg:bottom-auto lg:translate-x-0 lg:-translate-y-1/2 lg:flex-col">
           {SLIDES.map((slide, i) => (
             <button
               key={slide.src}
@@ -163,24 +163,26 @@ export default function Hero() {
               aria-label={`Show slide ${i + 1}`}
               aria-current={i === activeSlide}
               onClick={() => setActiveSlide(i)}
-              className={`w-[5px] cursor-pointer rounded-full border-0 bg-none p-0 transition-all duration-300 ease-[var(--ease-standard)] ${
-                i === activeSlide ? "h-5 bg-white/85" : "h-[5px] bg-white/40 hover:bg-white/60"
+              className={`cursor-pointer rounded-full border-0 bg-none p-0 transition-all duration-300 ease-[var(--ease-standard)] lg:w-[5px] ${
+                i === activeSlide
+                  ? "h-[5px] w-5 bg-white/85 lg:h-5 lg:w-[5px]"
+                  : "h-[5px] w-[5px] bg-white/40 hover:bg-white/60 lg:h-[5px] lg:w-[5px]"
               }`}
             />
           ))}
         </div>
 
         {/* Everything below fits on the first screen: headline block on top, caption/socials + stats on the bottom */}
-        <div className="relative z-10 mx-auto flex w-full max-w-[1320px] flex-col gap-10 px-gutter pt-24 pb-10 lg:h-full lg:justify-between lg:gap-0 lg:pt-28 lg:pb-10">
-          <div className="flex max-w-[560px] flex-col items-start justify-center gap-5 lg:max-w-[620px] lg:flex-1 xl:max-w-[700px] 2xl:max-w-[780px]">
-            <h1 className="text-balance font-display text-[clamp(34px,4.6vw,84px)] font-bold leading-[1.05] tracking-[-1.5px]">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1320px] flex-col gap-8 px-gutter pt-24 pb-14 sm:gap-10 sm:pb-10 lg:h-full lg:justify-between lg:gap-0 lg:pt-28 lg:pb-10">
+          <div className="flex max-w-[560px] flex-col items-start justify-center gap-4 sm:gap-5 lg:max-w-[620px] lg:flex-1 xl:max-w-[700px] 2xl:max-w-[780px]">
+            <h1 className="text-balance font-display text-[clamp(30px,8.4vw,84px)] font-bold leading-[1.08] tracking-[-1px] sm:leading-[1.05] sm:tracking-[-1.5px]">
               <span className="text-dipon-cream">One Group.</span>
               <br />
               <span className="text-dipon-cream/70">Every Stage</span>
               <br />
               <span className="text-dipon-accent">Of The Build.</span>
             </h1>
-            <p className="max-w-[460px] font-body text-[16px] leading-[1.7] text-dipon-cream/88 xl:max-w-[500px] xl:text-[17.5px]">
+            <p className="max-w-[460px] font-body text-[14.5px] leading-[1.65] text-dipon-cream/88 sm:text-[16px] sm:leading-[1.7] xl:max-w-[500px] xl:text-[17.5px]">
               DIPON Group integrates construction, power infrastructure, real estate, and supply chain capability
               under one accountable Nigerian-owned group — so your project moves forward without the coordination
               risk of multiple vendors.
@@ -196,9 +198,9 @@ export default function Hero() {
             </Link>
           </div>
 
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
-              <span className="font-body text-[13px] tracking-[0.3px] text-dipon-cream/60">
+          <div className="flex flex-col gap-5 sm:gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+              <span className="font-body text-[12.5px] tracking-[0.3px] text-dipon-cream/60 sm:text-[13px]">
                 Trusted Across Construction, Power &amp; Real Estate
               </span>
               <div className="flex items-center gap-3">
@@ -215,13 +217,13 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-px lg:w-[min(560px,48%)] lg:shrink-0">
+            <div className="grid grid-cols-3 gap-[3px] sm:gap-px lg:w-[min(560px,48%)] lg:shrink-0">
               {STATS.map((stat, i) => {
                 const Icon = stat.icon;
                 return (
                   <Reveal key={stat.label} delay={i * 130}>
                     <div
-                      className={`relative flex h-full min-h-[170px] flex-col justify-between gap-3 overflow-hidden p-4 transition-transform duration-300 ease-out hover:-translate-y-1.5 [clip-path:polygon(0_0,100%_0,100%_100%,18%_100%,0_84%)] lg:min-h-[190px] lg:p-5 ${stat.bg} ${stat.text}`}
+                      className={`relative flex h-full min-h-[112px] flex-col justify-between gap-1.5 overflow-hidden p-2.5 transition-transform duration-300 ease-out hover:-translate-y-1.5 [clip-path:polygon(0_0,100%_0,100%_100%,18%_100%,0_84%)] sm:min-h-[170px] sm:gap-3 sm:p-4 lg:min-h-[190px] lg:p-5 ${stat.bg} ${stat.text}`}
                     >
                       <div
                         aria-hidden="true"
@@ -240,15 +242,17 @@ export default function Hero() {
                       >
                         {stat.deco}
                       </svg>
-                      <span className="relative z-10 flex h-8 w-8 items-center justify-center">
+                      <span className="relative z-10 flex h-5 w-5 items-center justify-center sm:h-8 sm:w-8 [&_svg]:h-full [&_svg]:w-full">
                         <Icon />
                       </span>
                       <div className="relative z-10">
-                        <div className="flex items-baseline gap-0.5 font-display text-[clamp(32px,3.8vw,48px)] font-extrabold leading-none tracking-[-1.5px]">
+                        <div className="flex items-baseline gap-0.5 font-display text-[clamp(18px,6vw,48px)] font-extrabold leading-none tracking-[-0.5px] sm:text-[clamp(32px,3.8vw,48px)] sm:tracking-[-1.5px]">
                           <CountUp value={stat.value} />
                           <span className="text-[0.4em] font-bold">{stat.suffix}</span>
                         </div>
-                        <p className="mt-2 font-body text-[11.5px] leading-[1.3] font-semibold">{stat.label}</p>
+                        <p className="mt-1.5 font-body text-[9.5px] leading-[1.25] font-semibold sm:mt-2 sm:text-[11.5px] sm:leading-[1.3]">
+                          {stat.label}
+                        </p>
                       </div>
                     </div>
                   </Reveal>
