@@ -55,7 +55,7 @@ export default function Subsidiaries() {
               delay={i * 130}
               className="aspect-[6/5] overflow-hidden rounded-[16px]"
             >
-              <div className="group relative flex h-full w-full flex-col">
+              <Link href={`/subsidiaries/${sub.slug}`} className="group relative flex h-full w-full flex-col no-underline">
                 <img
                   src={sub.image}
                   alt={`DIPON Group — ${sub.name}`}
@@ -77,15 +77,12 @@ export default function Subsidiaries() {
                     <h3 className="text-balance font-display text-[17px] leading-[1.15] font-bold text-white sm:text-[19px]">
                       {sub.short}
                     </h3>
-                    <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-400 ease-[var(--ease-premium)] group-hover:grid-rows-[1fr]">
+                    <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-400 ease-[var(--ease-premium)] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr]">
                       <div className="overflow-hidden">
                         <p className="mt-1.5 font-body text-[12.5px] leading-[1.4] text-white/80">{sub.desc}</p>
-                        <Link
-                          href={`/subsidiaries/${sub.slug}`}
-                          className="relative z-20 mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-white/35 px-3.5 py-1.5 font-label text-[10px] font-semibold text-white no-underline transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent sm:text-[11px]"
-                        >
+                        <span className="relative z-20 mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-white/35 px-3.5 py-1.5 font-label text-[10px] font-semibold text-white transition-colors duration-200 group-hover:border-dipon-accent group-hover:bg-dipon-accent sm:text-[11px]">
                           Read More <ArrowIcon width={12} height={5} />
-                        </Link>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -95,7 +92,7 @@ export default function Subsidiaries() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             </Reveal>
           ))}
         </div>

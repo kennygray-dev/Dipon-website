@@ -110,7 +110,7 @@ export default function ContactForm() {
           </div>
 
           {/* Floating feedback form */}
-          <div className="relative z-20 mx-6 -mt-16 mb-6 rounded-[22px] bg-white p-[clamp(24px,3vw,36px)] shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] sm:mx-8 lg:absolute lg:top-10 lg:right-10 lg:mx-0 lg:mb-0 lg:w-[400px] xl:w-[440px]">
+          <div className="relative z-20 mx-3 -mt-16 mb-6 rounded-[22px] bg-white p-5 shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] sm:mx-6 sm:p-[clamp(24px,3vw,36px)] lg:absolute lg:top-10 lg:right-10 lg:mx-0 lg:mb-0 lg:w-[400px] xl:w-[440px]">
             <LogoMark className="absolute top-[clamp(24px,3vw,36px)] right-[clamp(24px,3vw,36px)] h-6 w-auto" />
             {submitted ? (
               <div role="status">

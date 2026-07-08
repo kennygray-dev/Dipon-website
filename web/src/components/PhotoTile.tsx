@@ -23,7 +23,7 @@ export default function PhotoTile({
   className?: string;
 }) {
   return (
-    <div className={`group relative flex h-full w-full flex-col ${className}`}>
+    <Link href={href} className={`group relative flex h-full w-full flex-col no-underline ${className}`}>
       <img
         src={image}
         alt={imageAlt}
@@ -45,15 +45,12 @@ export default function PhotoTile({
           <h3 className="text-balance font-display text-[17px] leading-[1.15] font-bold text-white sm:text-[19px]">
             {title}
           </h3>
-          <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-400 ease-[var(--ease-premium)] group-hover:grid-rows-[1fr]">
+          <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-400 ease-[var(--ease-premium)] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr]">
             <div className="overflow-hidden">
               {desc && <p className="mt-1.5 font-body text-[12.5px] leading-[1.4] text-white/80">{desc}</p>}
-              <Link
-                href={href}
-                className="relative z-20 mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-white/35 px-3.5 py-1.5 font-label text-[10px] font-semibold text-white no-underline transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent"
-              >
+              <span className="relative z-20 mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-white/35 px-3.5 py-1.5 font-label text-[10px] font-semibold text-white transition-colors duration-200 group-hover:border-dipon-accent group-hover:bg-dipon-accent">
                 Read More <ArrowIcon width={12} height={5} />
-              </Link>
+              </span>
             </div>
           </div>
         </div>
@@ -68,6 +65,6 @@ export default function PhotoTile({
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

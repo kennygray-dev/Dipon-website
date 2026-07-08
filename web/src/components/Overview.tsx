@@ -45,8 +45,8 @@ export default function Overview() {
             </Link>
           </Reveal>
 
-          <div className="grid aspect-[6/5] grid-cols-2 grid-rows-2 gap-4 sm:gap-5">
-            <Reveal className="relative row-span-2 overflow-hidden rounded-[20px]">
+          <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:aspect-[6/5] lg:grid-cols-2 lg:grid-rows-2">
+            <Reveal className="relative aspect-[4/3] overflow-hidden rounded-[20px] lg:aspect-auto lg:row-span-2">
               <img
                 src={IMAGES.vertical.src}
                 alt={IMAGES.vertical.alt}
@@ -54,7 +54,7 @@ export default function Overview() {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
             </Reveal>
-            <Reveal delay={150} className="relative overflow-hidden rounded-[20px]">
+            <Reveal delay={150} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
               <img
                 src={IMAGES.horizontalTop.src}
                 alt={IMAGES.horizontalTop.alt}
@@ -62,7 +62,7 @@ export default function Overview() {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
             </Reveal>
-            <Reveal delay={300} className="relative overflow-hidden rounded-[20px]">
+            <Reveal delay={300} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
               <img
                 src={IMAGES.horizontalBottom.src}
                 alt={IMAGES.horizontalBottom.alt}

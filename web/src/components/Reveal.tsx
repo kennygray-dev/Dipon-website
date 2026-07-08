@@ -51,8 +51,10 @@ export default function Reveal({
       ref={ref as never}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
       className={cn(
-        "transition-[opacity,transform,filter] duration-[1100ms] ease-[var(--ease-premium)] motion-reduce:transition-none motion-reduce:blur-none",
-        visible ? "translate-y-0 scale-100 opacity-100 blur-none" : "translate-y-4 scale-[0.985] opacity-0 blur-[2px]",
+        "transition-[opacity,transform,filter] duration-[1100ms] ease-[var(--ease-premium)] max-md:duration-[450ms] max-md:[transition-delay:0ms]! motion-reduce:transition-none motion-reduce:blur-none",
+        visible
+          ? "translate-y-0 scale-100 opacity-100 blur-none"
+          : "translate-y-4 scale-[0.985] opacity-0 blur-[2px] max-md:translate-y-2 max-md:scale-100 max-md:blur-none",
         className
       )}
     >

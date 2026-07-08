@@ -10,31 +10,31 @@ const GALLERY = [
     id: "shot-1",
     image: "https://images.pexels.com/photos/35340753/pexels-photo-35340753.jpeg?auto=compress&cs=tinysrgb&w=1200",
     alt: "DIPON Group project — access road and drainage works",
-    area: "col-start-1 row-span-2",
+    area: "lg:col-start-1 lg:row-span-2",
   },
   {
     id: "shot-2",
     image: "https://images.pexels.com/photos/28359560/pexels-photo-28359560.jpeg?auto=compress&cs=tinysrgb&w=1200",
     alt: "DIPON Group project — solar street lighting",
-    area: "col-start-2 col-span-2 row-start-1",
+    area: "lg:col-start-2 lg:col-span-2 lg:row-start-1",
   },
   {
     id: "shot-3",
     image: "https://images.pexels.com/photos/18153132/pexels-photo-18153132.jpeg?auto=compress&cs=tinysrgb&w=1200",
     alt: "DIPON Group project — residential housing development",
-    area: "col-start-4 row-span-2",
+    area: "lg:col-start-4 lg:row-span-2",
   },
   {
     id: "shot-4",
     image: "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=1200",
     alt: "DIPON Group project — civil engineering site",
-    area: "col-start-2 row-start-2",
+    area: "lg:col-start-2 lg:row-start-2",
   },
   {
     id: "shot-5",
     image: "https://images.pexels.com/photos/31445085/pexels-photo-31445085.jpeg?auto=compress&cs=tinysrgb&w=1200",
     alt: "DIPON Group project — trading and supply chain",
-    area: "col-start-3 row-start-2",
+    area: "lg:col-start-3 lg:row-start-2",
   },
 ];
 
@@ -69,9 +69,13 @@ export default function Projects() {
           </Link>
         </Reveal>
 
-        <div className="grid aspect-[16/8] grid-cols-4 grid-rows-2 gap-2 sm:gap-2.5 md:aspect-[16/6.5]">
+        <div className="grid grid-cols-1 gap-3 sm:gap-4 lg:aspect-[16/7] lg:grid-cols-4 lg:grid-rows-2 lg:gap-2.5">
           {GALLERY.map((shot, i) => (
-            <Reveal key={shot.id} delay={i * 90} className={`relative overflow-hidden rounded-[14px] ${shot.area}`}>
+            <Reveal
+              key={shot.id}
+              delay={i * 90}
+              className={`relative aspect-[4/3] overflow-hidden rounded-[14px] lg:aspect-auto ${shot.area}`}
+            >
               <img
                 src={shot.image}
                 alt={shot.alt}
