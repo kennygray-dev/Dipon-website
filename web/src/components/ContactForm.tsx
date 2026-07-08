@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
-import { ArrowIcon, DiagonalArrowIcon, FacebookIcon, InstagramIcon, LinkedInIcon, LogoMark, UploadIcon, XIcon } from "./icons";
+import { ArrowIcon, FacebookIcon, InstagramIcon, LinkedInIcon, LogoMark, UploadIcon, XIcon } from "./icons";
 import { SERVICES } from "@/lib/services";
 import { section, wrap } from "@/lib/styles";
 
@@ -53,20 +53,17 @@ export default function ContactForm() {
               title="DIPON Group location — Garki, Abuja (placeholder)"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/5 to-dipon-blue/35" />
-            <h3 className="absolute bottom-7 left-6 z-10 max-w-[60%] text-balance font-display text-[clamp(26px,3.4vw,40px)] font-extrabold leading-[1.05] text-dipon-cream sm:left-8">
-              Contact us
-            </h3>
             <a
               href={MAP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="group absolute right-5 bottom-5 z-10 inline-flex items-center gap-2.5 rounded-full bg-white/95 py-1.5 pr-1.5 pl-4 font-body text-[12.5px] font-medium text-dipon-primary no-underline shadow-[0_4px_14px_rgba(0,0,0,0.22)] backdrop-blur-sm transition-shadow duration-300 hover:shadow-[0_8px_22px_rgba(0,0,0,0.3)] sm:right-6 sm:bottom-6"
+              className="absolute top-6 left-6 z-10 inline-flex items-center gap-2 font-body text-[13px] text-white/25 no-underline transition-colors duration-200 hover:text-white/70 sm:left-8"
             >
-              View on Map
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
-                <DiagonalArrowIcon size={12} />
-              </span>
+              View on Google Maps <ArrowIcon width={14} height={6} />
             </a>
+            <h3 className="absolute bottom-7 left-6 z-10 max-w-[60%] text-balance font-display text-[clamp(26px,3.4vw,40px)] font-extrabold leading-[1.05] text-dipon-cream sm:left-8">
+              Contact us
+            </h3>
           </div>
 
           {/* Feedback form — edge-to-edge on mobile, floating card on desktop */}
