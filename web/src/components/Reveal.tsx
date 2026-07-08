@@ -1,19 +1,21 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode, type ElementType, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type ReactNode, type ElementType } from "react";
+import { cn } from "@/lib/styles";
 
 export default function Reveal({
   children,
   as: Tag = "div",
   className = "",
-  style,
+  delay = 0,
 }: {
   children: ReactNode;
   as?: ElementType;
   className?: string;
-  style?: CSSProperties;
+  delay?: number;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -25,15 +27,15 @@ export default function Reveal({
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduce || !("IntersectionObserver" in window)) {
-      el.classList.add("in");
-      return;
+      const raf = requestAnimationFrame(() => setVisible(true));
+      return () => cancelAnimationFrame(raf);
     }
 
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("in");
+            setVisible(true);
             io.unobserve(entry.target);
           }
         });
@@ -45,7 +47,15 @@ export default function Reveal({
   }, []);
 
   return (
-    <Tag ref={ref as never} className={`reveal ${className}`.trim()} style={style}>
+    <Tag
+      ref={ref as never}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+      className={cn(
+        "transition-[opacity,transform,filter] duration-[1100ms] ease-[var(--ease-premium)] motion-reduce:transition-none motion-reduce:blur-none",
+        visible ? "translate-y-0 scale-100 opacity-100 blur-none" : "translate-y-4 scale-[0.985] opacity-0 blur-[2px]",
+        className
+      )}
+    >
       {children}
     </Tag>
   );

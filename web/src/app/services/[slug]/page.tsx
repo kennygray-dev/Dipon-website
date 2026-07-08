@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CtaBand from "@/components/CtaBand";
+import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Heading from "@/components/Heading";
 import PageHero from "@/components/PageHero";
+import PhotoTile from "@/components/PhotoTile";
 import Reveal from "@/components/Reveal";
-import { ArrowIcon } from "@/components/icons";
 import { SERVICES, SUBSIDIARY_BLURBS, getService } from "@/lib/services";
 import { getSubsidiaryByName } from "@/lib/subsidiaries";
+import { root, section, wrap, split, splitNarrow, lead } from "@/lib/styles";
+
+const GRAIN_TEXTURE =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
 export function generateStaticParams() {
   return SERVICES.map((service) => ({ slug: service.slug }));
@@ -40,150 +46,153 @@ export default async function ServicePage({
   const subsidiary = getSubsidiaryByName(service.deliveredBy);
 
   return (
-    <div className="dipon-root">
-      <Header heroIsDark />
+    <div className={root}>
+      <Header />
       <main id="top">
-        <PageHero eyebrow={`Service ${service.num}`} title={service.titleLong} intro={service.intro} />
+        <PageHero
+          eyebrow="Services"
+          title={`${service.titleLong}, delivered end to end.`}
+          intro={service.intro}
+          image={service.heroImage}
+          imageAlt={`DIPON Group — ${service.title}`}
+        />
 
-        <section style={{ padding: "var(--section-y) var(--gutter)" }}>
-          <div className="wrap">
-            <div
-              className="split"
-              style={{ display: "grid", gridTemplateColumns: "0.42fr 0.58fr", gap: "clamp(40px,6vw,90px)", alignItems: "start" }}
-            >
+        <section className={section}>
+          <div className={wrap}>
+            <div className={split}>
               <Reveal>
-                <span className="eyebrow">What We Do</span>
-                <h2 className="h2" style={{ marginTop: 14 }}>
-                  {service.overviewHeading}
-                </h2>
+                <Eyebrow>What We Do</Eyebrow>
+                <Heading>{service.overviewHeading}</Heading>
               </Reveal>
-              <Reveal style={{ display: "flex", flexDirection: "column", gap: 22 }}>
+              <Reveal className="flex flex-col gap-[22px]">
                 {service.overview.map((para) => (
-                  <p className="lead" key={para.slice(0, 24)}>
+                  <p className={lead} key={para.slice(0, 24)}>
                     {para}
                   </p>
                 ))}
-                <div style={{ position: "relative", aspectRatio: "16/8", background: "#EDEBE6", border: "1px solid var(--color-border-default)" }}>
+                <div className="relative aspect-[16/8] overflow-hidden rounded-[20px]">
                   <img
-                    src={`https://loremflickr.com/1400/700/${service.imageQuery}?lock=${service.imageLock}`}
+                    src={service.heroImage}
                     alt={`DIPON Group ${service.title.toLowerCase()} work`}
-                    className="media-cover"
+                    className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
                   />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
                 </div>
               </Reveal>
             </div>
           </div>
         </section>
 
-        <section style={{ background: "var(--color-bg-surface)", borderTop: "1px solid var(--color-border-default)", borderBottom: "1px solid var(--color-border-default)", padding: "var(--section-y) var(--gutter)" }}>
-          <div className="wrap">
-            <Reveal style={{ maxWidth: 620 }}>
-              <span className="eyebrow">Capabilities</span>
-              <h2 className="h2" style={{ marginTop: 14 }}>
-                What&rsquo;s included.
-              </h2>
+        <section
+          className={`relative overflow-hidden bg-dipon-blue [clip-path:polygon(0_64px,100%_0,100%_calc(100%-64px),0_100%)] max-[760px]:[clip-path:none] ${section}`}
+        >
+          <div aria-hidden="true" className="absolute top-0 right-0 h-full w-[46%] opacity-50">
+            <svg width="100%" height="100%" viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice">
+              <path d="M360 0 L600 360 L600 0 Z" fill="#FD802E" opacity="0.05" />
+              <path d="M480 700 L600 470 L600 700 Z" fill="#FFFFFF" opacity="0.03" />
+            </svg>
+          </div>
+
+          {/* Faint line geometry spanning the whole section */}
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.07]">
+            <svg width="100%" height="100%" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none">
+              <path d="M-40 40 L340 40 L440 330 L60 330 Z" stroke="#FFF9EB" strokeWidth="1.5" />
+              <path d="M340 40 L520 200" stroke="#FFF9EB" strokeWidth="1.5" />
+              <path d="M60 330 L-100 470" stroke="#FFF9EB" strokeWidth="1.5" />
+              <path d="M1240 660 L1220 260" stroke="#FFF9EB" strokeWidth="1.5" />
+              <path d="M1240 660 L980 160" stroke="#FFF9EB" strokeWidth="1.5" />
+              <path d="M1240 660 L700 260" stroke="#FFF9EB" strokeWidth="1.5" />
+              <path d="M1220 260 L980 160" stroke="#FFF9EB" strokeWidth="1.5" />
+              <path d="M980 160 L700 260" stroke="#FFF9EB" strokeWidth="1.5" />
+              <circle cx="340" cy="40" r="3.5" fill="#FFF9EB" />
+              <circle cx="60" cy="330" r="3.5" fill="#FFF9EB" />
+              <circle cx="1220" cy="260" r="3.5" fill="#FFF9EB" />
+              <circle cx="980" cy="160" r="3.5" fill="#FFF9EB" />
+              <circle cx="700" cy="260" r="3.5" fill="#FFF9EB" />
+            </svg>
+          </div>
+
+          {/* Grain texture */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"
+            style={{ backgroundImage: GRAIN_TEXTURE }}
+          />
+
+          <div className={`${wrap} relative`}>
+            <Reveal className="mx-auto mb-[54px] max-w-[600px] text-center">
+              <Eyebrow light>Capabilities</Eyebrow>
+              <Heading light>What&rsquo;s included.</Heading>
             </Reveal>
-            <Reveal
-              className="ind-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(4,1fr)",
-                gap: 1,
-                background: "var(--color-border-default)",
-                border: "1px solid var(--color-border-default)",
-                marginTop: 44,
-              }}
-            >
+            <div className="grid grid-cols-1 gap-px border border-[rgba(255,249,235,0.12)] bg-[rgba(255,249,235,0.12)] sm:grid-cols-2 md:grid-cols-4">
               {service.capabilities.map((cap, i) => (
-                <div key={cap.title} style={{ background: "var(--color-bg-surface)", padding: "32px 28px 34px" }}>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-label)",
-                      fontWeight: 600,
-                      fontSize: 11,
-                      letterSpacing: "1.2px",
-                      textTransform: "uppercase",
-                      color: "var(--color-accent)",
-                    }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 700,
-                      fontSize: 18,
-                      letterSpacing: "-0.3px",
-                      color: "var(--color-text-primary)",
-                      margin: "14px 0 10px",
-                    }}
-                  >
-                    {cap.title}
-                  </h3>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.55, color: "var(--color-text-secondary)", margin: 0 }}>
-                    {cap.desc}
-                  </p>
-                </div>
+                <Reveal key={cap.title} delay={(i % 4) * 110}>
+                  <div className="relative flex h-full flex-col items-center gap-3 overflow-hidden bg-dipon-blue px-6 py-8 text-center transition-colors duration-300 hover:bg-dipon-blue-alt">
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"
+                      style={{ backgroundImage: GRAIN_TEXTURE }}
+                    />
+                    <span className="relative z-10 font-display text-2xl font-extrabold text-dipon-accent">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="relative z-10 font-display text-[15.5px] font-bold text-dipon-cream">{cap.title}</h3>
+                    <p className="relative z-10 m-0 max-w-[240px] font-body text-[13.5px] leading-[1.6] text-[rgba(255,249,235,0.88)]">
+                      {cap.desc}
+                    </p>
+                  </div>
+                </Reveal>
               ))}
-            </Reveal>
+            </div>
           </div>
         </section>
 
-        <section style={{ padding: "var(--section-y) var(--gutter)" }}>
-          <div className="wrap">
-            <div
-              className="split"
-              style={{ display: "grid", gridTemplateColumns: "0.42fr 0.58fr", gap: "clamp(40px,6vw,90px)", alignItems: "start" }}
-            >
+        <section className={section}>
+          <div className={wrap}>
+            <div className={`${splitNarrow} items-center`}>
               <Reveal>
-                <span className="eyebrow">Delivered By</span>
-                <h2 className="h2" style={{ marginTop: 14 }}>
-                  {service.deliveredBy}
-                </h2>
+                <Eyebrow>Delivered By</Eyebrow>
+                <Heading>{`${subsidiary ? subsidiary.short : service.deliveredBy}, the team behind this work.`}</Heading>
+                <p className={`${lead} mt-4`}>{SUBSIDIARY_BLURBS[service.deliveredBy]}</p>
               </Reveal>
-              <Reveal style={{ display: "flex", flexDirection: "column", gap: 24, alignItems: "flex-start" }}>
-                <p className="lead">{SUBSIDIARY_BLURBS[service.deliveredBy]}</p>
-                <a className="lk" href={subsidiary ? `/subsidiaries/${subsidiary.slug}` : "/subsidiaries"}>
-                  {subsidiary ? `Visit ${subsidiary.short}` : "Explore Our Companies"} <ArrowIcon width={24} height={10} />
-                </a>
+              <Reveal delay={150} className="aspect-[6/5] overflow-hidden rounded-[16px]">
+                <PhotoTile
+                  href={subsidiary ? `/subsidiaries/${subsidiary.slug}` : "/subsidiaries"}
+                  image={subsidiary?.heroImage ?? service.heroImage}
+                  imageAlt={service.deliveredBy}
+                  title={subsidiary ? subsidiary.short : service.deliveredBy}
+                  desc={SUBSIDIARY_BLURBS[service.deliveredBy]}
+                  className="h-full w-full"
+                />
               </Reveal>
             </div>
           </div>
         </section>
 
-        <section style={{ background: "var(--color-bg-surface)", borderTop: "1px solid var(--color-border-default)", padding: "var(--section-y) var(--gutter)" }}>
-          <div className="wrap">
-            <Reveal style={{ maxWidth: 620, marginBottom: 44 }}>
-              <span className="eyebrow">More Services</span>
-              <h2 className="h2" style={{ marginTop: 14 }}>
-                Explore what else we deliver.
-              </h2>
+        <section className={`border-t border-[rgba(35,61,76,0.14)] bg-dipon-surface px-[clamp(20px,5vw,60px)] py-[clamp(72px,9vw,120px)]`}>
+          <div className={wrap}>
+            <Reveal className="mb-11 max-w-[620px]">
+              <Eyebrow>More Services</Eyebrow>
+              <Heading>Explore what else we deliver, across the Group.</Heading>
             </Reveal>
-            <Reveal
-              className="ind-grid"
-              style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 1, background: "var(--color-border-default)", border: "1px solid var(--color-border-default)" }}
-            >
-              {others.map((other) => (
-                <a className="ind-tile" href={`/services/${other.slug}`} key={other.slug} style={{ background: "#fff" }}>
-                  <span style={{ fontFamily: "var(--font-label)", fontWeight: 600, fontSize: 12, letterSpacing: "1px", color: "var(--color-accent)" }}>
-                    {other.num}
-                  </span>
-                  <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 20, lineHeight: 1.15, letterSpacing: "-0.3px", color: "var(--color-text-primary)", margin: 0 }}>
-                    {other.title}
-                  </h3>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.55, color: "var(--color-text-secondary)", margin: 0 }}>
-                    {other.summary}
-                  </p>
-                  <span style={{ marginTop: "auto", color: "var(--color-text-tertiary)" }}>
-                    <ArrowIcon width={24} height={10} />
-                  </span>
-                </a>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+              {others.map((other, i) => (
+                <Reveal key={other.slug} delay={(i % 5) * 100} className="aspect-[3/4] overflow-hidden rounded-[14px]">
+                  <PhotoTile
+                    href={`/services/${other.slug}`}
+                    image={other.heroImage}
+                    imageAlt={`DIPON Group — ${other.title}`}
+                    title={other.title}
+                    desc={other.summary}
+                    className="h-full w-full"
+                  />
+                </Reveal>
               ))}
-            </Reveal>
+            </div>
           </div>
         </section>
 
-        <CtaBand />
+        <CtaBand className="-mt-16 max-[760px]:mt-0" />
       </main>
       <Footer />
     </div>

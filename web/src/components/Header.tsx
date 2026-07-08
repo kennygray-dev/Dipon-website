@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowIcon, BurgerIcon, CaretIcon, CloseIcon } from "./icons";
 
@@ -9,11 +10,8 @@ type MegaGroup = {
   key: string;
   label: string;
   href: string;
-  eyebrow: string;
-  heading: string;
-  railLinkLabel: string;
-  railHref: string;
-  columns: number;
+  railLinkLabel?: string;
+  railHref?: string;
   links: MegaLink[];
 };
 
@@ -22,11 +20,6 @@ const MEGA_GROUPS: MegaGroup[] = [
     key: "company",
     label: "Company",
     href: "/about",
-    eyebrow: "The Group",
-    heading: "A Nigerian-owned group, accountable across the full build lifecycle.",
-    railLinkLabel: "About DIPON Group",
-    railHref: "/about",
-    columns: 2,
     links: [
       { title: "About Us", href: "/about", desc: "Who we are, our mission, and how the Group is structured." },
       { title: "Careers", href: "/careers", desc: "Build Africa's future with us." },
@@ -36,11 +29,8 @@ const MEGA_GROUPS: MegaGroup[] = [
     key: "services",
     label: "Services",
     href: "/services",
-    eyebrow: "Industries We Serve",
-    heading: "Tell us what you need built, powered, supplied, or developed.",
     railLinkLabel: "All Services",
     railHref: "/services",
-    columns: 3,
     links: [
       { num: "01", title: "Construction & Civil Engineering", href: "/services/construction-civil-engineering", desc: "Civil works, buildings, roads, and structural fabrication." },
       { num: "02", title: "Renewable Energy & Power", href: "/services/renewable-energy-power", desc: "Solar systems, street lighting, and power infrastructure." },
@@ -54,11 +44,8 @@ const MEGA_GROUPS: MegaGroup[] = [
     key: "subsidiaries",
     label: "Subsidiaries",
     href: "/subsidiaries",
-    eyebrow: "Subsidiaries",
-    heading: "Three companies. One accountable group.",
     railLinkLabel: "Explore Our Companies",
     railHref: "/subsidiaries",
-    columns: 3,
     links: [
       { num: "Subsidiary 01", title: "DIPON Construction Limited", href: "/subsidiaries/dipon-construction", desc: "Civil engineering, building construction, and general contracting — the Group's core build capability." },
       { num: "Subsidiary 02", title: "DIPON Global Resources Limited", href: "/subsidiaries/dipon-global-resources", desc: "Trading, supply chain, real estate, agriculture, and logistics — the commercial engine." },
@@ -100,57 +87,136 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
     setOpenGroup(null);
   };
 
+  const isSolid = solid || drawerOpen;
+  const navTextClass = isSolid
+    ? "text-dipon-primary opacity-[0.85] hover:opacity-100 hover:text-dipon-accent-deep [text-shadow:none]"
+    : "text-dipon-cream opacity-100 hover:text-white [text-shadow:0_1px_6px_rgba(0,0,0,0.55)]";
+  const navTextHasHover =
+    "[header:has(.nav-item:hover)_&]:text-dipon-primary [header:has(.nav-item:hover)_&]:opacity-[0.82] [header:has(.nav-item:hover)_&]:[text-shadow:none] [header:has(.nav-item:focus-within)_&]:text-dipon-primary [header:has(.nav-item:focus-within)_&]:opacity-[0.82] [header:has(.nav-item:focus-within)_&]:[text-shadow:none]";
+
   return (
     <>
-      <header id="dipon-header" className={solid || drawerOpen ? "is-solid" : ""}>
-        <a href="/" aria-label="DIPON Group — home" style={{ display: "flex", alignItems: "center" }}>
-          <Image className="logo logo-light" src="/assets/dipon-logo-light.svg" alt="DIPON Group" width={493} height={142} priority />
-          <Image className="logo logo-dark" src="/assets/dipon-logo-dark.svg" alt="DIPON Group" width={493} height={142} priority />
-        </a>
-        <nav className="h-nav" aria-label="Primary">
+      <header
+        className={`fixed inset-x-0 top-0 z-[60] flex h-16 items-center border-b px-gutter transition-[background-color,border-color] duration-[420ms] ease-[var(--ease-premium)] ${
+          isSolid ? "border-[rgba(35,61,76,0.08)] bg-white" : "border-transparent bg-transparent"
+        } has-[.nav-item:hover]:border-[rgba(35,61,76,0.08)] has-[.nav-item:hover]:bg-white has-[.nav-item:focus-within]:border-[rgba(35,61,76,0.08)] has-[.nav-item:focus-within]:bg-white`}
+      >
+        <Link href="/" aria-label="DIPON Group — home" className="flex shrink-0 items-center">
+          <Image
+            className={`h-6 w-auto ${isSolid ? "hidden" : "block"} [header:has(.nav-item:hover)_&]:hidden [header:has(.nav-item:focus-within)_&]:hidden`}
+            src="/assets/dipon-logo-light.svg"
+            alt="DIPON Group"
+            width={493}
+            height={142}
+            priority
+          />
+          <Image
+            className={`h-6 w-auto ${isSolid ? "block" : "hidden"} [header:has(.nav-item:hover)_&]:block [header:has(.nav-item:focus-within)_&]:block`}
+            src="/assets/dipon-logo-dark.svg"
+            alt="DIPON Group"
+            width={493}
+            height={142}
+            priority
+          />
+        </Link>
+        <nav className="flex flex-1 items-center justify-center gap-9 max-[1080px]:hidden" aria-label="Primary">
           {MEGA_GROUPS.map((group) => (
-            <div className="h-item" key={group.key}>
-              <a className="h-top" href={group.href} aria-haspopup="true">
-                {group.label} <span className="caret"><CaretIcon /></span>
-              </a>
-              <div className="mega" role="menu" aria-label={group.label}>
-                <div className="mega-grid">
-                  <div className="mega-rail">
-                    <span className="eyebrow">{group.eyebrow}</span>
-                    <h4>{group.heading}</h4>
-                    <a className="lk" href={group.railHref}>
-                      {group.railLinkLabel} <ArrowIcon />
-                    </a>
-                  </div>
-                  <div className="mega-list" style={{ gridTemplateColumns: `repeat(${group.columns},1fr)` }}>
-                    {group.links.map((link) => (
-                      <a className="mega-link" href={link.href} key={link.title}>
-                        {link.num && <span className="ml-num">{link.num}</span>}
-                        <span className="ml-title">{link.title}</span>
-                        <span className="ml-desc">{link.desc}</span>
+            <div className="nav-item group flex items-center" key={group.key}>
+              <button
+                type="button"
+                className={`inline-flex cursor-pointer items-center gap-1.5 border-0 bg-none py-3.5 font-body text-sm no-underline transition-[color,opacity] duration-200 ${navTextClass} ${navTextHasHover} group-hover:!text-dipon-accent-deep group-hover:!opacity-100 group-focus-within:!text-dipon-accent-deep group-focus-within:!opacity-100`}
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {group.label}
+                <CaretIcon className="transition-transform duration-300 ease-[var(--ease-premium)] group-hover:rotate-180 group-focus-within:rotate-180" />
+              </button>
+              <div
+                role="menu"
+                aria-label={group.label}
+                className="pointer-events-none absolute inset-x-0 top-full border-t border-[rgba(35,61,76,0.14)] bg-white px-gutter pt-10 pb-11 opacity-0 invisible -translate-y-3 scale-[0.99] shadow-[0_28px_48px_-16px_rgba(35,61,76,0.16)] [transition:opacity_420ms_var(--ease-premium),transform_420ms_var(--ease-premium),visibility_0s_linear_420ms] group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:!opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:!opacity-100 max-[1080px]:hidden before:absolute before:inset-x-0 before:bottom-full before:h-7 before:content-['']"
+              >
+                <div className="mx-auto max-w-[1320px]">
+                  <div className="flex flex-wrap justify-center gap-x-12 gap-y-1">
+                    {group.links.map((link, i) => (
+                      <a
+                        className="group/link flex w-[300px] items-center gap-4 border-b border-[rgba(35,61,76,0.1)] py-[15px] no-underline transition-[padding-left] duration-200 last:border-b-0 hover:pl-1"
+                        href={link.href}
+                        key={link.title}
+                      >
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-dipon-surface font-label text-[11px] font-bold text-dipon-accent-deep transition-colors duration-200 group-hover/link:bg-dipon-accent group-hover/link:text-white">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block font-display text-[14.5px] font-semibold tracking-[-0.1px] text-dipon-primary">
+                            {link.title}
+                          </span>
+                          <span className="block truncate font-body text-[12px] leading-[1.4] text-dipon-secondary">
+                            {link.desc}
+                          </span>
+                        </span>
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[rgba(35,61,76,0.14)] text-dipon-primary opacity-0 transition-[opacity,transform] duration-200 group-hover/link:translate-x-0.5 group-hover/link:opacity-100">
+                          <ArrowIcon width={11} height={5} />
+                        </span>
                       </a>
                     ))}
                   </div>
+                  {group.railLinkLabel && group.railHref && (
+                    <div className="mt-6 flex justify-center border-t border-[rgba(35,61,76,0.1)] pt-6">
+                      <a
+                        className="group/rail inline-flex w-fit items-center gap-2.5 rounded-full border border-[rgba(35,61,76,0.16)] px-5 py-2.5 font-body text-sm text-dipon-primary no-underline transition-colors duration-200 hover:border-dipon-primary hover:bg-dipon-primary hover:text-white [&_.arrow]:transition-transform [&_.arrow]:duration-200 group-hover/rail:[&_.arrow]:translate-x-1"
+                        href={group.railHref}
+                      >
+                        {group.railLinkLabel} <ArrowIcon width={16} height={7} />
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           ))}
+          <Link
+            href="/blog"
+            className={`nav-item inline-flex cursor-pointer items-center border-0 bg-none py-3.5 font-body text-sm no-underline transition-[color,opacity] duration-200 ${navTextClass} ${navTextHasHover}`}
+          >
+            Insights
+          </Link>
         </nav>
-        <div className="h-right">
-          <a className="btn" href="/contact" style={{ padding: "13px 20px", fontSize: 12 }}>
-            Start a Project
+        <div className="flex shrink-0 items-center">
+          <a
+            className="inline-flex items-center gap-2 rounded-full border border-transparent bg-dipon-accent px-5 py-2.5 font-body text-sm text-white no-underline transition-colors duration-200 max-[1080px]:hidden hover:bg-dipon-accent-deep [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
+            href="/contact"
+          >
+            Discuss Your Next Project <ArrowIcon width={16} height={7} />
           </a>
-          <button className="h-burger" aria-label="Open menu" aria-expanded={drawerOpen} onClick={() => setDrawerOpen(true)}>
+          <button
+            className={`hidden cursor-pointer border-0 bg-none p-1.5 max-[1080px]:inline-flex ${isSolid ? "text-dipon-primary" : "text-dipon-cream"}`}
+            aria-label="Open menu"
+            aria-expanded={drawerOpen}
+            onClick={() => setDrawerOpen(true)}
+          >
             <BurgerIcon />
           </button>
         </div>
       </header>
 
-      <div className={`mobile-drawer-overlay ${drawerOpen ? "is-open" : ""}`} onClick={closeDrawer} aria-hidden={!drawerOpen} />
-      <nav className={`mobile-drawer ${drawerOpen ? "is-open" : ""}`} aria-label="Mobile" aria-hidden={!drawerOpen}>
-        <div className="mobile-drawer-head">
-          <Image src="/assets/dipon-logo-dark.svg" alt="DIPON Group" width={493} height={142} style={{ height: 26, width: "auto" }} />
-          <button className="mobile-drawer-close" aria-label="Close menu" onClick={closeDrawer}>
+      <div
+        className={`fixed inset-0 z-[70] bg-[rgba(20,28,33,0.5)] transition-opacity duration-[280ms] ease-[var(--ease-standard)] ${
+          drawerOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        onClick={closeDrawer}
+        aria-hidden={!drawerOpen}
+      />
+      <nav
+        className={`fixed top-0 right-0 bottom-0 z-[75] flex w-[min(360px,86vw)] flex-col overflow-y-auto bg-white transition-transform duration-[320ms] ease-[var(--ease-standard)] ${
+          drawerOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+        aria-label="Mobile"
+        aria-hidden={!drawerOpen}
+      >
+        <div className="flex items-center justify-between border-b border-[rgba(35,61,76,0.14)] px-5 py-4">
+          <Image src="/assets/dipon-logo-dark.svg" alt="DIPON Group" width={493} height={142} className="h-[26px] w-auto" />
+          <button className="cursor-pointer border-0 bg-none p-1.5 text-dipon-primary" aria-label="Close menu" onClick={closeDrawer}>
             <CloseIcon />
           </button>
         </div>
@@ -158,19 +224,26 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
           {MEGA_GROUPS.map((group) => {
             const isOpen = openGroup === group.key;
             return (
-              <div className="mobile-nav-group" key={group.key}>
+              <div className="border-b border-[rgba(35,61,76,0.14)]" key={group.key}>
                 <button
-                  className="mobile-nav-toggle"
+                  className="flex w-full cursor-pointer items-center justify-between border-0 bg-none px-5 py-[18px] font-body text-[15px] font-medium text-dipon-primary"
                   aria-expanded={isOpen}
                   onClick={() => setOpenGroup(isOpen ? null : group.key)}
                 >
                   {group.label}
-                  <span className="caret"><CaretIcon /></span>
+                  <span className={`transition-transform duration-[220ms] ease-[var(--ease-standard)] ${isOpen ? "rotate-180" : ""}`}>
+                    <CaretIcon />
+                  </span>
                 </button>
-                <div className={`mobile-nav-panel ${isOpen ? "is-open" : ""}`}>
-                  <div>
+                <div className={`grid transition-[grid-template-rows] duration-[260ms] ease-[var(--ease-standard)] ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                  <div className="overflow-hidden">
                     {group.links.map((link) => (
-                      <a className="mobile-nav-link" href={link.href} key={link.title} onClick={closeDrawer}>
+                      <a
+                        className="block px-5 py-3 pl-8 font-body text-sm text-dipon-secondary no-underline hover:text-dipon-accent-deep"
+                        href={link.href}
+                        key={link.title}
+                        onClick={closeDrawer}
+                      >
                         {link.title}
                       </a>
                     ))}
@@ -179,10 +252,21 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
               </div>
             );
           })}
+          <Link
+            href="/blog"
+            className="block border-b border-[rgba(35,61,76,0.14)] px-5 py-[18px] font-body text-[15px] font-medium text-dipon-primary no-underline"
+            onClick={closeDrawer}
+          >
+            Insights
+          </Link>
         </div>
-        <div className="mobile-drawer-foot">
-          <a className="btn" href="/contact" onClick={closeDrawer} style={{ justifyContent: "center" }}>
-            Start a Project
+        <div className="mt-auto border-t border-[rgba(35,61,76,0.14)] p-5">
+          <a
+            className="inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-transparent bg-dipon-accent px-[26px] py-4 font-body text-sm text-white no-underline transition-colors duration-200 hover:bg-dipon-accent-deep [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
+            href="/contact"
+            onClick={closeDrawer}
+          >
+            Discuss Your Next Project <ArrowIcon width={16} height={7} />
           </a>
         </div>
       </nav>

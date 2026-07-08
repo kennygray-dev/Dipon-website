@@ -3,9 +3,10 @@ import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
+import PhotoTile from "@/components/PhotoTile";
 import Reveal from "@/components/Reveal";
-import { ArrowIcon } from "@/components/icons";
 import { SERVICES } from "@/lib/services";
+import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "Services — DIPON Group",
@@ -15,38 +16,33 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="dipon-root">
-      <Header heroIsDark />
+    <div className={root}>
+      <Header />
       <main id="top">
         <PageHero
           eyebrow="Services"
           title="Tell us what you need built, powered, supplied, or developed."
           intro="Six capabilities across construction, energy, property, and supply — sometimes delivered by one company, sometimes by several working on the same site."
+          image="https://images.pexels.com/photos/8487763/pexels-photo-8487763.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          imageAlt="DIPON Group construction worker on site"
         />
 
-        <section style={{ padding: "var(--section-y) var(--gutter)" }}>
-          <div className="wrap">
-            <Reveal
-              className="ind-grid"
-              style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 1, background: "var(--color-border-default)", border: "1px solid var(--color-border-default)" }}
-            >
-              {SERVICES.map((service) => (
-                <a className="ind-tile" href={`/services/${service.slug}`} key={service.slug} style={{ background: "#fff" }}>
-                  <span style={{ fontFamily: "var(--font-label)", fontWeight: 600, fontSize: 12, letterSpacing: "1px", color: "var(--color-accent)" }}>
-                    {service.num}
-                  </span>
-                  <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 21, lineHeight: 1.15, letterSpacing: "-0.3px", color: "var(--color-text-primary)", margin: 0 }}>
-                    {service.title}
-                  </h3>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.55, color: "var(--color-text-secondary)", margin: 0 }}>
-                    {service.summary}
-                  </p>
-                  <span style={{ marginTop: "auto", color: "var(--color-text-tertiary)" }}>
-                    <ArrowIcon width={24} height={10} />
-                  </span>
-                </a>
+        <section className={section}>
+          <div className={wrap}>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
+              {SERVICES.map((service, i) => (
+                <Reveal key={service.slug} delay={(i % 3) * 110} className="aspect-[4/5] overflow-hidden rounded-[16px]">
+                  <PhotoTile
+                    href={`/services/${service.slug}`}
+                    image={service.heroImage}
+                    imageAlt={`DIPON Group — ${service.title}`}
+                    title={service.title}
+                    desc={service.summary}
+                    className="h-full w-full"
+                  />
+                </Reveal>
               ))}
-            </Reveal>
+            </div>
           </div>
         </section>
 

@@ -1,0 +1,38 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#233D4C"/>
+      <stop offset="1" stop-color="#152229"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="650" cy="90" r="70" fill="#FD802E" opacity="0.9"/>
+  <circle cx="650" cy="90" r="110" fill="none" stroke="#FD802E" stroke-width="1.5" opacity="0.25"/>
+  <g transform="translate(120,320)">
+    <g fill="#1C313D" stroke="#FD802E" stroke-width="4">
+      <polygon points="0,90 260,40 260,140 0,190"/>
+    </g>
+    <g stroke="#FFF9EB" stroke-width="2" opacity="0.8">
+      <line x1="0" y1="90" x2="260" y2="40"/>
+      <line x1="0" y1="140" x2="260" y2="90"/>
+      <line x1="65" y1="78" x2="65" y2="178"/>
+      <line x1="130" y1="65" x2="130" y2="165"/>
+      <line x1="195" y1="53" x2="195" y2="153"/>
+    </g>
+    <line x1="130" y1="115" x2="130" y2="230" stroke="#FD802E" stroke-width="6"/>
+  </g>
+  <g transform="translate(430,360)">
+    <g fill="#1C313D" stroke="#FD802E" stroke-width="4">
+      <polygon points="0,70 220,30 220,110 0,150"/>
+    </g>
+    <g stroke="#FFF9EB" stroke-width="2" opacity="0.8">
+      <line x1="0" y1="70" x2="220" y2="30"/>
+      <line x1="0" y1="110" x2="220" y2="70"/>
+      <line x1="55" y1="60" x2="55" y2="140"/>
+      <line x1="110" y1="50" x2="110" y2="130"/>
+      <line x1="165" y1="40" x2="165" y2="120"/>
+    </g>
+    <line x1="110" y1="90" x2="110" y2="190" stroke="#FD802E" stroke-width="6"/>
+  </g>
+  <text x="60" y="540" font-family="Arial, sans-serif" font-size="13" letter-spacing="3" fill="#FFF9EB" opacity="0.45">DIPON GROUP — RENEWABLE ENERGY</text>
+</svg>

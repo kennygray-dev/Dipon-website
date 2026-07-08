@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { Archivo, Zalando_Sans } from "next/font/google";
+import { Zalando_Sans } from "next/font/google";
 import "./globals.css";
 
-const archivo = Archivo({
-  variable: "--font-archivo",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800", "900"],
-});
-
 const zalandoSans = Zalando_Sans({
-  variable: "--font-zalando-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-zalando-sans",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -26,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${archivo.variable} ${zalandoSans.variable}`}>
+    <html lang="en" className={zalandoSans.variable}>
       <body>{children}</body>
     </html>
   );

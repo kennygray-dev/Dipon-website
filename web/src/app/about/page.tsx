@@ -1,16 +1,34 @@
 import type { Metadata } from "next";
 import CtaBand from "@/components/CtaBand";
+import DarkFeatureGrid from "@/components/DarkFeatureGrid";
+import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Heading from "@/components/Heading";
 import Leadership from "@/components/Leadership";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import StatBand from "@/components/StatBand";
+import { root, section, wrap, lead } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "About Us — DIPON Group",
   description:
     "DIPON Group is a Nigerian-owned conglomerate delivering construction, renewable energy, real estate, and supply chain solutions through three specialized companies.",
+};
+
+const OVERVIEW_IMAGES = {
+  vertical: {
+    src: "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "DIPON Group construction and integration project",
+  },
+  horizontalTop: {
+    src: "https://images.pexels.com/photos/18153132/pexels-photo-18153132.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "DIPON Group real estate and property development",
+  },
+  horizontalBottom: {
+    src: "https://images.pexels.com/photos/33786603/pexels-photo-33786603.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "DIPON Group renewable energy and power infrastructure",
+  },
 };
 
 type Value = { title: string; desc: string };
@@ -36,105 +54,68 @@ const VALUES: Value[] = [
 
 export default function AboutPage() {
   return (
-    <div className="dipon-root">
-      <Header heroIsDark />
+    <div className={root}>
+      <Header />
       <main id="top">
         <PageHero
           eyebrow="About DIPON Group"
           title="One accountable group, across the full build lifecycle."
           intro="We integrate construction, power infrastructure, real estate, and supply chain capability under one Nigerian-owned group — so the risk that usually lives between contractors lives with us instead."
+          image="https://images.pexels.com/photos/30688593/pexels-photo-30688593.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          imageAlt="DIPON Group leadership meeting"
         />
 
-        <section id="overview" style={{ padding: "var(--section-y) var(--gutter)" }}>
-          <div className="wrap">
-            <div
-              className="split"
-              style={{ display: "grid", gridTemplateColumns: "0.42fr 0.58fr", gap: "clamp(40px,6vw,90px)", alignItems: "start" }}
-            >
-              <Reveal>
-                <span className="eyebrow">Who We Are</span>
-                <h2 className="h2" style={{ marginTop: 14 }}>
-                  A Nigerian-owned group built to remove risk at the handoff.
-                </h2>
-              </Reveal>
-              <Reveal style={{ display: "flex", flexDirection: "column", gap: 22 }}>
-                <p className="lead">
+        <section id="overview" className={section}>
+          <div className={wrap}>
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.6fr_0.85fr] lg:gap-16">
+              <Reveal className="flex flex-col gap-[22px]">
+                <div>
+                  <Eyebrow>Who We Are</Eyebrow>
+                  <Heading>A Nigerian-owned group built to remove risk at the handoff.</Heading>
+                </div>
+                <p className={lead}>
                   DIPON Group is a Nigerian-owned conglomerate delivering construction, renewable energy, real estate,
                   and supply chain solutions through three specialized companies. Each subsidiary is built for depth in
                   its field, while the Group keeps them accountable to a single standard.
                 </p>
-                <p className="lead">
+                <p className={lead}>
                   Where most projects fail at the handoff between contractors, we remove that risk by keeping every
                   stage — design, build, power, and occupancy — accountable to one group. That is what lets us take on
                   work end to end and stand behind the result.
                 </p>
-                <div style={{ position: "relative", aspectRatio: "16/8", background: "#EDEBE6", border: "1px solid var(--color-border-default)" }}>
-                  <img
-                    src="https://loremflickr.com/1400/700/construction?lock=32"
-                    alt="DIPON Group construction and integration project"
-                    className="media-cover"
-                  />
-                </div>
               </Reveal>
+
+              <div className="grid aspect-[6/5] grid-cols-2 grid-rows-2 gap-4 sm:gap-5">
+                <Reveal className="relative row-span-2 overflow-hidden rounded-[20px]">
+                  <img
+                    src={OVERVIEW_IMAGES.vertical.src}
+                    alt={OVERVIEW_IMAGES.vertical.alt}
+                    className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
+                </Reveal>
+                <Reveal delay={150} className="relative overflow-hidden rounded-[20px]">
+                  <img
+                    src={OVERVIEW_IMAGES.horizontalTop.src}
+                    alt={OVERVIEW_IMAGES.horizontalTop.alt}
+                    className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
+                </Reveal>
+                <Reveal delay={300} className="relative overflow-hidden rounded-[20px]">
+                  <img
+                    src={OVERVIEW_IMAGES.horizontalBottom.src}
+                    alt={OVERVIEW_IMAGES.horizontalBottom.alt}
+                    className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
+                </Reveal>
+              </div>
             </div>
           </div>
         </section>
 
-        <StatBand />
-
-        <section style={{ padding: "var(--section-y) var(--gutter)" }}>
-          <div className="wrap">
-            <Reveal style={{ maxWidth: 620 }}>
-              <span className="eyebrow">What Guides Us</span>
-              <h2 className="h2" style={{ marginTop: 14 }}>
-                The standards behind every project.
-              </h2>
-            </Reveal>
-            <Reveal
-              className="ind-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(4,1fr)",
-                gap: 1,
-                background: "var(--color-border-default)",
-                border: "1px solid var(--color-border-default)",
-                marginTop: 44,
-              }}
-            >
-              {VALUES.map((value, i) => (
-                <div key={value.title} style={{ background: "#fff", padding: "32px 28px 34px" }}>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-label)",
-                      fontWeight: 600,
-                      fontSize: 11,
-                      letterSpacing: "1.2px",
-                      textTransform: "uppercase",
-                      color: "var(--color-accent)",
-                    }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 700,
-                      fontSize: 19,
-                      letterSpacing: "-0.3px",
-                      color: "var(--color-text-primary)",
-                      margin: "14px 0 10px",
-                    }}
-                  >
-                    {value.title}
-                  </h3>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.55, color: "var(--color-text-secondary)", margin: 0 }}>
-                    {value.desc}
-                  </p>
-                </div>
-              ))}
-            </Reveal>
-          </div>
-        </section>
+        <DarkFeatureGrid eyebrow="What Guides Us" heading="The standards behind every project." items={VALUES} columns={4} />
 
         <Leadership />
         <CtaBand />

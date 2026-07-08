@@ -1,0 +1,27 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#233D4C"/>
+      <stop offset="1" stop-color="#152229"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <path d="M0 440 L800 470 L800 600 L0 600 Z" fill="#1C313D"/>
+  <g stroke="#FD802E" stroke-width="4" fill="none" opacity="0.85">
+    <path d="M120 440 C120 380 150 340 150 300 C150 340 180 380 180 440"/>
+    <path d="M230 440 C230 360 270 310 270 260 C270 310 310 360 310 440"/>
+    <path d="M360 440 C360 380 390 340 390 300 C390 340 420 380 420 440"/>
+  </g>
+  <g fill="#FD802E" opacity="0.9">
+    <circle cx="150" cy="290" r="10"/>
+    <circle cx="270" cy="250" r="12"/>
+    <circle cx="390" cy="290" r="10"/>
+  </g>
+  <g stroke="#FFF9EB" stroke-width="3" opacity="0.5">
+    <line x1="480" y1="440" x2="480" y2="330"/>
+    <line x1="540" y1="440" x2="540" y2="300"/>
+    <line x1="600" y1="440" x2="600" y2="330"/>
+    <line x1="660" y1="440" x2="660" y2="310"/>
+  </g>
+  <text x="60" y="540" font-family="Arial, sans-serif" font-size="13" letter-spacing="3" fill="#FFF9EB" opacity="0.45">DIPON GROUP — AGRICULTURE</text>
+</svg>

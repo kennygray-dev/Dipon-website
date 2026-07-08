@@ -14,6 +14,7 @@ export type Subsidiary = {
   serviceSlugs: string[];
   imageQuery: string;
   imageLock: number;
+  heroImage: string;
 };
 
 export const SUBSIDIARIES: Subsidiary[] = [
@@ -25,7 +26,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     summary: "Civil engineering, building construction, and general contracting — the Group's core build capability.",
     intro:
       "The Group's core build capability — taking on civil works, buildings, and contracting as a single accountable team.",
-    overviewHeading: "The build capability at the center of the Group.",
+    overviewHeading: "The build capability, at the center of the Group.",
     overview: [
       "DIPON Construction Limited delivers civil engineering, building construction, and general contracting. It's the company that turns designs into structures — roads, buildings, and the civil works beneath them.",
       "Because it sits inside a group that also supplies materials and delivers power, projects move forward without the handoffs between unrelated firms that usually cause delay.",
@@ -39,6 +40,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     serviceSlugs: ["construction-civil-engineering"],
     imageQuery: "construction",
     imageLock: 32,
+    heroImage: "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "dipon-global-resources",
@@ -48,7 +50,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     summary: "Trading, supply chain, real estate, agriculture, and logistics — the commercial engine behind every project.",
     intro:
       "The commercial engine of the Group — trading, supply, property, agriculture, and logistics working behind every project.",
-    overviewHeading: "The commercial engine behind the build.",
+    overviewHeading: "The commercial engine, behind every build.",
     overview: [
       "DIPON Global Resources Limited runs the Group's commercial operations: import and export, materials supply, real estate, agriculture, and logistics. It keeps sites stocked, moves what needs moving, and develops property through to occupancy.",
       "Sitting close to the Group's own construction demand, it plans supply and logistics against real project needs — not guesswork.",
@@ -62,6 +64,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     serviceSlugs: ["trading-supply-chain", "real-estate-property", "transportation-logistics", "agriculture"],
     imageQuery: "warehouse",
     imageLock: 71,
+    heroImage: "https://images.pexels.com/photos/31445085/pexels-photo-31445085.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "dipon-infrastructure",
@@ -85,6 +88,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     serviceSlugs: ["renewable-energy-power", "real-estate-property"],
     imageQuery: "solar",
     imageLock: 51,
+    heroImage: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
 ];
 

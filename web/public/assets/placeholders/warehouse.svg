@@ -1,0 +1,26 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#233D4C"/>
+      <stop offset="1" stop-color="#152229"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="0" y="420" width="800" height="180" fill="#1C313D"/>
+  <g>
+    <polygon points="150,300 400,220 650,300 650,460 150,460" fill="#1C313D" stroke="#FD802E" stroke-width="4"/>
+    <polygon points="150,300 400,220 650,300 400,340" fill="none" stroke="#FD802E" stroke-width="4"/>
+    <rect x="200" y="360" width="90" height="100" fill="#FD802E" opacity="0.85"/>
+    <rect x="330" y="380" width="60" height="80" fill="#FFF9EB" opacity="0.75"/>
+    <rect x="430" y="380" width="60" height="80" fill="#FFF9EB" opacity="0.75"/>
+    <rect x="530" y="360" width="90" height="100" fill="#FD802E" opacity="0.6"/>
+  </g>
+  <g stroke="#FD802E" stroke-width="5" fill="none" stroke-linecap="round">
+    <line x1="80" y1="460" x2="80" y2="500"/>
+    <circle cx="110" cy="500" r="20"/>
+    <circle cx="200" cy="500" r="20"/>
+    <line x1="80" y1="470" x2="230" y2="470"/>
+    <rect x="230" y="440" width="20" height="30"/>
+  </g>
+  <text x="60" y="540" font-family="Arial, sans-serif" font-size="13" letter-spacing="3" fill="#FFF9EB" opacity="0.45">DIPON GROUP — LOGISTICS &amp; SUPPLY</text>
+</svg>

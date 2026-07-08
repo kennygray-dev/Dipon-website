@@ -3,9 +3,10 @@ import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
+import PhotoTile from "@/components/PhotoTile";
 import Reveal from "@/components/Reveal";
-import { ArrowIcon } from "@/components/icons";
 import { SUBSIDIARIES } from "@/lib/subsidiaries";
+import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "Subsidiaries — DIPON Group",
@@ -15,61 +16,33 @@ export const metadata: Metadata = {
 
 export default function SubsidiariesPage() {
   return (
-    <div className="dipon-root">
-      <Header heroIsDark />
+    <div className={root}>
+      <Header />
       <main id="top">
         <PageHero
           eyebrow="Subsidiaries"
           title="Three companies. One accountable group."
           intro="Each subsidiary is built for depth in its field — construction, commercial operations, and infrastructure — while the Group keeps them accountable to a single standard."
+          image="https://images.pexels.com/photos/13116381/pexels-photo-13116381.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          imageAlt="DIPON Group partnership"
         />
 
-        <section style={{ padding: "var(--section-y) var(--gutter)" }}>
-          <div className="wrap">
-            <Reveal className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }}>
-              {SUBSIDIARIES.map((subsidiary) => (
-                <div className="sub-card" key={subsidiary.slug}>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-label)",
-                      fontWeight: 600,
-                      fontSize: 11,
-                      letterSpacing: "1.4px",
-                      textTransform: "uppercase",
-                      color: "var(--color-accent)",
-                    }}
-                  >
-                    Subsidiary {subsidiary.num}
-                  </span>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 700,
-                      fontSize: 23,
-                      lineHeight: 1.12,
-                      letterSpacing: "-0.3px",
-                      color: "var(--color-text-primary)",
-                      margin: "12px 0 14px",
-                    }}
-                  >
-                    {subsidiary.name}
-                  </h3>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: 15, lineHeight: 1.6, color: "var(--color-text-secondary)", margin: "0 0 22px" }}>
-                    {subsidiary.summary}
-                  </p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 26 }}>
-                    {subsidiary.focus.map((focus) => (
-                      <span className="tag" key={focus.title}>
-                        {focus.title}
-                      </span>
-                    ))}
-                  </div>
-                  <a className="lk" href={`/subsidiaries/${subsidiary.slug}`} style={{ marginTop: "auto" }}>
-                    Visit {subsidiary.short} <ArrowIcon />
-                  </a>
-                </div>
+        <section className={section}>
+          <div className={wrap}>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
+              {SUBSIDIARIES.map((subsidiary, i) => (
+                <Reveal key={subsidiary.slug} delay={i * 130} className="aspect-[6/5] overflow-hidden rounded-[16px]">
+                  <PhotoTile
+                    href={`/subsidiaries/${subsidiary.slug}`}
+                    image={subsidiary.heroImage}
+                    imageAlt={`DIPON Group — ${subsidiary.name}`}
+                    title={subsidiary.short}
+                    desc={subsidiary.summary}
+                    className="h-full w-full"
+                  />
+                </Reveal>
               ))}
-            </Reveal>
+            </div>
           </div>
         </section>
 

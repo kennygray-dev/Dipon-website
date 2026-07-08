@@ -13,6 +13,7 @@ export type Service = {
   deliveredBy: string;
   imageQuery: string;
   imageLock: number;
+  heroImage: string;
 };
 
 /** Shared one-line description of each subsidiary, keyed by name. */
@@ -48,6 +49,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Construction Limited",
     imageQuery: "construction",
     imageLock: 32,
+    heroImage: "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "renewable-energy-power",
@@ -71,6 +73,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Infrastructure Limited",
     imageQuery: "solar",
     imageLock: 51,
+    heroImage: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "real-estate-property",
@@ -94,6 +97,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "apartment",
     imageLock: 20,
+    heroImage: "https://images.pexels.com/photos/18153132/pexels-photo-18153132.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "trading-supply-chain",
@@ -117,6 +121,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "warehouse",
     imageLock: 71,
+    heroImage: "https://images.pexels.com/photos/31445085/pexels-photo-31445085.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "transportation-logistics",
@@ -140,6 +145,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "truck",
     imageLock: 63,
+    heroImage: "https://images.pexels.com/photos/36228061/pexels-photo-36228061.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "agriculture",
@@ -163,6 +169,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "farm",
     imageLock: 84,
+    heroImage: "https://images.pexels.com/photos/33786603/pexels-photo-33786603.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
 ];
 

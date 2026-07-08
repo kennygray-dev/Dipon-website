@@ -1,0 +1,14 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#233D4C"/>
+      <stop offset="1" stop-color="#152229"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <circle cx="400" cy="380" r="140" fill="#2B4A5B"/>
+  <circle cx="400" cy="340" r="90" fill="#FD802E" opacity="0.85"/>
+  <path d="M230 780 C230 610 300 520 400 520 C500 520 570 610 570 780 L570 1000 L230 1000 Z" fill="#FD802E" opacity="0.85"/>
+  <path d="M230 780 C230 610 300 520 400 520 C500 520 570 610 570 780" fill="none" stroke="#FFF9EB" stroke-width="3" opacity="0.25"/>
+  <text x="60" y="940" font-family="Arial, sans-serif" font-size="13" letter-spacing="3" fill="#FFF9EB" opacity="0.45">DIPON GROUP — LEADERSHIP</text>
+</svg>

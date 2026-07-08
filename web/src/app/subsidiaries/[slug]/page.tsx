@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CtaBand from "@/components/CtaBand";
+import DarkFeatureGrid from "@/components/DarkFeatureGrid";
+import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Heading from "@/components/Heading";
 import PageHero from "@/components/PageHero";
+import PhotoTile from "@/components/PhotoTile";
 import Reveal from "@/components/Reveal";
-import { ArrowIcon } from "@/components/icons";
 import { SERVICES } from "@/lib/services";
 import { SUBSIDIARIES, getSubsidiary } from "@/lib/subsidiaries";
+import { root, section, wrap, split, lead } from "@/lib/styles";
 
 export function generateStaticParams() {
   return SUBSIDIARIES.map((subsidiary) => ({ slug: subsidiary.slug }));
@@ -42,160 +46,97 @@ export default async function SubsidiaryPage({
   const others = SUBSIDIARIES.filter((s) => s.slug !== subsidiary.slug);
 
   return (
-    <div className="dipon-root">
-      <Header heroIsDark />
+    <div className={root}>
+      <Header />
       <main id="top">
-        <PageHero eyebrow={`Subsidiary ${subsidiary.num}`} title={subsidiary.name} intro={subsidiary.intro} />
+        <PageHero
+          eyebrow="Subsidiaries"
+          title={`${subsidiary.name}, part of the DIPON Group.`}
+          intro={subsidiary.intro}
+          image={subsidiary.heroImage}
+          imageAlt={subsidiary.name}
+        />
 
-        <section style={{ padding: "var(--section-y) var(--gutter)" }}>
-          <div className="wrap">
-            <div
-              className="split"
-              style={{ display: "grid", gridTemplateColumns: "0.42fr 0.58fr", gap: "clamp(40px,6vw,90px)", alignItems: "start" }}
-            >
+        <section className={section}>
+          <div className={wrap}>
+            <div className={split}>
               <Reveal>
-                <span className="eyebrow">Who They Are</span>
-                <h2 className="h2" style={{ marginTop: 14 }}>
-                  {subsidiary.overviewHeading}
-                </h2>
+                <Eyebrow>Who They Are</Eyebrow>
+                <Heading>{subsidiary.overviewHeading}</Heading>
               </Reveal>
-              <Reveal style={{ display: "flex", flexDirection: "column", gap: 22 }}>
+              <Reveal className="flex flex-col gap-[22px]">
                 {subsidiary.overview.map((para) => (
-                  <p className="lead" key={para.slice(0, 24)}>
+                  <p className={lead} key={para.slice(0, 24)}>
                     {para}
                   </p>
                 ))}
-                <div style={{ position: "relative", aspectRatio: "16/8", background: "#EDEBE6", border: "1px solid var(--color-border-default)" }}>
+                <div className="relative aspect-[16/8] overflow-hidden rounded-[20px]">
                   <img
-                    src={`https://loremflickr.com/1400/700/${subsidiary.imageQuery}?lock=${subsidiary.imageLock}`}
+                    src={subsidiary.heroImage}
                     alt={`${subsidiary.name} work`}
-                    className="media-cover"
+                    className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
                   />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
                 </div>
               </Reveal>
             </div>
           </div>
         </section>
 
-        <section style={{ background: "var(--color-bg-surface)", borderTop: "1px solid var(--color-border-default)", borderBottom: "1px solid var(--color-border-default)", padding: "var(--section-y) var(--gutter)" }}>
-          <div className="wrap">
-            <Reveal style={{ maxWidth: 620 }}>
-              <span className="eyebrow">Focus Areas</span>
-              <h2 className="h2" style={{ marginTop: 14 }}>
-                What they do.
-              </h2>
+        <DarkFeatureGrid
+          eyebrow="Focus Areas"
+          heading="What they do, every day."
+          items={subsidiary.focus}
+          columns={4}
+        />
+
+        <section className={section}>
+          <div className={wrap}>
+            <Reveal className="mb-11 max-w-[620px]">
+              <Eyebrow>Services Delivered</Eyebrow>
+              <Heading>{`${subsidiary.short} delivers, end to end.`}</Heading>
             </Reveal>
-            <Reveal
-              className="ind-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(4,1fr)",
-                gap: 1,
-                background: "var(--color-border-default)",
-                border: "1px solid var(--color-border-default)",
-                marginTop: 44,
-              }}
-            >
-              {subsidiary.focus.map((focus, i) => (
-                <div key={focus.title} style={{ background: "var(--color-bg-surface)", padding: "32px 28px 34px" }}>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-label)",
-                      fontWeight: 600,
-                      fontSize: 11,
-                      letterSpacing: "1.2px",
-                      textTransform: "uppercase",
-                      color: "var(--color-accent)",
-                    }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 700,
-                      fontSize: 18,
-                      letterSpacing: "-0.3px",
-                      color: "var(--color-text-primary)",
-                      margin: "14px 0 10px",
-                    }}
-                  >
-                    {focus.title}
-                  </h3>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.55, color: "var(--color-text-secondary)", margin: 0 }}>
-                    {focus.desc}
-                  </p>
-                </div>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
+              {services.map((service, i) => (
+                <Reveal key={service.slug} delay={(i % 3) * 110} className="aspect-[4/5] overflow-hidden rounded-[16px]">
+                  <PhotoTile
+                    href={`/services/${service.slug}`}
+                    image={service.heroImage}
+                    imageAlt={`DIPON Group — ${service.title}`}
+                    title={service.title}
+                    desc={service.summary}
+                    className="h-full w-full"
+                  />
+                </Reveal>
               ))}
-            </Reveal>
+            </div>
           </div>
         </section>
 
-        <section style={{ padding: "var(--section-y) var(--gutter)" }}>
-          <div className="wrap">
-            <Reveal style={{ maxWidth: 620, marginBottom: 44 }}>
-              <span className="eyebrow">Services Delivered</span>
-              <h2 className="h2" style={{ marginTop: 14 }}>
-                What {subsidiary.short} delivers.
-              </h2>
+        <section className="border-t border-[rgba(35,61,76,0.14)] bg-dipon-surface px-[clamp(20px,5vw,60px)] py-[clamp(72px,9vw,120px)]">
+          <div className={wrap}>
+            <Reveal className="mb-11 max-w-[620px]">
+              <Eyebrow>The Group</Eyebrow>
+              <Heading>The other companies, in the Group.</Heading>
             </Reveal>
-            <Reveal
-              className="ind-grid"
-              style={{ display: "grid", gridTemplateColumns: `repeat(${Math.min(services.length, 3)},1fr)`, gap: 1, background: "var(--color-border-default)", border: "1px solid var(--color-border-default)" }}
-            >
-              {services.map((service) => (
-                <a className="ind-tile" href={`/services/${service.slug}`} key={service.slug} style={{ background: "#fff" }}>
-                  <span style={{ fontFamily: "var(--font-label)", fontWeight: 600, fontSize: 12, letterSpacing: "1px", color: "var(--color-accent)" }}>
-                    {service.num}
-                  </span>
-                  <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 20, lineHeight: 1.15, letterSpacing: "-0.3px", color: "var(--color-text-primary)", margin: 0 }}>
-                    {service.title}
-                  </h3>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.55, color: "var(--color-text-secondary)", margin: 0 }}>
-                    {service.summary}
-                  </p>
-                  <span style={{ marginTop: "auto", color: "var(--color-text-tertiary)" }}>
-                    <ArrowIcon width={24} height={10} />
-                  </span>
-                </a>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
+              {others.map((other, i) => (
+                <Reveal key={other.slug} delay={i * 130} className="aspect-[4/5] overflow-hidden rounded-[16px]">
+                  <PhotoTile
+                    href={`/subsidiaries/${other.slug}`}
+                    image={other.heroImage}
+                    imageAlt={`DIPON Group — ${other.name}`}
+                    title={other.short}
+                    desc={other.summary}
+                    className="h-full w-full"
+                  />
+                </Reveal>
               ))}
-            </Reveal>
+            </div>
           </div>
         </section>
 
-        <section style={{ background: "var(--color-bg-surface)", borderTop: "1px solid var(--color-border-default)", padding: "var(--section-y) var(--gutter)" }}>
-          <div className="wrap">
-            <Reveal style={{ maxWidth: 620, marginBottom: 44 }}>
-              <span className="eyebrow">The Group</span>
-              <h2 className="h2" style={{ marginTop: 14 }}>
-                The other companies.
-              </h2>
-            </Reveal>
-            <Reveal
-              className="ind-grid"
-              style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 1, background: "var(--color-border-default)", border: "1px solid var(--color-border-default)" }}
-            >
-              {others.map((other) => (
-                <a className="ind-tile" href={`/subsidiaries/${other.slug}`} key={other.slug} style={{ background: "#fff" }}>
-                  <span style={{ fontFamily: "var(--font-label)", fontWeight: 600, fontSize: 11, letterSpacing: "1.2px", textTransform: "uppercase", color: "var(--color-accent)" }}>
-                    Subsidiary {other.num}
-                  </span>
-                  <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 20, lineHeight: 1.15, letterSpacing: "-0.3px", color: "var(--color-text-primary)", margin: 0 }}>
-                    {other.name}
-                  </h3>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.55, color: "var(--color-text-secondary)", margin: 0 }}>
-                    {other.summary}
-                  </p>
-                  <span style={{ marginTop: "auto", color: "var(--color-text-tertiary)" }}>
-                    <ArrowIcon width={24} height={10} />
-                  </span>
-                </a>
-              ))}
-            </Reveal>
-          </div>
-        </section>
-
-        <CtaBand />
+        <CtaBand className="-mt-16 max-[760px]:mt-0" />
       </main>
       <Footer />
     </div>

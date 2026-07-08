@@ -1,32 +1,85 @@
+import Eyebrow from "./Eyebrow";
+import Heading from "./Heading";
 import Reveal from "./Reveal";
+import { wrap, leadLight } from "@/lib/styles";
 
 export default function PageHero({
-  eyebrow,
+  eyebrow: eyebrowText,
   title,
   intro,
+  image,
+  imageAlt,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
+  image?: string;
+  imageAlt?: string;
 }) {
   return (
-    <section
-      className="on-dark"
-      style={{
-        background: "var(--color-bg-inverse)",
-        padding: "clamp(150px,17vw,210px) var(--gutter) clamp(64px,8vw,104px)",
-      }}
-    >
-      <div className="wrap">
-        <Reveal style={{ maxWidth: 900 }}>
-          <span className="eyebrow">{eyebrow}</span>
-          <h1 className="h2" style={{ fontSize: "clamp(34px,5vw,60px)", margin: "16px 0 0" }}>
-            {title}
-          </h1>
-          <p className="lead" style={{ marginTop: 22, maxWidth: 680 }}>
-            {intro}
-          </p>
+    <section className="relative overflow-hidden bg-dipon-blue">
+      {/* Faint geometric mesh, matching the homepage's brand pattern */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.09]">
+        <svg width="100%" height="100%" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" fill="none">
+          <path d="M1440 -40 L1100 260 L1100 640" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M1440 -40 L1300 340" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M1100 260 L860 60" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M1100 640 L820 500" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M1300 340 L1100 640" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M-40 700 L260 480 L560 620" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M260 480 L220 220" stroke="#FFF9EB" strokeWidth="1.5" />
+          <circle cx="1100" cy="260" r="3.5" fill="#FFF9EB" />
+          <circle cx="1300" cy="340" r="3.5" fill="#FFF9EB" />
+          <circle cx="1100" cy="640" r="3.5" fill="#FFF9EB" />
+          <circle cx="860" cy="60" r="3.5" fill="#FFF9EB" />
+          <circle cx="820" cy="500" r="3.5" fill="#FFF9EB" />
+          <circle cx="260" cy="480" r="3.5" fill="#FFF9EB" />
+          <circle cx="220" cy="220" r="3.5" fill="#FFF9EB" />
+        </svg>
+      </div>
+
+      {/* Grain texture across the blue background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
+      />
+
+      {/* Full-bleed image on the right, diagonal cut on its left edge */}
+      {image && (
+        <Reveal
+          delay={120}
+          className="pointer-events-none absolute top-0 right-0 bottom-10 hidden w-[48%] lg:block [clip-path:polygon(90px_0,100%_0,100%_100%,0_100%)]"
+        >
+          <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/40 via-transparent to-transparent"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"
+            style={{
+              backgroundImage:
+                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+            }}
+          />
         </Reveal>
+      )}
+
+      <div className="relative px-gutter pt-[clamp(150px,17vw,210px)] pb-[clamp(64px,8vw,104px)]">
+        <div className={wrap}>
+          <Reveal className={`max-w-[900px] ${image ? "lg:max-w-[560px]" : ""}`}>
+            <Eyebrow light>{eyebrowText}</Eyebrow>
+            <Heading as="h1" light size="text-[clamp(34px,5vw,60px)]">
+              {title}
+            </Heading>
+            <p className={`${leadLight} mt-[22px] max-w-[680px]`}>{intro}</p>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

@@ -6,23 +6,22 @@ import Industries from "@/components/Industries";
 import Leadership from "@/components/Leadership";
 import Overview from "@/components/Overview";
 import Projects from "@/components/Projects";
-import StatBand from "@/components/StatBand";
 import Subsidiaries from "@/components/Subsidiaries";
 import Sustainability from "@/components/Sustainability";
 import WhyChoose from "@/components/WhyChoose";
+import { root } from "@/lib/styles";
 
 export default function Home() {
   return (
-    <div className="dipon-root">
-      <Header heroIsDark />
+    <div className={root}>
+      <Header />
       <main id="top">
         <Hero />
-        <StatBand />
         <Overview />
+        <WhyChoose />
         <Subsidiaries />
         <Industries />
         <Projects />
-        <WhyChoose />
         <Sustainability />
         <Leadership />
         <CtaBand />

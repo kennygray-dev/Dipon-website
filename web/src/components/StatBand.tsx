@@ -1,36 +1,55 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { wrap } from "@/lib/styles";
 
-type Stat = { id: string; value: string; label: string };
+type Stat = {
+  id: string;
+  value: string;
+  label: string;
+};
 
 const STATS: Stat[] = [
   { id: "stat-years", value: "3+", label: "Years in Operation" },
   { id: "stat-sectors", value: "6", label: "Sectors Served" },
+  { id: "stat-projects", value: "120+", label: "Projects Delivered" },
+  { id: "stat-clients", value: "45+", label: "Satisfied Clients" },
+];
+
+const CARD_STYLES = [
+  { bg: "bg-dipon-blue", text: "text-white" },
+  { bg: "bg-[#2b4a5b]", text: "text-white" },
+  { bg: "bg-dipon-accent", text: "text-white" },
+  { bg: "bg-[#172a34]", text: "text-dipon-cream" },
 ];
 
 function animateStat(el: HTMLElement) {
   const finalText = el.dataset.final || el.textContent || "";
-  const m = finalText.match(/(\d[\d,]*)/);
+  const match = finalText.match(/(\d[\d,]*)/);
+
   const reduce =
     typeof window !== "undefined" &&
-    window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!m || reduce) {
+
+  if (!match || reduce) {
     el.textContent = finalText;
     return;
   }
-  const prefix = finalText.slice(0, m.index);
-  const suffix = finalText.slice((m.index ?? 0) + m[0].length);
-  const target = parseInt(m[1].replace(/,/g, ""), 10);
-  const dur = 1100;
+
+  const prefix = finalText.slice(0, match.index);
+  const suffix = finalText.slice((match.index ?? 0) + match[0].length);
+  const target = parseInt(match[1].replace(/,/g, ""), 10);
+
   const start = performance.now();
+  const duration = 1100;
+
   const tick = (now: number) => {
-    const p = Math.min(1, (now - start) / dur);
-    const eased = 1 - Math.pow(1 - p, 3);
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
     el.textContent = prefix + Math.round(target * eased).toLocaleString() + suffix;
-    if (p < 1) requestAnimationFrame(tick);
+    if (progress < 1) requestAnimationFrame(tick);
   };
+
   requestAnimationFrame(tick);
 }
 
@@ -38,85 +57,47 @@ export default function StatBand() {
   const bandRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const band = bandRef.current;
-    if (!band || !("IntersectionObserver" in window)) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            STATS.forEach(({ id }) => {
-              const el = document.getElementById(id);
-              if (el) animateStat(el);
-            });
-            io.disconnect();
-          }
+    if (!bandRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        STATS.forEach((stat) => {
+          const el = document.getElementById(stat.id);
+          if (el) animateStat(el);
         });
+        observer.disconnect();
       },
       { threshold: 0.35 }
     );
-    io.observe(band);
-    return () => io.disconnect();
+
+    observer.observe(bandRef.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section
-      id="stat-band"
-      style={{
-        background: "var(--color-bg-surface)",
-        borderTop: "1px solid var(--color-border-default)",
-        borderBottom: "1px solid var(--color-border-default)",
-        padding: "clamp(54px,6vw,76px) var(--gutter)",
-      }}
-    >
-      <div className="wrap reveal in" ref={bandRef}>
-        <div
-          className="grid-3"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4,1fr)",
-            gap: "1px",
-            background: "var(--color-border-default)",
-            border: "1px solid var(--color-border-default)",
-            width: "100%",
-          }}
-        >
-          {STATS.map((stat) => (
-            <div key={stat.id} style={{ background: "var(--color-bg-surface)", padding: "30px 26px" }}>
+    <section className="px-[clamp(20px,5vw,60px)] py-[clamp(72px,9vw,120px)]">
+      <div ref={bandRef} className={wrap}>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-[22px]">
+          {STATS.map((stat, index) => (
+            <div
+              key={stat.id}
+              className={`flex min-h-[320px] flex-col justify-between p-[42px_34px] transition-transform duration-300 ease-out hover:-translate-y-2 [clip-path:polygon(0_0,100%_0,100%_100%,14%_100%,0_86%)] ${CARD_STYLES[index].bg} ${CARD_STYLES[index].text}`}
+            >
               <div
                 id={stat.id}
                 data-final={stat.value}
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 800,
-                  fontSize: "clamp(40px,5vw,60px)",
-                  lineHeight: 1,
-                  color: "var(--color-text-primary)",
-                  letterSpacing: "-1.5px",
-                  width: "100%",
-                }}
+                className="font-display text-[clamp(72px,8vw,110px)] font-extrabold leading-[0.85] tracking-[-5px]"
               >
                 {stat.value}
               </div>
-              <div
-                style={{
-                  fontFamily: "var(--font-label)",
-                  fontWeight: 600,
-                  fontSize: 12,
-                  letterSpacing: 1,
-                  textTransform: "uppercase",
-                  color: "var(--color-text-secondary)",
-                  marginTop: 14,
-                  width: "100%",
-                }}
-              >
-                {stat.label}
+              <div className="flex items-start gap-3.5">
+                <span className="font-label text-xs tracking-[1.8px] opacity-80">0{index + 1}</span>
+                <p className="m-0 max-w-[170px] font-body text-[17px] leading-[1.35]">{stat.label}</p>
               </div>
             </div>
           ))}
         </div>
-        <p style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "var(--color-text-tertiary)", margin: "18px 0 0" }}>
-          Verified figures to be confirmed before launch.
-        </p>
       </div>
     </section>
   );
