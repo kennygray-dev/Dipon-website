@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Eyebrow from "./Eyebrow";
-import GeometricOverlay from "./GeometricOverlay";
 import Reveal from "./Reveal";
 import { ArrowIcon, SignatureMark } from "./icons";
 import { section, wrap } from "@/lib/styles";
@@ -61,7 +60,6 @@ export default function Leadership() {
               alt="DIPON Group leadership portrait"
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <GeometricOverlay />
           </Reveal>
         </div>
       </div>
