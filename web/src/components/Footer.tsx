@@ -8,7 +8,7 @@ import { FacebookIcon, InstagramIcon, LinkedInIcon, XIcon } from "./icons";
 const footerLink =
   "font-body text-sm text-dipon-cream no-underline opacity-[0.82] hover:opacity-100";
 const footerHead =
-  "mb-4 font-label text-[11px] font-semibold uppercase tracking-[1.2px] text-[rgba(255,249,235,0.74)]";
+  "mb-4 font-label text-[11px] font-semibold uppercase tracking-[1.2px] text-[rgba(255,249,235,0.85)]";
 const footerList = "m-0 flex list-none flex-col gap-[11px] p-0";
 
 const SOCIALS = [
@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 items-start gap-10 border-b border-[rgba(255,249,235,0.16)] pb-12 md:grid-cols-[1.6fr_1fr_1.2fr_1fr_1.1fr]">
           <div>
             <Image src="/assets/dipon-logo-light.svg" alt="DIPON Group" width={493} height={142} className="block h-[34px] w-auto" />
-            <p className="mt-5 max-w-[280px] font-body text-sm leading-[1.65] text-[rgba(255,249,235,0.74)]">
+            <p className="mt-5 max-w-[280px] font-body text-sm leading-[1.65] text-[rgba(255,249,235,0.85)]">
               Building Sustainable Infrastructure and Business Solutions for Africa&rsquo;s Future.
             </p>
             <div className="mt-5 flex items-center gap-3">
@@ -82,7 +82,7 @@ export default function Footer() {
           </nav>
           <nav aria-label="Offices">
             <div className={footerHead}>Offices</div>
-            <p className="m-0 font-body text-sm leading-[1.65] text-[rgba(255,249,235,0.74)]">
+            <p className="m-0 font-body text-sm leading-[1.65] text-[rgba(255,249,235,0.85)]">
               [Head Office]
               <br />
               [City/Region], Nigeria
@@ -92,7 +92,7 @@ export default function Footer() {
           </nav>
         </div>
         <div className="mt-7 flex flex-wrap items-center justify-between gap-3.5">
-          <span className="font-label text-xs tracking-[0.6px] text-[rgba(255,249,235,0.74)]">
+          <span className="font-label text-xs tracking-[0.6px] text-[rgba(255,249,235,0.85)]">
             © {new Date().getFullYear()} DIPON Group. All rights reserved.
           </span>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -100,7 +100,7 @@ export default function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="font-label text-xs tracking-[0.6px] text-[rgba(255,249,235,0.74)] no-underline hover:text-dipon-cream"
+                className="font-label text-xs tracking-[0.6px] text-[rgba(255,249,235,0.85)] no-underline hover:text-dipon-cream"
               >
                 {link.label}
               </a>

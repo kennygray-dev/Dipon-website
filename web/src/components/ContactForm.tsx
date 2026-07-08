@@ -57,7 +57,7 @@ export default function ContactForm() {
               href={MAP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute top-6 left-6 z-10 inline-flex items-center gap-2 font-body text-[13px] text-dipon-cream/80 no-underline transition-colors duration-200 hover:text-white sm:left-8"
+              className="absolute top-6 left-6 z-10 inline-flex items-center gap-2 font-body text-[13px] text-dipon-cream/90 no-underline transition-colors duration-200 hover:text-white sm:left-8"
             >
               View on Google Maps <ArrowIcon width={14} height={6} />
             </a>
@@ -69,7 +69,7 @@ export default function ContactForm() {
           {/* Address / contacts / socials */}
           <div className="grid grid-cols-1 gap-8 border-t border-white/10 px-6 py-9 sm:grid-cols-[1fr_1fr_auto] sm:items-start sm:px-8">
             <div>
-              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/45 uppercase">
+              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
                 Our Address
               </span>
               <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
@@ -79,7 +79,7 @@ export default function ContactForm() {
               </p>
             </div>
             <div>
-              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/45 uppercase">
+              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
                 Our Contacts
               </span>
               <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
@@ -105,7 +105,7 @@ export default function ContactForm() {
                   </a>
                 ))}
               </div>
-              <span className="font-label text-[11px] tracking-[0.6px] text-dipon-cream/45 uppercase">— Follow Us</span>
+              <span className="font-label text-[11px] tracking-[0.6px] text-dipon-cream/70 uppercase">— Follow Us</span>
             </div>
           </div>
 

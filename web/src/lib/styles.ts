@@ -17,7 +17,7 @@ export const h2Light =
 export const lead =
   "text-pretty font-body text-[clamp(16px,1.4vw,19px)] leading-[1.6] text-[#41566a]";
 export const leadLight =
-  "text-pretty font-body text-[clamp(16px,1.4vw,19px)] leading-[1.6] text-[rgba(255,249,235,0.74)]";
+  "text-pretty font-body text-[clamp(16px,1.4vw,19px)] leading-[1.6] text-[rgba(255,249,235,0.85)]";
 
 export const button =
   "inline-flex items-center gap-3 border-0 bg-[#fd802e] px-[26px] py-[17px] font-label text-[13px] font-semibold uppercase tracking-[1.3px] text-white no-underline transition-colors duration-200 hover:bg-[#e86a18] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#fd802e] [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1";

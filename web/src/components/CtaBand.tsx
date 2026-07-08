@@ -39,7 +39,7 @@ export default function CtaBand({ className = "" }: { className?: string }) {
           <h2 className="max-w-[620px] text-balance font-body text-[clamp(28px,4vw,50px)] font-extrabold leading-[1.12] tracking-[-1px] text-white">
             Let&rsquo;s talk about your <span className="text-dipon-accent">next project.</span>
           </h2>
-          <p className="mt-4 max-w-[440px] text-pretty font-body text-[15px] leading-[1.65] text-white/80">
+          <p className="mt-4 max-w-[440px] text-pretty font-body text-[15px] leading-[1.65] text-white/88">
             Tell us what you need built, supplied, powered, or developed — we&rsquo;ll get the right people at the
             Group back to you.
           </p>

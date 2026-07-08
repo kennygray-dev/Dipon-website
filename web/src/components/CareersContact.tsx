@@ -67,7 +67,7 @@ export default function CareersContact() {
           {/* Contacts / socials */}
           <div className="grid grid-cols-1 gap-8 border-t border-white/10 px-6 py-9 sm:grid-cols-[1fr_1fr_auto] sm:items-start sm:px-8">
             <div>
-              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/45 uppercase">
+              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
                 Prefer To Talk?
               </span>
               <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
@@ -81,7 +81,7 @@ export default function CareersContact() {
               </p>
             </div>
             <div>
-              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/45 uppercase">
+              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
                 Head Office
               </span>
               <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
@@ -103,7 +103,7 @@ export default function CareersContact() {
                   </a>
                 ))}
               </div>
-              <span className="font-label text-[11px] tracking-[0.6px] text-dipon-cream/45 uppercase">— Follow Us</span>
+              <span className="font-label text-[11px] tracking-[0.6px] text-dipon-cream/70 uppercase">— Follow Us</span>
             </div>
           </div>
 

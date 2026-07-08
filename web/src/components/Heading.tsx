@@ -33,7 +33,7 @@ export default function Heading({
       {rest && (
         <>
           <br />
-          <span className={light ? "text-dipon-cream/60" : "text-dipon-secondary"}>{rest}</span>
+          <span className={light ? "text-dipon-cream/78" : "text-dipon-secondary"}>{rest}</span>
         </>
       )}
     </Tag>

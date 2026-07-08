@@ -82,7 +82,7 @@ export default function DarkFeatureGrid({
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="relative z-10 font-display text-[15.5px] font-bold text-dipon-cream">{item.title}</h3>
-                <p className="relative z-10 m-0 max-w-[240px] font-body text-[13.5px] leading-[1.6] text-[rgba(255,249,235,0.88)]">
+                <p className="relative z-10 m-0 max-w-[240px] font-body text-[13.5px] leading-[1.6] text-[rgba(255,249,235,0.94)]">
                   {item.desc}
                 </p>
               </div>

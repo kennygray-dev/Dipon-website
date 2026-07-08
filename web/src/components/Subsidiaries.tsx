@@ -61,16 +61,16 @@ export default function Subsidiaries() {
                   alt={`DIPON Group — ${sub.name}`}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] group-hover:scale-105"
                 />
-                <div className="absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b from-[#233d4c] via-[#233d4c]/45 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] group-hover:opacity-0" />
-                <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] group-hover:opacity-0" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/35 opacity-0 transition-opacity duration-400 ease-[var(--ease-premium)] group-hover:opacity-100" />
+                <div className="absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b from-[#233d4c] via-[#233d4c]/45 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />
+                <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/35 opacity-100 transition-opacity duration-400 ease-[var(--ease-premium)] lg:opacity-0 lg:group-hover:opacity-100" />
 
                 <span className="relative z-10 m-3.5 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-white/95 p-[6px] shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
                   <LogoMark className="h-full w-full" />
                 </span>
 
                 <div className="relative z-10 mt-auto flex flex-col gap-2 p-4">
-                  <span className="font-label text-[10px] font-semibold tracking-[1px] text-white/70 uppercase">
+                  <span className="font-label text-[10px] font-semibold tracking-[1px] text-white/85 uppercase">
                     {sub.badge}
                   </span>
                   <div>
@@ -79,7 +79,7 @@ export default function Subsidiaries() {
                     </h3>
                     <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-400 ease-[var(--ease-premium)] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr]">
                       <div className="overflow-hidden">
-                        <p className="mt-1.5 font-body text-[12.5px] leading-[1.4] text-white/80">{sub.desc}</p>
+                        <p className="mt-1.5 font-body text-[12.5px] leading-[1.4] text-white/90">{sub.desc}</p>
                         <span className="relative z-20 mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-white/35 px-3.5 py-1.5 font-label text-[10px] font-semibold text-white transition-colors duration-200 group-hover:border-dipon-accent group-hover:bg-dipon-accent sm:text-[11px]">
                           Read More <ArrowIcon width={12} height={5} />
                         </span>
@@ -87,7 +87,7 @@ export default function Subsidiaries() {
                     </div>
                   </div>
                   <div className="flex items-center justify-end border-t border-white/25 pt-2.5">
-                    <span className="font-label text-[10px] font-medium tracking-[0.8px] text-white/70 uppercase">
+                    <span className="font-label text-[10px] font-medium tracking-[0.8px] text-white/85 uppercase">
                       DIPON Group
                     </span>
                   </div>

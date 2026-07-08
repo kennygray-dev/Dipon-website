@@ -102,7 +102,7 @@ export default function WhyChoose() {
                     <Icon size={30} />
                   </span>
                   <h3 className="relative z-10 font-display text-[15.5px] font-bold text-dipon-cream">{reason.title}</h3>
-                  <p className="relative z-10 m-0 max-w-[240px] font-body text-[13.5px] leading-[1.6] text-[rgba(255,249,235,0.88)]">
+                  <p className="relative z-10 m-0 max-w-[240px] font-body text-[13.5px] leading-[1.6] text-[rgba(255,249,235,0.94)]">
                     {reason.desc}
                   </p>
                 </div>

@@ -78,10 +78,10 @@ export default function Industries() {
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] group-hover:scale-105"
                   />
                   <div
-                    className={`absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b ${TINTS[ind.tint as "navy" | "orange"]} to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] group-hover:opacity-0`}
+                    className={`absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b ${TINTS[ind.tint as "navy" | "orange"]} to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0`}
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/55 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] group-hover:opacity-0" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/35 opacity-0 transition-opacity duration-400 ease-[var(--ease-premium)] group-hover:opacity-100" />
+                  <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/55 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/35 opacity-100 transition-opacity duration-400 ease-[var(--ease-premium)] lg:opacity-0 lg:group-hover:opacity-100" />
 
                   <span className="relative z-10 m-3 ml-auto flex h-7 w-7 items-center justify-center rounded-full bg-white/95 p-[6px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] sm:m-3.5 sm:h-8 sm:w-8">
                     <LogoMark className="h-full w-full" />
@@ -93,14 +93,14 @@ export default function Industries() {
                     </h3>
                     <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-400 ease-[var(--ease-premium)] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr]">
                       <div className="overflow-hidden">
-                        <p className="mt-1 hidden font-body text-[12px] leading-[1.4] text-white/80 sm:block">{desc}</p>
+                        <p className="mt-1 hidden font-body text-[12px] leading-[1.4] text-white/90 sm:block">{desc}</p>
                         <span className="relative z-20 mt-2.5 inline-flex w-fit items-center gap-2 rounded-full border border-white/35 px-3.5 py-1.5 font-label text-[10px] font-semibold text-white transition-colors duration-200 group-hover:border-dipon-accent group-hover:bg-dipon-accent sm:text-[11px]">
                           Read More <ArrowIcon width={12} height={5} />
                         </span>
                       </div>
                     </div>
                     <div className="flex items-center justify-end border-t border-white/25 pt-2 sm:pt-2.5">
-                      <span className="font-label text-[9px] font-medium tracking-[0.8px] text-white/70 uppercase sm:text-[10px] sm:tracking-[1px]">
+                      <span className="font-label text-[9px] font-medium tracking-[0.8px] text-white/85 uppercase sm:text-[10px] sm:tracking-[1px]">
                         DIPON Group
                       </span>
                     </div>

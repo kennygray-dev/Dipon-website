@@ -52,7 +52,7 @@ export default function Sustainability() {
                     <div className="font-display text-[26px] font-extrabold tracking-[-1px] text-dipon-cream">
                       {stat.value}
                     </div>
-                    <div className="mt-1.5 font-body text-[12px] leading-[1.3] text-[rgba(255,249,235,0.6)]">
+                    <div className="mt-1.5 font-body text-[12px] leading-[1.3] text-[rgba(255,249,235,0.8)]">
                       {stat.label}
                     </div>
                   </div>
