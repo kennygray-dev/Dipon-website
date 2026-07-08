@@ -127,7 +127,7 @@ export default async function ServicePage({
             <div className="grid grid-cols-1 gap-px border border-[rgba(255,249,235,0.12)] bg-[rgba(255,249,235,0.12)] sm:grid-cols-2 md:grid-cols-4">
               {service.capabilities.map((cap, i) => (
                 <Reveal key={cap.title} delay={(i % 4) * 110}>
-                  <div className="relative flex h-full flex-col items-center gap-3 overflow-hidden bg-dipon-blue px-6 py-8 text-center transition-colors duration-300 hover:bg-dipon-blue-alt">
+                  <div className="relative flex h-full flex-col items-center gap-3 overflow-hidden bg-dipon-blue-alt px-6 py-8 text-center transition-colors duration-300 hover:bg-dipon-blue">
                     <div
                       aria-hidden="true"
                       className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"

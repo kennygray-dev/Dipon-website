@@ -14,6 +14,27 @@ export default function Leadership() {
         <Reveal className="mb-6 md:mb-8">
           <Eyebrow>From the Leadership</Eyebrow>
         </Reveal>
+        <Reveal delay={30} className="mb-8 flex items-center gap-4 border-b border-[rgba(35,61,76,0.1)] pb-8 sm:gap-5 md:mb-10">
+          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full sm:h-[72px] sm:w-[72px]">
+            <img
+              src={LEADERSHIP_IMAGE}
+              alt="[Executive Name], founder of DIPON Group"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+          <div>
+            <div className="font-display text-[16px] font-bold text-dipon-primary sm:text-[18px]">
+              [Executive Name]
+            </div>
+            <div className="mb-1.5 font-label text-[11px] font-semibold tracking-[0.6px] text-dipon-accent uppercase">
+              Founder &amp; Group Chairman
+            </div>
+            <p className="max-w-[480px] font-body text-[13px] leading-[1.55] text-dipon-secondary sm:text-[14px]">
+              [A short introduction about the founder&rsquo;s background and vision for building DIPON Group — to be
+              supplied.]
+            </p>
+          </div>
+        </Reveal>
         <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-[0.62fr_0.38fr] md:gap-0">
           <Reveal delay={80}>
             <span aria-hidden="true" className="block font-display text-[64px] leading-none font-black text-dipon-accent/25">

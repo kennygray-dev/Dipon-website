@@ -72,7 +72,7 @@ export default function DarkFeatureGrid({
         >
           {items.map((item, i) => (
             <Reveal key={item.title} delay={(i % columns) * 110}>
-              <div className="relative flex h-full flex-col items-center gap-3 overflow-hidden bg-dipon-blue px-6 py-8 text-center transition-colors duration-300 hover:bg-dipon-blue-alt">
+              <div className="relative flex h-full flex-col items-center gap-3 overflow-hidden bg-dipon-blue-alt px-6 py-8 text-center transition-colors duration-300 hover:bg-dipon-blue">
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"
