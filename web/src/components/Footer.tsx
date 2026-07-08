@@ -8,7 +8,7 @@ import { FacebookIcon, InstagramIcon, LinkedInIcon, XIcon } from "./icons";
 const footerLink =
   "font-body text-sm text-dipon-cream no-underline opacity-[0.82] hover:opacity-100";
 const footerHead =
-  "mb-4 font-label text-[11px] font-semibold uppercase tracking-[1.2px] text-[rgba(255,249,235,0.85)]";
+  "mb-4 font-label text-[11px] font-semibold uppercase tracking-[1.2px] text-dipon-accent";
 const footerList = "m-0 flex list-none flex-col gap-[11px] p-0";
 
 const SOCIALS = [

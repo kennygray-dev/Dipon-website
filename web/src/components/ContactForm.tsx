@@ -67,7 +67,7 @@ export default function ContactForm() {
           </div>
 
           {/* Feedback form — edge-to-edge on mobile, floating card on desktop */}
-          <div className="relative z-20 w-full bg-white px-5 py-8 sm:px-8 sm:py-9 lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:rounded-[22px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
+          <div className="relative z-20 w-full bg-white px-3 py-8 sm:px-6 lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:rounded-[22px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-dipon-accent to-transparent lg:hidden" />
@@ -85,7 +85,7 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                <span className="font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-tertiary uppercase">
+                <span className="font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-accent uppercase">
                   Feedback Form
                 </span>
                 <div>
