@@ -10,6 +10,7 @@ export default function Heading({
   children,
   as = "h2",
   light = false,
+  accentRest = false,
   size = "text-[clamp(28px,3.5vw,44px)]",
   marginTop = "mt-3.5",
   className = "",
@@ -17,12 +18,14 @@ export default function Heading({
   children: string;
   as?: "h1" | "h2" | "h3";
   light?: boolean;
+  accentRest?: boolean;
   size?: string;
   marginTop?: string;
   className?: string;
 }) {
   const Tag = as;
   const [first, rest] = splitHeading(children);
+  const restColor = accentRest ? "text-dipon-accent" : light ? "text-dipon-cream/78" : "text-dipon-secondary";
   return (
     <Tag
       className={`${marginTop} text-balance font-display ${size} font-extrabold leading-[1.05] ${
@@ -33,7 +36,7 @@ export default function Heading({
       {rest && (
         <>
           <br />
-          <span className={light ? "text-dipon-cream/78" : "text-dipon-secondary"}>{rest}</span>
+          <span className={restColor}>{rest}</span>
         </>
       )}
     </Tag>

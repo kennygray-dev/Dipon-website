@@ -87,7 +87,7 @@ export default function PageHero({
         <div className={wrap}>
           <Reveal className={`max-w-[900px] ${image ? "lg:max-w-[560px]" : ""}`}>
             <Eyebrow light>{eyebrowText}</Eyebrow>
-            <Heading as="h1" light size="text-[clamp(34px,5vw,60px)]">
+            <Heading as="h1" light accentRest size="text-[clamp(34px,5vw,60px)]">
               {title}
             </Heading>
             <p className={`${leadLight} mt-[22px] max-w-[680px]`}>{intro}</p>
