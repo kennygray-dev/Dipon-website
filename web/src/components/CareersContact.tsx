@@ -64,51 +64,8 @@ export default function CareersContact() {
             </h3>
           </div>
 
-          {/* Contacts / socials */}
-          <div className="grid grid-cols-1 gap-8 border-t border-white/10 px-6 py-9 sm:grid-cols-[1fr_1fr_auto] sm:items-start sm:px-8">
-            <div>
-              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
-                Prefer To Talk?
-              </span>
-              <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
-                <a href="tel:+2340000000000" className="text-dipon-cream/85 no-underline hover:text-white">
-                  [Phone Number]
-                </a>
-                <br />
-                <a href="mailto:careers@dipongroup.example" className="text-dipon-cream/85 no-underline hover:text-white">
-                  [Careers Email]
-                </a>
-              </p>
-            </div>
-            <div>
-              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
-                Head Office
-              </span>
-              <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
-                [Head Office Address]
-                <br />
-                [City/Region], Nigeria
-              </p>
-            </div>
-            <div className="flex items-center justify-between gap-4 sm:h-full sm:flex-col sm:items-end">
-              <div className="flex items-center gap-2.5">
-                {SOCIALS.map(({ Icon, href, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 text-dipon-cream/80 transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent hover:text-white"
-                  >
-                    <Icon />
-                  </a>
-                ))}
-              </div>
-              <span className="font-label text-[11px] tracking-[0.6px] text-dipon-cream/70 uppercase">— Follow Us</span>
-            </div>
-          </div>
-
-          {/* Floating introduction form */}
-          <div className="relative z-20 mx-3 -mt-16 mb-6 rounded-[22px] bg-white p-5 shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] sm:mx-6 sm:p-[clamp(24px,3vw,36px)] lg:absolute lg:top-10 lg:right-10 lg:mx-0 lg:mb-0 lg:w-[400px] xl:w-[440px]">
+          {/* Introduction form — edge-to-edge on mobile, floating card on desktop */}
+          <div className="relative z-20 w-full bg-white px-5 py-8 sm:px-8 sm:py-9 lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:rounded-[22px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
             <LogoMark className="absolute top-[clamp(24px,3vw,36px)] right-[clamp(24px,3vw,36px)] h-6 w-auto" />
             {submitted ? (
               <div role="status">
@@ -181,6 +138,64 @@ export default function CareersContact() {
                 </div>
               </form>
             )}
+          </div>
+
+          {/* Social icons — mobile only, sits right under the form */}
+          <div className="flex items-center gap-3 border-t border-white/10 px-6 py-6 lg:hidden">
+            {SOCIALS.map(({ Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/25 text-dipon-cream/90 transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent hover:text-white"
+              >
+                <Icon />
+              </a>
+            ))}
+            <span className="ml-1 font-label text-[11px] tracking-[0.6px] text-dipon-cream/80 uppercase">— Follow Us</span>
+          </div>
+
+          {/* Contacts / socials */}
+          <div className="grid grid-cols-1 gap-8 border-t border-white/10 px-6 py-9 lg:grid-cols-[1fr_1fr_auto] lg:items-start lg:px-8">
+            <div>
+              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
+                Prefer To Talk?
+              </span>
+              <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
+                <a href="tel:+2340000000000" className="text-dipon-cream/85 no-underline hover:text-white">
+                  [Phone Number]
+                </a>
+                <br />
+                <a href="mailto:careers@dipongroup.example" className="text-dipon-cream/85 no-underline hover:text-white">
+                  [Careers Email]
+                </a>
+              </p>
+            </div>
+            <div>
+              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
+                Head Office
+              </span>
+              <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
+                [Head Office Address]
+                <br />
+                [City/Region], Nigeria
+              </p>
+            </div>
+            <div className="hidden lg:flex lg:h-full lg:flex-col lg:items-end lg:justify-between lg:gap-4">
+              <div className="flex items-center gap-2.5">
+                {SOCIALS.map(({ Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 text-dipon-cream/80 transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent hover:text-white"
+                  >
+                    <Icon />
+                  </a>
+                ))}
+              </div>
+              <span className="font-label text-[11px] tracking-[0.6px] text-dipon-cream/70 uppercase">— Follow Us</span>
+            </div>
           </div>
         </Reveal>
       </div>
