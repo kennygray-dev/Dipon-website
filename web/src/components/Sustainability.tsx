@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Eyebrow from "./Eyebrow";
+import GeometricOverlay from "./GeometricOverlay";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
 import { ArrowIcon } from "./icons";
@@ -25,6 +26,7 @@ export default function Sustainability() {
               alt="Solar and renewable energy infrastructure"
               className="absolute inset-0 h-full w-full object-cover"
             />
+            <GeometricOverlay />
             <span className="absolute top-5 left-5 inline-flex items-center rounded-full bg-white/95 px-4 py-2 font-label text-[11px] font-semibold tracking-[0.8px] text-dipon-primary uppercase shadow-[0_2px_8px_rgba(0,0,0,0.12)]">
               Renewable Energy
             </span>

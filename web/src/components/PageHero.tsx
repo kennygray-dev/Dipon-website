@@ -18,8 +18,8 @@ export default function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden bg-dipon-blue">
-      {/* Faint geometric mesh, matching the homepage's brand pattern */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.09]">
+      {/* Geometric mesh, matching the homepage's brand pattern — more pronounced on inner headers */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.18]">
         <svg width="100%" height="100%" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" fill="none">
           <path d="M1440 -40 L1100 260 L1100 640" stroke="#FFF9EB" strokeWidth="1.5" />
           <path d="M1440 -40 L1300 340" stroke="#FFF9EB" strokeWidth="1.5" />
@@ -28,6 +28,11 @@ export default function PageHero({
           <path d="M1300 340 L1100 640" stroke="#FFF9EB" strokeWidth="1.5" />
           <path d="M-40 700 L260 480 L560 620" stroke="#FFF9EB" strokeWidth="1.5" />
           <path d="M260 480 L220 220" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M640 40 L760 180 L680 340" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M760 180 L940 220" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M420 340 L640 40" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M540 620 L680 340" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M960 620 L780 540" stroke="#FFF9EB" strokeWidth="1.5" />
           <circle cx="1100" cy="260" r="3.5" fill="#FFF9EB" />
           <circle cx="1300" cy="340" r="3.5" fill="#FFF9EB" />
           <circle cx="1100" cy="640" r="3.5" fill="#FFF9EB" />
@@ -35,6 +40,14 @@ export default function PageHero({
           <circle cx="820" cy="500" r="3.5" fill="#FFF9EB" />
           <circle cx="260" cy="480" r="3.5" fill="#FFF9EB" />
           <circle cx="220" cy="220" r="3.5" fill="#FFF9EB" />
+          <circle cx="640" cy="40" r="3.5" fill="#FFF9EB" />
+          <circle cx="760" cy="180" r="3.5" fill="#FFF9EB" />
+          <circle cx="680" cy="340" r="3.5" fill="#FFF9EB" />
+          <circle cx="940" cy="220" r="3.5" fill="#FFF9EB" />
+          <circle cx="420" cy="340" r="3.5" fill="#FFF9EB" />
+          <circle cx="540" cy="620" r="3.5" fill="#FFF9EB" />
+          <circle cx="960" cy="620" r="3.5" fill="#FFF9EB" />
+          <circle cx="780" cy="540" r="3.5" fill="#FFF9EB" />
         </svg>
       </div>
 

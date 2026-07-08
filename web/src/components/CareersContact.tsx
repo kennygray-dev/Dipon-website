@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Eyebrow from "./Eyebrow";
+import GeometricOverlay from "./GeometricOverlay";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
 import { ArrowIcon, FacebookIcon, InstagramIcon, LinkedInIcon, LogoMark, UploadIcon, XIcon } from "./icons";
@@ -59,6 +60,7 @@ export default function CareersContact() {
           <div className="relative h-[280px] overflow-hidden rounded-t-[28px] sm:h-[340px] lg:h-[380px]">
             <img src={PHOTO} alt="DIPON Group team" className="absolute inset-0 h-full w-full object-cover" />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/10 to-dipon-blue/35" />
+            <GeometricOverlay />
             <h3 className="absolute bottom-7 left-6 z-10 max-w-[60%] text-balance font-display text-[clamp(24px,3.2vw,36px)] font-extrabold leading-[1.05] text-dipon-cream sm:left-8">
               Meet the team
             </h3>
