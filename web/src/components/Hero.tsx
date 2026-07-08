@@ -244,13 +244,9 @@ export default function Hero() {
                       </svg>
                       <span
                         aria-hidden="true"
-                        className={`relative z-10 flex h-7 w-7 items-center justify-center rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.2)] sm:h-9 sm:w-9 ${
-                          stat.bg === "bg-dipon-accent" ? "bg-white text-dipon-accent" : "bg-dipon-accent text-white"
-                        }`}
+                        className="relative z-10 flex h-5 w-5 items-center justify-center text-white sm:h-8 sm:w-8 [&_svg]:h-full [&_svg]:w-full"
                       >
-                        <span className="h-[15px] w-[15px] sm:h-[19px] sm:w-[19px] [&_svg]:h-full [&_svg]:w-full">
-                          <Icon />
-                        </span>
+                        <Icon />
                       </span>
                       <div className="relative z-10">
                         <div className="flex items-baseline gap-0.5 font-display text-[clamp(18px,6vw,48px)] font-extrabold leading-none tracking-[-0.5px] sm:text-[clamp(32px,3.8vw,48px)] sm:tracking-[-1.5px]">
