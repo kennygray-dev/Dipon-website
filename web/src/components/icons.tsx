@@ -177,6 +177,24 @@ export function PartnershipIcon({ size = 18 }: { size?: number }) {
   );
 }
 
+export function BuildIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M2.5 17.5h15M4.5 17.5V6.8L9 4l4.5 2.8v10.7" />
+      <path d="M8.5 17.5v-4h1v4M6.6 8.5h.8M6.6 11.3h.8M10.6 8.5h.8M10.6 11.3h.8" />
+      <path d="M13.5 17.5V9.5l3-1.5v9.5" />
+    </svg>
+  );
+}
+
+export function DiagonalArrowIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 12 12 4M6 4h6v6" />
+    </svg>
+  );
+}
+
 export function GridIcon({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

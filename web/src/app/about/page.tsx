@@ -5,6 +5,7 @@ import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Heading from "@/components/Heading";
+import { BuildIcon, HouseIcon, LeafIcon } from "@/components/icons";
 import Leadership from "@/components/Leadership";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
@@ -93,6 +94,9 @@ export default function AboutPage() {
                     className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
+                  <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-dipon-accent text-white shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                    <BuildIcon size={15} />
+                  </span>
                 </Reveal>
                 <Reveal delay={150} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
                   <img
@@ -101,6 +105,9 @@ export default function AboutPage() {
                     className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
+                  <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-dipon-accent text-white shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                    <HouseIcon size={15} />
+                  </span>
                 </Reveal>
                 <Reveal delay={300} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
                   <img
@@ -109,6 +116,9 @@ export default function AboutPage() {
                     className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
+                  <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-dipon-accent text-white shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                    <LeafIcon size={15} />
+                  </span>
                 </Reveal>
               </div>
             </div>

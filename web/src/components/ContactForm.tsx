@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
-import { ArrowIcon, FacebookIcon, InstagramIcon, LinkedInIcon, LogoMark, UploadIcon, XIcon } from "./icons";
+import { ArrowIcon, DiagonalArrowIcon, FacebookIcon, InstagramIcon, LinkedInIcon, LogoMark, UploadIcon, XIcon } from "./icons";
 import { SERVICES } from "@/lib/services";
 import { section, wrap } from "@/lib/styles";
 
@@ -53,17 +53,18 @@ export default function ContactForm() {
               title="DIPON Group location — Garki, Abuja (placeholder)"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/5 to-dipon-blue/35" />
+            <h3 className="absolute bottom-7 left-6 z-10 max-w-[60%] text-balance font-display text-[clamp(26px,3.4vw,40px)] font-extrabold leading-[1.05] text-dipon-cream sm:left-8">
+              Contact us
+            </h3>
             <a
               href={MAP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute top-6 left-6 z-10 inline-flex items-center gap-2 font-body text-[13px] text-dipon-cream/90 no-underline transition-colors duration-200 hover:text-white sm:left-8"
+              aria-label="Open in Google Maps"
+              className="absolute right-5 bottom-5 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-dipon-accent text-white shadow-[0_4px_14px_rgba(253,128,46,0.45)] transition-[transform,background-color] duration-200 hover:scale-105 hover:bg-dipon-accent-deep sm:right-6 sm:bottom-6"
             >
-              View on Google Maps <ArrowIcon width={14} height={6} />
+              <DiagonalArrowIcon size={17} />
             </a>
-            <h3 className="absolute bottom-7 left-6 z-10 max-w-[60%] text-balance font-display text-[clamp(26px,3.4vw,40px)] font-extrabold leading-[1.05] text-dipon-cream sm:left-8">
-              Contact us
-            </h3>
           </div>
 
           {/* Feedback form — edge-to-edge on mobile, floating card on desktop */}

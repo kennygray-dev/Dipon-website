@@ -70,7 +70,7 @@ export default function PageHero({
         </Reveal>
       )}
 
-      <div className="relative px-gutter pt-[clamp(150px,17vw,210px)] pb-[clamp(64px,8vw,104px)]">
+      <div className="relative px-gutter pt-[clamp(150px,17vw,210px)] pb-8 lg:pb-[clamp(64px,8vw,104px)]">
         <div className={wrap}>
           <Reveal className={`max-w-[900px] ${image ? "lg:max-w-[560px]" : ""}`}>
             <Eyebrow light>{eyebrowText}</Eyebrow>
@@ -79,27 +79,30 @@ export default function PageHero({
             </Heading>
             <p className={`${leadLight} mt-[22px] max-w-[680px]`}>{intro}</p>
           </Reveal>
-
-          {/* Compact image banner — mobile only, since the full-bleed diagonal treatment is desktop-only */}
-          {image && (
-            <Reveal delay={150} className="relative mt-8 aspect-[16/10] w-full overflow-hidden rounded-[18px] lg:hidden">
-              <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/75 via-dipon-blue/10 to-transparent"
-              />
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 opacity-[0.35] mix-blend-overlay"
-                style={{
-                  backgroundImage:
-                    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-                }}
-              />
-            </Reveal>
-          )}
         </div>
       </div>
+
+      {/* Compact image banner — mobile only, edge-to-edge with a diagonal top, matching the desktop full-bleed treatment */}
+      {image && (
+        <Reveal
+          delay={150}
+          className="relative mb-10 aspect-[16/9] w-full overflow-hidden lg:hidden [clip-path:polygon(0_28px,100%_0,100%_100%,0_100%)]"
+        >
+          <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/75 via-dipon-blue/10 to-transparent"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 opacity-[0.35] mix-blend-overlay"
+            style={{
+              backgroundImage:
+                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+            }}
+          />
+        </Reveal>
+      )}
     </section>
   );
 }

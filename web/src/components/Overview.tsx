@@ -2,7 +2,7 @@ import Link from "next/link";
 import Eyebrow from "./Eyebrow";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
-import { ArrowIcon } from "./icons";
+import { ArrowIcon, BuildIcon, GlobeIcon, LeafIcon } from "./icons";
 import { section, wrap } from "@/lib/styles";
 
 const IMAGES = {
@@ -53,6 +53,9 @@ export default function Overview() {
                 className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
+              <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-dipon-accent text-white shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <BuildIcon size={15} />
+              </span>
             </Reveal>
             <Reveal delay={150} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
               <img
@@ -61,6 +64,9 @@ export default function Overview() {
                 className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
+              <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-dipon-accent text-white shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <LeafIcon size={15} />
+              </span>
             </Reveal>
             <Reveal delay={300} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
               <img
@@ -69,6 +75,9 @@ export default function Overview() {
                 className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
+              <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-dipon-accent text-white shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <GlobeIcon size={15} />
+              </span>
             </Reveal>
           </div>
         </div>
