@@ -7,7 +7,7 @@ type Stat = {
   id: string;
   value: string;
   label: string;
-  image: string;
+  image?: string;
 };
 
 const STATS: Stat[] = [
@@ -21,7 +21,6 @@ const STATS: Stat[] = [
     id: "stat-sectors",
     value: "6",
     label: "Sectors Served",
-    image: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=900",
   },
   {
     id: "stat-projects",
@@ -105,13 +104,17 @@ export default function StatBand() {
               key={stat.id}
               className={`relative flex min-h-[320px] flex-col justify-between overflow-hidden p-[42px_34px] transition-transform duration-300 ease-out hover:-translate-y-2 [clip-path:polygon(0_0,100%_0,100%_100%,14%_100%,0_86%)] ${CARD_STYLES[index].bg} ${CARD_STYLES[index].text}`}
             >
-              <img
-                src={stat.image}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 h-full w-full object-cover grayscale"
-              />
-              <div aria-hidden="true" className={`absolute inset-0 ${CARD_STYLES[index].overlay}`} />
+              {stat.image && (
+                <>
+                  <img
+                    src={stat.image}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 h-full w-full object-cover grayscale"
+                  />
+                  <div aria-hidden="true" className={`absolute inset-0 ${CARD_STYLES[index].overlay}`} />
+                </>
+              )}
 
               <div
                 id={stat.id}
