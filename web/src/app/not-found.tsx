@@ -4,7 +4,7 @@ import { ArrowIcon } from "@/components/icons";
 
 export default function NotFound() {
   return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-dipon-blue px-gutter py-20 text-center">
+    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-dipon-blue-alt px-gutter py-20 text-center">
       {/* Geometric mesh, matching the brand pattern used on inner page headers */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.18]">
         <svg width="100%" height="100%" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" fill="none">
