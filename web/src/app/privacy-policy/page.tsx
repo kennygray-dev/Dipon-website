@@ -66,15 +66,12 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div>
-                <h2 className={h2}>Analytics</h2>
+                <h2 className={h2}>Cookies and analytics</h2>
                 <p className={body}>
-                  We use Vercel Web Analytics to see aggregate traffic patterns — which pages get visited and roughly
-                  how much traffic the site gets. It&rsquo;s cookieless and doesn&rsquo;t collect information that
-                  identifies you personally. See our{" "}
-                  <a href="/cookie-policy" className="text-dipon-accent underline underline-offset-2">
-                    Cookie Policy
-                  </a>{" "}
-                  for detail.
+                  This site does not set any cookies of its own — no login sessions, no preference cookies, no
+                  advertising or marketing pixels. We use Vercel Web Analytics to see aggregate traffic patterns —
+                  which pages get visited and roughly how much traffic the site gets. It&rsquo;s cookieless and
+                  doesn&rsquo;t use persistent identifiers to track you individually or build a profile tied to you.
                 </p>
               </div>
 
@@ -104,8 +101,8 @@ export default function PrivacyPolicyPage() {
                 <h2 className={h2}>Changes to this policy</h2>
                 <p className={body}>
                   If how we collect or use personal data changes — most notably, once the forms above are actually
-                  wired up — we&rsquo;ll update this page first and reflect the real, current state of things, the
-                  same way we handle our Cookie Policy.
+                  wired up, or if we ever add a cookie-based tool — we&rsquo;ll update this page first to reflect
+                  the real, current state of things, not after the fact.
                 </p>
                 <p className={`${body} text-[13px] text-dipon-tertiary`}>Last updated: July 2026.</p>
               </div>

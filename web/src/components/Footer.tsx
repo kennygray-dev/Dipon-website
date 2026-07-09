@@ -18,11 +18,7 @@ const SOCIALS = [
   { Icon: InstagramIcon, href: "#", label: "Instagram" },
 ];
 
-const LEGAL_LINKS = [
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of Use", href: "/terms-of-use" },
-  { label: "Cookie Policy", href: "/cookie-policy" },
-];
+const LEGAL_LINKS = [{ label: "Privacy Policy", href: "/privacy-policy" }];
 
 export default function Footer() {
   return (
