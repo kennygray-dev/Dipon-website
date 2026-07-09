@@ -5,7 +5,7 @@ import Eyebrow from "./Eyebrow";
 import GeometricOverlay from "./GeometricOverlay";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
-import { ArrowIcon, FacebookIcon, InstagramIcon, LinkedInIcon, LogoMark, UploadIcon, XIcon } from "./icons";
+import { ArrowIcon, FacebookIcon, InstagramIcon, LinkedInIcon, LogoMark, XIcon } from "./icons";
 import { section, wrap, lead } from "@/lib/styles";
 
 const PHOTO = "https://images.pexels.com/photos/30688597/pexels-photo-30688597.jpeg?auto=compress&cs=tinysrgb&w=1600";
@@ -128,10 +128,7 @@ export default function CareersContact() {
                   <textarea id="cf-message" name="message" rows={3} className={`${inputClass} resize-none`} />
                 </div>
 
-                <div className="mt-2 flex items-center justify-between gap-4">
-                  <span className="inline-flex items-center gap-2 font-body text-[13px] text-dipon-tertiary">
-                    <UploadIcon size={17} /> Upload CV
-                  </span>
+                <div className="mt-2 flex items-center justify-end gap-4">
                   <button
                     type="submit"
                     className="group inline-flex shrink-0 items-center gap-3 rounded-full bg-dipon-primary py-3 pr-3 pl-6 font-label text-[11px] font-semibold tracking-[1.2px] text-white! uppercase transition-shadow duration-300 hover:shadow-[0_10px_28px_rgba(35,61,76,0.28)]"
