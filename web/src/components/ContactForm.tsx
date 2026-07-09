@@ -146,23 +146,8 @@ export default function ContactForm() {
             )}
           </div>
 
-          {/* Social icons — mobile only, sits right under the form */}
-          <div className="flex items-center gap-3 border-t border-white/10 px-6 py-6 lg:hidden">
-            {SOCIALS.map(({ Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                aria-label={label}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/25 text-dipon-cream/90 transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent hover:text-white"
-              >
-                <Icon />
-              </a>
-            ))}
-            <span className="ml-1 font-label text-[11px] tracking-[0.6px] text-dipon-cream/80 uppercase">— Follow Us</span>
-          </div>
-
-          {/* Address / contacts / socials */}
-          <div className="grid grid-cols-1 gap-8 border-t border-white/10 px-6 py-9 lg:grid-cols-[1fr_1fr_auto] lg:items-start lg:px-8">
+          {/* Address / contacts / socials — grouped bottom-left, clear of the floating form */}
+          <div className="flex flex-col gap-8 border-t border-white/10 px-6 py-9 sm:flex-row sm:flex-wrap sm:gap-12 lg:max-w-[calc(100%-480px)] lg:flex-nowrap lg:items-start lg:gap-16 lg:px-8">
             <div>
               <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
                 Our Address
@@ -187,7 +172,10 @@ export default function ContactForm() {
                 </a>
               </p>
             </div>
-            <div className="hidden lg:flex lg:h-full lg:flex-col lg:items-end lg:justify-between lg:gap-4">
+            <div className="flex flex-col gap-4">
+              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
+                Follow Us
+              </span>
               <div className="flex items-center gap-2.5">
                 {SOCIALS.map(({ Icon, href, label }) => (
                   <a
@@ -200,7 +188,6 @@ export default function ContactForm() {
                   </a>
                 ))}
               </div>
-              <span className="font-label text-[11px] tracking-[0.6px] text-dipon-cream/70 uppercase">— Follow Us</span>
             </div>
           </div>
         </Reveal>
