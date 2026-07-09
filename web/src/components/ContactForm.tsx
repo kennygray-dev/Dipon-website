@@ -41,9 +41,9 @@ export default function ContactForm() {
           <Eyebrow>Get in Touch</Eyebrow>
         </Reveal>
 
-        <Reveal className="relative rounded-[28px] bg-dipon-blue">
-          {/* Map */}
-          <div className="relative h-[320px] overflow-hidden rounded-t-[28px] sm:h-[400px] lg:h-[480px]">
+        <Reveal className="relative flex flex-col rounded-[28px] bg-dipon-blue">
+          {/* Map — mobile: sits between the form and the address block; desktop: back on top, unchanged */}
+          <div className="relative order-2 h-[320px] overflow-hidden sm:h-[400px] lg:order-none lg:h-[480px] lg:rounded-t-[28px]">
             <iframe
               src={MAP_EMBED_SRC}
               className="absolute inset-0 h-full w-full grayscale invert-[0.92] contrast-[0.88]"
@@ -66,8 +66,8 @@ export default function ContactForm() {
             </h3>
           </div>
 
-          {/* Feedback form — edge-to-edge on mobile, floating card on desktop */}
-          <div className="relative z-20 w-full bg-white px-3 py-8 sm:px-6 lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:rounded-[22px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
+          {/* Feedback form — first on mobile (rounded to match the card's top edge), floating card on desktop */}
+          <div className="relative z-20 order-1 w-full rounded-t-[28px] bg-white px-3 py-8 sm:px-6 lg:order-none lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:rounded-[22px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-dipon-accent to-transparent lg:hidden" />
@@ -147,7 +147,7 @@ export default function ContactForm() {
           </div>
 
           {/* Address / contacts / socials — grouped bottom-left, clear of the floating form */}
-          <div className="flex flex-col gap-8 border-t border-white/10 px-6 py-9 sm:flex-row sm:flex-wrap sm:gap-12 lg:max-w-[calc(100%-480px)] lg:flex-nowrap lg:items-start lg:gap-16 lg:px-8">
+          <div className="order-3 flex flex-col gap-8 border-t border-white/10 px-6 py-9 sm:flex-row sm:flex-wrap sm:gap-12 lg:order-none lg:max-w-[calc(100%-480px)] lg:flex-nowrap lg:items-start lg:gap-16 lg:px-8">
             <div>
               <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
                 Our Address
