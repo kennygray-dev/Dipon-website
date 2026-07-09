@@ -38,10 +38,10 @@ const STATS: Stat[] = [
 ];
 
 const CARD_STYLES = [
-  { bg: "bg-dipon-blue", text: "text-white" },
-  { bg: "bg-[#2b4a5b]", text: "text-white" },
-  { bg: "bg-dipon-accent", text: "text-white" },
-  { bg: "bg-[#172a34]", text: "text-dipon-cream" },
+  { bg: "bg-dipon-blue", overlay: "bg-dipon-blue/88", text: "text-white" },
+  { bg: "bg-[#2b4a5b]", overlay: "bg-[#2b4a5b]/88", text: "text-white" },
+  { bg: "bg-dipon-accent", overlay: "bg-dipon-accent/88", text: "text-white" },
+  { bg: "bg-[#172a34]", overlay: "bg-[#172a34]/88", text: "text-dipon-cream" },
 ];
 
 function animateStat(el: HTMLElement) {
@@ -111,7 +111,7 @@ export default function StatBand() {
                 aria-hidden="true"
                 className="absolute inset-0 h-full w-full object-cover grayscale"
               />
-              <div aria-hidden="true" className={`absolute inset-0 ${CARD_STYLES[index].bg}/88`} />
+              <div aria-hidden="true" className={`absolute inset-0 ${CARD_STYLES[index].overlay}`} />
 
               <div
                 id={stat.id}
