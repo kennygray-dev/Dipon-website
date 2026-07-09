@@ -11,7 +11,7 @@ import PhotoTile from "@/components/PhotoTile";
 import Reveal from "@/components/Reveal";
 import { SERVICES, SUBSIDIARY_BLURBS, getService } from "@/lib/services";
 import { getSubsidiaryByName } from "@/lib/subsidiaries";
-import { root, section, wrap, split, splitNarrow, lead } from "@/lib/styles";
+import { root, section, wrap, splitNarrow, lead } from "@/lib/styles";
 
 const GRAIN_TEXTURE =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
@@ -60,26 +60,26 @@ export default async function ServicePage({
 
         <section className={section}>
           <div className={wrap}>
-            <div className={split}>
-              <Reveal>
-                <Eyebrow>What We Do</Eyebrow>
-                <Heading>{service.overviewHeading}</Heading>
-              </Reveal>
+            <div className={`${splitNarrow} items-center`}>
               <Reveal className="flex flex-col gap-[22px]">
+                <div>
+                  <Eyebrow>What We Do</Eyebrow>
+                  <Heading>{service.overviewHeading}</Heading>
+                </div>
                 {service.overview.map((para) => (
                   <p className={lead} key={para.slice(0, 24)}>
                     {para}
                   </p>
                 ))}
-                <div className="relative aspect-[16/8] overflow-hidden rounded-[20px]">
-                  <img
-                    src={service.heroImage}
-                    alt={`DIPON Group ${service.title.toLowerCase()} work`}
-                    className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
-                  <GeometricOverlay />
-                </div>
+              </Reveal>
+              <Reveal delay={150} className="relative aspect-[6/5] overflow-hidden rounded-[20px]">
+                <img
+                  src={service.heroImage}
+                  alt={`DIPON Group ${service.title.toLowerCase()} work`}
+                  className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
+                <GeometricOverlay />
               </Reveal>
             </div>
           </div>
