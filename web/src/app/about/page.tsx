@@ -6,10 +6,11 @@ import Footer from "@/components/Footer";
 import GeometricOverlay from "@/components/GeometricOverlay";
 import Header from "@/components/Header";
 import Heading from "@/components/Heading";
-import { BuildIcon, HouseIcon, LeafIcon } from "@/components/icons";
+import { BuildIcon, HouseIcon, LeafIcon, LinkIcon, PartnershipIcon, ShieldIcon } from "@/components/icons";
 import Leadership from "@/components/Leadership";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import StatBand from "@/components/StatBand";
 import { root, section, wrap, lead } from "@/lib/styles";
 
 export const metadata: Metadata = {
@@ -33,24 +34,28 @@ const OVERVIEW_IMAGES = {
   },
 };
 
-type Value = { title: string; desc: string };
+type Value = { title: string; desc: string; Icon: typeof ShieldIcon };
 
 const VALUES: Value[] = [
   {
     title: "Accountability",
     desc: "One group answerable for every stage — no risk lost at the handoff between contractors.",
+    Icon: ShieldIcon,
   },
   {
     title: "Integrated Delivery",
     desc: "Design, build, power, and occupancy kept under a single, coordinated group.",
+    Icon: LinkIcon,
   },
   {
     title: "Local Ownership",
     desc: "Nigerian-owned and Nigerian-led, investing in the communities we build in.",
+    Icon: PartnershipIcon,
   },
   {
     title: "Sustainability",
     desc: "Renewable energy woven into how we deliver, not bolted on afterwards.",
+    Icon: LeafIcon,
   },
 ];
 
@@ -129,9 +134,12 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <Leadership />
+
         <DarkFeatureGrid eyebrow="What Guides Us" heading="The standards behind every project." items={VALUES} columns={4} />
 
-        <Leadership />
+        <StatBand />
+
         <CtaBand />
       </main>
       <Footer />

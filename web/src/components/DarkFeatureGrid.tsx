@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import Eyebrow from "./Eyebrow";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
@@ -12,7 +13,7 @@ const COLS_CLASS: Record<number, string> = {
   4: "md:grid-cols-4",
 };
 
-type Item = { title: string; desc: string };
+type Item = { title: string; desc: string; Icon?: ComponentType<{ size?: number }> };
 
 export default function DarkFeatureGrid({
   eyebrow,
@@ -78,9 +79,15 @@ export default function DarkFeatureGrid({
                   className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"
                   style={{ backgroundImage: GRAIN_TEXTURE }}
                 />
-                <span className="relative z-10 font-display text-2xl font-extrabold text-dipon-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                {item.Icon ? (
+                  <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-dipon-accent text-white">
+                    <item.Icon size={20} />
+                  </span>
+                ) : (
+                  <span className="relative z-10 font-display text-2xl font-extrabold text-dipon-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                )}
                 <h3 className="relative z-10 font-display text-[15.5px] font-bold text-dipon-cream">{item.title}</h3>
                 <p className="relative z-10 m-0 max-w-[240px] font-body text-[13.5px] leading-[1.6] text-[rgba(255,249,235,0.94)]">
                   {item.desc}
