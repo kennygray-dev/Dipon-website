@@ -8,6 +8,8 @@ type Stat = {
   value: string;
   label: string;
   image?: string;
+  /** Overrides the card's brand-color tint (e.g. for a plain grayscale look). */
+  overlay?: string;
 };
 
 const STATS: Stat[] = [
@@ -21,6 +23,8 @@ const STATS: Stat[] = [
     id: "stat-sectors",
     value: "6",
     label: "Sectors Served",
+    image: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=900",
+    overlay: "bg-gradient-to-t from-black/75 via-black/45 to-black/20",
   },
   {
     id: "stat-projects",
@@ -112,7 +116,7 @@ export default function StatBand() {
                     aria-hidden="true"
                     className="absolute inset-0 h-full w-full object-cover grayscale"
                   />
-                  <div aria-hidden="true" className={`absolute inset-0 ${CARD_STYLES[index].overlay}`} />
+                  <div aria-hidden="true" className={`absolute inset-0 ${stat.overlay ?? CARD_STYLES[index].overlay}`} />
                 </>
               )}
 
