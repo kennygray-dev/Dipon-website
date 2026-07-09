@@ -17,7 +17,7 @@ export default function PageHero({
   imageAlt?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-dipon-blue-alt">
+    <section className="relative overflow-hidden bg-dipon-blue">
       {/* Geometric mesh, matching the homepage's brand pattern — more pronounced on inner headers */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.18]">
         <svg width="100%" height="100%" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" fill="none">
@@ -70,7 +70,7 @@ export default function PageHero({
           <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue-alt/40 via-transparent to-transparent"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/40 via-transparent to-transparent"
           />
           <div
             aria-hidden="true"
@@ -104,7 +104,7 @@ export default function PageHero({
           <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue-alt/75 via-dipon-blue-alt/10 to-transparent"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/75 via-dipon-blue/10 to-transparent"
           />
           <div
             aria-hidden="true"
