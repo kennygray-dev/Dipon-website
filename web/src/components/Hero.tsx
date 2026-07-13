@@ -20,23 +20,29 @@ const SLIDES = [
     src: "https://images.pexels.com/photos/8487763/pexels-photo-8487763.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Group — construction worker on site wearing a safety helmet",
     position: "80% 30%",
+    word: "Build.",
   },
   {
     src: "https://images.pexels.com/photos/6082416/pexels-photo-6082416.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Construction Limited — civil engineering and building projects",
     position: "center",
+    word: "Build.",
   },
   {
     src: "https://images.pexels.com/photos/4487383/pexels-photo-4487383.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Global Resources Limited — trading and supply chain operations",
     position: "center",
+    word: "Trade.",
   },
   {
     src: "https://images.pexels.com/photos/414905/pexels-photo-414905.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Infrastructure Limited — renewable energy and power infrastructure",
     position: "center",
+    word: "Power.",
   },
 ];
+
+const SLIDE_INTERVAL_MS = 7000;
 
 const SOCIALS = [
   { Icon: XIcon, href: "#", label: "X" },
@@ -106,7 +112,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((i) => (i + 1) % SLIDES.length);
-    }, 12000);
+    }, SLIDE_INTERVAL_MS);
     return () => clearInterval(timer);
   }, []);
 
@@ -180,7 +186,7 @@ export default function Hero() {
               <br />
               <span className="text-dipon-cream/70">Every Stage</span>
               <br />
-              <span className="text-dipon-accent">Of The Build.</span>
+              <span className="text-dipon-accent">Of The {SLIDES[activeSlide].word}</span>
             </h1>
             <p className="max-w-[460px] font-body text-[14.5px] leading-[1.65] text-dipon-cream/88 sm:text-[16px] sm:leading-[1.7] xl:max-w-[500px] xl:text-[17.5px]">
               DIPON Group integrates construction, power infrastructure, real estate, and supply chain capability
