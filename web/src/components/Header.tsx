@@ -58,6 +58,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
   const [solid, setSolid] = useState(!heroIsDark);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const [hideCta, setHideCta] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -68,6 +69,21 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [heroIsDark]);
+
+  // On the Contact page, hide the "Discuss Your Next Project" CTA while the
+  // Get in Touch section is in view — no point pointing people at a form
+  // they're already looking at. No-op on pages without that section.
+  useEffect(() => {
+    const target = document.getElementById("get-in-touch");
+    if (!target) return;
+
+    const observer = new IntersectionObserver(([entry]) => setHideCta(entry.isIntersecting), {
+      rootMargin: "-64px 0px 0px 0px",
+      threshold: 0,
+    });
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!drawerOpen) return;
@@ -184,8 +200,10 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
         </nav>
         <div className="flex shrink-0 items-center">
           <a
-            className="inline-flex items-center gap-2 rounded-full border border-transparent bg-dipon-accent px-5 py-2.5 font-body text-sm text-white no-underline transition-colors duration-200 max-[1080px]:hidden hover:bg-dipon-accent-deep [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
-            href="/contact"
+            className={`inline-flex items-center gap-2 rounded-full border border-transparent bg-dipon-accent px-5 py-2.5 font-body text-sm text-white no-underline transition-all duration-300 max-[1080px]:hidden hover:bg-dipon-accent-deep [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1 ${
+              hideCta ? "pointer-events-none opacity-0" : "opacity-100"
+            }`}
+            href="/contact#get-in-touch"
           >
             Discuss Your Next Project <ArrowIcon width={16} height={7} />
           </a>
@@ -263,7 +281,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
         <div className="mt-auto border-t border-[rgba(35,61,76,0.14)] p-5">
           <a
             className="inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-transparent bg-dipon-accent px-[26px] py-4 font-body text-sm text-white no-underline transition-colors duration-200 hover:bg-dipon-accent-deep [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
-            href="/contact"
+            href="/contact#get-in-touch"
             onClick={closeDrawer}
           >
             Discuss Your Next Project <ArrowIcon width={16} height={7} />

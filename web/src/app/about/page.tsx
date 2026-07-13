@@ -134,7 +134,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <Leadership />
+        <Leadership showLink={false} />
 
         <DarkFeatureGrid eyebrow="What Guides Us" heading="The standards behind every project." items={VALUES} columns={4} />
 

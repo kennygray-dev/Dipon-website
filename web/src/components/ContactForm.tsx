@@ -35,7 +35,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className={section}>
+    <section id="get-in-touch" className={`scroll-mt-20 ${section}`}>
       <div className={wrap}>
         <Reveal className="mb-10 max-w-[520px]">
           <Eyebrow>Get in Touch</Eyebrow>
