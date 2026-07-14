@@ -6,6 +6,7 @@ import Industries from "@/components/Industries";
 import Leadership from "@/components/Leadership";
 import Overview from "@/components/Overview";
 import Projects from "@/components/Projects";
+import StatBand from "@/components/StatBand";
 import Subsidiaries from "@/components/Subsidiaries";
 import Sustainability from "@/components/Sustainability";
 import WhyChoose from "@/components/WhyChoose";
@@ -24,6 +25,7 @@ export default function Home() {
         <Projects />
         <Sustainability />
         <Leadership />
+        <StatBand />
         <CtaBand />
       </main>
       <Footer />

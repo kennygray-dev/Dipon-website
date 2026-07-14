@@ -114,7 +114,7 @@ export default function Hero() {
 
   return (
     <section>
-      <div className="relative min-h-dvh overflow-hidden lg:h-screen lg:min-h-0">
+      <div className="relative min-h-dvh overflow-hidden lg:min-h-screen">
         {/* Full-bleed photo carousel — the image spans the entire hero */}
         {SLIDES.map((slide, i) => (
           <img
@@ -175,7 +175,7 @@ export default function Hero() {
         </div>
 
         {/* Everything below fits on the first screen: headline block on top, caption/socials + stats on the bottom */}
-        <div className="relative z-10 mx-auto flex w-full min-h-dvh max-w-[1320px] flex-col justify-center gap-8 px-gutter pt-24 pb-14 sm:gap-10 sm:pb-10 lg:h-full lg:min-h-0 lg:justify-between lg:gap-0 lg:pt-28 lg:pb-10">
+        <div className="relative z-10 mx-auto flex w-full min-h-dvh max-w-[1320px] flex-col justify-center gap-8 px-gutter pt-24 pb-14 sm:gap-10 sm:pb-10 lg:min-h-screen lg:justify-between lg:pt-28 lg:pb-10">
           <div className="flex max-w-[560px] flex-col items-start justify-center gap-4 sm:gap-5 lg:max-w-[620px] lg:flex-1 xl:max-w-[700px] 2xl:max-w-[780px]">
             <h1 className="text-balance font-display text-[clamp(36px,9.6vw,84px)] font-bold leading-[1.08] tracking-[-1px] sm:leading-[1.05] sm:tracking-[-1.5px]">
               <span className="text-dipon-cream">One Group.</span>
@@ -200,7 +200,7 @@ export default function Hero() {
             </Link>
           </div>
 
-          <div className="hidden flex-col gap-5 sm:gap-6 lg:flex lg:flex-row lg:items-end lg:justify-between lg:gap-8">
+          <div className="flex flex-col gap-5 sm:gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
               <span className="font-body text-[12.5px] tracking-[0.3px] text-dipon-cream/60 sm:text-[13px]">
                 Trusted Across Construction, Power &amp; Real Estate
