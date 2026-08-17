@@ -223,13 +223,16 @@ export default function ContactForm() {
           </div>
 
           {/* Offices / email / socials — grouped bottom-left, clear of the floating form */}
-          <div className="order-3 flex flex-col gap-8 divide-y divide-white/12 border-t border-white/10 px-6 py-9 sm:flex-row sm:flex-wrap sm:gap-12 sm:divide-y-0 sm:divide-x sm:[&>*+*]:pl-6 max-sm:[&>*+*]:pt-8 lg:order-none lg:max-w-[calc(100%-480px)] lg:flex-nowrap lg:items-start lg:gap-12 lg:px-8">
+          <div className="order-3 flex flex-col divide-y divide-white/15 border-t border-white/10 px-6 py-9 sm:flex-row sm:flex-wrap sm:items-stretch sm:divide-y-0 sm:divide-x lg:order-none lg:max-w-[calc(100%-460px)] lg:px-8">
             {OFFICES.map((office) => (
-              <div key={office.label}>
+              <div
+                key={office.label}
+                className="py-6 first:pt-0 last:pb-0 sm:py-0 sm:px-8 sm:first:pl-0 sm:last:pr-0"
+              >
                 <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
                   {office.label}
                 </span>
-                <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
+                <p className="mt-3 font-body text-[14px] leading-[1.7] whitespace-nowrap text-dipon-cream/85">
                   {office.lines.map((line) => (
                     <span key={line}>
                       {line}
@@ -247,7 +250,7 @@ export default function ContactForm() {
                 </p>
               </div>
             ))}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 py-6 first:pt-0 last:pb-0 sm:py-0 sm:px-8 sm:first:pl-0 sm:last:pr-0">
               {CONTACT_EMAIL && (
                 <div>
                   <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
