@@ -1,10 +1,9 @@
+import Image from "next/image";
 import Eyebrow from "./Eyebrow";
 import GeometricOverlay from "./GeometricOverlay";
 import Reveal from "./Reveal";
+import founderPhoto from "@/assets/team/oliver-ibeh.jpg";
 import { section, wrap } from "@/lib/styles";
-
-const FOUNDER_IMAGE =
-  "https://images.pexels.com/photos/8123906/pexels-photo-8123906.jpeg?auto=compress&cs=tinysrgb&w=900";
 
 const COMPANIES = [
   {
@@ -30,10 +29,13 @@ export default function Founder() {
       <div className={wrap}>
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[0.4fr_0.6fr] lg:gap-16">
           <Reveal className="relative order-first aspect-[4/5] overflow-hidden rounded-[20px] lg:sticky lg:top-24">
-            <img
-              src={FOUNDER_IMAGE}
-              alt="Portrait of Mr. Oliver Ibeh, Founder and Owner of DIPON Group"
-              className="absolute inset-0 h-full w-full object-cover"
+            <Image
+              src={founderPhoto}
+              alt="Mr. Oliver Ibeh, Founder and Owner of DIPON Group"
+              placeholder="blur"
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/10 to-transparent" />
             <GeometricOverlay />

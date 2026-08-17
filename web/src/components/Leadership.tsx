@@ -1,11 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
 import { ArrowIcon, SignatureMark } from "./icons";
+import founderPhoto from "@/assets/team/oliver-ibeh.jpg";
+import founderSquare from "@/assets/team/oliver-ibeh-square.jpg";
 import { section, wrap } from "@/lib/styles";
-
-const LEADERSHIP_IMAGE =
-  "https://images.pexels.com/photos/8123906/pexels-photo-8123906.jpeg?auto=compress&cs=tinysrgb&w=900";
 
 export default function Leadership({ showLink = true }: { showLink?: boolean }) {
   return (
@@ -16,10 +16,13 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
         </Reveal>
         <Reveal delay={30} className="mb-8 flex items-center gap-4 border-b border-[rgba(35,61,76,0.1)] pb-8 sm:gap-5 md:mb-10">
           <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full sm:h-[72px] sm:w-[72px]">
-            <img
-              src={LEADERSHIP_IMAGE}
+            <Image
+              src={founderSquare}
               alt="Mr. Oliver Ibeh, founder of DIPON Group"
-              className="absolute inset-0 h-full w-full object-cover"
+              placeholder="blur"
+              fill
+              sizes="72px"
+              className="object-cover"
             />
           </div>
           <div>
@@ -59,10 +62,13 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
             )}
           </Reveal>
           <Reveal delay={40} className="relative order-first aspect-[4/5] overflow-hidden rounded-[20px] md:order-none">
-            <img
-              src={LEADERSHIP_IMAGE}
-              alt="DIPON Group leadership portrait"
-              className="absolute inset-0 h-full w-full object-cover"
+            <Image
+              src={founderPhoto}
+              alt="Mr. Oliver Ibeh, Founder and Owner of DIPON Group"
+              placeholder="blur"
+              fill
+              sizes="(max-width: 768px) 100vw, 38vw"
+              className="object-cover"
             />
           </Reveal>
         </div>
