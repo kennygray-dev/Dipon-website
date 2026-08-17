@@ -58,6 +58,9 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
   const [solid, setSolid] = useState(!heroIsDark);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
+  // Tracks which desktop mega-menu is open (via hover/focus) so aria-expanded
+  // can reflect reality — the panel itself is still shown/hidden by CSS.
+  const [activeGroup, setActiveGroup] = useState<string | null>(null);
   const [hideCta, setHideCta] = useState(false);
 
   useEffect(() => {
@@ -137,12 +140,21 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
         </Link>
         <nav className="flex flex-1 items-center justify-center gap-9 max-[1080px]:hidden" aria-label="Primary">
           {MEGA_GROUPS.map((group) => (
-            <div className="nav-item group flex items-center" key={group.key}>
+            <div
+              className="nav-item group flex items-center"
+              key={group.key}
+              onMouseEnter={() => setActiveGroup(group.key)}
+              onMouseLeave={() => setActiveGroup(null)}
+              onFocus={() => setActiveGroup(group.key)}
+              onBlur={(e) => {
+                if (!e.currentTarget.contains(e.relatedTarget as Node)) setActiveGroup(null);
+              }}
+            >
               <button
                 type="button"
                 className={`inline-flex cursor-pointer items-center gap-1.5 border-0 bg-none py-3.5 font-body text-sm no-underline transition-[color,opacity] duration-200 ${navTextClass} ${navTextHasHover} group-hover:!text-dipon-accent-deep group-hover:!opacity-100 group-focus-within:!text-dipon-accent-deep group-focus-within:!opacity-100`}
                 aria-haspopup="true"
-                aria-expanded="false"
+                aria-expanded={activeGroup === group.key}
               >
                 {group.label}
                 <CaretIcon className="transition-transform duration-300 ease-[var(--ease-premium)] group-hover:rotate-180 group-focus-within:rotate-180" />
