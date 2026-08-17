@@ -6,11 +6,15 @@ import Reveal from "./Reveal";
 import { ArrowIcon } from "./icons";
 import { section, wrap, leadLight } from "@/lib/styles";
 
+// Fill in real figures when available; rows with a "[…]" placeholder value are
+// hidden so the section never shows an unfinished "[X]" on the live page.
 const MINI_STATS = [
   { value: "[X]", label: "MW Installed" },
   { value: "[X]", label: "Communities Served" },
   { value: "[X]", label: "Solar Projects" },
 ];
+
+const SHOWN_STATS = MINI_STATS.filter((stat) => !stat.value.includes("["));
 
 const SUSTAINABILITY_IMAGE =
   "https://images.pexels.com/photos/11645013/pexels-photo-11645013.jpeg?auto=compress&cs=tinysrgb&w=1000";
@@ -48,18 +52,20 @@ export default function Sustainability() {
                 deliver construction and infrastructure projects, from solar-powered sites to street lighting and
                 power infrastructure for the communities we build in.
               </p>
-              <div className="mb-8 grid grid-cols-3 gap-5 border-t border-[rgba(255,249,235,0.16)] pt-6">
-                {MINI_STATS.map((stat) => (
-                  <div key={stat.label}>
-                    <div className="font-display text-[26px] font-extrabold tracking-[-1px] text-dipon-cream">
-                      {stat.value}
+              {SHOWN_STATS.length > 0 && (
+                <div className="mb-8 grid grid-cols-3 gap-5 border-t border-[rgba(255,249,235,0.16)] pt-6">
+                  {SHOWN_STATS.map((stat) => (
+                    <div key={stat.label}>
+                      <div className="font-display text-[26px] font-extrabold tracking-[-1px] text-dipon-cream">
+                        {stat.value}
+                      </div>
+                      <div className="mt-1.5 font-body text-[12px] leading-[1.3] text-[rgba(255,249,235,0.8)]">
+                        {stat.label}
+                      </div>
                     </div>
-                    <div className="mt-1.5 font-body text-[12px] leading-[1.3] text-[rgba(255,249,235,0.8)]">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
               <Link
                 href="/services/renewable-energy-power"
                 className="group inline-flex w-fit items-center rounded-full bg-white py-1.5 pr-1.5 pl-6 font-body text-sm font-medium text-dipon-primary! no-underline transition-shadow duration-300 hover:shadow-[0_10px_28px_rgba(0,0,0,0.25)]"
