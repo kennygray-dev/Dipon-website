@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { YEARS_IN_OPERATION } from "@/lib/site";
 import { wrap } from "@/lib/styles";
 
 type Stat = {
@@ -15,7 +16,7 @@ type Stat = {
 const STATS: Stat[] = [
   {
     id: "stat-years",
-    value: "3+",
+    value: `${YEARS_IN_OPERATION}+`,
     label: "Years in Operation",
     image: "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=900",
   },

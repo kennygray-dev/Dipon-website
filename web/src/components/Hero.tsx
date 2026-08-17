@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import CountUp from "./CountUp";
 import Reveal from "./Reveal";
+import { YEARS_IN_OPERATION } from "@/lib/site";
 import {
   ArrowIcon,
   ClockIcon,
@@ -50,7 +51,7 @@ const SOCIALS = [
 const STATS = [
   {
     icon: ClockIcon,
-    value: 3,
+    value: YEARS_IN_OPERATION,
     suffix: "+",
     label: "Years in Operation",
     note: "Delivering since day one",

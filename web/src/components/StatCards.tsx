@@ -1,11 +1,12 @@
 import CountUp from "./CountUp";
 import Reveal from "./Reveal";
+import { YEARS_IN_OPERATION } from "@/lib/site";
 import { ClockIcon, HouseIcon, ShieldIcon } from "./icons";
 
 export const STAT_ITEMS = [
   {
     icon: ClockIcon,
-    value: 3,
+    value: YEARS_IN_OPERATION,
     suffix: "+",
     label: "Years in Operation",
     bg: "bg-dipon-blue",
