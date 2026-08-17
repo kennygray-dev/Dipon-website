@@ -6,7 +6,10 @@ import GeometricOverlay from "./GeometricOverlay";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
 import { ArrowIcon, FacebookIcon, InstagramIcon, LinkedInIcon, LogoMark, XIcon } from "./icons";
+import { CAREERS_EMAIL, OFFICES } from "@/lib/site";
 import { section, wrap, lead } from "@/lib/styles";
+
+const HEAD_OFFICE = OFFICES[0];
 
 const PHOTO = "https://images.pexels.com/photos/30688597/pexels-photo-30688597.jpeg?auto=compress&cs=tinysrgb&w=1600";
 
@@ -150,13 +153,23 @@ export default function CareersContact() {
                 Prefer To Talk?
               </span>
               <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
-                <a href="tel:+2340000000000" className="text-dipon-cream/85 no-underline hover:text-white">
-                  [Phone Number]
+                <a
+                  href={`tel:${HEAD_OFFICE.phoneHref}`}
+                  className="text-dipon-cream/85 no-underline hover:text-white"
+                >
+                  {HEAD_OFFICE.phoneDisplay}
                 </a>
-                <br />
-                <a href="mailto:careers@dipongroup.example" className="text-dipon-cream/85 no-underline hover:text-white">
-                  [Careers Email]
-                </a>
+                {CAREERS_EMAIL && (
+                  <>
+                    <br />
+                    <a
+                      href={`mailto:${CAREERS_EMAIL}`}
+                      className="text-dipon-cream/85 no-underline hover:text-white"
+                    >
+                      {CAREERS_EMAIL}
+                    </a>
+                  </>
+                )}
               </p>
             </div>
             <div>
@@ -164,9 +177,13 @@ export default function CareersContact() {
                 Head Office
               </span>
               <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
-                [Head Office Address]
-                <br />
-                [City/Region], Nigeria
+                {HEAD_OFFICE.lines.map((line) => (
+                  <span key={line}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
+                {HEAD_OFFICE.country}
               </p>
             </div>
             <div className="flex flex-col gap-4">

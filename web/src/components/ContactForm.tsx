@@ -7,10 +7,10 @@ import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
 import { ArrowIcon, FacebookIcon, InstagramIcon, LinkedInIcon, LogoMark, XIcon } from "./icons";
 import { SERVICES } from "@/lib/services";
+import { CONTACT_EMAIL, MAP_QUERY, OFFICES } from "@/lib/site";
 import { section, wrap } from "@/lib/styles";
 
-const MAP_QUERY = "Garki, Abuja, Nigeria";
-const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&z=15&output=embed`;
+const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&z=16&output=embed`;
 const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAP_QUERY)}`;
 
 const SOCIALS = [
@@ -48,7 +48,7 @@ export default function ContactForm() {
               style={{ border: 0 }}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="DIPON Group location — Garki, Abuja (placeholder)"
+              title="DIPON Group head office — Garki 2, Abuja"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/5 to-dipon-blue/35" />
             <a
@@ -209,47 +209,63 @@ export default function ContactForm() {
             )}
           </div>
 
-          {/* Address / contacts / socials — grouped bottom-left, clear of the floating form */}
-          <div className="order-3 flex flex-col gap-8 border-t border-white/10 px-6 py-9 sm:flex-row sm:flex-wrap sm:gap-12 lg:order-none lg:max-w-[calc(100%-480px)] lg:flex-nowrap lg:items-start lg:gap-16 lg:px-8">
-            <div>
-              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
-                Our Address
-              </span>
-              <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
-                [Head Office Address]
-                <br />
-                Garki, Abuja, Nigeria
-              </p>
-            </div>
-            <div>
-              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
-                Our Contacts
-              </span>
-              <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
-                <a href="mailto:hello@dipongroup.example" className="text-dipon-cream/85 no-underline hover:text-white">
-                  [Email Address]
-                </a>
-                <br />
-                <a href="tel:+2340000000000" className="text-dipon-cream/85 no-underline hover:text-white">
-                  [Phone Number]
-                </a>
-              </p>
-            </div>
-            <div className="flex flex-col gap-4">
-              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
-                Follow Us
-              </span>
-              <div className="flex items-center gap-2.5">
-                {SOCIALS.map(({ Icon, href, label }) => (
+          {/* Offices / email / socials — grouped bottom-left, clear of the floating form */}
+          <div className="order-3 flex flex-col gap-8 border-t border-white/10 px-6 py-9 sm:flex-row sm:flex-wrap sm:gap-12 lg:order-none lg:max-w-[calc(100%-480px)] lg:flex-nowrap lg:items-start lg:gap-12 lg:px-8">
+            {OFFICES.map((office) => (
+              <div key={office.label}>
+                <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
+                  {office.label}
+                </span>
+                <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
+                  {office.lines.map((line) => (
+                    <span key={line}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}
+                  {office.country}
+                  <br />
                   <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 text-dipon-cream/80 transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent hover:text-white"
+                    href={`tel:${office.phoneHref}`}
+                    className="text-dipon-cream/85 no-underline hover:text-white"
                   >
-                    <Icon />
+                    {office.phoneDisplay}
                   </a>
-                ))}
+                </p>
+              </div>
+            ))}
+            <div className="flex flex-col gap-4">
+              {CONTACT_EMAIL && (
+                <div>
+                  <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
+                    Email Us
+                  </span>
+                  <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
+                    <a
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      className="text-dipon-cream/85 no-underline hover:text-white"
+                    >
+                      {CONTACT_EMAIL}
+                    </a>
+                  </p>
+                </div>
+              )}
+              <div className="flex flex-col gap-4">
+                <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
+                  Follow Us
+                </span>
+                <div className="flex items-center gap-2.5">
+                  {SOCIALS.map(({ Icon, href, label }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      aria-label={label}
+                      className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 text-dipon-cream/80 transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent hover:text-white"
+                    >
+                      <Icon />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

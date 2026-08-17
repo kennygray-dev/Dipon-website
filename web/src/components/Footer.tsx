@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SERVICES } from "@/lib/services";
+import { OFFICES } from "@/lib/site";
 import { SUBSIDIARIES } from "@/lib/subsidiaries";
 import { wrap } from "@/lib/styles";
 import { FacebookIcon, InstagramIcon, LinkedInIcon, XIcon } from "./icons";
@@ -78,13 +79,23 @@ export default function Footer() {
           </nav>
           <nav aria-label="Offices">
             <div className={footerHead}>Offices</div>
-            <p className="m-0 font-body text-sm leading-[1.65] text-[rgba(255,249,235,0.85)]">
-              [Head Office]
-              <br />
-              [City/Region], Nigeria
-              <br />
-              [Phone] · [Email]
-            </p>
+            <div className="flex flex-col gap-4">
+              {OFFICES.map((office) => (
+                <p
+                  key={office.label}
+                  className="m-0 font-body text-sm leading-[1.65] text-[rgba(255,249,235,0.85)]"
+                >
+                  {office.lines.join(", ")}, {office.country}
+                  <br />
+                  <a
+                    href={`tel:${office.phoneHref}`}
+                    className="no-underline hover:text-dipon-cream"
+                  >
+                    {office.phoneDisplay}
+                  </a>
+                </p>
+              ))}
+            </div>
           </nav>
         </div>
         <div className="mt-7 flex flex-wrap items-center justify-between gap-3.5">
