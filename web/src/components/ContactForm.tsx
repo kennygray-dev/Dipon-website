@@ -41,16 +41,29 @@ export default function ContactForm() {
 
         <Reveal className="relative flex flex-col rounded-[28px] bg-dipon-blue">
           {/* Map — mobile: sits between the form and the address block; desktop: back on top, unchanged */}
-          <div className="relative order-2 h-[320px] overflow-hidden sm:h-[400px] lg:order-none lg:h-[480px] lg:rounded-t-[28px]">
+          <div className="relative order-2 h-[320px] overflow-hidden bg-dipon-blue sm:h-[400px] lg:order-none lg:h-[480px] lg:rounded-t-[28px]">
             <iframe
               src={MAP_EMBED_SRC}
-              className="absolute inset-0 h-full w-full grayscale invert-[0.92] contrast-[0.88]"
+              className="absolute inset-0 h-full w-full grayscale invert-[0.92] contrast-[0.88] [transform:translateZ(0)] [backface-visibility:hidden]"
               style={{ border: 0 }}
-              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="DIPON Group head office — Garki 2, Abuja"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/5 to-dipon-blue/35" />
+            {/* Branded marker over the muted map — signifies the head-office location */}
+            <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 z-10">
+              <span className="absolute left-0 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-dipon-accent/40 animate-ping motion-reduce:hidden" />
+              <svg
+                width="28"
+                height="38"
+                viewBox="0 0 28 38"
+                fill="none"
+                className="absolute left-0 top-0 -translate-x-1/2 -translate-y-full drop-shadow-[0_5px_10px_rgba(0,0,0,0.5)]"
+              >
+                <path d="M14 0C6.3 0 0 6.3 0 14c0 9.3 14 24 14 24s14-14.7 14-24C28 6.3 21.7 0 14 0Z" fill="#fd802e" />
+                <circle cx="14" cy="14" r="5.5" fill="#1c313d" />
+              </svg>
+            </div>
             <a
               href={MAP_LINK}
               target="_blank"
@@ -210,7 +223,7 @@ export default function ContactForm() {
           </div>
 
           {/* Offices / email / socials — grouped bottom-left, clear of the floating form */}
-          <div className="order-3 flex flex-col gap-8 border-t border-white/10 px-6 py-9 sm:flex-row sm:flex-wrap sm:gap-12 lg:order-none lg:max-w-[calc(100%-480px)] lg:flex-nowrap lg:items-start lg:gap-12 lg:px-8">
+          <div className="order-3 flex flex-col gap-8 divide-y divide-white/12 border-t border-white/10 px-6 py-9 sm:flex-row sm:flex-wrap sm:gap-12 sm:divide-y-0 sm:divide-x sm:[&>*+*]:pl-6 max-sm:[&>*+*]:pt-8 lg:order-none lg:max-w-[calc(100%-480px)] lg:flex-nowrap lg:items-start lg:gap-12 lg:px-8">
             {OFFICES.map((office) => (
               <div key={office.label}>
                 <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
