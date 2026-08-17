@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 import GeometricOverlay from "@/components/GeometricOverlay";
 import Header from "@/components/Header";
 import Heading from "@/components/Heading";
+import Founder from "@/components/Founder";
 import { BuildIcon, HouseIcon, LeafIcon, LinkIcon, PartnershipIcon, ShieldIcon } from "@/components/icons";
-import Leadership from "@/components/Leadership";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import StatBand from "@/components/StatBand";
@@ -134,7 +134,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <Leadership showLink={false} />
+        <Founder />
 
         <DarkFeatureGrid eyebrow="What Guides Us" heading="The standards behind every project." items={VALUES} columns={4} />
 
