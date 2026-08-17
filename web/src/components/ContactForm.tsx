@@ -50,31 +50,47 @@ export default function ContactForm() {
               title="DIPON Group head office — Garki 2, Abuja"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/5 to-dipon-blue/35" />
-            {/* Branded marker over the muted map — signifies the head-office location */}
-            <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 z-10">
-              <span className="absolute left-0 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-dipon-accent/40 animate-ping motion-reduce:hidden" />
+            {/* Location marker — clickable, opens the head office in Google Maps */}
+            <a
+              href={MAP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open DIPON head office location in Google Maps"
+              className="group absolute left-1/2 top-1/2 z-10"
+            >
+              <span className="pointer-events-none absolute left-0 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-dipon-accent/40 animate-ping motion-reduce:hidden" />
               <svg
                 width="28"
                 height="38"
                 viewBox="0 0 28 38"
                 fill="none"
-                className="absolute left-0 top-0 -translate-x-1/2 -translate-y-full drop-shadow-[0_5px_10px_rgba(0,0,0,0.5)]"
+                className="absolute left-0 top-0 -translate-x-1/2 -translate-y-full drop-shadow-[0_5px_10px_rgba(0,0,0,0.5)] transition-transform duration-200 group-hover:scale-110"
               >
                 <path d="M14 0C6.3 0 0 6.3 0 14c0 9.3 14 24 14 24s14-14.7 14-24C28 6.3 21.7 0 14 0Z" fill="#fd802e" />
                 <circle cx="14" cy="14" r="5.5" fill="#1c313d" />
               </svg>
-            </div>
-            <a
-              href={MAP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute top-6 left-6 z-10 inline-flex items-center gap-2 font-body text-[13px] text-white/25 no-underline transition-colors duration-200 hover:text-white/70 sm:left-8"
-            >
-              View on Google Maps <ArrowIcon width={14} height={6} />
             </a>
-            <h3 className="absolute bottom-7 left-6 z-10 max-w-[60%] text-balance font-display text-[clamp(26px,3.4vw,40px)] font-extrabold leading-[1.05] text-dipon-cream sm:left-8">
-              Contact us
-            </h3>
+            {/* Heading + a clear "open the map" CTA — kept bottom-left, clear of the floating form card */}
+            <div className="absolute bottom-6 left-6 z-10 sm:left-8">
+              <h3 className="max-w-[280px] text-balance font-display text-[clamp(26px,3.4vw,40px)] font-extrabold leading-[1.05] text-dipon-cream">
+                Contact us
+              </h3>
+              <a
+                href={MAP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-4 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2.5 font-label text-[11px] font-semibold tracking-[0.8px] text-dipon-primary uppercase no-underline shadow-[0_6px_20px_rgba(0,0,0,0.28)] backdrop-blur-sm transition-all duration-200 hover:bg-white hover:shadow-[0_10px_28px_rgba(0,0,0,0.4)]"
+              >
+                <svg width="13" height="16" viewBox="0 0 13 16" fill="none" aria-hidden="true">
+                  <path d="M6.5 0C2.9 0 0 2.9 0 6.5 0 11 6.5 16 6.5 16S13 11 13 6.5C13 2.9 10.1 0 6.5 0Z" fill="#fd802e" />
+                  <circle cx="6.5" cy="6.5" r="2.4" fill="#fff" />
+                </svg>
+                Get Directions
+                <span className="transition-transform duration-200 group-hover:translate-x-0.5">
+                  <ArrowIcon width={13} height={6} />
+                </span>
+              </a>
+            </div>
           </div>
 
           {/* Feedback form — first on mobile (rounded to match the card's top edge), floating card on desktop */}

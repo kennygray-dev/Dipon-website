@@ -130,7 +130,7 @@ export default function Hero() {
         ))}
 
         {/* Dim wash across the whole photo for legibility */}
-        <div aria-hidden="true" className="absolute inset-0 bg-black/22" />
+        <div aria-hidden="true" className="absolute inset-0 bg-black/40" />
 
         {/* Translucent DIPON-blue wash — the photo shows faintly through it */}
         <div
