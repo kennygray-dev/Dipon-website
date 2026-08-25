@@ -12,7 +12,10 @@ const footerHead =
   "mb-4 font-label text-[11px] font-semibold uppercase tracking-[1.2px] text-dipon-accent";
 const footerList = "m-0 flex list-none flex-col gap-[11px] p-0";
 
-const LEGAL_LINKS = [{ label: "Privacy Policy", href: "/privacy-policy" }];
+const LEGAL_LINKS = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Service", href: "/terms-of-service" },
+];
 
 export default function Footer() {
   return (

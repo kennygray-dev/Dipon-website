@@ -31,7 +31,7 @@ export default function PrivacyPolicyPage() {
               <div>
                 <h2 className={h2}>Who this covers</h2>
                 <p className={body}>
-                  This policy covers dipongroup.example and applies to visitors, job applicants, and anyone who
+                  This policy covers dipongrouplimited.com and applies to visitors, job applicants, and anyone who
                   submits a form on this site. DIPON Group (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is a Nigerian-owned
                   group, and we handle personal data in line with Nigeria&rsquo;s Data Protection Act (NDPA 2023).
                 </p>
@@ -51,18 +51,18 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div>
-                <h2 className={h2}>What actually happens to it, right now</h2>
+                <h2 className={h2}>What we do with it</h2>
                 <p className={body}>
-                  Being direct about this: neither form is currently connected to a backend, database, or email
-                  service. When you submit one, the information stays in your browser to show a confirmation
-                  message and is not transmitted to us or stored anywhere. In practice, we do not yet receive or
-                  process what you type into these forms.
+                  When you submit the contact or careers form, the details you enter are sent to our team by email
+                  so we can respond to your enquiry or application. We use Resend, an email-delivery service, as a
+                  processor to transmit these messages on our behalf; the message is delivered to our company inbox
+                  and kept there for as long as we need it to handle your request and keep a reasonable record of
+                  our correspondence.
                 </p>
                 <p className={body}>
-                  This will change once we wire these forms to an actual inbox or applicant system — at that point
-                  submitted details will be sent to and stored by DIPON Group (or a service provider acting on our
-                  behalf, such as an email or applicant-tracking provider) for the purpose of responding to your
-                  enquiry or application. We&rsquo;ll update this page to reflect that before it happens, not after.
+                  We use this information only to respond to you. We don&rsquo;t sell it or use it for advertising,
+                  and we only share it with service providers — such as our email provider — to the extent needed to
+                  operate these forms and reply to you.
                 </p>
               </div>
 
@@ -101,11 +101,11 @@ export default function PrivacyPolicyPage() {
               <div>
                 <h2 className={h2}>Changes to this policy</h2>
                 <p className={body}>
-                  If how we collect or use personal data changes — most notably, once the forms above are actually
-                  wired up, or if we ever add a cookie-based tool — we&rsquo;ll update this page first to reflect
-                  the real, current state of things, not after the fact.
+                  If how we collect or use personal data changes — for example, if we add a new form, change our
+                  email provider, or ever introduce a cookie-based tool — we&rsquo;ll update this page to reflect the
+                  real, current state of things.
                 </p>
-                <p className={`${body} text-[13px] text-dipon-tertiary`}>Last updated: July 2026.</p>
+                <p className={`${body} text-[13px] text-dipon-tertiary`}>Last updated: August 2026.</p>
               </div>
             </div>
           </div>
