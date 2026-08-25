@@ -17,7 +17,7 @@ const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://va.vercel-scripts.com`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https://images.pexels.com",
+  "img-src 'self' data: https://images.pexels.com https://cdn.sanity.io",
   "font-src 'self'",
   `connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com${isDev ? " ws: http://localhost:*" : ""}`,
   "frame-src https://www.google.com",
@@ -40,6 +40,9 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   turbopack: {
     root: rootDir,
+  },
+  images: {
+    remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }],
   },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];

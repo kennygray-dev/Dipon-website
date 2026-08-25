@@ -5,7 +5,9 @@ import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
 import PhotoTile from "@/components/PhotoTile";
 import Reveal from "@/components/Reveal";
-import { BLOG_POSTS, formatBlogDate } from "@/lib/blog";
+import { formatBlogDate } from "@/lib/blog";
+import { urlForImage } from "@/sanity/image";
+import { getPosts } from "@/sanity/queries";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
@@ -14,7 +16,11 @@ export const metadata: Metadata = {
     "Notes from across DIPON Group — construction, renewable energy, real estate, and supply chain, from the ground up.",
 };
 
-export default function BlogPage() {
+export const revalidate = 60;
+
+export default async function BlogPage() {
+  const posts = await getPosts();
+
   return (
     <div className={root}>
       <Header />
@@ -29,22 +35,28 @@ export default function BlogPage() {
 
         <section className={section}>
           <div className={wrap}>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
-              {BLOG_POSTS.map((post, i) => (
-                <Reveal key={post.slug} delay={(i % 3) * 110} className="aspect-[4/5] overflow-hidden rounded-[16px]">
-                  <PhotoTile
-                    href={`/blog/${post.slug}`}
-                    image={post.heroImage}
-                    imageAlt={post.title}
-                    title={post.title}
-                    desc={post.excerpt}
-                    footerLeft={post.category}
-                    footerRight={formatBlogDate(post.publishedAt)}
-                    className="h-full w-full"
-                  />
-                </Reveal>
-              ))}
-            </div>
+            {posts.length === 0 ? (
+              <p className="max-w-[520px] font-body text-[16px] leading-[1.7] text-dipon-secondary">
+                No insights published yet — check back soon.
+              </p>
+            ) : (
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
+                {posts.map((post, i) => (
+                  <Reveal key={post._id} delay={(i % 3) * 110} className="aspect-[4/5] overflow-hidden rounded-[16px]">
+                    <PhotoTile
+                      href={`/blog/${post.slug}`}
+                      image={post.mainImage ? urlForImage(post.mainImage).width(800).height(1000).fit("crop").url() : ""}
+                      imageAlt={post.title}
+                      title={post.title}
+                      desc={post.excerpt}
+                      footerLeft={post.category}
+                      footerRight={formatBlogDate(post.publishedAt)}
+                      className="h-full w-full"
+                    />
+                  </Reveal>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 

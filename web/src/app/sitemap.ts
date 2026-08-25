@@ -2,9 +2,11 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { SERVICES } from "@/lib/services";
 import { SUBSIDIARIES } from "@/lib/subsidiaries";
-import { BLOG_POSTS } from "@/lib/blog";
+import { getPostSlugs } from "@/sanity/queries";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 60;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -33,10 +35,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
-    url: `${SITE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.publishedAt),
-    changeFrequency: "yearly",
+  const blogSlugs = await getPostSlugs();
+  const blogRoutes: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
+    url: `${SITE_URL}/blog/${slug}`,
+    lastModified: now,
+    changeFrequency: "weekly",
     priority: 0.6,
   }));
 
