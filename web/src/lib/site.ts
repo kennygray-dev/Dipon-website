@@ -1,7 +1,7 @@
 // Single source of truth for site-wide identity. When the real domain is ready,
 // update SITE_URL here and it propagates to metadata, sitemap, robots, and JSON-LD.
 
-export const SITE_URL = "https://dipon-website-mu.vercel.app";
+export const SITE_URL = "https://dipongrouplimited.com";
 export const SITE_NAME = "DIPON Group";
 
 // The DIPON companies were incorporated in 2025 (CAC filings). "Years in
