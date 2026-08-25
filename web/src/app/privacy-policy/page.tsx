@@ -6,7 +6,7 @@ import { CONTACT_EMAIL } from "@/lib/site";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — DIPON Group",
+  title: "Privacy Policy — DIPON Group Limited",
   description: "What information DIPON Group collects through this site, why, and how it's handled.",
 };
 
@@ -32,7 +32,7 @@ export default function PrivacyPolicyPage() {
                 <h2 className={h2}>Who this covers</h2>
                 <p className={body}>
                   This policy covers dipongrouplimited.com and applies to visitors, job applicants, and anyone who
-                  submits a form on this site. DIPON Group (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is a Nigerian-owned
+                  submits a form on this site. DIPON Group Limited (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is a Nigerian-owned
                   group, and we handle personal data in line with Nigeria&rsquo;s Data Protection Act (NDPA 2023).
                 </p>
               </div>

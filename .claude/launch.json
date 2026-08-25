@@ -6,6 +6,46 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "web"],
       "port": 3000
+    },
+    {
+      "name": "awasource",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["--cwd", "/Users/kennedyagbapuonwu/Documents/Awasourcefrontend", "start"],
+      "port": 3000
+    },
+    {
+      "name": "bebe",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "/Users/kennedyagbapuonwu/Documents/bebes-birthday"],
+      "port": 3000
+    },
+    {
+      "name": "avokado",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "/Users/kennedyagbapuonwu/Desktop/avokado-website",
+        "--",
+        "-p",
+        "3001"
+      ],
+      "port": 3001
+    },
+    {
+      "name": "pieces-to-fits",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "/Users/kennedyagbapuonwu/Documents/pieces-to-fits",
+        "--",
+        "-p",
+        "3003"
+      ],
+      "port": 3003
     }
   ]
 }

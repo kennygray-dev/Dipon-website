@@ -25,9 +25,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const subsidiary = getSubsidiary(slug);
-  if (!subsidiary) return { title: "Subsidiary Not Found — DIPON Group" };
+  if (!subsidiary) return { title: "Subsidiary Not Found — DIPON Group Limited" };
   return {
-    title: `${subsidiary.name} — DIPON Group`,
+    title: `${subsidiary.name} — DIPON Group Limited`,
     description: subsidiary.summary,
   };
 }

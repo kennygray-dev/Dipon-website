@@ -6,7 +6,7 @@ import PageHero from "@/components/PageHero";
 import { root } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Start a Project — DIPON Group",
+  title: "Start a Project — DIPON Group Limited",
   description:
     "Tell us what you need built, powered, supplied, or developed, and the right team at DIPON Group will be in touch.",
 };

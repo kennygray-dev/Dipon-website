@@ -2,16 +2,16 @@
 // update SITE_URL here and it propagates to metadata, sitemap, robots, and JSON-LD.
 
 export const SITE_URL = "https://dipongrouplimited.com";
-export const SITE_NAME = "DIPON Group";
+export const SITE_NAME = "DIPON Group Limited";
 
 // The DIPON companies were incorporated in 2025 (CAC filings). "Years in
 // Operation" is derived from this so the stat stays current on each deploy —
 // bump FOUNDED_YEAR only if the real operational start is earlier.
 export const FOUNDED_YEAR = 2025;
 export const YEARS_IN_OPERATION = Math.max(1, new Date().getFullYear() - FOUNDED_YEAR);
-export const SITE_TITLE = "DIPON Group — One Group. Every Stage of the Build.";
+export const SITE_TITLE = "DIPON Group Limited — One Group. Every Stage of the Build.";
 export const SITE_DESCRIPTION =
-  "DIPON Group integrates construction, power infrastructure, real estate, and supply chain capability under one accountable Nigerian-owned group.";
+  "DIPON Group Limited integrates construction, power infrastructure, real estate, and supply chain capability under one accountable Nigerian-owned group.";
 
 // Real social profiles. Add an entry here to switch the icons on everywhere
 // (footer, hero, contact, careers) AND feed the Organization schema's `sameAs`.

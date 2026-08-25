@@ -31,8 +31,8 @@ export default function Overview() {
               <Eyebrow>About DIPON Group</Eyebrow>
               <Heading>One accountable group, across the full build lifecycle.</Heading>
               <p className="mt-4 max-w-[340px] font-body text-[14px] leading-[1.65] text-dipon-secondary">
-                DIPON Group is a Nigerian-owned conglomerate delivering construction, renewable energy, real estate,
-                and supply chain solutions through three specialized companies.
+                DIPON Group Limited is a Nigerian-owned conglomerate delivering construction, renewable energy, real
+                estate, and supply chain solutions through three specialized companies.
               </p>
             </div>
             <Link

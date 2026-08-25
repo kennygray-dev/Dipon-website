@@ -14,7 +14,7 @@ import StatBand from "@/components/StatBand";
 import { root, section, wrap, lead } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "About Us — DIPON Group",
+  title: "About Us — DIPON Group Limited",
   description:
     "DIPON Group is a Nigerian-owned conglomerate delivering construction, renewable energy, real estate, and supply chain solutions through three specialized companies.",
 };
@@ -81,8 +81,8 @@ export default function AboutPage() {
                   <Heading>A Nigerian-owned group built to remove risk at the handoff.</Heading>
                 </div>
                 <p className={lead}>
-                  DIPON Group is a Nigerian-owned conglomerate delivering construction, renewable energy, real estate,
-                  and supply chain solutions through three specialized companies. Each subsidiary is built for depth in
+                  DIPON Group Limited is a Nigerian-owned conglomerate delivering construction, renewable energy, real
+                  estate, and supply chain solutions through three specialized companies. Each subsidiary is built for depth in
                   its field, while the Group keeps them accountable to a single standard.
                 </p>
                 <p className={lead}>

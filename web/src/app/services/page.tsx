@@ -9,7 +9,7 @@ import { SERVICES } from "@/lib/services";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Services — DIPON Group",
+  title: "Services — DIPON Group Limited",
   description:
     "Construction, renewable energy, real estate, trading, logistics, and agriculture — delivered under one accountable Nigerian-owned group.",
 };

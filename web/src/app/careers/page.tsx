@@ -6,7 +6,7 @@ import PageHero from "@/components/PageHero";
 import { root } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Careers — DIPON Group",
+  title: "Careers — DIPON Group Limited",
   description:
     "Build Africa's future with DIPON Group. We're always glad to meet talented people across construction, energy, real estate, and supply chain.",
 };

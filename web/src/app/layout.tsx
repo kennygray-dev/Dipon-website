@@ -14,7 +14,7 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: SITE_NAME,
-  legalName: "DIPON Group",
+  legalName: "DIPON Group Limited",
   url: SITE_URL,
   logo: `${SITE_URL}/assets/dipon-logo-dark.svg`,
   description: SITE_DESCRIPTION,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
-    siteName: "DIPON Group",
+    siteName: "DIPON Group Limited",
     type: "website",
   },
   twitter: {

@@ -11,7 +11,7 @@ import { getPosts } from "@/sanity/queries";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Insights — DIPON Group",
+  title: "Insights — DIPON Group Limited",
   description:
     "Notes from across DIPON Group — construction, renewable energy, real estate, and supply chain, from the ground up.",
 };

@@ -27,9 +27,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const service = getService(slug);
-  if (!service) return { title: "Service Not Found — DIPON Group" };
+  if (!service) return { title: "Service Not Found — DIPON Group Limited" };
   return {
-    title: `${service.titleLong} — DIPON Group`,
+    title: `${service.titleLong} — DIPON Group Limited`,
     description: service.summary,
   };
 }

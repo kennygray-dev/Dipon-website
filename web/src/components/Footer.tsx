@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
         <div className="mt-7 flex flex-wrap items-center justify-between gap-3.5">
           <span className="font-label text-xs tracking-[0.6px] text-[rgba(255,249,235,0.85)]">
-            © {new Date().getFullYear()} DIPON Group. All rights reserved.
+            © {new Date().getFullYear()} DIPON Group Limited. All rights reserved.
           </span>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             {LEGAL_LINKS.map((link) => (

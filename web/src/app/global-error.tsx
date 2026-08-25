@@ -12,7 +12,7 @@ export default function GlobalError({
 }) {
   return (
     <html lang="en">
-      <title>Something went wrong — DIPON Group</title>
+      <title>Something went wrong — DIPON Group Limited</title>
       <body
         style={{
           margin: 0,

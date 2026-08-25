@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Avokado — Fresh, ripe, delivered</title>
+<style>
+  :root {
+    --green-900: #1f3d24;
+    --green-700: #2f6b3a;
+    --green-500: #4f9d5a;
+    --green-400: #6bb56f;
+    --lime: #c7e86b;
+    --cream: #f6f4ec;
+    --paper: #fbfaf5;
+    --ink: #1c231d;
+    --muted: #5c6b5e;
+    --stroke: #e4e2d6;
+    --pit: #7a4a2b;
+    --shadow: 0 18px 40px -20px rgba(31, 61, 36, 0.45);
+    --radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { width: min(1120px, 90vw); margin: 0 auto; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 600; font-size: 0.98rem;
+    padding: 13px 24px; border-radius: 999px;
+    border: 1.5px solid transparent; cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .btn-primary { background: var(--green-700); color: #fff; box-shadow: var(--shadow); }
+  .btn-primary:hover { transform: translateY(-2px); background: var(--green-900); }
+  .btn-ghost { background: transparent; color: var(--green-900); border-color: var(--stroke); }
+  .btn-ghost:hover { border-color: var(--green-500); background: #fff; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 250, 245, 0.82);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--stroke);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; color: var(--green-900); }
+  .brand .mark { width: 30px; height: 30px; }
+  .nav-links { display: flex; gap: 30px; align-items: center; }
+  .nav-links a { font-size: 0.95rem; color: var(--muted); font-weight: 500; }
+  .nav-links a:hover { color: var(--green-900); }
+  .nav-cta { display: flex; gap: 12px; align-items: center; }
+  .menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--green-900); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 72px 0 90px; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #eaf3e4; color: var(--green-700);
+    font-size: 0.82rem; font-weight: 600; letter-spacing: 0.01em;
+    padding: 7px 14px; border-radius: 999px; margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 5.4vw, 4rem);
+    line-height: 1.04; letter-spacing: -0.035em;
+    color: var(--green-900); margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: normal; color: var(--green-500); }
+  .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 30ch; margin-bottom: 30px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 30px; }
+  .trust { display: flex; align-items: center; gap: 16px; font-size: 0.9rem; color: var(--muted); }
+  .stars { color: #e0a938; letter-spacing: 2px; }
+
+  .hero-visual { position: relative; }
+  .hero-card {
+    background: linear-gradient(160deg, #eaf3e0, #d7ecc9);
+    border-radius: 28px; aspect-ratio: 4 / 4.4;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow); position: relative; overflow: hidden;
+  }
+  .blob { position: absolute; border-radius: 50%; filter: blur(2px); opacity: 0.6; }
+  .avo-illustration { width: 62%; z-index: 2; filter: drop-shadow(0 20px 30px rgba(31,61,36,0.25)); }
+  .float-tag {
+    position: absolute; background: #fff; border-radius: 14px;
+    padding: 12px 16px; box-shadow: 0 12px 24px -12px rgba(31,61,36,0.4);
+    font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 10px; z-index: 3;
+  }
+  .float-tag .dot { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font-size: 1.1rem; }
+  .tag-1 { top: 26px; left: -18px; }
+  .tag-2 { bottom: 34px; right: -20px; }
+
+  /* ---------- Logos ---------- */
+  .logos { padding: 34px 0; border-top: 1px solid var(--stroke); border-bottom: 1px solid var(--stroke); }
+  .logos .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .logos span:first-child { font-size: 0.82rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+  .logo-row { display: flex; gap: 40px; flex-wrap: wrap; opacity: 0.55; font-weight: 700; color: var(--green-900); font-size: 1.05rem; letter-spacing: -0.01em; }
+
+  /* ---------- Section shared ---------- */
+  section.pad { padding: 92px 0; }
+  .section-head { max-width: 52ch; margin: 0 auto 56px; text-align: center; }
+  .section-head .eyebrow { margin-bottom: 16px; }
+  .section-head h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); letter-spacing: -0.03em; color: var(--green-900); line-height: 1.1; margin-bottom: 14px; }
+  .section-head p { color: var(--muted); font-size: 1.08rem; }
+
+  /* ---------- Features ---------- */
+  .features { background: var(--cream); }
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .feature {
+    background: var(--paper); border: 1px solid var(--stroke);
+    border-radius: var(--radius); padding: 30px;
+    transition: transform 0.18s ease, box-shadow 0.2s ease;
+  }
+  .feature:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .feature .ico { width: 52px; height: 52px; border-radius: 14px; background: #eaf3e0; display: grid; place-items: center; font-size: 1.5rem; margin-bottom: 18px; }
+  .feature h3 { font-size: 1.2rem; color: var(--green-900); margin-bottom: 8px; letter-spacing: -0.01em; }
+  .feature p { color: var(--muted); font-size: 0.98rem; }
+
+  /* ---------- Steps ---------- */
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; counter-reset: step; }
+  .step { position: relative; }
+  .step .num {
+    counter-increment: step; width: 46px; height: 46px; border-radius: 50%;
+    background: var(--green-700); color: #fff; display: grid; place-items: center;
+    font-weight: 700; font-size: 1.1rem; margin-bottom: 18px;
+  }
+  .step .num::before { content: counter(step); }
+  .step h3 { font-size: 1.25rem; color: var(--green-900); margin-bottom: 8px; }
+  .step p { color: var(--muted); }
+
+  /* ---------- Pricing ---------- */
+  .pricing { background: var(--green-900); color: #fff; }
+  .pricing .section-head h2 { color: #fff; }
+  .pricing .section-head p { color: #b7cbb2; }
+  .pricing .eyebrow { background: rgba(255,255,255,0.12); color: var(--lime); }
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+  .plan {
+    background: #29492f; border: 1px solid #3a5c40; border-radius: var(--radius);
+    padding: 32px; display: flex; flex-direction: column;
+  }
+  .plan.featured { background: var(--paper); color: var(--ink); border: none; transform: scale(1.03); box-shadow: var(--shadow); position: relative; }
+  .plan .badge { position: absolute; top: 18px; right: 18px; background: var(--lime); color: var(--green-900); font-size: 0.72rem; font-weight: 700; padding: 5px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .plan h3 { font-size: 1.15rem; margin-bottom: 6px; }
+  .plan .price { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; margin: 8px 0 4px; }
+  .plan .price span { font-size: 1rem; font-weight: 500; opacity: 0.7; }
+  .plan .desc { font-size: 0.92rem; opacity: 0.8; margin-bottom: 22px; }
+  .plan ul { list-style: none; margin-bottom: 26px; display: grid; gap: 11px; font-size: 0.95rem; }
+  .plan li { display: flex; gap: 10px; align-items: flex-start; }
+  .plan li::before { content: "✓"; color: var(--green-400); font-weight: 700; }
+  .plan.featured li::before { color: var(--green-500); }
+  .plan .btn { width: 100%; justify-content: center; margin-top: auto; }
+  .plan:not(.featured) .btn-primary { background: var(--lime); color: var(--green-900); }
+  .plan:not(.featured) .btn-primary:hover { background: #d6f28a; }
+
+  /* ---------- CTA band ---------- */
+  .cta-band { padding: 84px 0; }
+  .cta-inner {
+    background: linear-gradient(140deg, var(--green-700), var(--green-500));
+    border-radius: 30px; padding: 60px; text-align: center; color: #fff;
+    position: relative; overflow: hidden; box-shadow: var(--shadow);
+  }
+  .cta-inner h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); letter-spacing: -0.03em; margin-bottom: 14px; }
+  .cta-inner p { color: rgba(255,255,255,0.9); font-size: 1.1rem; max-width: 46ch; margin: 0 auto 28px; }
+  .cta-inner .btn-primary { background: #fff; color: var(--green-900); }
+  .cta-inner .btn-primary:hover { background: var(--cream); }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--cream); border-top: 1px solid var(--stroke); padding: 56px 0 30px; }
+  .foot-grid { display: grid; grid-template-columns: 1.6fr repeat(3, 1fr); gap: 32px; margin-bottom: 40px; }
+  .foot-brand p { color: var(--muted); font-size: 0.95rem; max-width: 34ch; margin: 14px 0 18px; }
+  .foot-col h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green-900); margin-bottom: 14px; }
+  .foot-col a { display: block; color: var(--muted); font-size: 0.95rem; margin-bottom: 9px; }
+  .foot-col a:hover { color: var(--green-700); }
+  .foot-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--stroke); color: var(--muted); font-size: 0.88rem; flex-wrap: wrap; gap: 12px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero p.lead { max-width: none; }
+    .nav-links { display: none; }
+    .feature-grid, .steps-grid, .plan-grid { grid-template-columns: 1fr; }
+    .plan.featured { transform: none; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .cta-inner { padding: 42px 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 3c-7 0-13 6.5-13 16 0 10 6.8 18 13 18s13-8 13-18C33 9.5 27 3 20 3Z" fill="#4f9d5a"/>
+        <path d="M20 9c-4.6 0-8.4 4.4-8.4 11 0 7 4.5 12.4 8.4 12.4S28.4 27 28.4 20C28.4 13.4 24.6 9 20 9Z" fill="#c7e86b"/>
+        <circle cx="20" cy="21" r="4.2" fill="#7a4a2b"/>
+      </svg>
+      Avokado
+    </a>
+    <nav class="nav-links">
+      <a href="#features">Why Avokado</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Plans</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#" class="btn btn-ghost">Log in</a>
+      <a href="#pricing" class="btn btn-primary">Get started</a>
+    </div>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">🥑 Farm-fresh, always ripe</span>
+      <h1>Perfectly ripe produce, <em>delivered to your door</em>.</h1>
+      <p class="lead">Avokado hand-picks seasonal fruit &amp; veg at peak ripeness and gets it to you within 24 hours — no bruises, no guesswork.</p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn btn-primary">Start your box →</a>
+        <a href="#how" class="btn btn-ghost">See how it works</a>
+      </div>
+      <div class="trust">
+        <span class="stars">★★★★★</span>
+        <span>Loved by <strong>12,000+</strong> households</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="blob" style="width:200px;height:200px;background:#b8dd90;top:-30px;right:-30px;"></div>
+        <div class="blob" style="width:160px;height:160px;background:#a3d17a;bottom:-20px;left:-20px;"></div>
+        <svg class="avo-illustration" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100 12c-38 0-66 34-66 84 0 54 36 96 66 96s66-42 66-96c0-50-28-84-66-84Z" fill="#3f8f4c"/>
+          <path d="M100 40c-26 0-46 24-46 62 0 40 24 70 46 70s46-30 46-70c0-38-20-62-46-62Z" fill="#d7ef9e"/>
+          <circle cx="100" cy="118" r="30" fill="#7a4a2b"/>
+          <circle cx="90" cy="108" r="9" fill="#9a6540"/>
+        </svg>
+      </div>
+      <div class="float-tag tag-1"><span class="dot" style="background:#eaf3e0;">🌱</span> Picked today</div>
+      <div class="float-tag tag-2"><span class="dot" style="background:#fdeccd;">🚚</span> Free next-day delivery</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<div class="logos">
+  <div class="wrap">
+    <span>As featured in</span>
+    <div class="logo-row">
+      <span>FreshDaily</span>
+      <span>GreenEats</span>
+      <span>The Grocer</span>
+      <span>Harvest&amp;Co</span>
+      <span>WellFed</span>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="pad features" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why Avokado</span>
+      <h2>Groceries that actually arrive ripe</h2>
+      <p>We rebuilt the supply chain around freshness — so what lands on your counter is ready to eat, not ready to throw out.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="ico">🍃</div>
+        <h3>Peak-ripeness picking</h3>
+        <p>Our growers harvest to order and our ripeness scan means every avocado is a day or two from perfect.</p>
+      </div>
+      <div class="feature">
+        <div class="ico">⏱️</div>
+        <h3>24-hour farm-to-door</h3>
+        <p>Cold-chain logistics move produce from the field to your kitchen in under a day. No warehouse limbo.</p>
+      </div>
+      <div class="feature">
+        <div class="ico">♻️</div>
+        <h3>Zero-waste packaging</h3>
+        <p>Home-compostable boxes and pulp trays. Nothing plastic, nothing wasted, nothing landfill-bound.</p>
+      </div>
+      <div class="feature">
+        <div class="ico">🗓️</div>
+        <h3>Flexible boxes</h3>
+        <p>Skip, pause, swap or cancel any week from the app. Your box, your rules — no lock-in.</p>
+      </div>
+      <div class="feature">
+        <div class="ico">👩‍🌾</div>
+        <h3>Fair to farmers</h3>
+        <p>We pay growers up to 3× the wholesale rate and name every farm your food came from.</p>
+      </div>
+      <div class="feature">
+        <div class="ico">🥗</div>
+        <h3>Recipes included</h3>
+        <p>Every box ships with quick seasonal recipes so nothing sits in the drawer going soft.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="pad" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Fresh food in three steps</h2>
+      <p>Set it up once, then let the seasons do the planning for you.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="num"></div>
+        <h3>Build your box</h3>
+        <p>Pick a size and tell us your likes, dislikes and dietary needs. We handle the rest each week.</p>
+      </div>
+      <div class="step">
+        <div class="num"></div>
+        <h3>We pick &amp; pack</h3>
+        <p>The morning before delivery, growers harvest your produce and we pack it at peak ripeness.</p>
+      </div>
+      <div class="step">
+        <div class="num"></div>
+        <h3>Enjoy, then repeat</h3>
+        <p>It arrives next-day, ready to eat. Adjust or skip any time from the app — no commitment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pad pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Plans</span>
+      <h2>Pick a box that fits your kitchen</h2>
+      <p>All plans include free next-day delivery, compostable packaging and full flexibility.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan">
+        <h3>Solo</h3>
+        <div class="price">$29<span>/box</span></div>
+        <p class="desc">For one — a week of fresh fruit &amp; veg for a single kitchen.</p>
+        <ul>
+          <li>7–9 seasonal items</li>
+          <li>Weekly or fortnightly</li>
+          <li>Skip anytime</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Choose Solo</a>
+      </div>
+      <div class="plan featured">
+        <span class="badge">Most popular</span>
+        <h3>Family</h3>
+        <div class="price">$49<span>/box</span></div>
+        <p class="desc">For a household — plenty of produce for meals all week.</p>
+        <ul>
+          <li>14–18 seasonal items</li>
+          <li>Weekly or fortnightly</li>
+          <li>Recipe cards included</li>
+          <li>Priority delivery windows</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Choose Family</a>
+      </div>
+      <div class="plan">
+        <h3>Feast</h3>
+        <div class="price">$79<span>/box</span></div>
+        <p class="desc">For big kitchens, share houses and small cafés.</p>
+        <ul>
+          <li>24–30 seasonal items</li>
+          <li>Add pantry &amp; dairy</li>
+          <li>Dedicated support</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Choose Feast</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-inner">
+      <div class="blob" style="width:240px;height:240px;background:rgba(255,255,255,0.14);top:-60px;left:-40px;"></div>
+      <div class="blob" style="width:200px;height:200px;background:rgba(255,255,255,0.1);bottom:-70px;right:-30px;"></div>
+      <h2>Your first box is on us 🥑</h2>
+      <p>Start today and get 50% off your first Avokado box. Cancel anytime — no strings, just good produce.</p>
+      <a href="#pricing" class="btn btn-primary">Claim my box →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="faq">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#">
+          <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 3c-7 0-13 6.5-13 16 0 10 6.8 18 13 18s13-8 13-18C33 9.5 27 3 20 3Z" fill="#4f9d5a"/>
+            <path d="M20 9c-4.6 0-8.4 4.4-8.4 11 0 7 4.5 12.4 8.4 12.4S28.4 27 28.4 20C28.4 13.4 24.6 9 20 9Z" fill="#c7e86b"/>
+            <circle cx="20" cy="21" r="4.2" fill="#7a4a2b"/>
+          </svg>
+          Avokado
+        </a>
+        <p>Farm-fresh fruit and veg, picked ripe and delivered next-day. Better for you, fairer for growers.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="#features">Why Avokado</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Plans</a>
+        <a href="#">Gift boxes</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="#">Our farms</a>
+        <a href="#">Sustainability</a>
+        <a href="#">Careers</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="foot-col">
+        <h4>Support</h4>
+        <a href="#">Help centre</a>
+        <a href="#">Delivery areas</a>
+        <a href="#">Contact us</a>
+        <a href="#">Track my box</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Avokado. All rights reserved.</span>
+      <span>Privacy · Terms · Cookies</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

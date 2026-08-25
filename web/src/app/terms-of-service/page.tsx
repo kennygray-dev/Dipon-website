@@ -7,7 +7,7 @@ import { CONTACT_EMAIL } from "@/lib/site";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — DIPON Group",
+  title: "Terms of Service — DIPON Group Limited",
   description: "The terms that govern your use of the DIPON Group website and its content.",
 };
 
@@ -42,7 +42,7 @@ export default function TermsOfServicePage() {
               <div>
                 <h2 className={h2}>Who we are</h2>
                 <p className={body}>
-                  This site is operated by DIPON Group (&ldquo;DIPON&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;,
+                  This site is operated by DIPON Group Limited (&ldquo;DIPON&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;,
                   &ldquo;our&rdquo;), a Nigerian group delivering construction, power infrastructure, real estate, and
                   supply-chain solutions through its companies — DIPON Construction Limited, DIPON Global Resources
                   Limited, and DIPON Infrastructure Limited — each registered in Nigeria under the Companies and
@@ -84,7 +84,7 @@ export default function TermsOfServicePage() {
                 <h2 className={h2}>Intellectual property</h2>
                 <p className={body}>
                   The DIPON name and logo, together with the content, design, text, graphics, and layout of this
-                  site, are owned by or licensed to DIPON Group and its companies and are protected by applicable
+                  site, are owned by or licensed to DIPON Group Limited and its companies and are protected by applicable
                   intellectual-property laws. You are welcome to view our pages and share links to them, but you may
                   not reproduce, republish, or use our content or branding for commercial purposes without our prior
                   written permission.
@@ -114,7 +114,7 @@ export default function TermsOfServicePage() {
               <div>
                 <h2 className={h2}>Limitation of liability</h2>
                 <p className={body}>
-                  To the fullest extent permitted by law, DIPON Group and its companies will not be liable for any
+                  To the fullest extent permitted by law, DIPON Group Limited and its companies will not be liable for any
                   loss or damage arising from your use of, or inability to use, this site, or from reliance on any
                   information it contains. Nothing in these terms excludes or limits any liability that cannot lawfully
                   be excluded or limited.

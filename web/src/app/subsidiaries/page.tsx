@@ -9,7 +9,7 @@ import { SUBSIDIARIES } from "@/lib/subsidiaries";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Subsidiaries — DIPON Group",
+  title: "Subsidiaries — DIPON Group Limited",
   description:
     "Three specialized companies — DIPON Construction, DIPON Global Resources, and DIPON Infrastructure — under one accountable Nigerian-owned group.",
 };
