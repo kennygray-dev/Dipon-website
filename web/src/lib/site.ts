@@ -47,5 +47,5 @@ export const OFFICES: Office[] = [
 export const MAP_QUERY = "2421 Oka Akoko Close, Garki 2, Abuja, Nigeria";
 
 // Not supplied yet. Leave empty and the UI hides email affordances until it's set.
-export const CONTACT_EMAIL = "";
-export const CAREERS_EMAIL = "";
+export const CONTACT_EMAIL = "info@dipongrouplimited.com";
+export const CAREERS_EMAIL = "info@dipongrouplimited.com";

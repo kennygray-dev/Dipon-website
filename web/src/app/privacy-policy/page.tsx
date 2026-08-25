@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
+import { CONTACT_EMAIL } from "@/lib/site";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
@@ -90,8 +91,8 @@ export default function PrivacyPolicyPage() {
                   Under the NDPA, once we do hold your information, you can ask to access it, correct it, have it
                   deleted, or object to how it&rsquo;s used. You can also lodge a complaint with the Nigeria Data
                   Protection Commission (NDPC). To make a request, reach us at{" "}
-                  <a href="mailto:hello@dipongroup.example" className="text-dipon-accent underline underline-offset-2">
-                    [Email Address]
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-dipon-accent underline underline-offset-2">
+                    {CONTACT_EMAIL}
                   </a>
                   .
                 </p>
