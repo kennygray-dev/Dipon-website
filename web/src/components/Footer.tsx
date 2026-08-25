@@ -4,20 +4,13 @@ import { SERVICES } from "@/lib/services";
 import { OFFICES } from "@/lib/site";
 import { SUBSIDIARIES } from "@/lib/subsidiaries";
 import { wrap } from "@/lib/styles";
-import { FacebookIcon, InstagramIcon, LinkedInIcon, XIcon } from "./icons";
+import Socials from "./Socials";
 
 const footerLink =
   "font-body text-sm text-dipon-cream no-underline opacity-[0.82] hover:opacity-100";
 const footerHead =
   "mb-4 font-label text-[11px] font-semibold uppercase tracking-[1.2px] text-dipon-accent";
 const footerList = "m-0 flex list-none flex-col gap-[11px] p-0";
-
-const SOCIALS = [
-  { Icon: XIcon, href: "#", label: "X" },
-  { Icon: LinkedInIcon, href: "#", label: "LinkedIn" },
-  { Icon: FacebookIcon, href: "#", label: "Facebook" },
-  { Icon: InstagramIcon, href: "#", label: "Instagram" },
-];
 
 const LEGAL_LINKS = [{ label: "Privacy Policy", href: "/privacy-policy" }];
 
@@ -31,18 +24,7 @@ export default function Footer() {
             <p className="mt-5 max-w-[280px] font-body text-sm leading-[1.65] text-[rgba(255,249,235,0.85)]">
               Building Sustainable Infrastructure and Business Solutions for Africa&rsquo;s Future.
             </p>
-            <div className="mt-5 flex items-center gap-3">
-              {SOCIALS.map(({ Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 text-dipon-cream opacity-[0.82] transition-[opacity,background-color,border-color] duration-200 hover:border-dipon-accent hover:bg-dipon-accent hover:text-white hover:opacity-100"
-                >
-                  <Icon />
-                </a>
-              ))}
-            </div>
+            <Socials className="mt-5" />
           </div>
           <nav aria-label="Company">
             <div className={footerHead}>Company</div>

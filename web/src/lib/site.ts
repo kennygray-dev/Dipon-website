@@ -13,9 +13,18 @@ export const SITE_TITLE = "DIPON Group — One Group. Every Stage of the Build."
 export const SITE_DESCRIPTION =
   "DIPON Group integrates construction, power infrastructure, real estate, and supply chain capability under one accountable Nigerian-owned group.";
 
-// Real profile URLs go here once they exist — they feed the Organization
-// schema's `sameAs` (and can replace the `#` placeholders in the UI).
-export const SOCIAL_URLS: string[] = [];
+// Real social profiles. Add an entry here to switch the icons on everywhere
+// (footer, hero, contact, careers) AND feed the Organization schema's `sameAs`.
+// Empty = the icons are hidden site-wide, with no dead links.
+export type SocialPlatform = "x" | "linkedin" | "facebook" | "instagram";
+export type SocialLink = { platform: SocialPlatform; url: string; label: string };
+
+export const SOCIAL_LINKS: SocialLink[] = [
+  // e.g. { platform: "linkedin", url: "https://www.linkedin.com/company/…", label: "LinkedIn" },
+];
+
+// Derived — feeds the Organization schema's sameAs.
+export const SOCIAL_URLS: string[] = SOCIAL_LINKS.map((s) => s.url);
 
 export type Office = {
   label: string;

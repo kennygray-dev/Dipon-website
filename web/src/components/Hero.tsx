@@ -4,17 +4,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import CountUp from "./CountUp";
 import Reveal from "./Reveal";
+import Socials from "./Socials";
 import { YEARS_IN_OPERATION } from "@/lib/site";
-import {
-  ArrowIcon,
-  ClockIcon,
-  FacebookIcon,
-  HouseIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  ShieldIcon,
-  XIcon,
-} from "./icons";
+import { ArrowIcon, ClockIcon, HouseIcon, ShieldIcon } from "./icons";
 
 const SLIDES = [
   {
@@ -40,13 +32,6 @@ const SLIDES = [
 ];
 
 const SLIDE_INTERVAL_MS = 7000;
-
-const SOCIALS = [
-  { Icon: XIcon, href: "#", label: "X" },
-  { Icon: LinkedInIcon, href: "#", label: "LinkedIn" },
-  { Icon: FacebookIcon, href: "#", label: "Facebook" },
-  { Icon: InstagramIcon, href: "#", label: "Instagram" },
-];
 
 const STATS = [
   {
@@ -206,18 +191,7 @@ export default function Hero() {
               <span className="font-body text-[12.5px] tracking-[0.3px] text-dipon-cream/60 sm:text-[13px]">
                 Trusted Across Construction, Power &amp; Real Estate
               </span>
-              <div className="flex items-center gap-3">
-                {SOCIALS.map(({ Icon, href, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10 text-dipon-cream transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent hover:text-white"
-                  >
-                    <Icon />
-                  </a>
-                ))}
-              </div>
+              <Socials />
             </div>
 
             <div className="grid grid-cols-3 gap-[3px] sm:gap-px lg:w-[min(560px,48%)] lg:shrink-0">

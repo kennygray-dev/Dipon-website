@@ -5,20 +5,14 @@ import { submitContact } from "@/app/actions/contact";
 import { initialContactState } from "@/lib/contact";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
-import { ArrowIcon, FacebookIcon, InstagramIcon, LinkedInIcon, LogoMark, XIcon } from "./icons";
+import Socials from "./Socials";
+import { ArrowIcon, LogoMark } from "./icons";
 import { SERVICES } from "@/lib/services";
 import { CONTACT_EMAIL, MAP_QUERY, OFFICES } from "@/lib/site";
 import { section, wrap } from "@/lib/styles";
 
 const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&z=16&output=embed`;
 const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAP_QUERY)}`;
-
-const SOCIALS = [
-  { Icon: XIcon, href: "#", label: "X" },
-  { Icon: LinkedInIcon, href: "#", label: "LinkedIn" },
-  { Icon: FacebookIcon, href: "#", label: "Facebook" },
-  { Icon: InstagramIcon, href: "#", label: "Instagram" },
-];
 
 const SERVICE_OPTIONS = ["General inquiry", ...SERVICES.map((s) => s.title)];
 
@@ -282,23 +276,7 @@ export default function ContactForm() {
                   </p>
                 </div>
               )}
-              <div className="flex flex-col gap-4">
-                <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
-                  Follow Us
-                </span>
-                <div className="flex items-center gap-2.5">
-                  {SOCIALS.map(({ Icon, href, label }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      aria-label={label}
-                      className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 text-dipon-cream/80 transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent hover:text-white"
-                    >
-                      <Icon />
-                    </a>
-                  ))}
-                </div>
-              </div>
+              <Socials label="Follow Us" />
             </div>
           </div>
         </Reveal>

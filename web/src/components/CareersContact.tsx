@@ -1,24 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState } from "react";
+import { submitCareers } from "@/app/actions/careers";
+import { initialContactState } from "@/lib/contact";
 import Eyebrow from "./Eyebrow";
 import GeometricOverlay from "./GeometricOverlay";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
-import { ArrowIcon, FacebookIcon, InstagramIcon, LinkedInIcon, LogoMark, XIcon } from "./icons";
+import Socials from "./Socials";
+import { ArrowIcon, LogoMark } from "./icons";
 import { CAREERS_EMAIL, OFFICES } from "@/lib/site";
 import { section, wrap, lead } from "@/lib/styles";
 
 const HEAD_OFFICE = OFFICES[0];
 
 const PHOTO = "https://images.pexels.com/photos/30688597/pexels-photo-30688597.jpeg?auto=compress&cs=tinysrgb&w=1600";
-
-const SOCIALS = [
-  { Icon: XIcon, href: "#", label: "X" },
-  { Icon: LinkedInIcon, href: "#", label: "LinkedIn" },
-  { Icon: FacebookIcon, href: "#", label: "Facebook" },
-  { Icon: InstagramIcon, href: "#", label: "Instagram" },
-];
 
 const INTERESTS = [
   "Construction & Civil Engineering",
@@ -32,18 +28,14 @@ const INTERESTS = [
 ];
 
 const inputClass =
-  "w-full border-0 border-b border-[rgba(35,61,76,0.18)] bg-transparent px-0 py-2.5 font-body text-[15px] text-dipon-primary outline-none transition-colors duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent";
+  "w-full border-0 border-b border-[rgba(35,61,76,0.18)] bg-transparent px-0 py-2.5 font-body text-[15px] text-dipon-primary outline-none transition-colors duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent aria-[invalid=true]:border-red-500";
 const labelClass = "block font-body text-[13px] text-dipon-tertiary";
+const errorClass = "mt-1 font-body text-[12px] text-red-600";
 
 export default function CareersContact() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // No backend wired yet — surface a confirmation state. Wire to an
-    // endpoint or email service before launch.
-    setSubmitted(true);
-  };
+  const [state, formAction, pending] = useActionState(submitCareers, initialContactState);
+  const submitted = state.status === "success";
+  const fieldErrors = state.errors ?? {};
 
   return (
     <section id="cta" className={section}>
@@ -87,21 +79,56 @@ export default function CareersContact() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              <form action={formAction} className="flex flex-col gap-5" noValidate>
                 <span className="font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-accent uppercase">
                   Introduce Yourself
                 </span>
+                {/* Honeypot: hidden from people, catches bots. */}
+                <input
+                  type="text"
+                  name="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                />
                 <div>
                   <label htmlFor="cf-name" className={labelClass}>
                     Name
                   </label>
-                  <input id="cf-name" name="name" type="text" required className={inputClass} />
+                  <input
+                    id="cf-name"
+                    name="name"
+                    type="text"
+                    required
+                    aria-invalid={Boolean(fieldErrors.name)}
+                    aria-describedby={fieldErrors.name ? "cf-name-error" : undefined}
+                    className={inputClass}
+                  />
+                  {fieldErrors.name && (
+                    <p id="cf-name-error" className={errorClass}>
+                      {fieldErrors.name}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="cf-email" className={labelClass}>
                     E-mail
                   </label>
-                  <input id="cf-email" name="email" type="email" required className={inputClass} />
+                  <input
+                    id="cf-email"
+                    name="email"
+                    type="email"
+                    required
+                    aria-invalid={Boolean(fieldErrors.email)}
+                    aria-describedby={fieldErrors.email ? "cf-email-error" : undefined}
+                    className={inputClass}
+                  />
+                  {fieldErrors.email && (
+                    <p id="cf-email-error" className={errorClass}>
+                      {fieldErrors.email}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="cf-phone" className={labelClass}>
@@ -113,7 +140,15 @@ export default function CareersContact() {
                   <label htmlFor="cf-interest" className={labelClass}>
                     Area of interest
                   </label>
-                  <select id="cf-interest" name="interest" defaultValue="" required className={inputClass}>
+                  <select
+                    id="cf-interest"
+                    name="interest"
+                    defaultValue=""
+                    required
+                    aria-invalid={Boolean(fieldErrors.interest)}
+                    aria-describedby={fieldErrors.interest ? "cf-interest-error" : undefined}
+                    className={inputClass}
+                  >
                     <option value="" disabled>
                       Select an area
                     </option>
@@ -123,6 +158,11 @@ export default function CareersContact() {
                       </option>
                     ))}
                   </select>
+                  {fieldErrors.interest && (
+                    <p id="cf-interest-error" className={errorClass}>
+                      {fieldErrors.interest}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="cf-message" className={labelClass}>
@@ -131,12 +171,19 @@ export default function CareersContact() {
                   <textarea id="cf-message" name="message" rows={3} className={`${inputClass} resize-none`} />
                 </div>
 
+                {state.status === "error" && !state.errors && (
+                  <p role="alert" className="font-body text-[13px] text-red-600">
+                    {state.message}
+                  </p>
+                )}
+
                 <div className="mt-2 flex items-center justify-end gap-4">
                   <button
                     type="submit"
-                    className="group inline-flex shrink-0 items-center gap-3 rounded-full bg-dipon-primary py-3 pr-3 pl-6 font-label text-[11px] font-semibold tracking-[1.2px] text-white! uppercase transition-shadow duration-300 hover:shadow-[0_10px_28px_rgba(35,61,76,0.28)]"
+                    disabled={pending}
+                    className="group inline-flex shrink-0 items-center gap-3 rounded-full bg-dipon-primary py-3 pr-3 pl-6 font-label text-[11px] font-semibold tracking-[1.2px] text-white! uppercase transition-shadow duration-300 hover:shadow-[0_10px_28px_rgba(35,61,76,0.28)] disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    Send Introduction
+                    {pending ? "Sending…" : "Send Introduction"}
                     <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
                       <ArrowIcon width={12} height={5} />
                     </span>
@@ -186,23 +233,7 @@ export default function CareersContact() {
                 {HEAD_OFFICE.country}
               </p>
             </div>
-            <div className="flex flex-col gap-4">
-              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
-                Follow Us
-              </span>
-              <div className="flex items-center gap-2.5">
-                {SOCIALS.map(({ Icon, href, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 text-dipon-cream/80 transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent hover:text-white"
-                  >
-                    <Icon />
-                  </a>
-                ))}
-              </div>
-            </div>
+            <Socials label="Follow Us" />
           </div>
         </Reveal>
       </div>
