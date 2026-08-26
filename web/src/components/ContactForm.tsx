@@ -39,7 +39,7 @@ export default function ContactForm() {
 
         <Reveal className="relative flex flex-col rounded-[28px] bg-dipon-blue">
           {/* Map — mobile: sits between the form and the address block; desktop: back on top, unchanged */}
-          <div className="relative order-2 h-[320px] overflow-hidden bg-dipon-blue sm:h-[400px] lg:order-none lg:h-[480px] lg:rounded-t-[28px]">
+          <div className="relative order-2 h-[210px] overflow-hidden bg-dipon-blue sm:h-[260px] lg:order-none lg:h-[360px] lg:rounded-t-[28px]">
             <iframe
               src={MAP_EMBED_SRC}
               className="absolute inset-0 h-full w-full grayscale invert-[0.92] contrast-[0.88] [transform:translateZ(0)] [backface-visibility:hidden]"

@@ -40,7 +40,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
           </div>
         </Reveal>
         <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-[0.62fr_0.38fr] md:gap-0">
-          <Reveal delay={80}>
+          <Reveal from="left" delay={80}>
             <span aria-hidden="true" className="block font-display text-[64px] leading-none font-black text-dipon-accent/25">
               &ldquo;
             </span>
@@ -61,7 +61,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
               </Link>
             )}
           </Reveal>
-          <Reveal delay={40} className="relative order-first aspect-[4/5] overflow-hidden rounded-[20px] md:order-none">
+          <Reveal from="right" delay={40} className="relative order-first aspect-[4/5] overflow-hidden rounded-[20px] md:order-none">
             <Image
               src={founderPhoto}
               alt="Mr. Oliver Ibeh, Founder and Owner of DIPON Group"

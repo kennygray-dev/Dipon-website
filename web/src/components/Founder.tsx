@@ -28,7 +28,7 @@ export default function Founder() {
     <section id="founder" className={section}>
       <div className={wrap}>
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[0.4fr_0.6fr] lg:gap-16">
-          <Reveal className="relative order-first aspect-[4/5] overflow-hidden rounded-[20px] lg:sticky lg:top-24">
+          <Reveal from="left" className="relative order-first aspect-[4/5] overflow-hidden rounded-[20px] lg:sticky lg:top-24">
             <Image
               src={founderPhoto}
               alt="Mr. Oliver Ibeh, Founder and Owner of DIPON Group"
@@ -47,7 +47,7 @@ export default function Founder() {
             </div>
           </Reveal>
 
-          <Reveal delay={80} className="flex flex-col gap-5">
+          <Reveal from="right" delay={80} className="flex flex-col gap-5">
             <div>
               <Eyebrow>Our Founder</Eyebrow>
               <h2 className="mt-3 text-balance font-display text-[clamp(28px,3.4vw,42px)] font-extrabold leading-[1.1] tracking-[-0.8px] text-dipon-primary">

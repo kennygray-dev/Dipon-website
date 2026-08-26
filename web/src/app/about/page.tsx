@@ -75,7 +75,7 @@ export default function AboutPage() {
         <section id="overview" className={section}>
           <div className={wrap}>
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.6fr_0.85fr] lg:gap-16">
-              <Reveal className="flex flex-col gap-[22px]">
+              <Reveal from="left" className="flex flex-col gap-[22px]">
                 <div>
                   <Eyebrow>Who We Are</Eyebrow>
                   <Heading>A Nigerian-owned group built to remove risk at the handoff.</Heading>
@@ -93,7 +93,7 @@ export default function AboutPage() {
               </Reveal>
 
               <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:aspect-[6/5] lg:grid-cols-2 lg:grid-rows-2">
-                <Reveal className="relative aspect-[4/3] overflow-hidden rounded-[20px] lg:aspect-auto lg:row-span-2">
+                <Reveal from="right" className="relative aspect-[4/3] overflow-hidden rounded-[20px] lg:aspect-auto lg:row-span-2">
                   <img
                     src={OVERVIEW_IMAGES.vertical.src}
                     alt={OVERVIEW_IMAGES.vertical.alt}
@@ -105,7 +105,7 @@ export default function AboutPage() {
                     <BuildIcon size={15} />
                   </span>
                 </Reveal>
-                <Reveal delay={150} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
+                <Reveal from="right" delay={150} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
                   <img
                     src={OVERVIEW_IMAGES.horizontalTop.src}
                     alt={OVERVIEW_IMAGES.horizontalTop.alt}
@@ -117,7 +117,7 @@ export default function AboutPage() {
                     <HouseIcon size={15} />
                   </span>
                 </Reveal>
-                <Reveal delay={300} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
+                <Reveal from="right" delay={300} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
                   <img
                     src={OVERVIEW_IMAGES.horizontalBottom.src}
                     alt={OVERVIEW_IMAGES.horizontalBottom.alt}
