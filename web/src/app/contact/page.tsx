@@ -16,7 +16,7 @@ export default function ContactPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <WordmarkHero word="Contact" subtitle="Let's talk about your next project" />
+        <WordmarkHero word="Contact Us" subtitle="Let's talk about your next project" />
         <ContactForm />
       </main>
       <Footer />

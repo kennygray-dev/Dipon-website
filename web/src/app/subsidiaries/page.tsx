@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import PageHero from "@/components/PageHero";
+import WordmarkHero from "@/components/WordmarkHero";
 import PhotoTile from "@/components/PhotoTile";
 import Reveal from "@/components/Reveal";
 import { SUBSIDIARIES } from "@/lib/subsidiaries";
@@ -19,10 +19,9 @@ export default function SubsidiariesPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <PageHero
-          eyebrow="Subsidiaries"
-          title="Three companies. One accountable group."
-          intro="Each subsidiary is built for depth in its field — construction, commercial operations, and infrastructure — while the Group keeps them accountable to a single standard."
+        <WordmarkHero
+          word="Subsidiaries"
+          subtitle="Three companies, one accountable group"
           image="https://images.pexels.com/photos/13116381/pexels-photo-13116381.jpeg?auto=compress&cs=tinysrgb&w=1200"
           imageAlt="DIPON Group partnership"
         />

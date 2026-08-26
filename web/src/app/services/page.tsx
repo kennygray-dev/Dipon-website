@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import PageHero from "@/components/PageHero";
 import PhotoTile from "@/components/PhotoTile";
 import Reveal from "@/components/Reveal";
+import WordmarkHero from "@/components/WordmarkHero";
 import { SERVICES } from "@/lib/services";
 import { root, section, wrap } from "@/lib/styles";
 
@@ -19,13 +19,7 @@ export default function ServicesPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <PageHero
-          eyebrow="Services"
-          title="Tell us what you need built, powered, supplied, or developed."
-          intro="Six capabilities across construction, energy, property, and supply — sometimes delivered by one company, sometimes by several working on the same site."
-          image="https://images.pexels.com/photos/8487763/pexels-photo-8487763.jpeg?auto=compress&cs=tinysrgb&w=1200"
-          imageAlt="DIPON Group construction worker on site"
-        />
+        <WordmarkHero word="Services" subtitle="Six capabilities, one accountable group" />
 
         <section className={section}>
           <div className={wrap}>
