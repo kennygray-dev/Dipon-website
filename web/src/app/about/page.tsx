@@ -64,7 +64,7 @@ export default function AboutPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <WordmarkHero word="About" subtitle="One group, every stage of the build" />
+        <WordmarkHero word="About Us" subtitle="One group, every stage of the build" />
 
         <section id="overview" className={section}>
           <div className={wrap}>
