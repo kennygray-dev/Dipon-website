@@ -171,7 +171,7 @@ export default function Hero() {
               <span className="text-dipon-accent">Of The Build.</span>
             </h1>
             <p className="max-w-[460px] font-body text-[14.5px] leading-[1.65] text-dipon-cream/88 sm:text-[16px] sm:leading-[1.7] xl:max-w-[500px] xl:text-[17.5px]">
-              DIPON Group integrates construction, power infrastructure, real estate, and supply chain capability
+              DIPON Group Limited integrates construction, power infrastructure, real estate, and supply chain capability
               under one accountable Nigerian-owned group — so your project moves forward without the coordination
               risk of multiple vendors.
             </p>
