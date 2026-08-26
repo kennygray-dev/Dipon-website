@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Eyebrow from "./Eyebrow";
-import GeometricOverlay from "./GeometricOverlay";
 import Reveal from "./Reveal";
 import founderPhoto from "@/assets/team/oliver-ibeh.jpg";
 import { section, wrap } from "@/lib/styles";
@@ -38,7 +37,6 @@ export default function Founder() {
               className="object-cover"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/10 to-transparent" />
-            <GeometricOverlay />
             <div className="absolute bottom-6 left-6 z-10">
               <div className="font-display text-[20px] font-bold text-dipon-cream">Mr. Oliver Ibeh</div>
               <div className="mt-1 font-label text-[11px] font-semibold tracking-[0.6px] text-dipon-cream/80 uppercase">
