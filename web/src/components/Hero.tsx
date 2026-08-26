@@ -11,7 +11,7 @@ import { ArrowIcon, ClockIcon, HouseIcon, ShieldIcon } from "./icons";
 const SLIDES = [
   {
     src: "https://images.pexels.com/photos/8487763/pexels-photo-8487763.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "DIPON Group — construction worker on site wearing a safety helmet",
+    alt: "DIPON Group Limited — construction worker on site wearing a safety helmet",
     position: "80% 30%",
   },
   {

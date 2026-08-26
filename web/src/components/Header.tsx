@@ -120,11 +120,11 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
           isSolid ? "border-[rgba(35,61,76,0.08)] bg-white" : "border-transparent bg-transparent"
         } has-[.nav-item:hover]:border-[rgba(35,61,76,0.08)] has-[.nav-item:hover]:bg-white has-[.nav-item:focus-within]:border-[rgba(35,61,76,0.08)] has-[.nav-item:focus-within]:bg-white`}
       >
-        <Link href="/" aria-label="DIPON Group — home" className="flex shrink-0 items-center">
+        <Link href="/" aria-label="DIPON Group Limited — home" className="flex shrink-0 items-center">
           <Image
             className={`h-6 w-auto ${isSolid ? "hidden" : "block"} [header:has(.nav-item:hover)_&]:hidden [header:has(.nav-item:focus-within)_&]:hidden`}
             src="/assets/dipon-logo-light.svg"
-            alt="DIPON Group"
+            alt="DIPON Group Limited"
             width={493}
             height={142}
             priority
@@ -132,7 +132,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
           <Image
             className={`h-6 w-auto ${isSolid ? "block" : "hidden"} [header:has(.nav-item:hover)_&]:block [header:has(.nav-item:focus-within)_&]:block`}
             src="/assets/dipon-logo-dark.svg"
-            alt="DIPON Group"
+            alt="DIPON Group Limited"
             width={493}
             height={142}
             priority
