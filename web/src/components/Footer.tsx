@@ -34,7 +34,7 @@ export default function Footer() {
             <ul className={footerList}>
               <li><a href="/about" className={footerLink}>About Us</a></li>
               <li><a href="/careers" className={footerLink}>Careers</a></li>
-              <li><Link href="/blog" className={footerLink}>Blogs</Link></li>
+              <li><Link href="/blog" className={footerLink}>Blog</Link></li>
               <li><a href="/contact" className={footerLink}>Contact</a></li>
             </ul>
           </nav>
@@ -74,7 +74,7 @@ export default function Footer() {
                   <br />
                   <a
                     href={`tel:${office.phoneHref}`}
-                    className="no-underline hover:text-dipon-cream"
+                    className="text-dipon-cream underline decoration-[rgba(255,249,235,0.4)] underline-offset-[3px] transition-colors hover:decoration-dipon-cream"
                   >
                     {office.phoneDisplay}
                   </a>

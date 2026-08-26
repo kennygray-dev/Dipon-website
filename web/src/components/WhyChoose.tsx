@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BuildingMotif from "./BuildingMotif";
 import Eyebrow from "./Eyebrow";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
@@ -89,7 +90,7 @@ export default function WhyChoose() {
             const Icon = reason.icon;
             return (
               <Reveal key={reason.title} delay={(i % 3) * 110}>
-                <div className="relative flex h-full flex-col items-center gap-3 overflow-hidden bg-dipon-blue-alt px-6 py-8 text-center transition-colors duration-300 hover:bg-dipon-blue">
+                <div className="group relative flex h-full flex-col items-center gap-3 overflow-hidden bg-dipon-blue-alt px-6 py-8 text-center transition-colors duration-300 hover:bg-dipon-blue">
                   <div
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"
@@ -98,6 +99,7 @@ export default function WhyChoose() {
                         "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
                     }}
                   />
+                  <BuildingMotif className="pointer-events-none absolute right-0 bottom-0 h-[86px] w-[104px] text-dipon-accent opacity-[0.22] transition-opacity duration-300 group-hover:opacity-0" />
                   <span className="relative z-10 text-dipon-accent">
                     <Icon size={30} />
                   </span>

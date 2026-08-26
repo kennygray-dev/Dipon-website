@@ -6,7 +6,7 @@ import { initialContactState } from "@/lib/contact";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
 import Socials from "./Socials";
-import { ArrowIcon, LogoMark } from "./icons";
+import { ArrowIcon, LogoMark, MailIcon, PhoneIcon, PinIcon } from "./icons";
 import { SERVICES } from "@/lib/services";
 import { CONTACT_EMAIL, MAP_QUERY, OFFICES } from "@/lib/site";
 import { section, wrap } from "@/lib/styles";
@@ -17,9 +17,13 @@ const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 const SERVICE_OPTIONS = ["General inquiry", ...SERVICES.map((s) => s.title)];
 
 const inputClass =
-  "w-full border-0 border-b border-[rgba(35,61,76,0.18)] bg-transparent px-0 py-2.5 font-body text-[15px] text-dipon-primary outline-none transition-colors duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent aria-[invalid=true]:border-red-500";
-const labelClass = "block font-body text-[13px] text-dipon-tertiary";
+  "w-full rounded-xl border border-[rgba(35,61,76,0.14)] bg-dipon-surface px-4 py-3 font-body text-[15px] text-dipon-primary outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent focus:bg-white focus:ring-2 focus:ring-dipon-accent/25 aria-[invalid=true]:border-red-500";
+const labelClass = "mb-1.5 block font-body text-[13px] font-medium text-dipon-secondary";
 const errorClass = "mt-1 font-body text-[12px] text-red-600";
+const contactChip =
+  "inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-3.5 py-2 font-body text-[13.5px] text-dipon-cream no-underline transition-colors duration-200 hover:border-white/45 hover:bg-white/10";
+const mapsUrl = (query: string) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 
 export default function ContactForm() {
   const [state, formAction, pending] = useActionState(submitContact, initialContactState);
@@ -64,31 +68,16 @@ export default function ContactForm() {
                 <circle cx="14" cy="14" r="5.5" fill="#1c313d" />
               </svg>
             </a>
-            {/* Heading + a clear "open the map" CTA — kept bottom-left, clear of the floating form card */}
+            {/* Heading — bottom-left, clear of the floating form card */}
             <div className="absolute bottom-6 left-6 z-10 sm:left-8">
               <h3 className="max-w-[280px] text-balance font-display text-[clamp(26px,3.4vw,40px)] font-extrabold leading-[1.05] text-dipon-cream">
                 Contact us
               </h3>
-              <a
-                href={MAP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group mt-4 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2.5 font-label text-[11px] font-semibold tracking-[0.8px] text-dipon-primary uppercase no-underline shadow-[0_6px_20px_rgba(0,0,0,0.28)] backdrop-blur-sm transition-all duration-200 hover:bg-white hover:shadow-[0_10px_28px_rgba(0,0,0,0.4)]"
-              >
-                <svg width="13" height="16" viewBox="0 0 13 16" fill="none" aria-hidden="true">
-                  <path d="M6.5 0C2.9 0 0 2.9 0 6.5 0 11 6.5 16 6.5 16S13 11 13 6.5C13 2.9 10.1 0 6.5 0Z" fill="#fd802e" />
-                  <circle cx="6.5" cy="6.5" r="2.4" fill="#fff" />
-                </svg>
-                Get Directions
-                <span className="transition-transform duration-200 group-hover:translate-x-0.5">
-                  <ArrowIcon width={13} height={6} />
-                </span>
-              </a>
             </div>
           </div>
 
           {/* Feedback form — first on mobile (rounded to match the card's top edge), floating card on desktop */}
-          <div className="relative z-20 order-1 w-full rounded-t-[28px] bg-white px-3 py-8 sm:px-6 lg:order-none lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:rounded-[22px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
+          <div className="relative z-20 order-1 w-full rounded-t-[28px] bg-white px-5 py-8 sm:px-6 lg:order-none lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:rounded-[22px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-dipon-accent to-transparent lg:hidden" />
@@ -233,47 +222,64 @@ export default function ContactForm() {
           </div>
 
           {/* Offices / email / socials — grouped bottom-left, clear of the floating form */}
-          <div className="order-3 flex flex-col divide-y divide-white/15 border-t border-white/10 px-6 py-9 sm:flex-row sm:flex-wrap sm:items-stretch sm:divide-y-0 sm:divide-x lg:order-none lg:max-w-[calc(100%-460px)] lg:px-8">
-            {OFFICES.map((office) => (
-              <div
-                key={office.label}
-                className="py-6 first:pt-0 last:pb-0 sm:py-0 sm:px-8 sm:first:pl-0 sm:last:pr-0"
-              >
-                <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
-                  {office.label}
-                </span>
-                <p className="mt-3 font-body text-[14px] leading-[1.7] whitespace-nowrap text-dipon-cream/85">
-                  {office.lines.map((line) => (
-                    <span key={line}>
-                      {line}
-                      <br />
-                    </span>
-                  ))}
-                  {office.country}
-                  <br />
-                  <a
-                    href={`tel:${office.phoneHref}`}
-                    className="text-dipon-cream/85 no-underline hover:text-white"
-                  >
-                    {office.phoneDisplay}
-                  </a>
-                </p>
-              </div>
-            ))}
-            <div className="flex flex-col gap-4 py-6 first:pt-0 last:pb-0 sm:py-0 sm:px-8 sm:first:pl-0 sm:last:pr-0">
+          <div className="order-3 border-t border-white/10 px-6 py-9 lg:order-none lg:max-w-[calc(100%-460px)] lg:px-8">
+            <div className="flex flex-col divide-y divide-white/15 sm:flex-row sm:divide-y-0 sm:divide-x">
+              {OFFICES.map((office, i) => (
+                <div
+                  key={office.label}
+                  className="py-6 first:pt-0 last:pb-0 sm:py-0 sm:px-8 sm:first:pl-0 sm:last:pr-0"
+                >
+                  <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
+                    {office.label}
+                  </span>
+                  <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/80">
+                    {office.lines.map((line) => (
+                      <span key={line}>
+                        {line}
+                        <br />
+                      </span>
+                    ))}
+                    {office.country}
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <a href={`tel:${office.phoneHref}`} className={contactChip}>
+                      <span className="text-dipon-accent">
+                        <PhoneIcon />
+                      </span>
+                      {office.phoneDisplay}
+                    </a>
+                    {i === 0 && (
+                      <a
+                        href={mapsUrl([...office.lines, office.country].join(", "))}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={contactChip}
+                      >
+                        <span className="text-dipon-accent">
+                          <PinIcon />
+                        </span>
+                        Directions
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-8">
               {CONTACT_EMAIL && (
                 <div>
                   <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
                     Email Us
                   </span>
-                  <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
-                    <a
-                      href={`mailto:${CONTACT_EMAIL}`}
-                      className="text-dipon-cream/85 no-underline hover:text-white"
-                    >
+                  <div className="mt-3">
+                    <a href={`mailto:${CONTACT_EMAIL}`} className={contactChip}>
+                      <span className="text-dipon-accent">
+                        <MailIcon />
+                      </span>
                       {CONTACT_EMAIL}
                     </a>
-                  </p>
+                  </div>
                 </div>
               )}
               <Socials label="Follow Us" />

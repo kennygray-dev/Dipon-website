@@ -8,7 +8,7 @@ import GeometricOverlay from "./GeometricOverlay";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
 import Socials from "./Socials";
-import { ArrowIcon, LogoMark } from "./icons";
+import { ArrowIcon, LogoMark, MailIcon, PhoneIcon, PinIcon } from "./icons";
 import { CAREERS_EMAIL, OFFICES } from "@/lib/site";
 import { section, wrap, lead } from "@/lib/styles";
 
@@ -28,9 +28,13 @@ const INTERESTS = [
 ];
 
 const inputClass =
-  "w-full border-0 border-b border-[rgba(35,61,76,0.18)] bg-transparent px-0 py-2.5 font-body text-[15px] text-dipon-primary outline-none transition-colors duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent aria-[invalid=true]:border-red-500";
-const labelClass = "block font-body text-[13px] text-dipon-tertiary";
+  "w-full rounded-xl border border-[rgba(35,61,76,0.14)] bg-dipon-surface px-4 py-3 font-body text-[15px] text-dipon-primary outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent focus:bg-white focus:ring-2 focus:ring-dipon-accent/25 aria-[invalid=true]:border-red-500";
+const labelClass = "mb-1.5 block font-body text-[13px] font-medium text-dipon-secondary";
 const errorClass = "mt-1 font-body text-[12px] text-red-600";
+const contactChip =
+  "inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-3.5 py-2 font-body text-[13.5px] text-dipon-cream no-underline transition-colors duration-200 hover:border-white/45 hover:bg-white/10";
+const mapsUrl = (query: string) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 
 export default function CareersContact() {
   const [state, formAction, pending] = useActionState(submitCareers, initialContactState);
@@ -62,7 +66,7 @@ export default function CareersContact() {
           </div>
 
           {/* Introduction form — edge-to-edge on mobile, floating card on desktop */}
-          <div className="relative z-20 w-full bg-white px-3 py-8 sm:px-6 lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:rounded-[22px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
+          <div className="relative z-20 w-full bg-white px-5 py-8 sm:px-6 lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:rounded-[22px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-dipon-accent to-transparent lg:hidden" />
@@ -199,31 +203,28 @@ export default function CareersContact() {
               <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
                 Prefer To Talk?
               </span>
-              <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
-                <a
-                  href={`tel:${HEAD_OFFICE.phoneHref}`}
-                  className="text-dipon-cream/85 no-underline hover:text-white"
-                >
+              <div className="mt-3 flex flex-wrap gap-2">
+                <a href={`tel:${HEAD_OFFICE.phoneHref}`} className={contactChip}>
+                  <span className="text-dipon-accent">
+                    <PhoneIcon />
+                  </span>
                   {HEAD_OFFICE.phoneDisplay}
                 </a>
                 {CAREERS_EMAIL && (
-                  <>
-                    <br />
-                    <a
-                      href={`mailto:${CAREERS_EMAIL}`}
-                      className="text-dipon-cream/85 no-underline hover:text-white"
-                    >
-                      {CAREERS_EMAIL}
-                    </a>
-                  </>
+                  <a href={`mailto:${CAREERS_EMAIL}`} className={contactChip}>
+                    <span className="text-dipon-accent">
+                      <MailIcon />
+                    </span>
+                    {CAREERS_EMAIL}
+                  </a>
                 )}
-              </p>
+              </div>
             </div>
             <div>
               <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
                 Head Office
               </span>
-              <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/85">
+              <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/80">
                 {HEAD_OFFICE.lines.map((line) => (
                   <span key={line}>
                     {line}
@@ -232,6 +233,19 @@ export default function CareersContact() {
                 ))}
                 {HEAD_OFFICE.country}
               </p>
+              <div className="mt-3">
+                <a
+                  href={mapsUrl([...HEAD_OFFICE.lines, HEAD_OFFICE.country].join(", "))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={contactChip}
+                >
+                  <span className="text-dipon-accent">
+                    <PinIcon />
+                  </span>
+                  Directions
+                </a>
+              </div>
             </div>
             <Socials label="Follow Us" />
           </div>

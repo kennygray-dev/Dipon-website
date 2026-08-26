@@ -207,7 +207,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
             href="/blog"
             className={`nav-item inline-flex cursor-pointer items-center border-0 bg-none py-3.5 font-body text-sm no-underline transition-[color,opacity] duration-200 ${navTextClass} ${navTextHasHover}`}
           >
-            Blogs
+            Blog
           </Link>
         </nav>
         <div className="flex shrink-0 items-center">
@@ -287,7 +287,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
             className="block border-b border-[rgba(35,61,76,0.14)] px-5 py-[18px] font-body text-[15px] font-medium text-dipon-primary no-underline"
             onClick={closeDrawer}
           >
-            Blogs
+            Blog
           </Link>
         </div>
         <div className="mt-auto border-t border-[rgba(35,61,76,0.14)] p-5">
