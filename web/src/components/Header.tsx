@@ -150,15 +150,15 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
                 if (!e.currentTarget.contains(e.relatedTarget as Node)) setActiveGroup(null);
               }}
             >
-              <button
-                type="button"
+              <Link
+                href={group.href}
                 className={`inline-flex cursor-pointer items-center gap-1.5 border-0 bg-none py-3.5 font-body text-sm no-underline transition-[color,opacity] duration-200 ${navTextClass} ${navTextHasHover} group-hover:!text-dipon-accent-deep group-hover:!opacity-100 group-focus-within:!text-dipon-accent-deep group-focus-within:!opacity-100`}
                 aria-haspopup="true"
                 aria-expanded={activeGroup === group.key}
               >
                 {group.label}
                 <CaretIcon className="transition-transform duration-300 ease-[var(--ease-premium)] group-hover:rotate-180 group-focus-within:rotate-180" />
-              </button>
+              </Link>
               <div
                 role="menu"
                 aria-label={group.label}
@@ -207,7 +207,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
             href="/blog"
             className={`nav-item inline-flex cursor-pointer items-center border-0 bg-none py-3.5 font-body text-sm no-underline transition-[color,opacity] duration-200 ${navTextClass} ${navTextHasHover}`}
           >
-            Insights
+            Blogs
           </Link>
         </nav>
         <div className="flex shrink-0 items-center">
@@ -287,7 +287,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
             className="block border-b border-[rgba(35,61,76,0.14)] px-5 py-[18px] font-body text-[15px] font-medium text-dipon-primary no-underline"
             onClick={closeDrawer}
           >
-            Insights
+            Blogs
           </Link>
         </div>
         <div className="mt-auto border-t border-[rgba(35,61,76,0.14)] p-5">

@@ -114,7 +114,7 @@ export default async function BlogPostPage({
           <section className="border-t border-[rgba(35,61,76,0.14)] bg-dipon-surface px-[clamp(20px,5vw,60px)] py-[clamp(72px,9vw,120px)]">
             <div className={wrap}>
               <Reveal className="mb-11 max-w-[620px]">
-                <Eyebrow>More Insights</Eyebrow>
+                <Eyebrow>More Blogs</Eyebrow>
                 <Heading>More from the blog, worth a read.</Heading>
               </Reveal>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">

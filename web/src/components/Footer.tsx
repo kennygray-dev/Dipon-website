@@ -34,7 +34,7 @@ export default function Footer() {
             <ul className={footerList}>
               <li><a href="/about" className={footerLink}>About Us</a></li>
               <li><a href="/careers" className={footerLink}>Careers</a></li>
-              <li><Link href="/blog" className={footerLink}>Insights</Link></li>
+              <li><Link href="/blog" className={footerLink}>Blogs</Link></li>
               <li><a href="/contact" className={footerLink}>Contact</a></li>
             </ul>
           </nav>

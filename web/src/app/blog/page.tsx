@@ -11,7 +11,7 @@ import { getPosts } from "@/sanity/queries";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Insights — DIPON Group Limited",
+  title: "Blogs — DIPON Group Limited",
   description:
     "Notes from across DIPON Group — construction, renewable energy, real estate, and supply chain, from the ground up.",
 };
@@ -26,11 +26,11 @@ export default async function BlogPage() {
       <Header />
       <main id="top">
         <PageHero
-          eyebrow="Insights"
+          eyebrow="Blogs"
           title="Ideas, updates, and the work, from the ground up."
           intro="Notes from across DIPON Group — construction, power, and the projects in between."
-          image="https://images.pexels.com/photos/4134179/pexels-photo-4134179.jpeg?auto=compress&cs=tinysrgb&w=1200"
-          imageAlt="DIPON Group project planning"
+          image="https://images.pexels.com/photos/421927/pexels-photo-421927.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          imageAlt="City skyline at dusk — the cities and projects DIPON builds"
         />
 
         <section className={section}>
