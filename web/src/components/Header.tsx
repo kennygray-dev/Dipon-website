@@ -215,7 +215,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
             className={`inline-flex items-center gap-2 rounded-full border border-transparent bg-dipon-accent px-5 py-2.5 font-body text-sm text-white no-underline transition-all duration-300 max-[1080px]:hidden hover:bg-dipon-accent-deep [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1 ${
               hideCta ? "pointer-events-none opacity-0" : "opacity-100"
             }`}
-            href="/contact#get-in-touch"
+            href="/contact"
           >
             Discuss Your Next Project <ArrowIcon width={16} height={7} />
           </a>
@@ -293,7 +293,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
         <div className="mt-auto border-t border-[rgba(35,61,76,0.14)] p-5">
           <a
             className="inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-transparent bg-dipon-accent px-[26px] py-4 font-body text-sm text-white no-underline transition-colors duration-200 hover:bg-dipon-accent-deep [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
-            href="/contact#get-in-touch"
+            href="/contact"
             onClick={closeDrawer}
           >
             Discuss Your Next Project <ArrowIcon width={16} height={7} />

@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import Heading from "@/components/Heading";
 import Founder from "@/components/Founder";
 import { BuildIcon, HouseIcon, LeafIcon, LinkIcon, PartnershipIcon, ShieldIcon } from "@/components/icons";
-import PageHero from "@/components/PageHero";
+import WordmarkHero from "@/components/WordmarkHero";
 import Reveal from "@/components/Reveal";
 import StatBand from "@/components/StatBand";
 import { root, section, wrap, lead } from "@/lib/styles";
@@ -64,13 +64,7 @@ export default function AboutPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <PageHero
-          eyebrow="About DIPON Group"
-          title="One accountable group, across the full build lifecycle."
-          intro="We integrate construction, power infrastructure, real estate, and supply chain capability under one Nigerian-owned group — so the risk that usually lives between contractors lives with us instead."
-          image="https://images.pexels.com/photos/30688593/pexels-photo-30688593.jpeg?auto=compress&cs=tinysrgb&w=1200"
-          imageAlt="DIPON Group leadership meeting"
-        />
+        <WordmarkHero word="About" subtitle="One group, every stage of the build" />
 
         <section id="overview" className={section}>
           <div className={wrap}>

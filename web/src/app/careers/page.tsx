@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CareersContact from "@/components/CareersContact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import PageHero from "@/components/PageHero";
+import WordmarkHero from "@/components/WordmarkHero";
 import { root } from "@/lib/styles";
 
 export const metadata: Metadata = {
@@ -16,13 +16,7 @@ export default function CareersPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <PageHero
-          eyebrow="Careers"
-          title="Build Africa's future, with us."
-          intro="DIPON Group brings construction, renewable energy, real estate, and supply chain under one accountable group. When we grow, we grow with the people who deliver the work."
-          image="https://images.pexels.com/photos/5529746/pexels-photo-5529746.jpeg?auto=compress&cs=tinysrgb&w=1200"
-          imageAlt="DIPON Group engineers on site"
-        />
+        <WordmarkHero word="Careers" subtitle="Build Africa's future, with us" />
 
         <CareersContact />
       </main>

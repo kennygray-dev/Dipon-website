@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import PageHero from "@/components/PageHero";
 import PhotoTile from "@/components/PhotoTile";
 import Reveal from "@/components/Reveal";
+import WordmarkHero from "@/components/WordmarkHero";
 import { formatBlogDate } from "@/lib/blog";
 import { urlForImage } from "@/sanity/image";
 import { getPosts } from "@/sanity/queries";
@@ -25,13 +25,7 @@ export default async function BlogPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <PageHero
-          eyebrow="Blog"
-          title="Ideas, updates, and the work, from the ground up."
-          intro="Notes from across DIPON Group — construction, power, and the projects in between."
-          image="https://images.pexels.com/photos/421927/pexels-photo-421927.jpeg?auto=compress&cs=tinysrgb&w=1200"
-          imageAlt="City skyline at dusk — the cities and projects DIPON builds"
-        />
+        <WordmarkHero word="Blog" subtitle="Insights & updates from the Group" />
 
         <section className={section}>
           <div className={wrap}>
