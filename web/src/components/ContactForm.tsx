@@ -47,7 +47,9 @@ export default function ContactForm() {
               referrerPolicy="no-referrer-when-downgrade"
               title="DIPON Group head office — Garki 2, Abuja"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/5 to-dipon-blue/35" />
+            {/* Dim so the map recedes and the form stays the focus */}
+            <div className="pointer-events-none absolute inset-0 bg-dipon-blue/50" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/15 to-dipon-blue/40" />
             {/* Location marker — clickable, opens the head office in Google Maps */}
             <a
               href={MAP_LINK}
