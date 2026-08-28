@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { submitCareers } from "@/app/actions/careers";
 import { initialContactState } from "@/lib/contact";
 import Eyebrow from "./Eyebrow";
@@ -40,6 +40,13 @@ export default function CareersContact() {
   const [state, formAction, pending] = useActionState(submitCareers, initialContactState);
   const submitted = state.status === "success";
   const fieldErrors = state.errors ?? {};
+
+  // Stamp when the form became interactive (see ContactForm) so the server can
+  // spot bots that submit instantly.
+  const startedAt = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (startedAt.current) startedAt.current.value = String(Date.now());
+  }, []);
 
   return (
     <section id="cta" className={section}>
@@ -96,6 +103,8 @@ export default function CareersContact() {
                   aria-hidden="true"
                   className="absolute -left-[9999px] h-0 w-0 opacity-0"
                 />
+                {/* Timing check: stamped on mount so the server can spot instant bot submits. */}
+                <input ref={startedAt} type="hidden" name="t" defaultValue="" />
                 <div>
                   <label htmlFor="cf-name" className={labelClass}>
                     Name

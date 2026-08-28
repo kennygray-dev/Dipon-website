@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { submitContact } from "@/app/actions/contact";
 import { initialContactState } from "@/lib/contact";
 import Eyebrow from "./Eyebrow";
@@ -29,6 +29,13 @@ export default function ContactForm() {
   const [state, formAction, pending] = useActionState(submitContact, initialContactState);
   const submitted = state.status === "success";
   const fieldErrors = state.errors ?? {};
+
+  // Stamp when the form became interactive, so the server can spot bots that
+  // submit instantly. Set on the client so it isn't frozen by static caching.
+  const startedAt = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (startedAt.current) startedAt.current.value = String(Date.now());
+  }, []);
 
   return (
     <section id="get-in-touch" className={`scroll-mt-20 ${section}`}>
@@ -109,6 +116,8 @@ export default function ContactForm() {
                   aria-hidden="true"
                   className="absolute -left-[9999px] h-0 w-0 opacity-0"
                 />
+                {/* Timing check: stamped on mount so the server can spot instant bot submits. */}
+                <input ref={startedAt} type="hidden" name="t" defaultValue="" />
                 <div>
                   <label htmlFor="pf-name" className={labelClass}>
                     Name

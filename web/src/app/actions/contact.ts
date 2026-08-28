@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import type { ContactState } from "@/lib/contact";
+import { looksLikeSpam, submittedTooFast } from "@/lib/spam";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -32,6 +33,13 @@ export async function submitContact(
   const phone = clean(formData.get("phone"));
   const service = clean(formData.get("service"));
   const message = clean(formData.get("message"));
+
+  // Silently discard bot / lead-gen spam: submitted implausibly fast, or full of
+  // marketing buzzwords. Return "success" so the bot moves on and learns nothing.
+  if (submittedTooFast(clean(formData.get("t"))) || looksLikeSpam({ name, service, message })) {
+    console.warn("[contact] dropped suspected spam:", { name, email });
+    return { status: "success", message: "Thanks — we'll be in touch shortly." };
+  }
 
   const errors: ContactState["errors"] = {};
   if (!name) errors.name = "Please enter your name.";
