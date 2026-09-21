@@ -8,11 +8,14 @@ import Socials from "./Socials";
 import { YEARS_IN_OPERATION } from "@/lib/site";
 import { ArrowIcon, ClockIcon, HouseIcon, ShieldIcon } from "./icons";
 
-const SLIDES = [
+type Slide = { src: string; alt: string; position: string; video?: string };
+
+const SLIDES: Slide[] = [
   {
-    src: "https://images.pexels.com/photos/8487763/pexels-photo-8487763.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "DIPON Group Limited — construction worker on site wearing a safety helmet",
-    position: "80% 30%",
+    video: "/hero/construction.mp4",
+    src: "/hero/construction-poster.jpg",
+    alt: "DIPON Group Limited — construction worker on a build site",
+    position: "center",
   },
   {
     src: "https://images.pexels.com/photos/6082416/pexels-photo-6082416.jpeg?auto=compress&cs=tinysrgb&w=1600",
@@ -32,6 +35,7 @@ const SLIDES = [
 ];
 
 const SLIDE_INTERVAL_MS = 7000;
+const VIDEO_INTERVAL_MS = 20000;
 
 const STATS = [
   {
@@ -92,30 +96,50 @@ export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    // The video slide holds the longest; the photo slides rotate more quickly after it.
+    const duration = SLIDES[activeSlide].video ? VIDEO_INTERVAL_MS : SLIDE_INTERVAL_MS;
+    const timer = setTimeout(() => {
       setActiveSlide((i) => (i + 1) % SLIDES.length);
-    }, SLIDE_INTERVAL_MS);
-    return () => clearInterval(timer);
-  }, []);
+    }, duration);
+    return () => clearTimeout(timer);
+  }, [activeSlide]);
 
   return (
     <section>
       <div className="relative min-h-dvh overflow-hidden lg:min-h-screen">
-        {/* Full-bleed photo carousel — the image spans the entire hero */}
-        {SLIDES.map((slide, i) => (
-          <img
-            key={slide.src}
-            src={slide.src}
-            alt={slide.alt}
-            style={{ objectPosition: slide.position }}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[900ms] ease-[var(--ease-standard)] ${
-              i === activeSlide ? "opacity-100" : "opacity-0"
-            }`}
-          />
-        ))}
+        {/* Full-bleed carousel — the first slide is a looping construction video, the rest are photos */}
+        {SLIDES.map((slide, i) => {
+          const cls = `absolute inset-0 h-full w-full object-cover transition-opacity duration-[900ms] ease-[var(--ease-standard)] ${
+            i === activeSlide ? "opacity-100" : "opacity-0"
+          }`;
+          return slide.video ? (
+            <video
+              key={slide.src}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster={slide.src}
+              aria-hidden="true"
+              style={{ objectPosition: slide.position }}
+              className={cls}
+            >
+              <source src={slide.video} type="video/mp4" />
+            </video>
+          ) : (
+            <img
+              key={slide.src}
+              src={slide.src}
+              alt={slide.alt}
+              style={{ objectPosition: slide.position }}
+              className={`${cls} hero-kenburns`}
+            />
+          );
+        })}
 
         {/* Dim wash across the whole photo for legibility */}
-        <div aria-hidden="true" className="absolute inset-0 bg-black/40" />
+        <div aria-hidden="true" className="absolute inset-0 bg-black/55" />
 
         {/* Translucent DIPON-blue wash — the photo shows faintly through it */}
         <div

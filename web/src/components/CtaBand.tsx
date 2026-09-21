@@ -32,7 +32,8 @@ export default function CtaBand({ className = "" }: { className?: string }) {
           </div>
         ))}
       </div>
-      <div className="absolute inset-0 -z-10 bg-dipon-blue/88" />
+      <div className="absolute inset-0 -z-10 bg-dipon-blue/93" />
+      <div className="absolute inset-0 -z-10 bg-black/25" />
 
       <Reveal className="mx-auto flex w-full max-w-[1100px] flex-col gap-10">
         <div className="text-left">
