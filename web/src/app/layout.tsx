@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   verification: {
-    google: "evRxu8pamRJiNw-CWRyRfs03-ElHIdXULeit40J_xxI",
+    google: "wkJBe4V53WvCsbwUQIeOaCnE_xQheXx_iQWK_Wnq7Mo",
   },
   openGraph: {
     title: SITE_TITLE,
