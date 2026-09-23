@@ -30,7 +30,7 @@ export default function PhotoTile({
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] group-hover:scale-105"
       />
       <div className="absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b from-[#233d4c] via-[#233d4c]/45 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />
-      <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />
+      <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/92 via-black/65 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/35 opacity-100 transition-opacity duration-400 ease-[var(--ease-premium)] lg:opacity-0 lg:group-hover:opacity-100" />
 
       <span className="relative z-10 m-3.5 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-white/95 p-[6px] shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
