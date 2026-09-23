@@ -25,7 +25,7 @@ export async function submitContact(
   // Honeypot: a hidden field real users never see. If it's filled, it's a bot —
   // pretend everything worked so the bot moves on without learning anything.
   if (clean(formData.get("company"))) {
-    return { status: "success", message: "Thanks — we'll be in touch shortly." };
+    return { status: "success", message: "Thanks, we'll be in touch shortly." };
   }
 
   const name = clean(formData.get("name"));
@@ -38,7 +38,7 @@ export async function submitContact(
   // marketing buzzwords. Return "success" so the bot moves on and learns nothing.
   if (submittedTooFast(clean(formData.get("t"))) || looksLikeSpam({ name, service, message })) {
     console.warn("[contact] dropped suspected spam:", { name, email });
-    return { status: "success", message: "Thanks — we'll be in touch shortly." };
+    return { status: "success", message: "Thanks, we'll be in touch shortly." };
   }
 
   const errors: ContactState["errors"] = {};
@@ -75,11 +75,11 @@ export async function submitContact(
       from,
       to: [to],
       replyTo: email,
-      subject: `New enquiry: ${service} — ${name}`,
+      subject: `New enquiry: ${service}, ${name}`,
       text: [
         `Name:    ${name}`,
         `Email:   ${email}`,
-        `Phone:   ${phone || "—"}`,
+        `Phone:   ${phone || "Not provided"}`,
         `Service: ${service}`,
         "",
         "Message:",
@@ -90,7 +90,7 @@ export async function submitContact(
         <table style="font-family:sans-serif;font-size:14px;line-height:1.6;border-collapse:collapse;">
           <tr><td style="padding:2px 12px 2px 0;color:#667;"><strong>Name</strong></td><td>${escapeHtml(name)}</td></tr>
           <tr><td style="padding:2px 12px 2px 0;color:#667;"><strong>Email</strong></td><td>${escapeHtml(email)}</td></tr>
-          <tr><td style="padding:2px 12px 2px 0;color:#667;"><strong>Phone</strong></td><td>${escapeHtml(phone) || "—"}</td></tr>
+          <tr><td style="padding:2px 12px 2px 0;color:#667;"><strong>Phone</strong></td><td>${escapeHtml(phone) || "Not provided"}</td></tr>
           <tr><td style="padding:2px 12px 2px 0;color:#667;"><strong>Service</strong></td><td>${escapeHtml(service)}</td></tr>
         </table>
         <p style="font-family:sans-serif;font-size:14px;line-height:1.6;margin:16px 0 4px;color:#667;"><strong>Message</strong></p>
@@ -108,7 +108,7 @@ export async function submitContact(
 
     return {
       status: "success",
-      message: "Thanks — we've got your details and will be in touch shortly.",
+      message: "Thanks, we've got your details and will be in touch shortly.",
     };
   } catch (err) {
     console.error("[contact] Unexpected error:", err);

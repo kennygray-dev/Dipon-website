@@ -6,7 +6,7 @@ import { CONTACT_EMAIL } from "@/lib/site";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — DIPON Group Limited",
+  title: "Privacy Policy | DIPON Group Limited",
   description: "What information DIPON Group collects through this site, why, and how it's handled.",
 };
 
@@ -41,11 +41,11 @@ export default function PrivacyPolicyPage() {
                 <h2 className={h2}>What we ask for</h2>
                 <p className={body}>Two forms on this site request personal information:</p>
                 <p className={li}>
-                  <strong className="text-dipon-primary">Contact form</strong> (/contact) — name, email, phone,
+                  <strong className="text-dipon-primary">Contact form</strong> (/contact): name, email, phone,
                   service of interest, and your message.
                 </p>
                 <p className={li}>
-                  <strong className="text-dipon-primary">Careers form</strong> (/careers) — name, email, phone, area
+                  <strong className="text-dipon-primary">Careers form</strong> (/careers): name, email, phone, area
                   of interest, and your message.
                 </p>
               </div>
@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <p className={body}>
                   We use this information only to respond to you. We don&rsquo;t sell it or use it for advertising,
-                  and we only share it with service providers — such as our email provider — to the extent needed to
+                  and we only share it with service providers, such as our email provider, to the extent needed to
                   operate these forms and reply to you.
                 </p>
               </div>
@@ -69,8 +69,8 @@ export default function PrivacyPolicyPage() {
               <div>
                 <h2 className={h2}>Cookies and analytics</h2>
                 <p className={body}>
-                  This site does not set any cookies of its own — no login sessions, no preference cookies, no
-                  advertising or marketing pixels. We use Vercel Web Analytics to see aggregate traffic patterns —
+                  This site does not set any cookies of its own: no login sessions, no preference cookies, no
+                  advertising or marketing pixels. We use Vercel Web Analytics to see aggregate traffic patterns,
                   which pages get visited and roughly how much traffic the site gets. It&rsquo;s cookieless and
                   doesn&rsquo;t use persistent identifiers to track you individually or build a profile tied to you.
                 </p>
@@ -80,7 +80,7 @@ export default function PrivacyPolicyPage() {
                 <h2 className={h2}>Third-party embeds</h2>
                 <p className={body}>
                   Our Contact page embeds a Google Maps view of our office location. Loading that map is a request
-                  to Google, and Google may collect data under its own privacy policy when it does — that happens
+                  to Google, and Google may collect data under its own privacy policy when it does, that happens
                   independently of us and isn&rsquo;t something we control.
                 </p>
               </div>
@@ -101,8 +101,8 @@ export default function PrivacyPolicyPage() {
               <div>
                 <h2 className={h2}>Changes to this policy</h2>
                 <p className={body}>
-                  If how we collect or use personal data changes — for example, if we add a new form, change our
-                  email provider, or ever introduce a cookie-based tool — we&rsquo;ll update this page to reflect the
+                  If how we collect or use personal data changes, for example, if we add a new form, change our
+                  email provider, or ever introduce a cookie-based tool, we&rsquo;ll update this page to reflect the
                   real, current state of things.
                 </p>
                 <p className={`${body} text-[13px] text-dipon-tertiary`}>Last updated: August 2026.</p>

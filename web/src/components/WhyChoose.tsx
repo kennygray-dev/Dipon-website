@@ -10,7 +10,7 @@ const REASONS = [
   {
     icon: LinkIcon,
     title: "Integrated Execution",
-    desc: "One group, one point of accountability — across civil works, power, and supply chain.",
+    desc: "One group, one point of accountability across civil works, power, and supply chain.",
   },
   {
     icon: ShieldIcon,
@@ -35,7 +35,7 @@ const REASONS = [
   {
     icon: GridIcon,
     title: "Multi-Sector Expertise",
-    desc: "One partner across construction, power, real estate, and supply chain — no fragmented vendors.",
+    desc: "One partner across construction, power, real estate, and supply chain, with no fragmented vendors.",
   },
 ];
 

@@ -14,7 +14,7 @@ import StatBand from "@/components/StatBand";
 import { root, section, wrap, lead } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "About Us — DIPON Group Limited",
+  title: "About Us | DIPON Group Limited",
   description:
     "DIPON Group is a Nigerian-owned conglomerate delivering construction, renewable energy, real estate, and supply chain solutions through three specialized companies.",
 };
@@ -39,7 +39,7 @@ type Value = { title: string; desc: string; Icon: typeof ShieldIcon };
 const VALUES: Value[] = [
   {
     title: "Accountability",
-    desc: "One group answerable for every stage — no risk lost at the handoff between contractors.",
+    desc: "One group answerable for every stage, with no risk lost at the handoff between contractors.",
     Icon: ShieldIcon,
   },
   {
@@ -81,7 +81,7 @@ export default function AboutPage() {
                 </p>
                 <p className={lead}>
                   Where most projects fail at the handoff between contractors, we remove that risk by keeping every
-                  stage — design, build, power, and occupancy — accountable to one group. That is what lets us take on
+                  stage (design, build, power, and occupancy) accountable to one group. That is what lets us take on
                   work end to end and stand behind the result.
                 </p>
               </Reveal>

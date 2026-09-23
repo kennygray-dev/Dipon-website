@@ -9,9 +9,9 @@ import { SERVICES } from "@/lib/services";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Services — DIPON Group Limited",
+  title: "Services | DIPON Group Limited",
   description:
-    "Construction, renewable energy, real estate, trading, logistics, and agriculture — delivered under one accountable Nigerian-owned group.",
+    "Construction, renewable energy, real estate, trading, logistics, and agriculture, delivered under one accountable Nigerian-owned group.",
 };
 
 export default function ServicesPage() {
@@ -29,7 +29,7 @@ export default function ServicesPage() {
                   <PhotoTile
                     href={`/services/${service.slug}`}
                     image={service.heroImage}
-                    imageAlt={`DIPON Group — ${service.title}`}
+                    imageAlt={`DIPON Group: ${service.title}`}
                     title={service.title}
                     desc={service.summary}
                     className="h-full w-full"

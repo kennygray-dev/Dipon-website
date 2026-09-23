@@ -12,7 +12,7 @@ export default function GlobalError({
 }) {
   return (
     <html lang="en">
-      <title>Something went wrong — DIPON Group Limited</title>
+      <title>Something went wrong | DIPON Group Limited</title>
       <body
         style={{
           margin: 0,
@@ -45,7 +45,7 @@ export default function GlobalError({
           We hit a snag loading the site.
         </h1>
         <p style={{ margin: 0, maxWidth: "440px", fontSize: "15px", lineHeight: 1.65, color: "rgba(255,249,235,0.78)" }}>
-          Sorry about that — it&rsquo;s on our end. Please try again in a moment.
+          Sorry about that, it&rsquo;s on our end. Please try again in a moment.
         </p>
         <button
           type="button"

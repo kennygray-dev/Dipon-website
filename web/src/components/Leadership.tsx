@@ -34,7 +34,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
             </div>
             <p className="max-w-[480px] font-body text-[13px] leading-[1.55] text-dipon-secondary sm:text-[14px]">
               A Nigerian-American entrepreneur, Oliver Ibeh founded the Arizona facility-services firm
-              BIO-Janitorial in 1990 before establishing DIPON Group — uniting construction, trade, real
+              BIO-Janitorial in 1990 before establishing DIPON Group, uniting construction, trade, real
               estate, and power infrastructure under one accountable Nigerian group.
             </p>
           </div>
@@ -45,7 +45,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
               &ldquo;
             </span>
             <blockquote className="-mt-6 mb-6 text-pretty font-display text-[clamp(24px,2.8vw,34px)] font-semibold leading-[1.25] tracking-[-0.6px] text-dipon-primary">
-              I built DIPON so that one group answers for the whole project — design, build, and power —
+              I built DIPON so that one group answers for the whole project (design, build, and power)
               instead of a chain of vendors pointing at each other when something slips.
             </blockquote>
             <SignatureMark className="mb-3 h-11 w-auto text-dipon-primary" />

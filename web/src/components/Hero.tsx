@@ -14,22 +14,22 @@ const SLIDES: Slide[] = [
   {
     video: "/hero/construction.mp4",
     src: "/hero/construction-poster.jpg",
-    alt: "DIPON Group Limited — construction worker on a build site",
+    alt: "DIPON Group Limited: construction worker on a build site",
     position: "center",
   },
   {
     src: "https://images.pexels.com/photos/6082416/pexels-photo-6082416.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "DIPON Construction Limited — civil engineering and building projects",
+    alt: "DIPON Construction Limited: civil engineering and building projects",
     position: "center",
   },
   {
     src: "https://images.pexels.com/photos/4487383/pexels-photo-4487383.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "DIPON Global Resources Limited — trading and supply chain operations",
+    alt: "DIPON Global Resources Limited: trading and supply chain operations",
     position: "center",
   },
   {
     src: "https://images.pexels.com/photos/414905/pexels-photo-414905.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "DIPON Infrastructure Limited — renewable energy and power infrastructure",
+    alt: "DIPON Infrastructure Limited: renewable energy and power infrastructure",
     position: "center",
   },
 ];
@@ -81,7 +81,7 @@ const STATS = [
     label: "Projects Delivered",
     note: "Completed across Nigeria",
     bg: "bg-dipon-accent",
-    text: "text-dipon-cream",
+    text: "text-dipon-primary",
     deco: (
       <>
         <path d="M130 130 L130 70 L170 30 L210 70 L210 130" stroke="#233D4C" strokeWidth="1.5" />
@@ -196,7 +196,7 @@ export default function Hero() {
             </h1>
             <p className="max-w-[460px] font-body text-[14.5px] leading-[1.65] text-dipon-cream/88 sm:text-[16px] sm:leading-[1.7] xl:max-w-[500px] xl:text-[17.5px]">
               DIPON Group Limited integrates construction, power infrastructure, real estate, and supply chain capability
-              under one accountable Nigerian-owned group — so your project moves forward without the coordination
+              under one accountable Nigerian-owned group, so your project moves forward without the coordination
               risk of multiple vendors.
             </p>
             <Link
@@ -245,7 +245,7 @@ export default function Hero() {
                       </svg>
                       <span
                         aria-hidden="true"
-                        className="relative z-10 flex h-5 w-5 items-center justify-center text-white sm:h-8 sm:w-8 [&_svg]:h-full [&_svg]:w-full"
+                        className="relative z-10 flex h-5 w-5 items-center justify-center sm:h-8 sm:w-8 [&_svg]:h-full [&_svg]:w-full"
                       >
                         <Icon />
                       </span>

@@ -52,7 +52,7 @@ export default function ContactForm() {
               className="absolute inset-0 h-full w-full grayscale invert-[0.92] contrast-[0.88] [transform:translateZ(0)] [backface-visibility:hidden]"
               style={{ border: 0 }}
               referrerPolicy="no-referrer-when-downgrade"
-              title="DIPON Group head office — Garki 2, Abuja"
+              title="DIPON Group head office, Garki 2, Abuja"
             />
             {/* Dim so the map recedes and the form stays the focus */}
             <div className="pointer-events-none absolute inset-0 bg-dipon-blue/50" />

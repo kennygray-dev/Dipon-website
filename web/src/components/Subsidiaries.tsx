@@ -43,7 +43,7 @@ export default function Subsidiaries() {
           <Eyebrow>DIPON Group structure</Eyebrow>
           <Heading>Three Companies, One Accountable Group</Heading>
           <p className={`${lead} mt-[18px]`}>
-            Each subsidiary is built for depth in its field — while the Group keeps them accountable to a single
+            Each subsidiary is built for depth in its field, while the Group keeps them accountable to a single
             standard.
           </p>
         </Reveal>
@@ -58,7 +58,7 @@ export default function Subsidiaries() {
               <Link href={`/subsidiaries/${sub.slug}`} className="group relative flex h-full w-full flex-col no-underline">
                 <img
                   src={sub.image}
-                  alt={`DIPON Group — ${sub.name}`}
+                  alt={`DIPON Group: ${sub.name}`}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] group-hover:scale-105"
                 />
                 <div className="absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b from-[#233d4c] via-[#233d4c]/45 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />

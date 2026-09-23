@@ -42,7 +42,7 @@ export default function Error({
         We hit a snag loading this page.
       </h1>
       <p className="relative mt-4 max-w-[440px] font-body text-[15px] leading-[1.65] text-dipon-cream/78">
-        Sorry about that — it&rsquo;s on our end, not yours. You can try again, or head back to the
+        Sorry about that, it&rsquo;s on our end, not yours. You can try again, or head back to the
         homepage.
       </p>
 

@@ -27,9 +27,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const service = getService(slug);
-  if (!service) return { title: "Service Not Found — DIPON Group Limited" };
+  if (!service) return { title: "Service Not Found | DIPON Group Limited" };
   return {
-    title: `${service.titleLong} — DIPON Group Limited`,
+    title: `${service.titleLong} | DIPON Group Limited`,
     description: service.summary,
   };
 }
@@ -55,7 +55,7 @@ export default async function ServicePage({
           title={`${service.titleLong}, delivered end to end.`}
           intro={service.intro}
           image={service.heroImage}
-          imageAlt={`DIPON Group — ${service.title}`}
+          imageAlt={`DIPON Group: ${service.title}`}
         />
 
         <section className={section}>
@@ -183,7 +183,7 @@ export default async function ServicePage({
                   <PhotoTile
                     href={`/services/${other.slug}`}
                     image={other.heroImage}
-                    imageAlt={`DIPON Group — ${other.title}`}
+                    imageAlt={`DIPON Group: ${other.title}`}
                     title={other.title}
                     desc={other.summary}
                     className="h-full w-full"

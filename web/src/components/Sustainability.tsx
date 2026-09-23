@@ -48,7 +48,7 @@ export default function Sustainability() {
               <Eyebrow light>Sustainability & Renewable Energy</Eyebrow>
               <Heading light>Sustainability, built into how we build.</Heading>
               <p className={`${leadLight} my-5 mb-7`}>
-                Renewable energy isn&rsquo;t a separate division at DIPON Group — it&rsquo;s woven into how we
+                Renewable energy isn&rsquo;t a separate division at DIPON Group, it&rsquo;s woven into how we
                 deliver construction and infrastructure projects, from solar-powered sites to street lighting and
                 power infrastructure for the communities we build in.
               </p>

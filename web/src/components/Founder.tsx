@@ -8,17 +8,17 @@ const COMPANIES = [
   {
     name: "DIPON Construction Limited",
     focus:
-      "Civil engineering and building construction — roads, bridges, and pipelines through to metal fabrication, steelworks, and finishing.",
+      "Civil engineering and building construction, from roads and bridges to pipelines, metal fabrication, steelworks, and finishing.",
   },
   {
     name: "DIPON Global Resources Limited",
     focus:
-      "The Group's commercial engine — trade and supply, real estate and property development, agriculture, building materials, and logistics.",
+      "The Group's commercial engine, spanning trade and supply, real estate and property development, agriculture, building materials, and logistics.",
   },
   {
     name: "DIPON Infrastructure Limited",
     focus:
-      "Renewable energy and power — solar, wind, and hydro systems, street-lighting infrastructure, and electricity generation.",
+      "Renewable energy and power, from solar, wind, and hydro systems to street-lighting infrastructure and electricity generation.",
   },
 ];
 
@@ -79,14 +79,14 @@ export default function Founder() {
                   key={company.name}
                   className="border-l-2 border-dipon-accent/60 pl-4 font-body text-[14.5px] leading-[1.6] text-dipon-secondary"
                 >
-                  <span className="font-semibold text-dipon-primary">{company.name}</span> — {company.focus}
+                  <span className="font-semibold text-dipon-primary">{company.name}</span>: {company.focus}
                 </li>
               ))}
             </ul>
 
             <p className="font-body text-[15px] leading-[1.7] text-dipon-secondary sm:text-[16px]">
               By holding construction, commercial, and power capability under one owner, Mr. Ibeh built DIPON to
-              remove the coordination risk that fragments most large projects — so clients answer to one
+              remove the coordination risk that fragments most large projects, so clients answer to one
               accountable group rather than a chain of disconnected vendors. It is the same conviction that grew a
               single Arizona service company into a trusted institution, now directed toward building the
               infrastructure of Africa&rsquo;s future.

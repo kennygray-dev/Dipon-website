@@ -11,9 +11,9 @@ import { getPosts } from "@/sanity/queries";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Blog — DIPON Group Limited",
+  title: "Blog | DIPON Group Limited",
   description:
-    "Notes from across DIPON Group — construction, renewable energy, real estate, and supply chain, from the ground up.",
+    "Notes from across DIPON Group: construction, renewable energy, real estate, and supply chain, from the ground up.",
 };
 
 export const revalidate = 60;
@@ -31,7 +31,7 @@ export default async function BlogPage() {
           <div className={wrap}>
             {posts.length === 0 ? (
               <p className="max-w-[520px] font-body text-[16px] leading-[1.7] text-dipon-secondary">
-                No insights published yet — check back soon.
+                No insights published yet. Check back soon.
               </p>
             ) : (
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-6">

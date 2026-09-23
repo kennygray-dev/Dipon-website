@@ -19,11 +19,11 @@ export type Service = {
 /** Shared one-line description of each subsidiary, keyed by name. */
 export const SUBSIDIARY_BLURBS: Record<string, string> = {
   "DIPON Construction Limited":
-    "The Group's core build capability — civil engineering, building construction, and general contracting.",
+    "The Group's core build capability: civil engineering, building construction, and general contracting.",
   "DIPON Global Resources Limited":
-    "The commercial engine behind every project — trading, supply chain, real estate, agriculture, and logistics.",
+    "The commercial engine behind every project: trading, supply chain, real estate, agriculture, and logistics.",
   "DIPON Infrastructure Limited":
-    "The Group's power and property arm — renewable energy, power infrastructure, and housing development.",
+    "The Group's power and property arm: renewable energy, power infrastructure, and housing development.",
 };
 
 export const SERVICES: Service[] = [
@@ -34,7 +34,7 @@ export const SERVICES: Service[] = [
     titleLong: "Construction & Civil Engineering",
     summary: "Civil works, buildings, roads, and structural fabrication delivered end to end.",
     intro:
-      "From groundworks to handover, we build the civil and structural backbone of projects across Nigeria — and stand behind every stage.",
+      "From groundworks to handover, we build the civil and structural backbone of projects across Nigeria, and stand behind every stage.",
     overviewHeading: "Civil and building works, built to one standard.",
     overview: [
       "DIPON Construction delivers civil engineering, building construction, and general contracting as the Group's core build capability. We take on roads, structures, and buildings as a single accountable contractor rather than a chain of vendors.",
@@ -58,11 +58,11 @@ export const SERVICES: Service[] = [
     titleLong: "Renewable Energy & Power Infrastructure",
     summary: "Solar systems, street lighting, and power infrastructure engineered for reliability.",
     intro:
-      "We design and install renewable power and lighting that keep projects and communities running — woven into how we build, not bolted on afterward.",
+      "We design and install renewable power and lighting that keep projects and communities running, woven into how we build, not bolted on afterward.",
     overviewHeading: "Clean power, engineered into the build.",
     overview: [
       "DIPON Infrastructure delivers renewable energy and power infrastructure, from solar systems to public lighting. Power is planned alongside construction so sites are energized on schedule.",
-      "This is sustainability treated as a delivery discipline — reliable systems that lower running costs and carbon over the life of a project.",
+      "This is sustainability treated as a delivery discipline: reliable systems that lower running costs and carbon over the life of a project.",
     ],
     capabilities: [
       { title: "Solar Power Systems", desc: "Design, supply, and installation of solar generation for buildings and sites." },
@@ -82,7 +82,7 @@ export const SERVICES: Service[] = [
     titleLong: "Real Estate & Property Development",
     summary: "Housing and property development from groundbreaking to occupancy.",
     intro:
-      "We develop property end to end — securing land, building, powering, and delivering spaces that are ready to live and work in.",
+      "We develop property end to end: securing land, building, powering, and delivering spaces that are ready to live and work in.",
     overviewHeading: "Property, developed to occupancy.",
     overview: [
       "DIPON develops real estate and housing with the build and power capability of the wider Group behind it. A development can move from land to occupancy without handing off between unrelated firms.",
@@ -106,10 +106,10 @@ export const SERVICES: Service[] = [
     titleLong: "Trading & Supply Chain",
     summary: "Import/export, materials supply, and product marketing across sectors.",
     intro:
-      "We source, import, and supply the materials and products that projects and partners depend on — reliably and at scale.",
+      "We source, import, and supply the materials and products that projects and partners depend on, reliably and at scale.",
     overviewHeading: "Materials and products, supplied reliably.",
     overview: [
-      "DIPON Global Resources runs the Group's trading and supply chain — import and export, materials supply, and product marketing. It's the commercial engine that keeps sites stocked and partners served.",
+      "DIPON Global Resources runs the Group's trading and supply chain: import and export, materials supply, and product marketing. It's the commercial engine that keeps sites stocked and partners served.",
       "Sourcing sits close to our own construction demand, so supply is planned against real project needs rather than guesswork.",
     ],
     capabilities: [
@@ -130,10 +130,10 @@ export const SERVICES: Service[] = [
     titleLong: "Transportation & Logistics",
     summary: "Movement of goods, materials, and equipment where and when they're needed.",
     intro:
-      "We move goods, materials, and equipment across the country — keeping supply and project sites running on schedule.",
+      "We move goods, materials, and equipment across the country, keeping supply and project sites running on schedule.",
     overviewHeading: "Goods and equipment, moved on schedule.",
     overview: [
-      "DIPON Global Resources handles transportation and logistics for the Group and its partners — moving materials, goods, and equipment to where they're needed.",
+      "DIPON Global Resources handles transportation and logistics for the Group and its partners, moving materials, goods, and equipment to where they're needed.",
       "Logistics planned alongside supply and construction means fewer delays at the point that usually costs projects the most: getting materials to site.",
     ],
     capabilities: [
@@ -154,10 +154,10 @@ export const SERVICES: Service[] = [
     titleLong: "Agriculture",
     summary: "Agricultural production and supply that supports food and value chains.",
     intro:
-      "We invest in agricultural production and supply — contributing to food security and building out the value chains around it.",
+      "We invest in agricultural production and supply, contributing to food security and building out the value chains around it.",
     overviewHeading: "Production and supply, from farm to market.",
     overview: [
-      "DIPON Global Resources extends the Group into agriculture — production and supply that broadens our commercial base and supports local food value chains.",
+      "DIPON Global Resources extends the Group into agriculture: production and supply that broadens our commercial base and supports local food value chains.",
       "Backed by the Group's logistics and trading capability, agricultural output can move from production to market through channels we already run.",
     ],
     capabilities: [

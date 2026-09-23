@@ -55,7 +55,7 @@ export default function CareersContact() {
           <Eyebrow>Open Positions</Eyebrow>
           <Heading>No open roles right now.</Heading>
           <p className={`${lead} mt-4`}>
-            We&rsquo;re not actively hiring for a specific position at the moment — but we&rsquo;re always glad to meet
+            We&rsquo;re not actively hiring for a specific position at the moment, but we&rsquo;re always glad to meet
             talented people who want to build Africa&rsquo;s future with us. Introduce yourself and we&rsquo;ll reach
             out when something fits.
           </p>

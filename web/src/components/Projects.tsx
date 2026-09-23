@@ -9,31 +9,31 @@ const GALLERY = [
   {
     id: "shot-1",
     image: "https://images.pexels.com/photos/35340753/pexels-photo-35340753.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "DIPON Group project — access road and drainage works",
+    alt: "DIPON Group project: access road and drainage works",
     area: "lg:col-start-1 lg:row-span-2",
   },
   {
     id: "shot-2",
     image: "https://images.pexels.com/photos/28359560/pexels-photo-28359560.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "DIPON Group project — solar street lighting",
+    alt: "DIPON Group project: solar street lighting",
     area: "lg:col-start-2 lg:col-span-2 lg:row-start-1",
   },
   {
     id: "shot-3",
     image: "https://images.pexels.com/photos/18153132/pexels-photo-18153132.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "DIPON Group project — residential housing development",
+    alt: "DIPON Group project: residential housing development",
     area: "lg:col-start-4 lg:row-span-2",
   },
   {
     id: "shot-4",
     image: "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "DIPON Group project — civil engineering site",
+    alt: "DIPON Group project: civil engineering site",
     area: "lg:col-start-2 lg:row-start-2",
   },
   {
     id: "shot-5",
     image: "https://images.pexels.com/photos/31445085/pexels-photo-31445085.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "DIPON Group project — trading and supply chain",
+    alt: "DIPON Group project: trading and supply chain",
     area: "lg:col-start-3 lg:row-start-2",
   },
 ];

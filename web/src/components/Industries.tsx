@@ -58,7 +58,7 @@ export default function Industries() {
           <Eyebrow>Industries We Serve</Eyebrow>
           <Heading>Tell us what you need built, powered, supplied, or developed.</Heading>
           <p className={`${lead} mt-[18px]`}>
-            We&rsquo;ll show you who at DIPON Group delivers it — sometimes one company, sometimes several working on
+            We&rsquo;ll show you who at DIPON Group delivers it, sometimes one company, sometimes several working on
             the same site.
           </p>
         </Reveal>
@@ -74,7 +74,7 @@ export default function Industries() {
                 <Link href={`/services/${ind.slug}`} className="group relative flex h-full w-full flex-col no-underline">
                   <img
                     src={ind.image}
-                    alt={`DIPON Group — ${ind.title}`}
+                    alt={`DIPON Group: ${ind.title}`}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] group-hover:scale-105"
                   />
                   <div

@@ -25,9 +25,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const subsidiary = getSubsidiary(slug);
-  if (!subsidiary) return { title: "Subsidiary Not Found — DIPON Group Limited" };
+  if (!subsidiary) return { title: "Subsidiary Not Found | DIPON Group Limited" };
   return {
-    title: `${subsidiary.name} — DIPON Group Limited`,
+    title: `${subsidiary.name} | DIPON Group Limited`,
     description: subsidiary.summary,
   };
 }
@@ -104,7 +104,7 @@ export default async function SubsidiaryPage({
                   <PhotoTile
                     href={`/services/${service.slug}`}
                     image={service.heroImage}
-                    imageAlt={`DIPON Group — ${service.title}`}
+                    imageAlt={`DIPON Group: ${service.title}`}
                     title={service.title}
                     desc={service.summary}
                     className="h-full w-full"
@@ -127,7 +127,7 @@ export default async function SubsidiaryPage({
                   <PhotoTile
                     href={`/subsidiaries/${other.slug}`}
                     image={other.heroImage}
-                    imageAlt={`DIPON Group — ${other.name}`}
+                    imageAlt={`DIPON Group: ${other.name}`}
                     title={other.short}
                     desc={other.summary}
                     className="h-full w-full"

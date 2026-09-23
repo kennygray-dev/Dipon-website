@@ -47,8 +47,8 @@ const MEGA_GROUPS: MegaGroup[] = [
     railLinkLabel: "Explore Our Companies",
     railHref: "/subsidiaries",
     links: [
-      { num: "Subsidiary 01", title: "DIPON Construction Limited", href: "/subsidiaries/dipon-construction", desc: "Civil engineering, building construction, and general contracting — the Group's core build capability." },
-      { num: "Subsidiary 02", title: "DIPON Global Resources Limited", href: "/subsidiaries/dipon-global-resources", desc: "Trading, supply chain, real estate, agriculture, and logistics — the commercial engine." },
+      { num: "Subsidiary 01", title: "DIPON Construction Limited", href: "/subsidiaries/dipon-construction", desc: "Civil engineering, building construction, and general contracting, the Group's core build capability." },
+      { num: "Subsidiary 02", title: "DIPON Global Resources Limited", href: "/subsidiaries/dipon-global-resources", desc: "Trading, supply chain, real estate, agriculture, and logistics, the commercial engine." },
       { num: "Subsidiary 03", title: "DIPON Infrastructure Limited", href: "/subsidiaries/dipon-infrastructure", desc: "Renewable energy, power infrastructure, and housing development." },
     ],
   },
@@ -120,7 +120,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
           isSolid ? "border-[rgba(35,61,76,0.08)] bg-white" : "border-transparent bg-transparent"
         } has-[.nav-item:hover]:border-[rgba(35,61,76,0.08)] has-[.nav-item:hover]:bg-white has-[.nav-item:focus-within]:border-[rgba(35,61,76,0.08)] has-[.nav-item:focus-within]:bg-white`}
       >
-        <Link href="/" aria-label="DIPON Group Limited — home" className="flex shrink-0 items-center">
+        <Link href="/" aria-label="DIPON Group Limited, home" className="flex shrink-0 items-center">
           <Image
             className={`h-6 w-auto ${isSolid ? "hidden" : "block"} [header:has(.nav-item:hover)_&]:hidden [header:has(.nav-item:focus-within)_&]:hidden`}
             src="/assets/dipon-logo-light.svg"

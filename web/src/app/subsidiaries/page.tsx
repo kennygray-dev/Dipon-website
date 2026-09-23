@@ -9,9 +9,9 @@ import { SUBSIDIARIES } from "@/lib/subsidiaries";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Subsidiaries — DIPON Group Limited",
+  title: "Subsidiaries | DIPON Group Limited",
   description:
-    "Three specialized companies — DIPON Construction, DIPON Global Resources, and DIPON Infrastructure — under one accountable Nigerian-owned group.",
+    "Three specialized companies (DIPON Construction, DIPON Global Resources, and DIPON Infrastructure) under one accountable Nigerian-owned group.",
 };
 
 export default function SubsidiariesPage() {
@@ -34,7 +34,7 @@ export default function SubsidiariesPage() {
                   <PhotoTile
                     href={`/subsidiaries/${subsidiary.slug}`}
                     image={subsidiary.heroImage}
-                    imageAlt={`DIPON Group — ${subsidiary.name}`}
+                    imageAlt={`DIPON Group: ${subsidiary.name}`}
                     title={subsidiary.short}
                     desc={subsidiary.summary}
                     className="h-full w-full"

@@ -41,7 +41,7 @@ export default function CtaBand({ className = "" }: { className?: string }) {
             Let&rsquo;s talk about your <span className="text-dipon-accent">next project.</span>
           </h2>
           <p className="mt-4 max-w-[440px] text-pretty font-body text-[15px] leading-[1.65] text-white/88">
-            Tell us what you need built, supplied, powered, or developed — we&rsquo;ll get the right people at the
+            Tell us what you need built, supplied, powered, or developed, we&rsquo;ll get the right people at the
             Group back to you.
           </p>
         </div>

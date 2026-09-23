@@ -56,13 +56,13 @@ export default function NotFound() {
         className="relative h-9 w-auto sm:h-10"
       />
       <span className="relative mt-10 font-label text-xs font-semibold tracking-[1.6px] text-dipon-accent uppercase">
-        404 — Off Site
+        404: Off Site
       </span>
       <h1 className="relative mt-3 max-w-[560px] text-balance font-display text-[clamp(28px,4vw,44px)] font-extrabold leading-[1.1] text-dipon-cream">
         Looks like this page wandered off the job site.
       </h1>
       <p className="relative mt-4 max-w-[440px] font-body text-[15px] leading-[1.65] text-dipon-cream/78">
-        We couldn&rsquo;t find what you&rsquo;re looking for — it may have moved, or maybe it just hasn&rsquo;t been
+        We couldn&rsquo;t find what you&rsquo;re looking for, it may have moved, or maybe it just hasn&rsquo;t been
         built yet. Either way, sorry about that.
       </p>
       <Link

@@ -7,7 +7,7 @@ import { CONTACT_EMAIL } from "@/lib/site";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — DIPON Group Limited",
+  title: "Terms of Service | DIPON Group Limited",
   description: "The terms that govern your use of the DIPON Group website and its content.",
 };
 
@@ -44,8 +44,8 @@ export default function TermsOfServicePage() {
                 <p className={body}>
                   This site is operated by DIPON Group Limited (&ldquo;DIPON&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;,
                   &ldquo;our&rdquo;), a Nigerian group delivering construction, power infrastructure, real estate, and
-                  supply-chain solutions through its companies — DIPON Construction Limited, DIPON Global Resources
-                  Limited, and DIPON Infrastructure Limited — each registered in Nigeria under the Companies and
+                  supply-chain solutions through its companies, DIPON Construction Limited, DIPON Global Resources
+                  Limited, and DIPON Infrastructure Limited, each registered in Nigeria under the Companies and
                   Allied Matters Act, 2020.
                 </p>
               </div>
@@ -53,7 +53,7 @@ export default function TermsOfServicePage() {
               <div>
                 <h2 className={h2}>Use of the site</h2>
                 <p className={body}>
-                  You may use this site for lawful, informational purposes — to learn about our group, our services,
+                  You may use this site for lawful, informational purposes, to learn about our group, our services,
                   and our companies, and to get in touch with us. You agree not to:
                 </p>
                 <p className={li}>&bull; misuse the site or interfere with its normal operation;</p>
@@ -72,7 +72,7 @@ export default function TermsOfServicePage() {
               <div>
                 <h2 className={h2}>Information is not a binding offer</h2>
                 <p className={body}>
-                  The content on this site — including descriptions of our services, projects, and capabilities — is
+                  The content on this site, including descriptions of our services, projects, and capabilities, is
                   provided for general information only. It does not constitute an offer, a quotation, or a binding
                   commitment. Any engagement with DIPON or any of its companies is governed by a separate written
                   agreement signed by both parties; nothing on this site, and no form submission, creates a contract
@@ -104,7 +104,7 @@ export default function TermsOfServicePage() {
               <div>
                 <h2 className={h2}>Third-party links and embeds</h2>
                 <p className={body}>
-                  This site may link to, or embed content from, third-party services — for example, the Google Maps
+                  This site may link to, or embed content from, third-party services, for example, the Google Maps
                   view on our Contact page. We do not control those services and are not responsible for their
                   content, accuracy, or data practices. Following an external link is at your own discretion and is
                   subject to that third party&rsquo;s own terms.

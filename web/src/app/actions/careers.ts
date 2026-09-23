@@ -24,7 +24,7 @@ export async function submitCareers(
 ): Promise<ContactState> {
   // Honeypot: hidden field only bots fill.
   if (clean(formData.get("company"))) {
-    return { status: "success", message: "Thanks — we'll be in touch." };
+    return { status: "success", message: "Thanks, we'll be in touch." };
   }
 
   const name = clean(formData.get("name"));
@@ -36,7 +36,7 @@ export async function submitCareers(
   // Silently discard bot / lead-gen spam (see contact action).
   if (submittedTooFast(clean(formData.get("t"))) || looksLikeSpam({ name, service: interest, message })) {
     console.warn("[careers] dropped suspected spam:", { name, email });
-    return { status: "success", message: "Thanks — we'll be in touch." };
+    return { status: "success", message: "Thanks, we'll be in touch." };
   }
 
   const errors: ContactState["errors"] = {};
@@ -68,26 +68,26 @@ export async function submitCareers(
       from,
       to: [to],
       replyTo: email,
-      subject: `Careers interest: ${interest} — ${name}`,
+      subject: `Careers interest: ${interest}, ${name}`,
       text: [
         `Name:     ${name}`,
         `Email:    ${email}`,
-        `Phone:    ${phone || "—"}`,
+        `Phone:    ${phone || "Not provided"}`,
         `Interest: ${interest}`,
         "",
         "Message:",
-        message || "—",
+        message || "Not provided",
       ].join("\n"),
       html: `
         <h2 style="margin:0 0 16px;font-family:sans-serif;">New careers enquiry</h2>
         <table style="font-family:sans-serif;font-size:14px;line-height:1.6;border-collapse:collapse;">
           <tr><td style="padding:2px 12px 2px 0;color:#667;"><strong>Name</strong></td><td>${escapeHtml(name)}</td></tr>
           <tr><td style="padding:2px 12px 2px 0;color:#667;"><strong>Email</strong></td><td>${escapeHtml(email)}</td></tr>
-          <tr><td style="padding:2px 12px 2px 0;color:#667;"><strong>Phone</strong></td><td>${escapeHtml(phone) || "—"}</td></tr>
+          <tr><td style="padding:2px 12px 2px 0;color:#667;"><strong>Phone</strong></td><td>${escapeHtml(phone) || "Not provided"}</td></tr>
           <tr><td style="padding:2px 12px 2px 0;color:#667;"><strong>Interest</strong></td><td>${escapeHtml(interest)}</td></tr>
         </table>
         <p style="font-family:sans-serif;font-size:14px;line-height:1.6;margin:16px 0 4px;color:#667;"><strong>Message</strong></p>
-        <p style="font-family:sans-serif;font-size:14px;line-height:1.6;white-space:pre-wrap;margin:0;">${escapeHtml(message) || "—"}</p>
+        <p style="font-family:sans-serif;font-size:14px;line-height:1.6;white-space:pre-wrap;margin:0;">${escapeHtml(message) || "Not provided"}</p>
       `,
     });
 
@@ -96,7 +96,7 @@ export async function submitCareers(
       return { status: "error", message: "Something went wrong. Please try again in a moment." };
     }
 
-    return { status: "success", message: "Thanks — we've got your details." };
+    return { status: "success", message: "Thanks, we've got your details." };
   } catch (err) {
     console.error("[careers] Unexpected error:", err);
     return { status: "error", message: "Something went wrong. Please try again in a moment." };

@@ -9,15 +9,15 @@ import { section, wrap } from "@/lib/styles";
 const IMAGES = {
   vertical: {
     src: "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=1000",
-    alt: "DIPON Construction Limited — civil engineering and building projects",
+    alt: "DIPON Construction Limited: civil engineering and building projects",
   },
   horizontalTop: {
     src: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=1000",
-    alt: "DIPON Infrastructure Limited — renewable energy and power infrastructure",
+    alt: "DIPON Infrastructure Limited: renewable energy and power infrastructure",
   },
   horizontalBottom: {
     src: "https://images.pexels.com/photos/31445085/pexels-photo-31445085.jpeg?auto=compress&cs=tinysrgb&w=1000",
-    alt: "DIPON Global Resources Limited — trading and supply chain operations",
+    alt: "DIPON Global Resources Limited: trading and supply chain operations",
   },
 };
 

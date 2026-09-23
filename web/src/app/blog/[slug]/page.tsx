@@ -29,7 +29,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
-  if (!post) return { title: "Post Not Found — DIPON Group Limited" };
+  if (!post) return { title: "Post Not Found | DIPON Group Limited" };
 
   const title = post.seoTitle || post.title;
   const description = post.seoDescription || post.excerpt;
@@ -38,7 +38,7 @@ export async function generateMetadata({
     : undefined;
 
   return {
-    title: `${title} — DIPON Group Limited`,
+    title: `${title} | DIPON Group Limited`,
     description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {

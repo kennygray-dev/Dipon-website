@@ -9,7 +9,7 @@ export const SITE_NAME = "DIPON Group Limited";
 // bump FOUNDED_YEAR only if the real operational start is earlier.
 export const FOUNDED_YEAR = 2025;
 export const YEARS_IN_OPERATION = Math.max(1, new Date().getFullYear() - FOUNDED_YEAR);
-export const SITE_TITLE = "DIPON Group Limited — One Group. Every Stage of the Build.";
+export const SITE_TITLE = "DIPON Group Limited | One Group. Every Stage of the Build.";
 export const SITE_DESCRIPTION =
   "DIPON Group Limited integrates construction, power infrastructure, real estate, and supply chain capability under one accountable Nigerian-owned group.";
 
