@@ -11,7 +11,7 @@
       "name": "awasource",
       "runtimeExecutable": "yarn",
       "runtimeArgs": ["--cwd", "/Users/kennedyagbapuonwu/Documents/Awasourcefrontend", "start"],
-      "port": 3000
+      "port": 3002
     },
     {
       "name": "bebe",

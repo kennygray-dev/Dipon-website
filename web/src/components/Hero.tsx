@@ -18,18 +18,8 @@ const SLIDES: Slide[] = [
     position: "center",
   },
   {
-    src: "https://images.pexels.com/photos/6082416/pexels-photo-6082416.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "DIPON Construction Limited: civil engineering and building projects",
-    position: "center",
-  },
-  {
     src: "https://images.pexels.com/photos/4487383/pexels-photo-4487383.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "DIPON Global Resources Limited: trading and supply chain operations",
-    position: "center",
-  },
-  {
-    src: "https://images.pexels.com/photos/414905/pexels-photo-414905.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "DIPON Infrastructure Limited: renewable energy and power infrastructure",
+    alt: "DIPON Global Resources Limited: workers in a warehouse and supply chain operations",
     position: "center",
   },
 ];
@@ -105,9 +95,11 @@ export default function Hero() {
   }, [activeSlide]);
 
   return (
-    <section>
+    <section className="bg-dipon-blue">
       <div className="relative min-h-dvh overflow-hidden lg:min-h-screen">
-        {/* Full-bleed carousel — the first slide is a looping construction video, the rest are photos */}
+        {/* Full-bleed carousel — nudged right on desktop so the subject sits clear of the text,
+            with the left edge masked so it dissolves softly into the navy instead of a hard seam */}
+        <div className="absolute inset-0 lg:translate-x-[16%] lg:[mask-image:linear-gradient(to_right,transparent_0%,#000_26%)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,#000_26%)]">
         {SLIDES.map((slide, i) => {
           const cls = `absolute inset-0 h-full w-full object-cover transition-opacity duration-[900ms] ease-[var(--ease-standard)] ${
             i === activeSlide ? "opacity-100" : "opacity-0"
@@ -137,6 +129,7 @@ export default function Hero() {
             />
           );
         })}
+        </div>
 
         {/* Dim wash across the whole photo for legibility */}
         <div aria-hidden="true" className="absolute inset-0 bg-black/68" />
