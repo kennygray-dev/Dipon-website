@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CountUp from "./CountUp";
 import Reveal from "./Reveal";
 import Socials from "./Socials";
@@ -24,7 +24,7 @@ const SLIDES: Slide[] = [
   },
 ];
 
-const SLIDE_INTERVAL_MS = 7000;
+const SLIDE_INTERVAL_MS = 12000;
 const VIDEO_INTERVAL_MS = 20000;
 
 const STATS = [
@@ -84,6 +84,16 @@ const STATS = [
 
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Safari ignores the React `muted` attribute and blocks autoplay (showing a
+  // play button). Set the muted property imperatively and kick off playback.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.play().catch(() => {});
+  }, []);
 
   useEffect(() => {
     // The video slide holds the longest; the photo slides rotate more quickly after it.
@@ -107,6 +117,7 @@ export default function Hero() {
           return slide.video ? (
             <video
               key={slide.src}
+              ref={videoRef}
               autoPlay
               muted
               loop
