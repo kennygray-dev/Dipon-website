@@ -124,7 +124,7 @@ export default function StatBand() {
               <div
                 id={stat.id}
                 data-final={stat.value}
-                className="relative z-10 font-display text-[clamp(72px,8vw,110px)] font-extrabold leading-[0.85] tracking-[-5px] text-dipon-cream"
+                className="relative z-10 font-display text-[clamp(56px,6.2vw,88px)] font-extrabold leading-[0.9] tracking-[-2px] text-dipon-cream"
               >
                 {stat.value}
               </div>

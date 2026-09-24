@@ -19,7 +19,9 @@ export default function WordmarkHero({
   // Cap the display size so the word fits its column (narrower when an image sits beside it).
   const avail = image ? 600 : 1240;
   const cap = image ? 148 : 232;
-  const maxPx = Math.min(cap, Math.round(avail / (word.length * 0.56)));
+  // Zalando Sans Expanded is wide, so estimate a generous per-character width
+  // to keep the wordmark on a single line within its column.
+  const maxPx = Math.min(cap, Math.round(avail / (word.length * 0.74)));
 
   return (
     <section className={`relative overflow-hidden bg-dipon-blue ${image ? "lg:min-h-[420px]" : ""}`}>
@@ -57,7 +59,7 @@ export default function WordmarkHero({
               </p>
             )}
             <h1
-              className="wordmark-word font-display font-extrabold leading-[0.86] tracking-[-2px] text-transparent"
+              className="wordmark-word font-display font-extrabold leading-[0.86] tracking-[-2px] whitespace-nowrap text-transparent"
               style={{ fontSize: `clamp(60px, 20vw, ${maxPx}px)`, WebkitTextStroke: "2px rgba(255,249,235,0.55)" }}
             >
               {word}
