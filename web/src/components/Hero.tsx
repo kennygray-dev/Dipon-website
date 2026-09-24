@@ -139,7 +139,7 @@ export default function Hero() {
         })}
 
         {/* Dim wash across the whole photo for legibility */}
-        <div aria-hidden="true" className="absolute inset-0 bg-black/55" />
+        <div aria-hidden="true" className="absolute inset-0 bg-black/68" />
 
         {/* Translucent DIPON-blue wash — the photo shows faintly through it */}
         <div
@@ -218,50 +218,22 @@ export default function Hero() {
               <Socials />
             </div>
 
-            <div className="grid grid-cols-3 gap-[3px] sm:gap-px lg:w-[min(560px,48%)] lg:shrink-0">
-              {STATS.map((stat, i) => {
-                const Icon = stat.icon;
-                return (
-                  <Reveal key={stat.label} delay={i * 130}>
-                    <div
-                      className={`relative flex h-full min-h-[112px] flex-col justify-between gap-1.5 overflow-hidden p-2.5 transition-transform duration-300 ease-out hover:-translate-y-1.5 [clip-path:polygon(0_0,100%_0,100%_100%,18%_100%,0_84%)] sm:min-h-[170px] sm:gap-3 sm:p-4 lg:min-h-[190px] lg:p-5 ${stat.bg} ${stat.text}`}
-                    >
-                      <div
-                        aria-hidden="true"
-                        className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"
-                        style={{
-                          backgroundImage:
-                            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-                        }}
-                      />
-                      <svg
-                        aria-hidden="true"
-                        className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.16]"
-                        viewBox="0 0 280 200"
-                        preserveAspectRatio="xMidYMid slice"
-                        fill="none"
-                      >
-                        {stat.deco}
-                      </svg>
-                      <span
-                        aria-hidden="true"
-                        className="relative z-10 flex h-5 w-5 items-center justify-center sm:h-8 sm:w-8 [&_svg]:h-full [&_svg]:w-full"
-                      >
-                        <Icon />
-                      </span>
-                      <div className="relative z-10">
-                        <div className="flex items-baseline gap-0.5 font-display text-[clamp(18px,6vw,48px)] font-extrabold leading-none tracking-[-0.5px] sm:text-[clamp(32px,3.8vw,48px)] sm:tracking-[-1.5px]">
-                          <CountUp value={stat.value} />
-                          <span className="text-[0.4em] font-bold">{stat.suffix}</span>
-                        </div>
-                        <p className="mt-1.5 font-body text-[9.5px] leading-[1.25] font-semibold sm:mt-2 sm:text-[11.5px] sm:leading-[1.3]">
-                          {stat.label}
-                        </p>
-                      </div>
-                    </div>
-                  </Reveal>
-                );
-              })}
+            <div className="flex items-start gap-6 sm:gap-9 lg:shrink-0 lg:gap-11">
+              {STATS.map((stat, i) => (
+                <Reveal
+                  key={stat.label}
+                  delay={i * 120}
+                  className={i > 0 ? "border-l border-dipon-cream/20 pl-6 sm:pl-9 lg:pl-11" : ""}
+                >
+                  <div className="flex items-baseline gap-0.5 font-display text-[clamp(30px,4.6vw,50px)] font-extrabold leading-none tracking-[-1px] text-dipon-cream">
+                    <CountUp value={stat.value} />
+                    <span className="text-[0.45em] font-bold text-dipon-accent">{stat.suffix}</span>
+                  </div>
+                  <p className="mt-2 font-label text-[10.5px] font-semibold tracking-[0.1em] text-dipon-cream/65 uppercase sm:text-[11.5px]">
+                    {stat.label}
+                  </p>
+                </Reveal>
+              ))}
             </div>
           </div>
         </div>
