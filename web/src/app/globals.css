@@ -11,9 +11,9 @@
   --color-dipon-cream: var(--color-text-on-inverse);
   --color-dipon-accent: var(--color-accent);
   --color-dipon-accent-deep: var(--color-accent-deep);
-  --font-body: "Helvetica Neue", Arial, sans-serif;
-  --font-label: "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-zalando-sans), Arial, "Helvetica Neue", system-ui, sans-serif;
+  --font-body: var(--font-zalando-sans), "Helvetica Neue", Arial, sans-serif;
+  --font-label: var(--font-zalando-sans), "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-zalando-sans-expanded), var(--font-zalando-sans), Arial, "Helvetica Neue", system-ui, sans-serif;
   --spacing-gutter: clamp(20px, 5vw, 60px);
   --spacing-section: clamp(72px, 9vw, 120px);
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);

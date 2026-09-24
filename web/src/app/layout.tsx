@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Zalando_Sans } from "next/font/google";
+import { Zalando_Sans, Zalando_Sans_Expanded } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL, SOCIAL_URLS } from "@/lib/site";
 import "./globals.css";
@@ -8,6 +8,12 @@ const zalandoSans = Zalando_Sans({
   subsets: ["latin"],
   variable: "--font-zalando-sans",
   weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const zalandoSansExpanded = Zalando_Sans_Expanded({
+  subsets: ["latin"],
+  variable: "--font-zalando-sans-expanded",
+  weight: ["500", "600", "700", "800"],
 });
 
 const organizationSchema = {
@@ -49,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={zalandoSans.variable}>
+    <html lang="en" className={`${zalandoSans.variable} ${zalandoSansExpanded.variable}`}>
       <body>
         <script
           type="application/ld+json"
