@@ -116,10 +116,11 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[60] flex h-16 items-center justify-between border-b px-gutter transition-[background-color,border-color] duration-[420ms] ease-[var(--ease-premium)] ${
+        className={`fixed inset-x-0 top-0 z-[60] h-16 border-b transition-[background-color,border-color] duration-[420ms] ease-[var(--ease-premium)] ${
           isSolid ? "border-[rgba(35,61,76,0.08)] bg-white" : "border-transparent bg-transparent"
         } has-[.nav-item:hover]:border-[rgba(35,61,76,0.08)] has-[.nav-item:hover]:bg-white has-[.nav-item:focus-within]:border-[rgba(35,61,76,0.08)] has-[.nav-item:focus-within]:bg-white`}
       >
+        <div className="mx-auto flex h-full w-full max-w-[1320px] items-center justify-between px-gutter">
         <Link href="/" aria-label="DIPON Group Limited, home" className="flex shrink-0 items-center">
           <Image
             className={`h-6 w-auto ${isSolid ? "hidden" : "block"} [header:has(.nav-item:hover)_&]:hidden [header:has(.nav-item:focus-within)_&]:hidden`}
@@ -227,6 +228,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
           >
             <BurgerIcon />
           </button>
+        </div>
         </div>
       </header>
 

@@ -24,7 +24,7 @@
   /* DIPON brand tokens — single source of truth, aliased into the Tailwind
      theme above so components consume them as real utility classes
      (bg-dipon-blue, text-dipon-accent, px-gutter, py-section, etc.). */
-  --color-bg-page: #ffffff;
+  --color-bg-page: #f7f5ef; /* soft warm off-white, easier on the eye than pure white */
   --color-bg-surface: #fff9eb; /* Custard */
   --color-bg-inverse: #233d4c; /* Midnight */
   --color-bg-inverse-alt: #1c313d;
