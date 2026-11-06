@@ -78,6 +78,17 @@ export default function Footer() {
                   >
                     {office.phoneDisplay}
                   </a>
+                  {office.extraPhones?.map((p) => (
+                    <span key={p.href}>
+                      <br />
+                      <a
+                        href={`tel:${p.href}`}
+                        className="text-dipon-cream underline decoration-[rgba(255,249,235,0.4)] underline-offset-[3px] transition-colors hover:decoration-dipon-cream"
+                      >
+                        {p.display}
+                      </a>
+                    </span>
+                  ))}
                 </p>
               ))}
             </div>

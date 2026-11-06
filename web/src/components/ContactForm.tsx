@@ -259,6 +259,14 @@ export default function ContactForm() {
                       </span>
                       {office.phoneDisplay}
                     </a>
+                    {office.extraPhones?.map((p) => (
+                      <a key={p.href} href={`tel:${p.href}`} className={contactChip}>
+                        <span className="text-dipon-accent">
+                          <PhoneIcon />
+                        </span>
+                        {p.display}
+                      </a>
+                    ))}
                     {i === 0 && (
                       <a
                         href={mapsUrl([...office.lines, office.country].join(", "))}

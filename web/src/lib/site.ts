@@ -33,6 +33,8 @@ export type Office = {
   phoneDisplay: string;
   /** E.164 form for tel: links. */
   phoneHref: string;
+  /** Additional phone numbers for this office (display + E.164 href). */
+  extraPhones?: { display: string; href: string }[];
 };
 
 export const OFFICES: Office[] = [
@@ -49,6 +51,7 @@ export const OFFICES: Office[] = [
     country: "United States",
     phoneDisplay: "+1 623 931 6216",
     phoneHref: "+16239316216",
+    extraPhones: [{ display: "+1 602 540 5338", href: "+16025405338" }],
   },
 ];
 
