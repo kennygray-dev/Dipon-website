@@ -19,7 +19,7 @@ export default function ServicesPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <WordmarkHero word="Services" subtitle="Six capabilities, one accountable group" />
+        <WordmarkHero word="Services" subtitle="Seven capabilities, one accountable group" />
 
         <section className={section}>
           <div className={wrap}>

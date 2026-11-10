@@ -171,6 +171,30 @@ export const SERVICES: Service[] = [
     imageLock: 84,
     heroImage: "https://images.pexels.com/photos/33786603/pexels-photo-33786603.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
+  {
+    slug: "environmental-services",
+    num: "07",
+    title: "Environmental Services",
+    titleLong: "Environmental Services",
+    summary: "Junk removal, waste management, janitorial, and housekeeping that keep spaces clean and healthy.",
+    intro:
+      "We keep buildings and sites clean, safe, and clutter-free, from waste removal to day-to-day housekeeping, carrying decades of facility-services experience.",
+    overviewHeading: "Clean, healthy spaces, kept that way.",
+    overview: [
+      "Our environmental services build on BIO-Janitorial, the Arizona facility-services company our founder started in 1990 and grew into a recognized name in integrated building maintenance. The same standards, quality, reliability, and doing the work better than before, now shape how we care for spaces here.",
+      "From junk removal and waste management to janitorial and housekeeping, we keep homes, offices, and commercial sites in order, with teams that show up, follow the details, and leave things properly clean.",
+    ],
+    capabilities: [
+      { title: "Junk Removal", desc: "Clearing, hauling, and responsible disposal of unwanted items and debris." },
+      { title: "Waste Management", desc: "Collection, sorting, and safe disposal that keeps sites clean and compliant." },
+      { title: "Janitorial Services", desc: "Routine and deep cleaning for offices, commercial, and institutional spaces." },
+      { title: "Housekeeping", desc: "Day-to-day upkeep that keeps homes and facilities spotless and in order." },
+    ],
+    deliveredBy: "DIPON Global Resources Limited",
+    imageQuery: "cleaning",
+    imageLock: 45,
+    heroImage: "https://images.pexels.com/photos/6197109/pexels-photo-6197109.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  },
 ];
 
 export function getService(slug: string): Service | undefined {

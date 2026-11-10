@@ -38,6 +38,7 @@ const MEGA_GROUPS: MegaGroup[] = [
       { num: "04", title: "Trading & Supply Chain", href: "/services/trading-supply-chain", desc: "Import/export, materials supply, and marketing." },
       { num: "05", title: "Transportation & Logistics", href: "/services/transportation-logistics", desc: "Movement of goods, materials, and equipment." },
       { num: "06", title: "Agriculture", href: "/services/agriculture", desc: "Agricultural production and supply." },
+      { num: "07", title: "Environmental Services", href: "/services/environmental-services", desc: "Junk removal, waste management, janitorial, and housekeeping." },
     ],
   },
   {
