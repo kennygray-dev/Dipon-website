@@ -219,6 +219,14 @@ export default function CareersContact() {
                   </span>
                   {HEAD_OFFICE.phoneDisplay}
                 </a>
+                {HEAD_OFFICE.extraPhones?.map((p) => (
+                  <a key={p.href} href={`tel:${p.href}`} className={contactChip}>
+                    <span className="text-dipon-accent">
+                      <PhoneIcon />
+                    </span>
+                    {p.display}
+                  </a>
+                ))}
                 {CAREERS_EMAIL && (
                   <a href={`mailto:${CAREERS_EMAIL}`} className={contactChip}>
                     <span className="text-dipon-accent">
