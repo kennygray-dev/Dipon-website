@@ -24,8 +24,8 @@ export default function Home() {
         <Industries />
         <Projects />
         <Sustainability />
-        <Leadership />
         <StatBand />
+        <Leadership />
         <CtaBand />
       </main>
       <Footer />

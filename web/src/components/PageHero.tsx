@@ -21,12 +21,6 @@ export default function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden bg-dipon-blue">
-      {/* Soft brand-accent glow for depth */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(130%_120%_at_90%_-15%,rgba(253,128,46,0.15),transparent_55%)]"
-      />
-
       {/* Faint brand mesh */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.09]">
         <svg width="100%" height="100%" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" fill="none">
@@ -92,12 +86,6 @@ export default function PageHero({
           />
         </Reveal>
       )}
-
-      {/* Base hairline accent */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-dipon-accent/45 to-transparent"
-      />
     </section>
   );
 }
