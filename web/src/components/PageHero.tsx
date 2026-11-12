@@ -3,6 +3,9 @@ import Heading from "./Heading";
 import Reveal from "./Reveal";
 import { wrap, leadLight } from "@/lib/styles";
 
+const GRAIN =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+
 export default function PageHero({
   eyebrow: eyebrowText,
   title,
@@ -18,8 +21,14 @@ export default function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden bg-dipon-blue">
-      {/* Geometric mesh, matching the homepage's brand pattern — more pronounced on inner headers */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.18]">
+      {/* Soft brand-accent glow for depth */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(130%_120%_at_90%_-15%,rgba(253,128,46,0.15),transparent_55%)]"
+      />
+
+      {/* Faint brand mesh */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.09]">
         <svg width="100%" height="100%" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" fill="none">
           <path d="M1440 -40 L1100 260 L1100 640" stroke="#FFF9EB" strokeWidth="1.5" />
           <path d="M1440 -40 L1300 340" stroke="#FFF9EB" strokeWidth="1.5" />
@@ -30,9 +39,6 @@ export default function PageHero({
           <path d="M260 480 L220 220" stroke="#FFF9EB" strokeWidth="1.5" />
           <path d="M640 40 L760 180 L680 340" stroke="#FFF9EB" strokeWidth="1.5" />
           <path d="M760 180 L940 220" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M420 340 L640 40" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M540 620 L680 340" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M960 620 L780 540" stroke="#FFF9EB" strokeWidth="1.5" />
           <circle cx="1100" cy="260" r="3.5" fill="#FFF9EB" />
           <circle cx="1300" cy="340" r="3.5" fill="#FFF9EB" />
           <circle cx="1100" cy="640" r="3.5" fill="#FFF9EB" />
@@ -40,54 +46,35 @@ export default function PageHero({
           <circle cx="820" cy="500" r="3.5" fill="#FFF9EB" />
           <circle cx="260" cy="480" r="3.5" fill="#FFF9EB" />
           <circle cx="220" cy="220" r="3.5" fill="#FFF9EB" />
-          <circle cx="640" cy="40" r="3.5" fill="#FFF9EB" />
           <circle cx="760" cy="180" r="3.5" fill="#FFF9EB" />
-          <circle cx="680" cy="340" r="3.5" fill="#FFF9EB" />
           <circle cx="940" cy="220" r="3.5" fill="#FFF9EB" />
-          <circle cx="420" cy="340" r="3.5" fill="#FFF9EB" />
-          <circle cx="540" cy="620" r="3.5" fill="#FFF9EB" />
-          <circle cx="960" cy="620" r="3.5" fill="#FFF9EB" />
-          <circle cx="780" cy="540" r="3.5" fill="#FFF9EB" />
         </svg>
       </div>
 
-      {/* Grain texture across the blue background */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-        }}
-      />
-
-      {/* Full-bleed image on the right, diagonal cut on its left edge */}
+      {/* Clean photo panel — right side on desktop, blended into the navy */}
       {image && (
         <Reveal
           delay={120}
-          className="pointer-events-none absolute top-0 right-0 bottom-10 hidden w-[48%] lg:block [clip-path:polygon(90px_0,100%_0,100%_100%,0_100%)]"
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46%] overflow-hidden lg:block"
         >
-          <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
+          <img src={image} alt={imageAlt ?? ""} className="hero-kenburns absolute inset-0 h-full w-full object-cover" />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/40 via-transparent to-transparent"
+            className="absolute inset-0 bg-gradient-to-r from-dipon-blue via-dipon-blue/55 to-transparent"
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"
-            style={{
-              backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-            }}
+            className="absolute inset-0 opacity-[0.4] mix-blend-overlay"
+            style={{ backgroundImage: GRAIN }}
           />
         </Reveal>
       )}
 
-      <div className="relative px-gutter pt-[clamp(150px,17vw,210px)] pb-8 lg:pb-[clamp(64px,8vw,104px)]">
+      <div className="relative px-gutter pt-[clamp(150px,17vw,212px)] pb-8 lg:pb-[clamp(72px,9vw,112px)]">
         <div className={wrap}>
           <Reveal className={`max-w-[900px] ${image ? "lg:max-w-[560px]" : ""}`}>
             <Eyebrow light>{eyebrowText}</Eyebrow>
-            <Heading as="h1" light accentRest size="text-[clamp(34px,5vw,60px)]">
+            <Heading as="h1" light accentRest size="text-[clamp(38px,5.4vw,66px)]">
               {title}
             </Heading>
             <p className={`${leadLight} mt-[22px] max-w-[680px]`}>{intro}</p>
@@ -95,27 +82,22 @@ export default function PageHero({
         </div>
       </div>
 
-      {/* Compact image banner — mobile only, edge-to-edge with a diagonal top, matching the desktop full-bleed treatment */}
+      {/* Mobile photo band */}
       {image && (
-        <Reveal
-          delay={150}
-          className="relative aspect-[16/9] w-full overflow-hidden lg:hidden [clip-path:polygon(0_28px,100%_0,100%_100%,0_100%)]"
-        >
-          <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
+        <Reveal delay={150} className="relative aspect-[16/9] w-full overflow-hidden lg:hidden">
+          <img src={image} alt={imageAlt ?? ""} className="hero-kenburns absolute inset-0 h-full w-full object-cover" />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/75 via-dipon-blue/10 to-transparent"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-[0.35] mix-blend-overlay"
-            style={{
-              backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-            }}
+            className="absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/20 to-transparent"
           />
         </Reveal>
       )}
+
+      {/* Base hairline accent */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-dipon-accent/45 to-transparent"
+      />
     </section>
   );
 }

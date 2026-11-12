@@ -1,10 +1,9 @@
 import { wrap } from "@/lib/styles";
 
-// A compact page hero built around one large, outlined (see-through) word that
-// wipes open from left to right on load and stays open — a lighter alternative
-// to the image-on-the-right PageHero for listing pages. The wipe is a pure CSS
-// animation (see globals.css) so it never depends on JS timing to become visible.
-// Pass `image` to keep a photo on the right (the word then sizes to the left column).
+// A modern page masthead: a bold, solid page name that wipes open on load over a
+// deep navy ground with a soft accent glow, a kicker rule, and a hairline base
+// accent. Pass `image` for a clean photo panel on the right (desktop) / below
+// (mobile). The wipe is pure CSS (see globals.css) so it never relies on JS.
 export default function WordmarkHero({
   word,
   subtitle,
@@ -16,17 +15,15 @@ export default function WordmarkHero({
   image?: string;
   imageAlt?: string;
 }) {
-  // Cap the display size so the word fits its column (narrower when an image sits beside it).
-  const avail = image ? 600 : 1240;
-  const cap = image ? 148 : 232;
-  // Zalando Sans Expanded is wide, so estimate a generous per-character width
-  // to keep the wordmark on a single line within its column.
-  const maxPx = Math.min(cap, Math.round(avail / (word.length * 0.74)));
-
   return (
-    <section className={`relative overflow-hidden bg-dipon-blue ${image ? "lg:min-h-[420px]" : ""}`}>
+    <section className="relative overflow-hidden bg-dipon-blue">
+      {/* Soft brand-accent glow for depth */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(130%_120%_at_88%_-15%,rgba(253,128,46,0.16),transparent_55%)]"
+      />
       {/* Faint brand mesh */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.1]">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.08]">
         <svg width="100%" height="100%" viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice" fill="none">
           <path d="M1440 -20 L1120 200 L1180 480" stroke="#FFF9EB" strokeWidth="1.5" />
           <path d="M1120 200 L900 60" stroke="#FFF9EB" strokeWidth="1.5" />
@@ -39,45 +36,49 @@ export default function WordmarkHero({
         </svg>
       </div>
 
-      {/* Image on the right (desktop), diagonal cut on its left edge */}
+      {/* Clean photo panel — right side on desktop, blended into the navy */}
       {image && (
-        <div className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-[44%] lg:block [clip-path:polygon(90px_0,100%_0,100%_100%,0_100%)]">
-          <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[44%] overflow-hidden lg:block">
+          <img src={image} alt={imageAlt ?? ""} className="hero-kenburns absolute inset-0 h-full w-full object-cover" />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/45 via-transparent to-transparent"
+            className="absolute inset-0 bg-gradient-to-r from-dipon-blue via-dipon-blue/55 to-transparent"
           />
         </div>
       )}
 
-      <div className="relative flex h-full flex-col justify-center px-gutter pt-[clamp(116px,14vw,164px)] pb-[clamp(24px,4vw,52px)]">
+      <div className="relative px-gutter pt-[clamp(140px,16vw,200px)] pb-[clamp(44px,7vw,92px)]">
         <div className={wrap}>
-          <div className={image ? "lg:max-w-[600px]" : ""}>
+          <div className={image ? "lg:max-w-[600px]" : "max-w-[940px]"}>
             {subtitle && (
-              <p className="wordmark-sub mb-3 font-label text-[12px] font-semibold tracking-[1.6px] text-dipon-accent uppercase">
+              <p className="wordmark-sub mb-5 flex items-center gap-3 font-label text-[12px] font-semibold tracking-[0.18em] text-dipon-accent uppercase">
+                <span aria-hidden="true" className="h-px w-10 shrink-0 bg-dipon-accent" />
                 {subtitle}
               </p>
             )}
-            <h1
-              className="wordmark-word font-display font-extrabold leading-[0.86] tracking-[-2px] whitespace-nowrap text-transparent"
-              style={{ fontSize: `clamp(60px, 20vw, ${maxPx}px)`, WebkitTextStroke: "2px rgba(255,249,235,0.55)" }}
-            >
+            <h1 className="wordmark-word font-display text-[clamp(44px,8.5vw,104px)] font-extrabold leading-[0.95] tracking-[-2px] text-balance text-dipon-cream">
               {word}
             </h1>
           </div>
         </div>
       </div>
 
-      {/* Compact image banner — mobile only, edge-to-edge with a diagonal top */}
+      {/* Mobile photo band */}
       {image && (
-        <div className="relative aspect-[16/9] w-full overflow-hidden lg:hidden [clip-path:polygon(0_28px,100%_0,100%_100%,0_100%)]">
-          <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
+        <div className="relative aspect-[16/9] w-full overflow-hidden lg:hidden">
+          <img src={image} alt={imageAlt ?? ""} className="hero-kenburns absolute inset-0 h-full w-full object-cover" />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/75 via-dipon-blue/10 to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/20 to-transparent"
           />
         </div>
       )}
+
+      {/* Base hairline accent */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-dipon-accent/45 to-transparent"
+      />
     </section>
   );
 }

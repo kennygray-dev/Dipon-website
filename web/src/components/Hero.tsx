@@ -24,6 +24,11 @@ const SLIDES: Slide[] = [
     alt: "DIPON Infrastructure Limited: solar power and public lighting",
     position: "center",
   },
+  {
+    src: "https://images.pexels.com/photos/6197109/pexels-photo-6197109.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    alt: "DIPON Group: environmental, janitorial, and housekeeping services",
+    position: "center",
+  },
 ];
 
 // The video slide holds longer; the photo slides rotate faster so their zoom reads.
