@@ -67,7 +67,7 @@ export default function PageHero({
           delay={120}
           className="pointer-events-none absolute top-0 right-0 bottom-10 hidden w-[48%] lg:block [clip-path:polygon(90px_0,100%_0,100%_100%,0_100%)]"
         >
-          <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
+          <img src={image} alt={imageAlt ?? ""} className="hero-kenburns absolute inset-0 h-full w-full object-cover" />
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/40 via-transparent to-transparent"
@@ -101,7 +101,7 @@ export default function PageHero({
           delay={150}
           className="relative aspect-[16/9] w-full overflow-hidden lg:hidden [clip-path:polygon(0_28px,100%_0,100%_100%,0_100%)]"
         >
-          <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
+          <img src={image} alt={imageAlt ?? ""} className="hero-kenburns absolute inset-0 h-full w-full object-cover" />
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/75 via-dipon-blue/10 to-transparent"

@@ -19,7 +19,12 @@ export default function ServicesPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <WordmarkHero word="Services" subtitle="Seven capabilities, one accountable group" />
+        <WordmarkHero
+          word="Services"
+          subtitle="Seven capabilities, one accountable group"
+          image="https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=1400"
+          imageAlt="DIPON Group solar and power infrastructure"
+        />
 
         <section className={section}>
           <div className={wrap}>

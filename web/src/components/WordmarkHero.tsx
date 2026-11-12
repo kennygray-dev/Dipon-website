@@ -1,10 +1,10 @@
+import type { CSSProperties } from "react";
 import { wrap } from "@/lib/styles";
 
-// A compact page hero built around one large, outlined (see-through) word that
-// wipes open from left to right on load and stays open — a lighter alternative
-// to the image-on-the-right PageHero for listing pages. The wipe is a pure CSS
-// animation (see globals.css) so it never depends on JS timing to become visible.
-// Pass `image` to keep a photo on the right (the word then sizes to the left column).
+// A bold page masthead: the page's name set huge and filled with a photo that
+// reflects what the page is about, so the title itself carries the imagery.
+// Without an image it falls back to a see-through outlined word. The word wipes
+// open from left to right on load (pure CSS, see globals.css).
 export default function WordmarkHero({
   word,
   subtitle,
@@ -16,15 +16,32 @@ export default function WordmarkHero({
   image?: string;
   imageAlt?: string;
 }) {
-  // Cap the display size so the word fits its column (narrower when an image sits beside it).
-  const avail = image ? 600 : 1240;
-  const cap = image ? 148 : 232;
-  // Zalando Sans Expanded is wide, so estimate a generous per-character width
-  // to keep the wordmark on a single line within its column.
-  const maxPx = Math.min(cap, Math.round(avail / (word.length * 0.74)));
+  // Zalando Sans Expanded is wide; estimate a generous per-character width so
+  // the word reaches full size without wrapping out of its column.
+  const maxPx = Math.min(236, Math.round(1240 / (word.length * 0.72)));
+  const size = `clamp(54px, 18vw, ${maxPx}px)`;
+
+  const wordStyle: CSSProperties = image
+    ? {
+        fontSize: size,
+        color: "transparent",
+        WebkitTextStrokeWidth: "1.75px",
+        WebkitTextStrokeColor: "rgba(255,249,235,0.42)",
+        backgroundImage: `linear-gradient(rgba(255,255,255,0.06), rgba(255,255,255,0.06)), url(${image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center 32%",
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        filter: "drop-shadow(0 8px 26px rgba(0,0,0,0.5))",
+      }
+    : {
+        fontSize: size,
+        color: "transparent",
+        WebkitTextStroke: "2px rgba(255,249,235,0.55)",
+      };
 
   return (
-    <section className={`relative overflow-hidden bg-dipon-blue ${image ? "lg:min-h-[420px]" : ""}`}>
+    <section className="relative flex min-h-[clamp(360px,52vh,560px)] items-end overflow-hidden bg-dipon-blue">
       {/* Faint brand mesh */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.1]">
         <svg width="100%" height="100%" viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice" fill="none">
@@ -39,45 +56,21 @@ export default function WordmarkHero({
         </svg>
       </div>
 
-      {/* Image on the right (desktop), diagonal cut on its left edge */}
-      {image && (
-        <div className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-[44%] lg:block [clip-path:polygon(90px_0,100%_0,100%_100%,0_100%)]">
-          <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/45 via-transparent to-transparent"
-          />
-        </div>
-      )}
-
-      <div className="relative flex h-full flex-col justify-center px-gutter pt-[clamp(116px,14vw,164px)] pb-[clamp(24px,4vw,52px)]">
+      <div className="relative w-full px-gutter pt-[clamp(120px,15vw,180px)] pb-[clamp(30px,5vw,66px)]">
         <div className={wrap}>
-          <div className={image ? "lg:max-w-[600px]" : ""}>
-            {subtitle && (
-              <p className="wordmark-sub mb-3 font-label text-[12px] font-semibold tracking-[1.6px] text-dipon-accent uppercase">
-                {subtitle}
-              </p>
-            )}
-            <h1
-              className="wordmark-word font-display font-extrabold leading-[0.86] tracking-[-2px] whitespace-nowrap text-transparent"
-              style={{ fontSize: `clamp(60px, 20vw, ${maxPx}px)`, WebkitTextStroke: "2px rgba(255,249,235,0.55)" }}
-            >
-              {word}
-            </h1>
-          </div>
+          {subtitle && (
+            <p className="wordmark-sub mb-4 flex items-center gap-3 font-label text-[12px] font-semibold tracking-[1.6px] text-dipon-accent uppercase">
+              <span aria-hidden="true" className="h-px w-9 bg-dipon-accent" />
+              {subtitle}
+            </p>
+          )}
+          <h1 className="wordmark-word font-display font-extrabold leading-[0.82] tracking-[-2px] whitespace-nowrap" style={wordStyle}>
+            {word}
+          </h1>
         </div>
       </div>
 
-      {/* Compact image banner — mobile only, edge-to-edge with a diagonal top */}
-      {image && (
-        <div className="relative aspect-[16/9] w-full overflow-hidden lg:hidden [clip-path:polygon(0_28px,100%_0,100%_100%,0_100%)]">
-          <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover" />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/75 via-dipon-blue/10 to-transparent"
-          />
-        </div>
-      )}
+      {image && imageAlt ? <span className="sr-only">{imageAlt}</span> : null}
     </section>
   );
 }
