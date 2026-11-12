@@ -16,7 +16,12 @@ export default function CareersPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <WordmarkHero word="Careers" subtitle="Build Africa's future, with us" />
+        <WordmarkHero
+          word="Careers"
+          subtitle="Build Africa's future, with us"
+          image="https://images.pexels.com/photos/4487383/pexels-photo-4487383.jpeg?auto=compress&cs=tinysrgb&w=1400"
+          imageAlt="DIPON Group team at work"
+        />
 
         <CareersContact />
       </main>

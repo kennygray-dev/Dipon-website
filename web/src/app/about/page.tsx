@@ -64,7 +64,12 @@ export default function AboutPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <WordmarkHero word="About Us" subtitle="One group, every stage of the build" />
+        <WordmarkHero
+          word="About Us"
+          subtitle="One group, every stage of the build"
+          image="https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=1400"
+          imageAlt="DIPON Group construction site"
+        />
 
         <section id="overview" className={section}>
           <div className={wrap}>

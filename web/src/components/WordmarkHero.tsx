@@ -1,9 +1,10 @@
+import type { CSSProperties } from "react";
 import { wrap } from "@/lib/styles";
 
-// A compact page masthead: one large see-through (outlined) page name that wipes
-// open from left to right on load. The word is sized to fit its column (narrower
-// when a photo sits beside it) so it never runs under the image. Pass `image`
-// for a clean photo panel on the right (desktop) / below (mobile).
+// A compact page masthead: the page name set large, its inside filled with a
+// photo that reflects the page and its edge drawn as a crisp outline, so it
+// reads clearly against the navy. The word wipes open on load (see globals.css).
+// Falls back to an outline-only word when no image is given.
 export default function WordmarkHero({
   word,
   subtitle,
@@ -15,10 +16,28 @@ export default function WordmarkHero({
   image?: string;
   imageAlt?: string;
 }) {
-  // Size the word to its available column, kept well below the old oversized display.
-  const avail = image ? 540 : 1180;
-  const cap = image ? 100 : 118;
-  const maxPx = Math.min(cap, Math.round(avail / (word.length * 0.72)));
+  // Size the word to the content width, kept well below the old oversized display.
+  const maxPx = Math.min(118, Math.round(1180 / (word.length * 0.72)));
+  const size = `clamp(42px, 12vw, ${maxPx}px)`;
+
+  const wordStyle: CSSProperties = image
+    ? {
+        fontSize: size,
+        color: "transparent",
+        WebkitTextStrokeWidth: "2px",
+        WebkitTextStrokeColor: "rgba(255,249,235,0.72)",
+        backgroundImage: `url(${image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center 35%",
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        filter: "drop-shadow(0 6px 20px rgba(0,0,0,0.45))",
+      }
+    : {
+        fontSize: size,
+        color: "transparent",
+        WebkitTextStroke: "2px rgba(255,249,235,0.6)",
+      };
 
   return (
     <section className="relative overflow-hidden bg-dipon-blue">
@@ -36,28 +55,17 @@ export default function WordmarkHero({
         </svg>
       </div>
 
-      {/* Clean photo panel — right side on desktop, blended into the navy */}
-      {image && (
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] overflow-hidden lg:block">
-          <img src={image} alt={imageAlt ?? ""} className="hero-kenburns absolute inset-0 h-full w-full object-cover" />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-r from-dipon-blue via-dipon-blue/55 to-transparent"
-          />
-        </div>
-      )}
-
       <div className="relative px-gutter pt-[clamp(140px,16vw,196px)] pb-[clamp(40px,6vw,80px)]">
         <div className={wrap}>
-          <div className={image ? "lg:max-w-[560px]" : "max-w-[940px]"}>
+          <div className="max-w-[1000px]">
             {subtitle && (
               <p className="wordmark-sub mb-4 font-label text-[12px] font-semibold tracking-[1.6px] text-dipon-accent uppercase">
                 {subtitle}
               </p>
             )}
             <h1
-              className="wordmark-word font-display font-extrabold leading-[0.9] tracking-[-2px] whitespace-nowrap text-transparent"
-              style={{ fontSize: `clamp(42px, 12vw, ${maxPx}px)`, WebkitTextStroke: "2px rgba(255,249,235,0.5)" }}
+              className="wordmark-word font-display font-extrabold leading-[0.9] tracking-[-2px] whitespace-nowrap"
+              style={wordStyle}
             >
               {word}
             </h1>
@@ -65,16 +73,7 @@ export default function WordmarkHero({
         </div>
       </div>
 
-      {/* Mobile photo band */}
-      {image && (
-        <div className="relative aspect-[16/9] w-full overflow-hidden lg:hidden">
-          <img src={image} alt={imageAlt ?? ""} className="hero-kenburns absolute inset-0 h-full w-full object-cover" />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/20 to-transparent"
-          />
-        </div>
-      )}
+      {image && imageAlt ? <span className="sr-only">{imageAlt}</span> : null}
     </section>
   );
 }
