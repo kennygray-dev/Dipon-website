@@ -25,12 +25,7 @@ export default async function BlogPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <WordmarkHero
-          word="Blog"
-          subtitle="Insights & updates from the Group"
-          image="https://images.pexels.com/photos/18153132/pexels-photo-18153132.jpeg?auto=compress&cs=tinysrgb&w=1400"
-          imageAlt="DIPON Group property development"
-        />
+        <WordmarkHero word="Blog" subtitle="Insights & updates from the Group" />
 
         <section className={section}>
           <div className={wrap}>

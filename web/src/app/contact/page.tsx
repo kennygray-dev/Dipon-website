@@ -16,12 +16,7 @@ export default function ContactPage() {
     <div className={root}>
       <Header />
       <main id="top">
-        <WordmarkHero
-          word="Contact Us"
-          subtitle="Let's talk about your next project"
-          image="https://images.pexels.com/photos/31445085/pexels-photo-31445085.jpeg?auto=compress&cs=tinysrgb&w=1400"
-          imageAlt="DIPON Group logistics and supply operations"
-        />
+        <WordmarkHero word="Contact Us" subtitle="Let's talk about your next project" />
         <ContactForm />
       </main>
       <Footer />
