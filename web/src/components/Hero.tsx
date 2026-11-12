@@ -1,15 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Socials from "./Socials";
 import { ArrowIcon } from "./icons";
 
-type Slide = { src: string; alt: string; position: string; video?: string };
+type Slide = { src: string; alt: string; position: string };
 
 const SLIDES: Slide[] = [
   {
-    video: "/hero/construction.mp4",
     src: "/hero/construction-poster.jpg",
     alt: "DIPON Group Limited: construction worker on a build site",
     position: "center",
@@ -21,28 +20,15 @@ const SLIDES: Slide[] = [
   },
 ];
 
-const SLIDE_INTERVAL_MS = 12000;
-const VIDEO_INTERVAL_MS = 20000;
+const SLIDE_INTERVAL_MS = 9000;
 
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Safari ignores the React `muted` attribute and blocks autoplay (showing a
-  // play button). Set the muted property imperatively and kick off playback.
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = true;
-    v.play().catch(() => {});
-  }, []);
 
   useEffect(() => {
-    // The video slide holds the longest; the photo slides rotate more quickly after it.
-    const duration = SLIDES[activeSlide].video ? VIDEO_INTERVAL_MS : SLIDE_INTERVAL_MS;
     const timer = setTimeout(() => {
       setActiveSlide((i) => (i + 1) % SLIDES.length);
-    }, duration);
+    }, SLIDE_INTERVAL_MS);
     return () => clearTimeout(timer);
   }, [activeSlide]);
 
@@ -52,36 +38,17 @@ export default function Hero() {
         {/* Full-bleed carousel — nudged right on desktop so the subject sits clear of the text,
             with the left edge masked so it dissolves softly into the navy instead of a hard seam */}
         <div className="absolute inset-0 lg:translate-x-[16%] lg:[mask-image:linear-gradient(to_right,transparent_0%,#000_26%)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,#000_26%)]">
-        {SLIDES.map((slide, i) => {
-          const cls = `absolute inset-0 h-full w-full object-cover transition-opacity duration-[900ms] ease-[var(--ease-standard)] ${
-            i === activeSlide ? "opacity-100" : "opacity-0"
-          }`;
-          return slide.video ? (
-            <video
-              key={slide.src}
-              ref={videoRef}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              poster={slide.src}
-              aria-hidden="true"
-              style={{ objectPosition: slide.position }}
-              className={cls}
-            >
-              <source src={slide.video} type="video/mp4" />
-            </video>
-          ) : (
-            <img
-              key={slide.src}
-              src={slide.src}
-              alt={slide.alt}
-              style={{ objectPosition: slide.position }}
-              className={`${cls} hero-kenburns`}
-            />
-          );
-        })}
+        {SLIDES.map((slide, i) => (
+          <img
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            style={{ objectPosition: slide.position }}
+            className={`hero-kenburns absolute inset-0 h-full w-full object-cover transition-opacity duration-[900ms] ease-[var(--ease-standard)] ${
+              i === activeSlide ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
         </div>
 
         {/* Dim wash across the whole photo for legibility */}
