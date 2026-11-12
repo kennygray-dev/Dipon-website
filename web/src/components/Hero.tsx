@@ -2,11 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import CountUp from "./CountUp";
-import Reveal from "./Reveal";
 import Socials from "./Socials";
-import { YEARS_IN_OPERATION } from "@/lib/site";
-import { ArrowIcon, ClockIcon, HouseIcon, ShieldIcon } from "./icons";
+import { ArrowIcon } from "./icons";
 
 type Slide = { src: string; alt: string; position: string; video?: string };
 
@@ -26,61 +23,6 @@ const SLIDES: Slide[] = [
 
 const SLIDE_INTERVAL_MS = 12000;
 const VIDEO_INTERVAL_MS = 20000;
-
-const STATS = [
-  {
-    icon: ClockIcon,
-    value: YEARS_IN_OPERATION,
-    suffix: "+",
-    label: "Years in Operation",
-    note: "Delivering since day one",
-    bg: "bg-dipon-blue",
-    text: "text-dipon-cream",
-    deco: (
-      <>
-        <path d="M170 20 L170 100" stroke="#FFF9EB" strokeWidth="1.5" />
-        <path d="M170 20 L120 55" stroke="#FFF9EB" strokeWidth="1.5" />
-        <path d="M170 20 L210 60" stroke="#FFF9EB" strokeWidth="1.5" />
-        <path d="M170 20 L90 20" stroke="#FFF9EB" strokeWidth="1.5" />
-        <path d="M170 20 L235 100" stroke="#FFF9EB" strokeWidth="1.5" />
-        <circle cx="170" cy="20" r="30" stroke="#FFF9EB" strokeWidth="1.5" />
-      </>
-    ),
-  },
-  {
-    icon: ShieldIcon,
-    value: 6,
-    suffix: "",
-    label: "Sectors Served",
-    note: "Construction to real estate",
-    bg: "bg-[#2b4a5b]",
-    text: "text-dipon-cream",
-    deco: (
-      <>
-        <path d="M190 10 L240 45 L240 105 L190 140 L140 105 L140 45 Z" stroke="#FFF9EB" strokeWidth="1.5" />
-        <path d="M190 10 L190 140" stroke="#FFF9EB" strokeWidth="1.5" />
-        <path d="M140 45 L240 105" stroke="#FFF9EB" strokeWidth="1.5" />
-        <path d="M240 45 L140 105" stroke="#FFF9EB" strokeWidth="1.5" />
-      </>
-    ),
-  },
-  {
-    icon: HouseIcon,
-    value: 120,
-    suffix: "+",
-    label: "Projects Delivered",
-    note: "Completed across Nigeria",
-    bg: "bg-dipon-accent",
-    text: "text-dipon-primary",
-    deco: (
-      <>
-        <path d="M130 130 L130 70 L170 30 L210 70 L210 130" stroke="#233D4C" strokeWidth="1.5" />
-        <path d="M170 90 L170 40 L200 65 L200 130" stroke="#233D4C" strokeWidth="1.5" />
-        <path d="M100 130 L260 130" stroke="#233D4C" strokeWidth="1.5" />
-      </>
-    ),
-  },
-];
 
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -188,7 +130,7 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Everything below fits on the first screen: headline block on top, caption/socials + stats on the bottom */}
+        {/* Everything below fits on the first screen: headline block on top, caption/socials on the bottom */}
         <div className="relative z-10 mx-auto flex w-full min-h-dvh max-w-[1320px] flex-col justify-center gap-8 px-gutter pt-24 pb-14 sm:gap-10 sm:pb-10 lg:min-h-screen lg:justify-between lg:pt-28 lg:pb-10">
           <div className="flex max-w-[560px] flex-col items-start justify-center gap-4 sm:gap-5 lg:max-w-[620px] lg:flex-1 xl:max-w-[700px] 2xl:max-w-[780px]">
             <h1 className="text-balance font-display text-[clamp(36px,9.6vw,84px)] font-bold leading-[1.08] tracking-[-1px] sm:leading-[1.05] sm:tracking-[-1.5px]">
@@ -220,24 +162,6 @@ export default function Hero() {
                 Trusted Across Construction, Power &amp; Real Estate
               </span>
               <Socials />
-            </div>
-
-            <div className="flex items-start gap-6 sm:gap-9 lg:shrink-0 lg:gap-11">
-              {STATS.map((stat, i) => (
-                <Reveal
-                  key={stat.label}
-                  delay={i * 120}
-                  className={i > 0 ? "border-l border-dipon-cream/20 pl-6 sm:pl-9 lg:pl-11" : ""}
-                >
-                  <div className="flex items-baseline gap-0.5 font-display text-[clamp(30px,4.6vw,50px)] font-extrabold leading-none tracking-[-1px] text-dipon-cream">
-                    <CountUp value={stat.value} />
-                    <span className="text-[0.45em] font-bold text-dipon-accent">{stat.suffix}</span>
-                  </div>
-                  <p className="mt-2 font-label text-[10.5px] font-semibold tracking-[0.1em] text-dipon-cream/65 uppercase sm:text-[11.5px]">
-                    {stat.label}
-                  </p>
-                </Reveal>
-              ))}
             </div>
           </div>
         </div>
