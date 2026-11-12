@@ -28,7 +28,7 @@ const INTERESTS = [
 ];
 
 const inputClass =
-  "w-full rounded-xl border border-[rgba(35,61,76,0.14)] bg-dipon-surface px-4 py-3 font-body text-[15px] text-dipon-primary outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent focus:bg-white focus:ring-2 focus:ring-dipon-accent/25 aria-[invalid=true]:border-red-500";
+  "w-full border border-[rgba(35,61,76,0.14)] bg-dipon-surface px-4 py-3 font-body text-[15px] text-dipon-primary outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent focus:bg-white focus:ring-2 focus:ring-dipon-accent/25 aria-[invalid=true]:border-red-500";
 const labelClass = "mb-1.5 block font-body text-[13px] font-medium text-dipon-secondary";
 const errorClass = "mt-1 font-body text-[12px] text-red-600";
 const contactChip =
@@ -61,9 +61,9 @@ export default function CareersContact() {
           </p>
         </Reveal>
 
-        <Reveal className="relative rounded-[28px] bg-dipon-blue">
+        <Reveal className="relative bg-dipon-blue">
           {/* Photo */}
-          <div className="relative h-[280px] overflow-hidden rounded-t-[28px] sm:h-[340px] lg:h-[380px]">
+          <div className="relative h-[280px] overflow-hidden sm:h-[340px] lg:h-[380px]">
             <img src={PHOTO} alt="DIPON Group team" className="absolute inset-0 h-full w-full object-cover" />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/10 to-dipon-blue/35" />
             <GeometricOverlay />
@@ -73,7 +73,7 @@ export default function CareersContact() {
           </div>
 
           {/* Introduction form — edge-to-edge on mobile, floating card on desktop */}
-          <div className="relative z-20 w-full bg-white px-5 py-8 sm:px-6 lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:rounded-[22px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
+          <div className="relative z-20 w-full bg-white px-5 py-8 sm:px-6 lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-dipon-accent to-transparent lg:hidden" />

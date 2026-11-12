@@ -71,7 +71,7 @@ export default async function SubsidiaryPage({
                     {para}
                   </p>
                 ))}
-                <div className="relative aspect-[16/8] overflow-hidden rounded-[20px]">
+                <div className="relative aspect-[16/8] overflow-hidden">
                   <img
                     src={subsidiary.heroImage}
                     alt={`${subsidiary.name} work`}
@@ -100,7 +100,7 @@ export default async function SubsidiaryPage({
             </Reveal>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
               {services.map((service, i) => (
-                <Reveal key={service.slug} delay={(i % 3) * 110} className="aspect-[4/5] overflow-hidden rounded-[16px]">
+                <Reveal key={service.slug} delay={(i % 3) * 110} className="aspect-[4/5] overflow-hidden">
                   <PhotoTile
                     href={`/services/${service.slug}`}
                     image={service.heroImage}
@@ -123,7 +123,7 @@ export default async function SubsidiaryPage({
             </Reveal>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
               {others.map((other, i) => (
-                <Reveal key={other.slug} delay={i * 130} className="aspect-[4/5] overflow-hidden rounded-[16px]">
+                <Reveal key={other.slug} delay={i * 130} className="aspect-[4/5] overflow-hidden">
                   <PhotoTile
                     href={`/subsidiaries/${other.slug}`}
                     image={other.heroImage}

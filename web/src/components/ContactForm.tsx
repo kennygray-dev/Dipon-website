@@ -17,7 +17,7 @@ const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 const SERVICE_OPTIONS = ["General inquiry", ...SERVICES.map((s) => s.title)];
 
 const inputClass =
-  "w-full rounded-xl border border-[rgba(35,61,76,0.14)] bg-dipon-surface px-4 py-3 font-body text-[15px] text-dipon-primary outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent focus:bg-white focus:ring-2 focus:ring-dipon-accent/25 aria-[invalid=true]:border-red-500";
+  "w-full border border-[rgba(35,61,76,0.14)] bg-dipon-surface px-4 py-3 font-body text-[15px] text-dipon-primary outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent focus:bg-white focus:ring-2 focus:ring-dipon-accent/25 aria-[invalid=true]:border-red-500";
 const labelClass = "mb-1.5 block font-body text-[13px] font-medium text-dipon-secondary";
 const errorClass = "mt-1 font-body text-[12px] text-red-600";
 const contactChip =
@@ -44,9 +44,9 @@ export default function ContactForm() {
           <Eyebrow>Get in Touch</Eyebrow>
         </Reveal>
 
-        <Reveal className="relative flex flex-col rounded-[28px] bg-dipon-blue">
+        <Reveal className="relative flex flex-col bg-dipon-blue">
           {/* Map — mobile: sits between the form and the address block; desktop: back on top, unchanged */}
-          <div className="relative order-2 h-[210px] overflow-hidden bg-dipon-blue sm:h-[260px] lg:order-none lg:h-[360px] lg:rounded-t-[28px]">
+          <div className="relative order-2 h-[210px] overflow-hidden bg-dipon-blue sm:h-[260px] lg:order-none lg:h-[360px]">
             <iframe
               src={MAP_EMBED_SRC}
               className="absolute inset-0 h-full w-full grayscale invert-[0.92] contrast-[0.88] [transform:translateZ(0)] [backface-visibility:hidden]"
@@ -85,8 +85,8 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Feedback form — first on mobile (rounded to match the card's top edge), floating card on desktop */}
-          <div className="relative z-20 order-1 w-full rounded-t-[28px] bg-white px-5 py-8 sm:px-6 lg:order-none lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:rounded-[22px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
+          {/* Feedback form — first on mobile ( to match the card's top edge), floating card on desktop */}
+          <div className="relative z-20 order-1 w-full bg-white px-5 py-8 sm:px-6 lg:order-none lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-dipon-accent to-transparent lg:hidden" />

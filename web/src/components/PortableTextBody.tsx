@@ -50,7 +50,7 @@ const components: PortableTextComponents = {
   types: {
     image: ({ value }) =>
       value?.asset ? (
-        <span className="relative my-2 block aspect-[16/9] overflow-hidden rounded-[14px]">
+        <span className="relative my-2 block aspect-[16/9] overflow-hidden">
           <Image
             src={urlForImage(value).width(1400).fit("max").url()}
             alt={value?.alt || ""}

@@ -75,7 +75,7 @@ export default function Industries() {
               <Reveal
                 key={ind.slug}
                 delay={(i % 3) * 110}
-                className="aspect-square overflow-hidden rounded-[16px]"
+                className="aspect-square overflow-hidden"
               >
                 <Link href={`/services/${ind.slug}`} className="group relative flex h-full w-full flex-col no-underline">
                   <img

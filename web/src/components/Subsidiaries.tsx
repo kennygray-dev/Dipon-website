@@ -53,7 +53,7 @@ export default function Subsidiaries() {
             <Reveal
               key={sub.slug}
               delay={i * 130}
-              className="aspect-[6/5] overflow-hidden rounded-[16px]"
+              className="aspect-[6/5] overflow-hidden"
             >
               <Link href={`/subsidiaries/${sub.slug}`} className="group relative flex h-full w-full flex-col no-underline">
                 <img

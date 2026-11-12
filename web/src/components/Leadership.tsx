@@ -61,7 +61,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
               </Link>
             )}
           </Reveal>
-          <Reveal from="right" delay={40} className="relative order-first aspect-[4/5] overflow-hidden rounded-[20px] md:order-none">
+          <Reveal from="right" delay={40} className="relative order-first aspect-[4/5] overflow-hidden md:order-none">
             <Image
               src={founderPhoto}
               alt="Mr. Oliver Ibeh, Founder and Owner of DIPON Group"

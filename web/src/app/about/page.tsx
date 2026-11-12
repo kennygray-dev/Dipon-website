@@ -87,7 +87,7 @@ export default function AboutPage() {
               </Reveal>
 
               <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:aspect-[6/5] lg:grid-cols-2 lg:grid-rows-2">
-                <Reveal from="right" className="relative aspect-[4/3] overflow-hidden rounded-[20px] lg:aspect-auto lg:row-span-2">
+                <Reveal from="right" className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:row-span-2">
                   <img
                     src={OVERVIEW_IMAGES.vertical.src}
                     alt={OVERVIEW_IMAGES.vertical.alt}
@@ -99,7 +99,7 @@ export default function AboutPage() {
                     <BuildIcon size={15} />
                   </span>
                 </Reveal>
-                <Reveal from="right" delay={150} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
+                <Reveal from="right" delay={150} className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
                   <img
                     src={OVERVIEW_IMAGES.horizontalTop.src}
                     alt={OVERVIEW_IMAGES.horizontalTop.alt}
@@ -111,7 +111,7 @@ export default function AboutPage() {
                     <HouseIcon size={15} />
                   </span>
                 </Reveal>
-                <Reveal from="right" delay={300} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
+                <Reveal from="right" delay={300} className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
                   <img
                     src={OVERVIEW_IMAGES.horizontalBottom.src}
                     alt={OVERVIEW_IMAGES.horizontalBottom.alt}

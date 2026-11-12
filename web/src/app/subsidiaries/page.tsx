@@ -30,7 +30,7 @@ export default function SubsidiariesPage() {
           <div className={wrap}>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
               {SUBSIDIARIES.map((subsidiary, i) => (
-                <Reveal key={subsidiary.slug} delay={i * 130} className="aspect-[6/5] overflow-hidden rounded-[16px]">
+                <Reveal key={subsidiary.slug} delay={i * 130} className="aspect-[6/5] overflow-hidden">
                   <PhotoTile
                     href={`/subsidiaries/${subsidiary.slug}`}
                     image={subsidiary.heroImage}

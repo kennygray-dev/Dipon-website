@@ -47,7 +47,7 @@ export default function Overview() {
           </Reveal>
 
           <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:aspect-[6/5] lg:grid-cols-2 lg:grid-rows-2">
-            <Reveal from="right" className="relative aspect-[4/3] overflow-hidden rounded-[20px] lg:aspect-auto lg:row-span-2">
+            <Reveal from="right" className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:row-span-2">
               <img
                 src={IMAGES.vertical.src}
                 alt={IMAGES.vertical.alt}
@@ -59,7 +59,7 @@ export default function Overview() {
                 <BuildIcon size={15} />
               </span>
             </Reveal>
-            <Reveal from="right" delay={150} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
+            <Reveal from="right" delay={150} className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
               <img
                 src={IMAGES.horizontalTop.src}
                 alt={IMAGES.horizontalTop.alt}
@@ -71,7 +71,7 @@ export default function Overview() {
                 <LeafIcon size={15} />
               </span>
             </Reveal>
-            <Reveal from="right" delay={300} className="relative aspect-[16/10] overflow-hidden rounded-[20px] lg:aspect-auto">
+            <Reveal from="right" delay={300} className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
               <img
                 src={IMAGES.horizontalBottom.src}
                 alt={IMAGES.horizontalBottom.alt}

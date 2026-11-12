@@ -27,7 +27,7 @@ export default function Founder() {
     <section id="founder" className={section}>
       <div className={wrap}>
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[0.4fr_0.6fr] lg:gap-16">
-          <Reveal from="left" className="relative order-first aspect-[4/5] overflow-hidden rounded-[20px] lg:sticky lg:top-24">
+          <Reveal from="left" className="relative order-first aspect-[4/5] overflow-hidden lg:sticky lg:top-24">
             <Image
               src={founderPhoto}
               alt="Mr. Oliver Ibeh, Founder and Owner of DIPON Group"

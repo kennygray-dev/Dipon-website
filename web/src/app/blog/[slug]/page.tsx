@@ -119,7 +119,7 @@ export default async function BlogPostPage({
               </Reveal>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                 {others.map((other, i) => (
-                  <Reveal key={other._id} delay={(i % 3) * 110} className="aspect-[3/4] overflow-hidden rounded-[14px]">
+                  <Reveal key={other._id} delay={(i % 3) * 110} className="aspect-[3/4] overflow-hidden">
                     <PhotoTile
                       href={`/blog/${other.slug}`}
                       image={other.mainImage ? urlForImage(other.mainImage).width(600).height(800).fit("crop").url() : ""}

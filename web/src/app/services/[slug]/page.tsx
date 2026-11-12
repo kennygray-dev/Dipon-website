@@ -72,7 +72,7 @@ export default async function ServicePage({
                   </p>
                 ))}
               </Reveal>
-              <Reveal delay={150} className="relative aspect-[6/5] overflow-hidden rounded-[20px]">
+              <Reveal delay={150} className="relative aspect-[6/5] overflow-hidden">
                 <img
                   src={service.heroImage}
                   alt={`DIPON Group ${service.title.toLowerCase()} work`}
@@ -157,7 +157,7 @@ export default async function ServicePage({
                 <Heading>{`${subsidiary ? subsidiary.short : service.deliveredBy}, the team behind this work.`}</Heading>
                 <p className={`${lead} mt-4`}>{SUBSIDIARY_BLURBS[service.deliveredBy]}</p>
               </Reveal>
-              <Reveal delay={150} className="aspect-[6/5] overflow-hidden rounded-[16px]">
+              <Reveal delay={150} className="aspect-[6/5] overflow-hidden">
                 <PhotoTile
                   href={subsidiary ? `/subsidiaries/${subsidiary.slug}` : "/subsidiaries"}
                   image={subsidiary?.heroImage ?? service.heroImage}
@@ -179,7 +179,7 @@ export default async function ServicePage({
             </Reveal>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               {others.map((other, i) => (
-                <Reveal key={other.slug} delay={(i % 5) * 100} className="aspect-[3/4] overflow-hidden rounded-[14px]">
+                <Reveal key={other.slug} delay={(i % 5) * 100} className="aspect-[3/4] overflow-hidden">
                   <PhotoTile
                     href={`/services/${other.slug}`}
                     image={other.heroImage}
