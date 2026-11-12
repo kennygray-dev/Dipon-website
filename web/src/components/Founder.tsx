@@ -68,7 +68,7 @@ export default function Founder() {
               </p>
               <p>
                 With DIPON Group, Mr. Ibeh brings that same discipline to Nigeria&rsquo;s built environment. As
-                founder and sole owner, he established the Group&rsquo;s three companies as a single, accountable
+                founder, he established the Group&rsquo;s three companies as a single, accountable
                 structure covering every stage of a project:
               </p>
             </div>

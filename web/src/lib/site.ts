@@ -40,7 +40,7 @@ export type Office = {
 export const OFFICES: Office[] = [
   {
     label: "Head Office",
-    lines: ["2421 Oka Akoko Close", "Garki 2, Abuja"],
+    lines: ["7B Oka-Akoko St, Garki 2", "Abuja 900242, Federal Capital Territory"],
     country: "Nigeria",
     phoneDisplay: "+234 903 000 2534",
     phoneHref: "+2349030002534",
@@ -48,7 +48,7 @@ export const OFFICES: Office[] = [
   },
   {
     label: "Arizona Office",
-    lines: ["6630 N 47th Ave #9", "Glendale, AZ 85301"],
+    lines: ["6630 N 47th Ave Suite 9", "Glendale, AZ 85301"],
     country: "United States",
     phoneDisplay: "+1 623 931 6216",
     phoneHref: "+16239316216",
@@ -57,7 +57,7 @@ export const OFFICES: Office[] = [
 ];
 
 /** Anchors the contact-page map — the Abuja head office. */
-export const MAP_QUERY = "2421 Oka Akoko Close, Garki 2, Abuja, Nigeria";
+export const MAP_QUERY = "7B Oka-Akoko St, Garki 2, Abuja 900242, Nigeria";
 
 // Not supplied yet. Leave empty and the UI hides email affordances until it's set.
 export const CONTACT_EMAIL = "info@dipongrouplimited.com";

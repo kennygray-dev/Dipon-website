@@ -25,7 +25,7 @@ const STATS: Stat[] = [
     value: "6",
     label: "Sectors Served",
     image: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=900",
-    overlay: "bg-gradient-to-t from-black/75 via-black/45 to-black/20",
+    overlay: "bg-gradient-to-t from-black/55 via-black/25 to-transparent",
   },
   {
     id: "stat-projects",
@@ -42,10 +42,10 @@ const STATS: Stat[] = [
 ];
 
 const CARD_STYLES = [
-  { bg: "bg-dipon-blue", overlay: "bg-dipon-blue/88", text: "text-white" },
-  { bg: "bg-[#2b4a5b]", overlay: "bg-[#2b4a5b]/88", text: "text-white" },
-  { bg: "bg-dipon-accent", overlay: "bg-dipon-accent/88", text: "text-white" },
-  { bg: "bg-[#172a34]", overlay: "bg-[#172a34]/88", text: "text-dipon-cream" },
+  { bg: "bg-dipon-blue", overlay: "bg-dipon-blue/72", text: "text-white" },
+  { bg: "bg-[#2b4a5b]", overlay: "bg-[#2b4a5b]/72", text: "text-white" },
+  { bg: "bg-dipon-accent", overlay: "bg-dipon-accent/72", text: "text-white" },
+  { bg: "bg-[#172a34]", overlay: "bg-[#172a34]/72", text: "text-dipon-cream" },
 ];
 
 function animateStat(el: HTMLElement) {

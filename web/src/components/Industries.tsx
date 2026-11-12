@@ -26,6 +26,12 @@ const INDUSTRIES = [
     tint: "navy",
   },
   {
+    slug: "environmental-services",
+    title: "Environmental Services",
+    image: "https://images.pexels.com/photos/6197109/pexels-photo-6197109.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    tint: "navy",
+  },
+  {
     slug: "trading-supply-chain",
     title: "Trading & Supply Chain",
     image: "https://images.pexels.com/photos/31445085/pexels-photo-31445085.jpeg?auto=compress&cs=tinysrgb&w=1200",
@@ -46,8 +52,8 @@ const INDUSTRIES = [
 ];
 
 const TINTS = {
-  navy: "from-[#233d4c] via-[#233d4c]/45",
-  orange: "from-[#fd802e] via-[#fd802e]/45",
+  navy: "from-[#233d4c]/60 via-transparent",
+  orange: "from-[#fd802e]/55 via-transparent",
 };
 
 export default function Industries() {
@@ -80,7 +86,7 @@ export default function Industries() {
                   <div
                     className={`absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b ${TINTS[ind.tint as "navy" | "orange"]} to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0`}
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/92 via-black/65 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/88 via-black/30 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/35 opacity-100 transition-opacity duration-400 ease-[var(--ease-premium)] lg:opacity-0 lg:group-hover:opacity-100" />
 
                   <span className="relative z-10 m-3 ml-auto flex h-7 w-7 items-center justify-center rounded-full bg-white/95 p-[6px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] sm:m-3.5 sm:h-8 sm:w-8">

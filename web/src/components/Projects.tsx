@@ -81,7 +81,7 @@ export default function Projects() {
                 alt={shot.alt}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/65 via-black/15 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/45 via-transparent to-transparent" />
             </Reveal>
           ))}
         </div>

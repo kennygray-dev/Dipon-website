@@ -76,7 +76,7 @@ export default async function ServicePage({
                 <img
                   src={service.heroImage}
                   alt={`DIPON Group ${service.title.toLowerCase()} work`}
-                  className="h-full w-full object-cover brightness-[0.82] transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
                 <GeometricOverlay />

@@ -35,10 +35,10 @@ const MEGA_GROUPS: MegaGroup[] = [
       { num: "01", title: "Construction & Civil Engineering", href: "/services/construction-civil-engineering", desc: "Civil works, buildings, roads, and structural fabrication." },
       { num: "02", title: "Renewable Energy & Power", href: "/services/renewable-energy-power", desc: "Solar systems, street lighting, and power infrastructure." },
       { num: "03", title: "Real Estate & Property", href: "/services/real-estate-property", desc: "Housing and property development to occupancy." },
-      { num: "04", title: "Trading & Supply Chain", href: "/services/trading-supply-chain", desc: "Import/export, materials supply, and marketing." },
-      { num: "05", title: "Transportation & Logistics", href: "/services/transportation-logistics", desc: "Movement of goods, materials, and equipment." },
-      { num: "06", title: "Agriculture", href: "/services/agriculture", desc: "Agricultural production and supply." },
-      { num: "07", title: "Environmental Services", href: "/services/environmental-services", desc: "Junk removal, waste management, janitorial, and housekeeping." },
+      { num: "04", title: "Environmental Services", href: "/services/environmental-services", desc: "Junk removal, waste management, janitorial, and housekeeping." },
+      { num: "05", title: "Trading & Supply Chain", href: "/services/trading-supply-chain", desc: "Import/export, materials supply, and marketing." },
+      { num: "06", title: "Transportation & Logistics", href: "/services/transportation-logistics", desc: "Movement of goods, materials, and equipment." },
+      { num: "07", title: "Agriculture", href: "/services/agriculture", desc: "Agricultural production and supply." },
     ],
   },
   {
@@ -50,7 +50,7 @@ const MEGA_GROUPS: MegaGroup[] = [
     links: [
       { num: "Subsidiary 01", title: "DIPON Construction Limited", href: "/subsidiaries/dipon-construction", desc: "Civil engineering, building construction, and general contracting, the Group's core build capability." },
       { num: "Subsidiary 02", title: "DIPON Global Resources Limited", href: "/subsidiaries/dipon-global-resources", desc: "Trading, supply chain, real estate, agriculture, and logistics, the commercial engine." },
-      { num: "Subsidiary 03", title: "DIPON Infrastructure Limited", href: "/subsidiaries/dipon-infrastructure", desc: "Renewable energy, power infrastructure, and housing development." },
+      { num: "Subsidiary 03", title: "DIPON Infrastructure Limited", href: "/subsidiaries/dipon-infrastructure", desc: "Renewable energy, power infrastructure, and environmental services." },
     ],
   },
 ];
