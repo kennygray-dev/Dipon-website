@@ -1,43 +1,20 @@
-import type { CSSProperties } from "react";
 import { wrap } from "@/lib/styles";
 
-// A compact page masthead: the page name set large, its inside filled with a
-// photo that reflects the page and its edge drawn as a crisp outline, so it
-// reads clearly against the navy. The word wipes open on load (see globals.css).
-// Falls back to an outline-only word when no image is given.
+// A compact page masthead: the page name set large with a solid white inner fill
+// and a crisp outer outline (two styles), so it reads clearly against the navy.
+// The word wipes open from left to right on load (see globals.css).
 export default function WordmarkHero({
   word,
   subtitle,
-  image,
-  imageAlt,
 }: {
   word: string;
   subtitle?: string;
+  // Accepted for compatibility with existing callers; the title is text-only.
   image?: string;
   imageAlt?: string;
 }) {
   // Size the word to the content width, kept well below the old oversized display.
   const maxPx = Math.min(118, Math.round(1180 / (word.length * 0.72)));
-  const size = `clamp(42px, 12vw, ${maxPx}px)`;
-
-  const wordStyle: CSSProperties = image
-    ? {
-        fontSize: size,
-        color: "transparent",
-        WebkitTextStrokeWidth: "2px",
-        WebkitTextStrokeColor: "rgba(255,249,235,0.72)",
-        backgroundImage: `url(${image})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center 35%",
-        WebkitBackgroundClip: "text",
-        backgroundClip: "text",
-        filter: "drop-shadow(0 6px 20px rgba(0,0,0,0.45))",
-      }
-    : {
-        fontSize: size,
-        color: "transparent",
-        WebkitTextStroke: "2px rgba(255,249,235,0.6)",
-      };
 
   return (
     <section className="relative overflow-hidden bg-dipon-blue">
@@ -65,15 +42,18 @@ export default function WordmarkHero({
             )}
             <h1
               className="wordmark-word font-display font-extrabold leading-[0.9] tracking-[-2px] whitespace-nowrap"
-              style={wordStyle}
+              style={{
+                fontSize: `clamp(42px, 12vw, ${maxPx}px)`,
+                color: "#FFFFFF",
+                WebkitTextStroke: "2.5px rgba(255,249,235,0.55)",
+                paintOrder: "stroke fill",
+              }}
             >
               {word}
             </h1>
           </div>
         </div>
       </div>
-
-      {image && imageAlt ? <span className="sr-only">{imageAlt}</span> : null}
     </section>
   );
 }
