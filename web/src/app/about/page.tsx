@@ -128,11 +128,11 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <StatBand />
+
         <Founder />
 
         <DarkFeatureGrid eyebrow="What Guides Us" heading="The standards behind every project." items={VALUES} columns={4} />
-
-        <StatBand />
 
         <CtaBand />
       </main>
