@@ -23,7 +23,7 @@ export const SUBSIDIARY_BLURBS: Record<string, string> = {
   "DIPON Global Resources Limited":
     "The commercial engine behind every project: trading, supply chain, real estate, agriculture, and logistics.",
   "DIPON Infrastructure Limited":
-    "The Group's power and facilities arm: renewable energy, power infrastructure, and environmental services.",
+    "The Group's power and property arm: renewable energy, power infrastructure, housing development, and environmental services.",
 };
 
 export const SERVICES: Service[] = [

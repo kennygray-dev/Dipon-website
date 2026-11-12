@@ -50,7 +50,7 @@ const MEGA_GROUPS: MegaGroup[] = [
     links: [
       { num: "Subsidiary 01", title: "DIPON Construction Limited", href: "/subsidiaries/dipon-construction", desc: "Civil engineering, building construction, and general contracting, the Group's core build capability." },
       { num: "Subsidiary 02", title: "DIPON Global Resources Limited", href: "/subsidiaries/dipon-global-resources", desc: "Trading, supply chain, real estate, agriculture, and logistics, the commercial engine." },
-      { num: "Subsidiary 03", title: "DIPON Infrastructure Limited", href: "/subsidiaries/dipon-infrastructure", desc: "Renewable energy, power infrastructure, and environmental services." },
+      { num: "Subsidiary 03", title: "DIPON Infrastructure Limited", href: "/subsidiaries/dipon-infrastructure", desc: "Renewable energy, power infrastructure, housing development, and environmental services." },
     ],
   },
 ];

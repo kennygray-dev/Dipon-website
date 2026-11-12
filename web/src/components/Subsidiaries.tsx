@@ -29,7 +29,7 @@ const SUBSIDIARIES = [
     slug: "dipon-infrastructure",
     name: "DIPON Infrastructure Limited",
     short: "Infrastructure",
-    desc: "Renewable energy, power infrastructure, and environmental services.",
+    desc: "Renewable energy, power infrastructure, housing development, and environmental services.",
     badge: "Power & Property",
     image: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
