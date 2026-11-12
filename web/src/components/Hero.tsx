@@ -1,14 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Socials from "./Socials";
 import { ArrowIcon } from "./icons";
 
-type Slide = { src: string; alt: string; position: string };
+type Slide = { src: string; alt: string; position: string; video?: string };
 
 const SLIDES: Slide[] = [
   {
+    video: "/hero/construction.mp4",
     src: "/hero/construction-poster.jpg",
     alt: "DIPON Group Limited: construction worker on a build site",
     position: "center",
@@ -18,17 +19,37 @@ const SLIDES: Slide[] = [
     alt: "DIPON Global Resources Limited: workers in a warehouse and supply chain operations",
     position: "center",
   },
+  {
+    src: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    alt: "DIPON Infrastructure Limited: solar power and public lighting",
+    position: "center",
+  },
 ];
 
-const SLIDE_INTERVAL_MS = 9000;
+// The video slide holds longer; the photo slides rotate faster so their zoom reads.
+const SLIDE_INTERVAL_MS = 7000;
+const VIDEO_INTERVAL_MS = 14000;
+// How far each photo zooms over its time on screen.
+const ZOOM_MS = SLIDE_INTERVAL_MS + 900;
 
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Safari ignores the React `muted` attribute and blocks autoplay (showing a
+  // play button). Set the muted property imperatively and kick off playback.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.play().catch(() => {});
+  }, []);
 
   useEffect(() => {
+    const duration = SLIDES[activeSlide].video ? VIDEO_INTERVAL_MS : SLIDE_INTERVAL_MS;
     const timer = setTimeout(() => {
       setActiveSlide((i) => (i + 1) % SLIDES.length);
-    }, SLIDE_INTERVAL_MS);
+    }, duration);
     return () => clearTimeout(timer);
   }, [activeSlide]);
 
@@ -38,17 +59,39 @@ export default function Hero() {
         {/* Full-bleed carousel — nudged right on desktop so the subject sits clear of the text,
             with the left edge masked so it dissolves softly into the navy instead of a hard seam */}
         <div className="absolute inset-0 lg:translate-x-[16%] lg:[mask-image:linear-gradient(to_right,transparent_0%,#000_26%)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,#000_26%)]">
-        {SLIDES.map((slide, i) => (
-          <img
-            key={slide.src}
-            src={slide.src}
-            alt={slide.alt}
-            style={{ objectPosition: slide.position }}
-            className={`hero-kenburns absolute inset-0 h-full w-full object-cover transition-opacity duration-[900ms] ease-[var(--ease-standard)] ${
-              i === activeSlide ? "opacity-100" : "opacity-0"
-            }`}
-          />
-        ))}
+        {SLIDES.map((slide, i) => {
+          const base = "absolute inset-0 h-full w-full object-cover will-change-transform";
+          const vis = i === activeSlide ? "opacity-100" : "opacity-0";
+          return slide.video ? (
+            <video
+              key={slide.src}
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster={slide.src}
+              aria-hidden="true"
+              style={{ objectPosition: slide.position, transition: "opacity 900ms var(--ease-standard)" }}
+              className={`${base} ${vis}`}
+            >
+              <source src={slide.video} type="video/mp4" />
+            </video>
+          ) : (
+            <img
+              key={slide.src}
+              src={slide.src}
+              alt={slide.alt}
+              style={{
+                objectPosition: slide.position,
+                transform: i === activeSlide ? "scale(1.12)" : "scale(1)",
+                transition: `opacity 900ms var(--ease-standard), transform ${ZOOM_MS}ms ease-out`,
+              }}
+              className={`${base} ${vis}`}
+            />
+          );
+        })}
         </div>
 
         {/* Dim wash across the whole photo for legibility */}
