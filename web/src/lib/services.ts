@@ -109,7 +109,7 @@ export const SERVICES: Service[] = [
       "We keep buildings and sites clean, safe, and clutter-free, from waste removal to day-to-day housekeeping, carrying decades of facility-services experience.",
     overviewHeading: "Clean, healthy spaces, kept that way.",
     overview: [
-      "Our environmental services build on BIO-Janitorial, the Arizona facility-services company our founder started in 1990 and grew into a recognized name in integrated building maintenance. The same standards, quality, reliability, and doing the work better than before, now shape how we care for spaces here.",
+      "Our environmental services build on Bio Janitorial Service, Inc., the Arizona facility-services company our founder started in 1990 and grew into a recognized name in integrated building maintenance. The same standards, quality, reliability, and doing the work better than before, now shape how we care for spaces here.",
       "From junk removal and waste management to janitorial and housekeeping, we keep homes, offices, and commercial sites in order, with teams that show up, follow the details, and leave things properly clean.",
     ],
     capabilities: [

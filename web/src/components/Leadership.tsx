@@ -34,7 +34,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
             </div>
             <p className="max-w-[480px] font-body text-[13px] leading-[1.55] text-dipon-secondary sm:text-[14px]">
               A Nigerian-American entrepreneur, Oliver Ibeh founded the Arizona facility-services firm
-              BIO-Janitorial in 1990 before establishing DIPON Group, uniting construction, trade, real
+              Bio Janitorial Service, Inc. in 1990 before establishing DIPON Group, uniting construction, trade, real
               estate, and power infrastructure under one accountable Nigerian group.
             </p>
           </div>

@@ -59,7 +59,7 @@ export default function Founder() {
                 building service-driven enterprises across two continents.
               </p>
               <p>
-                In 1990, he founded BIO-Janitorial, a minority-owned business enterprise headquartered in
+                In 1990, he founded Bio Janitorial Service, Inc., a minority-owned business enterprise headquartered in
                 Glendale, Arizona. Under his leadership it became a recognized innovator in integrated contract
                 building maintenance and facility support services, serving commercial, industrial, medical, and
                 educational institutions across Arizona and other states. That company established the principles

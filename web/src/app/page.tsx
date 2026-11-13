@@ -1,4 +1,5 @@
 import CtaBand from "@/components/CtaBand";
+import ExploreGrid from "@/components/ExploreGrid";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -21,6 +22,7 @@ export default function Home() {
         <Overview />
         <WhyChoose />
         <Subsidiaries />
+        <ExploreGrid />
         <Industries />
         <Projects />
         <Sustainability />

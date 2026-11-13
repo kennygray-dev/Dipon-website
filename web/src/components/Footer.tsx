@@ -7,10 +7,10 @@ import { wrap } from "@/lib/styles";
 import Socials from "./Socials";
 
 const footerLink =
-  "font-body text-sm text-dipon-cream no-underline opacity-[0.82] hover:opacity-100";
+  "font-body text-sm leading-[1.5] text-dipon-cream no-underline opacity-[0.82] transition-opacity hover:opacity-100";
 const footerHead =
-  "mb-4 font-label text-[11px] font-semibold uppercase tracking-[1.2px] text-dipon-accent";
-const footerList = "m-0 flex list-none flex-col gap-[11px] p-0";
+  "mb-5 font-label text-[11px] font-semibold uppercase tracking-[1.4px] text-dipon-accent";
+const footerList = "m-0 flex list-none flex-col gap-[14px] p-0";
 
 const LEGAL_LINKS = [
   { label: "Privacy Policy", href: "/privacy-policy" },
@@ -19,9 +19,9 @@ const LEGAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-dipon-blue-alt px-gutter pt-[72px] pb-9 text-dipon-cream">
+    <footer className="bg-dipon-blue-alt px-gutter pt-[clamp(76px,9vw,116px)] pb-11 text-dipon-cream">
       <div className={wrap}>
-        <div className="grid grid-cols-1 items-start gap-10 border-b border-[rgba(255,249,235,0.16)] pb-12 md:grid-cols-[1.6fr_1fr_1.2fr_1fr_1.1fr]">
+        <div className="grid grid-cols-1 items-start gap-x-14 gap-y-12 border-b border-[rgba(255,249,235,0.16)] pb-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.8fr_1fr_1.3fr_1.1fr_1.2fr]">
           <div>
             <Image src="/assets/dipon-logo-light.svg" alt="DIPON Group" width={493} height={142} className="block h-[34px] w-auto" />
             <p className="mt-5 max-w-[280px] font-body text-sm leading-[1.65] text-[rgba(255,249,235,0.85)]">
@@ -64,7 +64,7 @@ export default function Footer() {
           </nav>
           <nav aria-label="Offices">
             <div className={footerHead}>Offices</div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               {OFFICES.map((office) => (
                 <p
                   key={office.label}
@@ -94,7 +94,7 @@ export default function Footer() {
             </div>
           </nav>
         </div>
-        <div className="mt-7 flex flex-wrap items-center justify-between gap-3.5">
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
           <span className="font-label text-xs tracking-[0.6px] text-[rgba(255,249,235,0.85)]">
             © {new Date().getFullYear()} DIPON Group Limited. All rights reserved.
           </span>
