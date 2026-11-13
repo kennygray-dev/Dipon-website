@@ -53,7 +53,7 @@ const INDUSTRIES = [
 
 const TINTS = {
   navy: "from-[#233d4c]/60 via-transparent",
-  orange: "from-[#fd802e]/55 via-transparent",
+  orange: "from-[#233d4c]/60 via-transparent",
 };
 
 export default function Industries() {
