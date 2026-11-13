@@ -24,7 +24,7 @@ export default function Sustainability() {
     <section id="sustainability" className={section}>
       <div className={wrap}>
         <Reveal className="grid grid-cols-1 items-stretch gap-[clamp(28px,4vw,44px)] md:grid-cols-[0.54fr_0.46fr] md:gap-[2px]">
-          <div className="relative aspect-[4/5] overflow-hidden md:aspect-auto md:h-full md:min-h-[420px] md:[clip-path:polygon(0_0,100%_0,calc(100%-56px)_100%,0_100%)]">
+          <div className="relative aspect-[4/5] overflow-hidden md:aspect-auto md:h-full md:min-h-[420px]">
             <img
               src={SUSTAINABILITY_IMAGE}
               alt="Solar and renewable energy infrastructure"
@@ -35,7 +35,7 @@ export default function Sustainability() {
               Renewable Energy
             </span>
           </div>
-          <div className="relative flex flex-col justify-center overflow-hidden bg-gradient-to-b from-[#2b4a5b] via-dipon-blue to-dipon-blue-alt py-[clamp(36px,5vw,56px)] pr-[clamp(24px,4vw,48px)] pl-[clamp(24px,4vw,48px)] md:pl-[84px] md:[clip-path:polygon(56px_0,100%_0,100%_100%,0_100%)]">
+          <div className="relative flex flex-col justify-center overflow-hidden bg-gradient-to-b from-[#2b4a5b] via-dipon-blue to-dipon-blue-alt py-[clamp(36px,5vw,56px)] pr-[clamp(24px,4vw,48px)] pl-[clamp(24px,4vw,48px)] md:pl-[clamp(32px,4vw,56px)]">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"

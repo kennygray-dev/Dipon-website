@@ -45,7 +45,7 @@ export default function WordmarkHero({
               style={{
                 fontSize: `clamp(42px, 12vw, ${maxPx}px)`,
                 color: "#FFFFFF",
-                WebkitTextStroke: "2.5px rgba(255,249,235,0.55)",
+                WebkitTextStroke: "3px #fd802e",
                 paintOrder: "stroke fill",
               }}
             >

@@ -47,7 +47,7 @@ export default function StatBand() {
           {PILLARS.map((pillar, index) => (
             <div
               key={pillar.title}
-              className={`relative flex min-h-[320px] flex-col justify-end overflow-hidden p-[42px_34px] transition-transform duration-300 ease-out hover:-translate-y-2 [clip-path:polygon(0_0,100%_0,100%_100%,14%_100%,0_86%)] ${CARD_STYLES[index].bg} ${CARD_STYLES[index].text}`}
+              className={`relative flex min-h-[320px] flex-col justify-end overflow-hidden p-[42px_34px] transition-transform duration-300 ease-out hover:-translate-y-2 ${CARD_STYLES[index].bg} ${CARD_STYLES[index].text}`}
             >
               <img
                 src={pillar.image}
