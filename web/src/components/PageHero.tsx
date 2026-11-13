@@ -71,7 +71,7 @@ export default function PageHero({
             <Heading as="h1" light accentRest size="text-[clamp(38px,5.4vw,66px)]">
               {title}
             </Heading>
-            <p className={`${leadLight} mt-[22px] max-w-[680px]`}>{intro}</p>
+            <p className={`${leadLight} mt-5 max-w-[680px]`}>{intro}</p>
           </Reveal>
         </div>
       </div>

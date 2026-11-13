@@ -54,7 +54,7 @@ export default function CareersContact() {
         <Reveal className="mb-10 max-w-[640px]">
           <Eyebrow>Open Positions</Eyebrow>
           <Heading>No open roles right now.</Heading>
-          <p className={`${lead} mt-4`}>
+          <p className={`${lead} mt-5`}>
             We&rsquo;re not actively hiring for a specific position at the moment, but we&rsquo;re always glad to meet
             talented people who want to build Africa&rsquo;s future with us. Introduce yourself and we&rsquo;ll reach
             out when something fits.

@@ -42,7 +42,7 @@ export default function Subsidiaries() {
         <Reveal className="mb-12 max-w-[640px]">
           <Eyebrow>DIPON Group structure</Eyebrow>
           <Heading>Three Companies, One Accountable Group</Heading>
-          <p className={`${lead} mt-[18px]`}>
+          <p className={`${lead} mt-5`}>
             Each subsidiary is built for depth in its field, while the Group keeps them accountable to a single
             standard.
           </p>

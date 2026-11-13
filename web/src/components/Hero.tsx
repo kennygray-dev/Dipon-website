@@ -99,13 +99,10 @@ export default function Hero() {
         })}
         </div>
 
-        {/* Dim wash across the whole photo for legibility */}
-        <div aria-hidden="true" className="absolute inset-0 bg-black/35" />
-
-        {/* Translucent DIPON-blue wash — the photo shows faintly through it */}
+        {/* Single DIPON-blue wash — the one legibility layer, left-weighted so the photo stays bright on the right */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-dipon-blue/88 via-dipon-blue/78 to-dipon-blue/70 lg:w-[64%] lg:from-dipon-blue/92 lg:via-dipon-blue/58 lg:to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-dipon-blue/90 via-dipon-blue/72 to-dipon-blue/55 lg:w-[66%] lg:from-dipon-blue/92 lg:via-dipon-blue/55 lg:to-transparent"
         />
 
         {/* Subtle geometry, anchored bottom-right of the tinted zone */}

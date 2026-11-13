@@ -63,7 +63,7 @@ export default function Industries() {
         <Reveal className="mb-12 max-w-[640px]">
           <Eyebrow>Industries We Serve</Eyebrow>
           <Heading>Tell us what you need built, powered, supplied, or developed.</Heading>
-          <p className={`${lead} mt-[18px]`}>
+          <p className={`${lead} mt-5`}>
             We&rsquo;ll show you who at DIPON Group delivers it, sometimes one company, sometimes several working on
             the same site.
           </p>

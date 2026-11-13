@@ -155,7 +155,7 @@ export default async function ServicePage({
               <Reveal>
                 <Eyebrow>Delivered By</Eyebrow>
                 <Heading>{`${subsidiary ? subsidiary.short : service.deliveredBy}, the team behind this work.`}</Heading>
-                <p className={`${lead} mt-4`}>{SUBSIDIARY_BLURBS[service.deliveredBy]}</p>
+                <p className={`${lead} mt-5`}>{SUBSIDIARY_BLURBS[service.deliveredBy]}</p>
               </Reveal>
               <Reveal delay={150} className="aspect-[6/5] overflow-hidden">
                 <PhotoTile
