@@ -82,11 +82,11 @@ export default function DarkFeatureGrid({
                 />
                 <BuildingMotif className="pointer-events-none absolute right-0 bottom-0 h-[86px] w-[104px] text-dipon-accent opacity-[0.22] transition-opacity duration-300 group-hover:opacity-0" />
                 {item.Icon ? (
-                  <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-dipon-accent text-white">
+                  <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(255,249,235,0.1)] text-dipon-cream">
                     <item.Icon size={20} />
                   </span>
                 ) : (
-                  <span className="relative z-10 font-display text-2xl font-extrabold text-dipon-accent">
+                  <span className="relative z-10 font-display text-2xl font-extrabold text-dipon-cream">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 )}

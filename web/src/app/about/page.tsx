@@ -100,7 +100,7 @@ export default function AboutPage() {
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/35 via-transparent to-transparent" />
                   <GeometricOverlay />
-                  <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-dipon-accent text-white shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                  <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-dipon-primary shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                     <BuildIcon size={15} />
                   </span>
                 </Reveal>
@@ -112,7 +112,7 @@ export default function AboutPage() {
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/35 via-transparent to-transparent" />
                   <GeometricOverlay />
-                  <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-dipon-accent text-white shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                  <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-dipon-primary shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                     <HouseIcon size={15} />
                   </span>
                 </Reveal>
@@ -124,7 +124,7 @@ export default function AboutPage() {
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/35 via-transparent to-transparent" />
                   <GeometricOverlay />
-                  <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-dipon-accent text-white shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                  <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-dipon-primary shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                     <LeafIcon size={15} />
                   </span>
                 </Reveal>
