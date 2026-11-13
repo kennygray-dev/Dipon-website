@@ -117,7 +117,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[60] h-16 border-b transition-[background-color,border-color] duration-[420ms] ease-[var(--ease-premium)] ${
+        className={`fixed inset-x-0 top-0 z-[60] h-12 border-b transition-[background-color,border-color] duration-[420ms] ease-[var(--ease-premium)] ${
           isSolid ? "border-[rgba(35,61,76,0.08)] bg-white" : "border-transparent bg-transparent"
         } has-[.nav-item:hover]:border-[rgba(35,61,76,0.08)] has-[.nav-item:hover]:bg-white has-[.nav-item:focus-within]:border-[rgba(35,61,76,0.08)] has-[.nav-item:focus-within]:bg-white`}
       >
@@ -154,7 +154,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
             >
               <Link
                 href={group.href}
-                className={`inline-flex cursor-pointer items-center gap-1.5 border-0 bg-none py-3.5 font-body text-sm no-underline transition-[color,opacity] duration-200 ${navTextClass} ${navTextHasHover} group-hover:!text-dipon-accent-deep group-hover:!opacity-100 group-focus-within:!text-dipon-accent-deep group-focus-within:!opacity-100`}
+                className={`inline-flex cursor-pointer items-center gap-1.5 border-0 bg-none py-3 font-body text-sm no-underline transition-[color,opacity] duration-200 ${navTextClass} ${navTextHasHover} group-hover:!text-dipon-accent-deep group-hover:!opacity-100 group-focus-within:!text-dipon-accent-deep group-focus-within:!opacity-100`}
                 aria-haspopup="true"
                 aria-expanded={activeGroup === group.key}
               >
@@ -207,7 +207,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
           ))}
           <Link
             href="/blog"
-            className={`nav-item inline-flex cursor-pointer items-center border-0 bg-none py-3.5 font-body text-sm no-underline transition-[color,opacity] duration-200 ${navTextClass} ${navTextHasHover}`}
+            className={`nav-item inline-flex cursor-pointer items-center border-0 bg-none py-3 font-body text-sm no-underline transition-[color,opacity] duration-200 ${navTextClass} ${navTextHasHover}`}
           >
             Blog
           </Link>
