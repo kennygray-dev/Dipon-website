@@ -1,5 +1,4 @@
 import CtaBand from "@/components/CtaBand";
-import ExploreGrid from "@/components/ExploreGrid";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -10,7 +9,6 @@ import Projects from "@/components/Projects";
 import StatBand from "@/components/StatBand";
 import Subsidiaries from "@/components/Subsidiaries";
 import Sustainability from "@/components/Sustainability";
-import WhyChoose from "@/components/WhyChoose";
 import { root } from "@/lib/styles";
 
 export default function Home() {
@@ -20,9 +18,7 @@ export default function Home() {
       <main id="top">
         <Hero />
         <Overview />
-        <WhyChoose />
         <Subsidiaries />
-        <ExploreGrid />
         <Industries />
         <Projects />
         <Sustainability />
