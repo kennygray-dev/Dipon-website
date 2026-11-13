@@ -146,20 +146,20 @@ export default function Hero() {
         <div className="relative z-10 mx-auto flex w-full min-h-dvh max-w-[1320px] flex-col justify-center gap-8 px-gutter pt-24 pb-14 sm:gap-10 sm:pb-10 lg:min-h-screen lg:justify-between lg:pt-28 lg:pb-10">
           <div className="flex max-w-[560px] flex-col items-start justify-center gap-4 sm:gap-5 lg:max-w-[620px] lg:flex-1 xl:max-w-[700px] 2xl:max-w-[780px]">
             <h1 className="text-balance font-display text-[clamp(36px,9.6vw,84px)] font-bold leading-[1.08] tracking-[-1px] sm:leading-[1.05] sm:tracking-[-1.5px]">
-              <span className="text-dipon-cream">One Group.</span>
+              <span className="rise-in inline-block text-dipon-cream [animation-delay:80ms]">One Group.</span>
               <br />
-              <span className="text-dipon-cream/70">Every Stage</span>
+              <span className="rise-in inline-block text-dipon-cream/70 [animation-delay:180ms]">Every Stage</span>
               <br />
-              <span className="text-dipon-accent">Of The Build.</span>
+              <span className="rise-in inline-block text-dipon-accent [animation-delay:280ms]">Of The Build.</span>
             </h1>
-            <p className="max-w-[460px] font-body text-[14.5px] leading-[1.65] text-dipon-cream/88 sm:text-[16px] sm:leading-[1.7] xl:max-w-[500px] xl:text-[17.5px]">
+            <p className="rise-in max-w-[460px] font-body text-[14.5px] leading-[1.65] text-dipon-cream/88 [animation-delay:400ms] sm:text-[16px] sm:leading-[1.7] xl:max-w-[500px] xl:text-[17.5px]">
               DIPON Group Limited integrates construction, power infrastructure, real estate, and supply chain capability
               under one accountable Nigerian-owned group, so your project moves forward without the coordination
               risk of multiple vendors.
             </p>
             <Link
               href="/contact"
-              className="group inline-flex w-fit items-center rounded-full bg-white py-1.5 pr-1.5 pl-6 font-body text-sm font-medium text-dipon-primary! no-underline transition-shadow duration-300 hover:shadow-[0_10px_28px_rgba(0,0,0,0.3)]"
+              className="group rise-in inline-flex w-fit items-center rounded-full bg-white py-1.5 pr-1.5 pl-6 font-body text-sm font-medium text-dipon-primary! no-underline transition-[box-shadow,transform] duration-300 [animation-delay:520ms] hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(0,0,0,0.3)]"
             >
               Get Started
               <span className="ml-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
@@ -168,7 +168,7 @@ export default function Hero() {
             </Link>
           </div>
 
-          <div className="flex flex-col gap-5 sm:gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
+          <div className="rise-in flex flex-col gap-5 [animation-delay:640ms] sm:gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
               <span className="font-body text-[12.5px] tracking-[0.3px] text-dipon-cream/60 sm:text-[13px]">
                 Trusted Across Construction, Power &amp; Real Estate
