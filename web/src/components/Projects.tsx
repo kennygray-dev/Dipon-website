@@ -44,7 +44,7 @@ const SLIDES: Slide[] = [
     by: "DIPON Infrastructure",
     desc: "Junk removal, waste management, janitorial, and housekeeping that keep sites clean and healthy.",
     category: "Junk, Waste & Cleaning",
-    image: "https://images.pexels.com/photos/6197109/pexels-photo-6197109.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    image: "https://images.pexels.com/photos/33691597/pexels-photo-33691597.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Group project: environmental and janitorial services",
   },
   {

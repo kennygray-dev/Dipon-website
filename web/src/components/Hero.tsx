@@ -25,7 +25,7 @@ const SLIDES: Slide[] = [
     position: "center",
   },
   {
-    src: "https://images.pexels.com/photos/6197109/pexels-photo-6197109.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    src: "https://images.pexels.com/photos/33691597/pexels-photo-33691597.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Group: environmental, janitorial, and housekeeping services",
     position: "center",
   },
