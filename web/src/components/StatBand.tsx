@@ -41,7 +41,7 @@ const CARD_STYLES = [
 
 export default function StatBand() {
   return (
-    <section className="px-[clamp(20px,5vw,60px)] py-[clamp(72px,9vw,120px)]">
+    <section className="bg-dipon-surface px-[clamp(20px,5vw,60px)] py-[clamp(72px,9vw,120px)]">
       <div className={wrap}>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-[22px]">
           {PILLARS.map((pillar, index) => (

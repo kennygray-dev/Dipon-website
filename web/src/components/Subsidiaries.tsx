@@ -37,7 +37,7 @@ const SUBSIDIARIES = [
 
 export default function Subsidiaries() {
   return (
-    <section id="subsidiaries" className={section}>
+    <section id="subsidiaries" className={`${section} bg-dipon-surface`}>
       <div className={wrap}>
         <Reveal className="mb-12 max-w-[640px]">
           <Eyebrow>DIPON Group structure</Eyebrow>
