@@ -9,7 +9,7 @@ import { section, wrap } from "@/lib/styles";
 
 export default function Leadership({ showLink = true }: { showLink?: boolean }) {
   return (
-    <section id="careers" className={section}>
+    <section id="careers" className={`${section} bg-dipon-page`}>
       <div className={wrap}>
         <Reveal className="mb-6 md:mb-8">
           <Eyebrow>From the Leadership</Eyebrow>
