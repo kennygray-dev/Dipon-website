@@ -16,7 +16,7 @@ const MINI_STATS = [
 const SHOWN_STATS = MINI_STATS.filter((stat) => !stat.value.includes("["));
 
 const SUSTAINABILITY_IMAGE =
-  "https://images.pexels.com/photos/11645013/pexels-photo-11645013.jpeg?auto=compress&cs=tinysrgb&w=1000";
+  "https://images.pexels.com/photos/6729421/pexels-photo-6729421.jpeg?auto=compress&cs=tinysrgb&w=1000";
 
 export default function Sustainability() {
   return (

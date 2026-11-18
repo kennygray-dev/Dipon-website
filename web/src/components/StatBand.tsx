@@ -13,23 +13,23 @@ const PILLARS: Pillar[] = [
   {
     title: "One Accountable Group",
     desc: "Construction, power, property, and supply under a single structure.",
-    image: "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=900",
+    image: "https://images.pexels.com/photos/30396647/pexels-photo-30396647.jpeg?auto=compress&cs=tinysrgb&w=900",
   },
   {
     title: "Every Stage of the Build",
     desc: "From groundworks to handover, delivered end to end.",
-    image: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=900",
+    image: "https://images.pexels.com/photos/38804912/pexels-photo-38804912.jpeg?auto=compress&cs=tinysrgb&w=900",
     overlay: "bg-gradient-to-t from-black/55 via-black/25 to-transparent",
   },
   {
     title: "Capability Built In",
     desc: "Design, build, and power planned together, never handed off.",
-    image: "https://images.pexels.com/photos/18153132/pexels-photo-18153132.jpeg?auto=compress&cs=tinysrgb&w=900",
+    image: "https://images.pexels.com/photos/40747788/pexels-photo-40747788.jpeg?auto=compress&cs=tinysrgb&w=900",
   },
   {
     title: "Standards That Carry",
     desc: "Quality, reliability, and doing the work better than before.",
-    image: "https://images.pexels.com/photos/30688597/pexels-photo-30688597.jpeg?auto=compress&cs=tinysrgb&w=900",
+    image: "https://images.pexels.com/photos/6563903/pexels-photo-6563903.jpeg?auto=compress&cs=tinysrgb&w=900",
   },
 ];
 
