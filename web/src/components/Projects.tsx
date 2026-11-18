@@ -73,8 +73,36 @@ export default function Projects() {
   const slide = SLIDES[active];
 
   return (
-    <section id="projects" className="bg-[#15242d] px-[clamp(20px,5vw,60px)] py-[clamp(72px,9vw,120px)]">
-      <div className={wrap}>
+    <section
+      id="projects"
+      className="relative overflow-hidden bg-[#15242d] px-[clamp(20px,5vw,60px)] py-[clamp(72px,9vw,120px)]"
+    >
+      {/* Soft accent glow, bottom-left, to break the flat navy */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-40 -left-32 h-[520px] w-[520px] rounded-full bg-dipon-accent/10 blur-[120px]"
+      />
+
+      {/* Faint blueprint line geometry spanning the section */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.06]">
+        <svg width="100%" height="100%" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none">
+          <path d="M-40 60 L360 60 L470 360 L70 360 Z" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M360 60 L560 230" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M70 360 L-110 520" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M1250 680 L1230 240" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M1250 680 L980 150" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M1250 680 L700 280" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M1230 240 L980 150" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M980 150 L700 280" stroke="#FFF9EB" strokeWidth="1.5" />
+          <circle cx="360" cy="60" r="3.5" fill="#FFF9EB" />
+          <circle cx="70" cy="360" r="3.5" fill="#FFF9EB" />
+          <circle cx="1230" cy="240" r="3.5" fill="#FFF9EB" />
+          <circle cx="980" cy="150" r="3.5" fill="#FFF9EB" />
+          <circle cx="700" cy="280" r="3.5" fill="#FFF9EB" />
+        </svg>
+      </div>
+
+      <div className={`${wrap} relative`}>
         {/* Top bar: title + pagination */}
         <div className="mb-6 flex items-start justify-between gap-6 sm:mb-7">
           <div>

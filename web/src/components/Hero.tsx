@@ -31,9 +31,9 @@ const SLIDES: Slide[] = [
   },
 ];
 
-// The video slide holds longer; the photo slides rotate faster so their zoom reads.
+// The photo slides rotate on a fixed timer; the video slide plays through once
+// and advances the moment it ends (so it never loops mid-shot).
 const SLIDE_INTERVAL_MS = 7000;
-const VIDEO_INTERVAL_MS = 14000;
 // How far each photo zooms over its time on screen.
 const ZOOM_MS = SLIDE_INTERVAL_MS + 900;
 
@@ -41,20 +41,26 @@ export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Safari ignores the React `muted` attribute and blocks autoplay (showing a
-  // play button). Set the muted property imperatively and kick off playback.
+  const next = () => setActiveSlide((i) => (i + 1) % SLIDES.length);
+
+  // Safari ignores the React `muted` attribute and blocks autoplay. Set muted
+  // imperatively once so playback is allowed.
   useEffect(() => {
     const v = videoRef.current;
-    if (!v) return;
-    v.muted = true;
-    v.play().catch(() => {});
+    if (v) v.muted = true;
   }, []);
 
   useEffect(() => {
-    const duration = SLIDES[activeSlide].video ? VIDEO_INTERVAL_MS : SLIDE_INTERVAL_MS;
-    const timer = setTimeout(() => {
-      setActiveSlide((i) => (i + 1) % SLIDES.length);
-    }, duration);
+    const v = videoRef.current;
+    // Video slide: replay from the start, play once, and let `onEnded` advance.
+    if (SLIDES[activeSlide].video) {
+      if (v) {
+        v.currentTime = 0;
+        v.play().catch(() => {});
+      }
+      return;
+    }
+    const timer = setTimeout(next, SLIDE_INTERVAL_MS);
     return () => clearTimeout(timer);
   }, [activeSlide]);
 
@@ -73,11 +79,11 @@ export default function Hero() {
               ref={videoRef}
               autoPlay
               muted
-              loop
               playsInline
               preload="auto"
               poster={slide.src}
               aria-hidden="true"
+              onEnded={next}
               style={{ objectPosition: slide.position, transition: "opacity 900ms var(--ease-standard)" }}
               className={`${base} ${vis}`}
             >
