@@ -8,7 +8,7 @@ export default function GeometricOverlay({
   opacity?: number;
 }) {
   return (
-    <div aria-hidden="true" className={`pointer-events-none absolute inset-0 ${className}`} style={{ opacity }}>
+    <div aria-hidden="true" data-open data-parallax="0.07" className={`pointer-events-none absolute inset-0 ${className}`} style={{ opacity }}>
       <svg width="100%" height="100%" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" fill="none">
         <path d="M18 36 L130 36 L168 104 L70 150" stroke="#FFF9EB" strokeWidth="1.4" />
         <path d="M130 36 L206 82" stroke="#FFF9EB" strokeWidth="1.4" />

@@ -106,7 +106,7 @@ export default function Hero() {
         />
 
         {/* Subtle geometry, anchored bottom-right of the tinted zone */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.08]">
+        <div aria-hidden="true" data-open data-parallax="0.1" className="pointer-events-none absolute inset-0 opacity-[0.08]">
           <svg width="100%" height="100%" viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice" fill="none">
             <path d="M620 720 L600 260" stroke="#FFF9EB" strokeWidth="1.5" />
             <path d="M620 720 L380 160" stroke="#FFF9EB" strokeWidth="1.5" />

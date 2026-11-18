@@ -19,7 +19,7 @@ export default function WordmarkHero({
   return (
     <section className="relative overflow-hidden bg-dipon-blue">
       {/* Faint brand mesh */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.1]">
+      <div aria-hidden="true" data-open data-parallax="0.08" className="pointer-events-none absolute inset-0 opacity-[0.1]">
         <svg width="100%" height="100%" viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice" fill="none">
           <path d="M1440 -20 L1120 200 L1180 480" stroke="#FFF9EB" strokeWidth="1.5" />
           <path d="M1120 200 L900 60" stroke="#FFF9EB" strokeWidth="1.5" />

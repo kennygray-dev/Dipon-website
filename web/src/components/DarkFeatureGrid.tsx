@@ -39,7 +39,7 @@ export default function DarkFeatureGrid({
       </div>
 
       {/* Faint line geometry spanning the whole section */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.07]">
+      <div aria-hidden="true" data-open data-parallax="0.08" className="pointer-events-none absolute inset-0 opacity-[0.07]">
         <svg width="100%" height="100%" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none">
           <path d="M-40 40 L340 40 L440 330 L60 330 Z" stroke="#FFF9EB" strokeWidth="1.5" />
           <path d="M340 40 L520 200" stroke="#FFF9EB" strokeWidth="1.5" />

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
-import { ArrowIcon, SignatureMark } from "./icons";
+import { ArrowIcon } from "./icons";
 import founderPhoto from "@/assets/team/oliver-ibeh.jpg";
 import founderSquare from "@/assets/team/oliver-ibeh-square.jpg";
 import { section, wrap } from "@/lib/styles";
@@ -30,7 +30,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
               Mr. Oliver Ibeh
             </div>
             <div className="mb-1.5 font-label text-[11px] font-semibold tracking-[0.6px] text-dipon-accent uppercase">
-              Founder &amp; Owner
+              Founder
             </div>
             <p className="max-w-[480px] font-body text-[13px] leading-[1.55] text-dipon-secondary sm:text-[14px]">
               A Nigerian-American entrepreneur, Oliver Ibeh founded the Arizona facility-services firm
@@ -48,9 +48,8 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
               I built DIPON so that one group answers for the whole project (design, build, and power)
               instead of a chain of vendors pointing at each other when something slips.
             </blockquote>
-            <SignatureMark className="mb-3 h-11 w-auto text-dipon-primary" />
             <div className="mb-[26px] font-label text-[13px] font-semibold uppercase tracking-[0.6px] text-dipon-secondary">
-              Mr. Oliver Ibeh · Founder &amp; Owner, DIPON Group
+              Mr. Oliver Ibeh · Founder, DIPON Group
             </div>
             {showLink && (
               <Link
@@ -64,7 +63,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
           <Reveal from="right" delay={40} className="relative order-first aspect-[4/5] overflow-hidden md:order-none">
             <Image
               src={founderPhoto}
-              alt="Mr. Oliver Ibeh, Founder and Owner of DIPON Group"
+              alt="Mr. Oliver Ibeh, Founder of DIPON Group"
               placeholder="blur"
               fill
               sizes="(max-width: 768px) 100vw, 38vw"

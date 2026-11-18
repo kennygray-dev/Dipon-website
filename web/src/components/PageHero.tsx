@@ -22,7 +22,7 @@ export default function PageHero({
   return (
     <section className="relative overflow-hidden bg-dipon-blue">
       {/* Faint brand mesh */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.09]">
+      <div aria-hidden="true" data-open data-parallax="0.09" className="pointer-events-none absolute inset-0 opacity-[0.09]">
         <svg width="100%" height="100%" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" fill="none">
           <path d="M1440 -40 L1100 260 L1100 640" stroke="#FFF9EB" strokeWidth="1.5" />
           <path d="M1440 -40 L1300 340" stroke="#FFF9EB" strokeWidth="1.5" />

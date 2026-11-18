@@ -18,7 +18,7 @@ const COMPANIES = [
   {
     name: "DIPON Infrastructure Limited",
     focus:
-      "Renewable energy and power, from solar, wind, and hydro systems to street-lighting infrastructure and electricity generation.",
+      "Renewable energy and power, from solar, wind, and hydro systems to street-lighting infrastructure and electricity generation, plus environmental services, from waste management and junk removal to janitorial and housekeeping.",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function Founder() {
           <Reveal from="left" className="relative order-first aspect-[4/5] overflow-hidden lg:sticky lg:top-24">
             <Image
               src={founderPhoto}
-              alt="Mr. Oliver Ibeh, Founder and Owner of DIPON Group"
+              alt="Mr. Oliver Ibeh, Founder of DIPON Group"
               placeholder="blur"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
@@ -40,7 +40,7 @@ export default function Founder() {
             <div className="absolute bottom-6 left-6 z-10">
               <div className="font-display text-[20px] font-bold text-dipon-cream">Mr. Oliver Ibeh</div>
               <div className="mt-1 font-label text-[11px] font-semibold tracking-[0.6px] text-dipon-cream/80 uppercase">
-                Founder &amp; Owner
+                Founder
               </div>
             </div>
           </Reveal>
@@ -85,7 +85,7 @@ export default function Founder() {
             </ul>
 
             <p className="font-body text-[15px] leading-[1.7] text-dipon-secondary sm:text-[16px]">
-              By holding construction, commercial, and power capability under one owner, Mr. Ibeh built DIPON to
+              By holding construction, commercial, and power capability under one founder, Mr. Ibeh built DIPON to
               remove the coordination risk that fragments most large projects, so clients answer to one
               accountable group rather than a chain of disconnected vendors. It is the same conviction that grew a
               single Arizona service company into a trusted institution, now directed toward building the
