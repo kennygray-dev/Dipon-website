@@ -181,6 +181,14 @@ html.lenis body {
   }
 }
 
+/* Unifying photographic grade — a subtle, consistent cinematic cast applied to
+   every content photo so varied source images read as one graded family
+   (deeper, warmer, a touch more contrast). Intentionally-grayscale images, like
+   the CTA tile wall, are excluded. */
+img.object-cover:not(.grayscale) {
+  filter: saturate(1.12) contrast(1.05) brightness(0.98) sepia(0.06);
+}
+
 @layer base {
   a {
     color: inherit;

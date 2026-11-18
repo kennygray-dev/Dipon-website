@@ -14,17 +14,17 @@ const SLIDES: Slide[] = [
     position: "center",
   },
   {
-    src: "https://images.pexels.com/photos/4487383/pexels-photo-4487383.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "DIPON Global Resources Limited: workers in a warehouse and supply chain operations",
+    src: "https://images.pexels.com/photos/6563903/pexels-photo-6563903.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    alt: "DIPON Global Resources Limited: freight and supply chain operations on the road",
     position: "center",
   },
   {
-    src: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    src: "https://images.pexels.com/photos/38804912/pexels-photo-38804912.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Infrastructure Limited: solar power and public lighting",
     position: "center",
   },
   {
-    src: "https://images.pexels.com/photos/33691597/pexels-photo-33691597.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    src: "https://images.pexels.com/photos/18414281/pexels-photo-18414281.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Group: environmental, janitorial, and housekeeping services",
     position: "center",
   },

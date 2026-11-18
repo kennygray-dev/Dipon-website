@@ -20,7 +20,7 @@ const SLIDES: Slide[] = [
     by: "DIPON Construction",
     desc: "Civil works, buildings, and roads delivered as a single accountable build.",
     category: "Roads, Drainage & Structures",
-    image: "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    image: "https://images.pexels.com/photos/30396647/pexels-photo-30396647.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Group project: civil engineering and construction site",
   },
   {
@@ -28,7 +28,7 @@ const SLIDES: Slide[] = [
     by: "DIPON Infrastructure",
     desc: "Solar systems and public lighting planned alongside the build, not bolted on after.",
     category: "Solar, Lighting & Power",
-    image: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    image: "https://images.pexels.com/photos/6729421/pexels-photo-6729421.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Group project: solar power and public lighting",
   },
   {
@@ -36,7 +36,7 @@ const SLIDES: Slide[] = [
     by: "DIPON Infrastructure",
     desc: "Residential and commercial property developed through to occupancy.",
     category: "Housing & Development",
-    image: "https://images.pexels.com/photos/18153132/pexels-photo-18153132.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    image: "https://images.pexels.com/photos/40747788/pexels-photo-40747788.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Group project: residential housing development",
   },
   {
@@ -44,7 +44,7 @@ const SLIDES: Slide[] = [
     by: "DIPON Infrastructure",
     desc: "Junk removal, waste management, janitorial, and housekeeping that keep sites clean and healthy.",
     category: "Junk, Waste & Cleaning",
-    image: "https://images.pexels.com/photos/33691597/pexels-photo-33691597.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    image: "https://images.pexels.com/photos/7300719/pexels-photo-7300719.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Group project: environmental and janitorial services",
   },
   {
@@ -52,7 +52,7 @@ const SLIDES: Slide[] = [
     by: "DIPON Global Resources",
     desc: "Materials sourced, supplied, and moved to site on one coordinated timeline.",
     category: "Supply & Movement",
-    image: "https://images.pexels.com/photos/31445085/pexels-photo-31445085.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    image: "https://images.pexels.com/photos/36143083/pexels-photo-36143083.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Group project: trading, supply chain, and logistics",
   },
 ];
