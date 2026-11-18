@@ -1,6 +1,6 @@
-import Link from "next/link";
+import CtaButton from "./CtaButton";
 import Reveal from "./Reveal";
-import { ArrowIcon, LogoMark } from "./icons";
+import { LogoMark } from "./icons";
 
 const TILE_IMAGES = [
   "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -51,15 +51,7 @@ export default function CtaBand({ className = "" }: { className?: string }) {
             <LogoMark light className="h-5 w-5" />
             DIPON Group
           </span>
-          <Link
-            href="/contact"
-            className="group inline-flex w-fit items-center rounded-full bg-white py-1.5 pr-1.5 pl-6 font-body text-sm font-medium text-dipon-primary! no-underline transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(0,0,0,0.3)]"
-          >
-            Discuss Your Next Project
-            <span className="ml-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
-              <ArrowIcon width={16} height={7} />
-            </span>
-          </Link>
+          <CtaButton href="/contact" label="Discuss Your Next Project" />
         </div>
       </Reveal>
     </section>

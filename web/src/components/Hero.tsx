@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import CtaButton from "./CtaButton";
 import Socials from "./Socials";
-import { ArrowIcon } from "./icons";
 
 type Slide = { src: string; alt: string; position: string; video?: string };
 
@@ -163,15 +162,7 @@ export default function Hero() {
               under one accountable Nigerian-owned group, so your project moves forward without the coordination
               risk of multiple vendors.
             </p>
-            <Link
-              href="/contact"
-              className="group rise-in inline-flex w-fit items-center rounded-full bg-white py-1.5 pr-1.5 pl-6 font-body text-sm font-medium text-dipon-primary! no-underline transition-[box-shadow,transform] duration-300 [animation-delay:520ms] hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(0,0,0,0.3)]"
-            >
-              Get Started
-              <span className="ml-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
-                <ArrowIcon width={16} height={7} />
-              </span>
-            </Link>
+            <CtaButton href="/contact" label="Get Started" className="rise-in [animation-delay:520ms]" />
           </div>
 
           <div className="rise-in flex flex-col gap-5 [animation-delay:640ms] sm:gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-8">

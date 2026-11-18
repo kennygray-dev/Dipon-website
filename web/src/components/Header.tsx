@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import CtaButton from "./CtaButton";
 import { ArrowIcon, BurgerIcon, CaretIcon, CloseIcon } from "./icons";
 
 type MegaLink = { title: string; href: string; desc: string; num?: string };
@@ -213,17 +214,12 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
           </Link>
         </nav>
         <div className="flex shrink-0 items-center">
-          <a
-            className={`group inline-flex items-center gap-2.5 rounded-full border border-transparent bg-dipon-accent py-1.5 pr-1.5 pl-5 font-body text-sm font-medium text-white no-underline transition-[background-color,transform] duration-300 max-[1080px]:hidden hover:-translate-y-0.5 hover:bg-dipon-accent-deep ${
-              hideCta ? "pointer-events-none opacity-0" : "opacity-100"
-            }`}
+          <CtaButton
             href="/contact"
-          >
-            Discuss Your Next Project
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0.5">
-              <ArrowIcon width={14} height={6} />
-            </span>
-          </a>
+            label="Discuss Your Next Project"
+            variant="accent"
+            className={`max-[1080px]:hidden ${hideCta ? "pointer-events-none opacity-0" : "opacity-100"}`}
+          />
           <button
             className={`-mr-2.5 hidden cursor-pointer items-center justify-center border-0 bg-none p-2.5 max-[1080px]:inline-flex ${isSolid ? "text-dipon-primary" : "text-dipon-cream"}`}
             aria-label="Open menu"
@@ -297,13 +293,13 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
           </Link>
         </div>
         <div className="mt-auto border-t border-[rgba(35,61,76,0.14)] p-5">
-          <a
-            className="inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-transparent bg-dipon-accent px-[26px] py-4 font-body text-sm text-white no-underline transition-colors duration-200 hover:bg-dipon-accent-deep [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
+          <CtaButton
             href="/contact"
+            label="Discuss Your Next Project"
+            variant="accent"
+            full
             onClick={closeDrawer}
-          >
-            Discuss Your Next Project <ArrowIcon width={16} height={7} />
-          </a>
+          />
         </div>
       </nav>
     </>

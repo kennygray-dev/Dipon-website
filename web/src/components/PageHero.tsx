@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
-import { ArrowIcon } from "./icons";
+import { ArrowIcon, LogoMotif } from "./icons";
 import { wrap, leadLight } from "@/lib/styles";
 
 const GRAIN =
@@ -29,28 +29,14 @@ export default function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden bg-dipon-blue">
-      {/* Oversized faint brand geometry, anchored to the right of the block */}
+      {/* Oversized DIPON "D" mark, faint, bleeding off the right of the block */}
       <div
         aria-hidden="true"
         data-open
         data-parallax="0.08"
-        className="pointer-events-none absolute top-0 right-0 h-full w-[min(680px,64%)] opacity-[0.08]"
+        className="pointer-events-none absolute top-1/2 right-[-5%] h-[165%] -translate-y-1/2 opacity-[0.07]"
       >
-        <svg width="100%" height="100%" viewBox="0 0 680 760" preserveAspectRatio="xMidYMid slice" fill="none">
-          <path d="M700 -20 L420 240 L470 560 L720 700" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M420 240 L700 360" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M420 240 L180 80" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M470 560 L220 420" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M470 560 L560 780" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M700 360 L470 560" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M220 420 L180 80" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M220 420 L20 560" stroke="#FFF9EB" strokeWidth="1.5" />
-          <circle cx="420" cy="240" r="4" fill="#FFF9EB" />
-          <circle cx="700" cy="360" r="4" fill="#FFF9EB" />
-          <circle cx="470" cy="560" r="4" fill="#FFF9EB" />
-          <circle cx="180" cy="80" r="4" fill="#FFF9EB" />
-          <circle cx="220" cy="420" r="4" fill="#FFF9EB" />
-        </svg>
+        <LogoMotif className="h-full w-auto" />
       </div>
 
       {/* Text block */}
@@ -98,7 +84,7 @@ export default function PageHero({
                 <h3 className="font-display text-[clamp(18px,1.7vw,22px)] font-bold leading-[1.15] tracking-[-0.3px] text-dipon-primary">
                   {featured.title}
                 </h3>
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-dipon-accent text-white transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
                   <ArrowIcon width={16} height={7} />
                 </span>
               </div>
