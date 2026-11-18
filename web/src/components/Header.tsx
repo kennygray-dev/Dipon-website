@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CtaButton from "./CtaButton";
 import { ArrowIcon, BurgerIcon, CaretIcon, CloseIcon } from "./icons";
 
@@ -64,11 +64,18 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
   // can reflect reality — the panel itself is still shown/hidden by CSS.
   const [activeGroup, setActiveGroup] = useState<string | null>(null);
   const [hideCta, setHideCta] = useState(false);
+  // Hide the bar when scrolling down, bring it back when scrolling up.
+  const [navHidden, setNavHidden] = useState(false);
+  const lastY = useRef(0);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY || document.documentElement.scrollTop || 0;
       setSolid(!heroIsDark || y > 80);
+      const prev = lastY.current;
+      if (y > prev && y > 140) setNavHidden(true);
+      else if (y < prev - 4) setNavHidden(false);
+      lastY.current = y;
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -109,6 +116,8 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
   };
 
   const isSolid = solid || drawerOpen;
+  // Never slide the bar away while a menu or the mobile drawer is open.
+  const navIsHidden = navHidden && !drawerOpen && !activeGroup;
   const navTextClass = isSolid
     ? "text-dipon-primary opacity-[0.85] hover:opacity-100 hover:text-dipon-accent-deep [text-shadow:none]"
     : "text-dipon-cream opacity-100 hover:text-white [text-shadow:0_1px_6px_rgba(0,0,0,0.55)]";
@@ -118,11 +127,13 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[60] h-12 border-b transition-[background-color,border-color] duration-[420ms] ease-[var(--ease-premium)] ${
+        className={`fixed inset-x-0 top-0 z-[60] h-16 border-b transition-[background-color,border-color,transform,translate] duration-[420ms] ease-[var(--ease-premium)] ${
+          navIsHidden ? "-translate-y-full" : "translate-y-0"
+        } ${
           isSolid ? "border-[rgba(35,61,76,0.08)] bg-white" : "border-transparent bg-transparent"
         } has-[.nav-item:hover]:border-[rgba(35,61,76,0.08)] has-[.nav-item:hover]:bg-white has-[.nav-item:focus-within]:border-[rgba(35,61,76,0.08)] has-[.nav-item:focus-within]:bg-white`}
       >
-        <div className="mx-auto flex h-full w-full max-w-[1320px] items-center justify-between px-gutter">
+        <div className="mx-auto flex h-full w-full max-w-[1320px] items-center justify-between px-[clamp(24px,5vw,64px)]">
         <Link href="/" aria-label="DIPON Group Limited, home" className="flex shrink-0 items-center">
           <Image
             className={`h-6 w-auto ${isSolid ? "hidden" : "block"} [header:has(.nav-item:hover)_&]:hidden [header:has(.nav-item:focus-within)_&]:hidden`}
@@ -213,7 +224,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
             href="/contact"
             label="Discuss Your Next Project"
             variant="accent"
-            size="sm"
+            bold
             className={`max-[1080px]:hidden ${hideCta ? "pointer-events-none opacity-0" : "opacity-100"}`}
           />
           <button

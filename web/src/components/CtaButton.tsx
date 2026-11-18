@@ -13,6 +13,7 @@ export default function CtaButton({
   variant = "light",
   size = "md",
   full = false,
+  bold = false,
   className = "",
   onClick,
 }: {
@@ -21,18 +22,20 @@ export default function CtaButton({
   variant?: Variant;
   size?: Size;
   full?: boolean;
+  bold?: boolean;
   className?: string;
   onClick?: () => void;
 }) {
-  const bodyPad = size === "sm" ? "px-4 py-2" : "px-[22px] py-3.5";
-  const boxW = size === "sm" ? "w-[40px]" : "w-[46px]";
+  const bodyPad = size === "sm" ? "px-[18px] py-2" : "px-[22px] py-3.5";
+  const boxW = size === "sm" ? "w-[42px]" : "w-[46px]";
+  const weight = bold ? "font-semibold" : "font-medium";
 
   if (variant === "outline") {
     return (
       <Link
         href={href}
         onClick={onClick}
-        className={`group inline-flex items-center gap-3 border border-[rgba(35,61,76,0.22)] ${bodyPad} font-body text-sm font-medium text-dipon-primary! no-underline transition-colors duration-200 hover:border-dipon-primary hover:bg-dipon-primary hover:text-white! [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1 ${
+        className={`group inline-flex items-center gap-3 border border-[rgba(35,61,76,0.22)] ${bodyPad} font-body text-sm ${weight} text-dipon-primary! no-underline transition-colors duration-200 hover:border-dipon-primary hover:bg-dipon-primary hover:text-white! [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1 ${
           full ? "w-full justify-center" : "w-fit"
         } ${className}`}
       >
@@ -56,7 +59,7 @@ export default function CtaButton({
       } ${body} ${className}`}
     >
       <span
-        className={`flex items-center ${bodyPad} font-body text-sm font-medium tracking-[0.2px] ${
+        className={`flex items-center ${bodyPad} font-body text-sm ${weight} tracking-[0.2px] ${
           full ? "flex-1 justify-center" : ""
         } ${textColor}`}
       >
