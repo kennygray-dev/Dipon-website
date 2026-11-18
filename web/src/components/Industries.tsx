@@ -58,7 +58,7 @@ const TINTS = {
 
 export default function Industries() {
   return (
-    <section id="industries" className={`${section} bg-dipon-page`}>
+    <section id="industries" className={section}>
       <div className={wrap}>
         <Reveal className="mb-12 max-w-[640px]">
           <Eyebrow>Industries We Serve</Eyebrow>

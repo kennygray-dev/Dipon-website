@@ -2,7 +2,7 @@ export function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-export const root = "min-h-screen overflow-x-clip bg-white text-[#233d4c] font-body";
+export const root = "min-h-screen overflow-x-hidden bg-white text-[#233d4c] font-body";
 export const wrap = "mx-auto w-full max-w-[1320px]";
 export const section = "px-[clamp(20px,5vw,60px)] py-[clamp(72px,9vw,120px)]";
 export const sectionSurface =

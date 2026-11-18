@@ -60,7 +60,7 @@ body {
   background: var(--color-bg-page);
   color: var(--color-text-primary);
   font-family: var(--font-body);
-  overflow-x: clip;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -158,21 +158,6 @@ html.lenis body {
 }
 [data-open].js-open.is-open {
   clip-path: inset(0 0 0 0);
-}
-
-/* Stacking "cards" only at the top (hero) and the end (CTA + footer):
-   those pin while the neighbouring section slides up over them. */
-.stack > .stack-pin {
-  position: sticky;
-  top: 0;
-}
-.stack > .stack-pin + * {
-  box-shadow: 0 -20px 44px -26px rgba(16, 25, 31, 0.32);
-}
-@media (prefers-reduced-motion: reduce) {
-  .stack > .stack-pin {
-    position: static;
-  }
 }
 
 @layer base {

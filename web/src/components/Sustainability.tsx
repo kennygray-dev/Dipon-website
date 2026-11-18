@@ -21,7 +21,7 @@ const SUSTAINABILITY_IMAGE =
 
 export default function Sustainability() {
   return (
-    <section id="sustainability" className={`${section} bg-dipon-page`}>
+    <section id="sustainability" className={section}>
       <div className={wrap}>
         <Reveal className="grid grid-cols-1 items-stretch gap-[clamp(28px,4vw,44px)] md:grid-cols-[0.54fr_0.46fr] md:gap-[2px]">
           <div className="relative aspect-[4/5] overflow-hidden md:aspect-auto md:h-full md:min-h-[420px]">
