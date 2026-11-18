@@ -1,3 +1,4 @@
+import Reveal from "./Reveal";
 import { wrap } from "@/lib/styles";
 
 type Pillar = {
@@ -45,9 +46,9 @@ export default function StatBand() {
       <div className={wrap}>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-[22px]">
           {PILLARS.map((pillar, index) => (
+            <Reveal key={pillar.title} delay={(index % 3) * 110} className="h-full">
             <div
-              key={pillar.title}
-              className={`relative flex min-h-[320px] flex-col justify-end overflow-hidden p-[42px_34px] transition-transform duration-300 ease-out hover:-translate-y-2 [clip-path:polygon(0_0,100%_0,100%_100%,14%_100%,0_86%)] ${CARD_STYLES[index].bg} ${CARD_STYLES[index].text}`}
+              className={`relative flex h-full min-h-[320px] flex-col justify-end overflow-hidden p-[42px_34px] transition-transform duration-300 ease-out hover:-translate-y-2 [clip-path:polygon(0_0,100%_0,100%_100%,14%_100%,0_86%)] ${CARD_STYLES[index].bg} ${CARD_STYLES[index].text}`}
             >
               <img
                 src={pillar.image}
@@ -66,6 +67,7 @@ export default function StatBand() {
                 </p>
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
       </div>

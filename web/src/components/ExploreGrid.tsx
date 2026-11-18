@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Reveal from "./Reveal";
 import { wrap } from "@/lib/styles";
 
 function Chevron({ className = "" }: { className?: string }) {
@@ -80,17 +81,19 @@ export default function ExploreGrid() {
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3">
           {TILES.map((tile, index) => (
-            <Link
+            <Reveal
               key={tile.label}
-              href={tile.href}
-              className={`group relative flex min-h-[clamp(200px,26vw,300px)] flex-col justify-end overflow-hidden p-6 no-underline transition-colors duration-300 sm:p-7 ${
-                tile.wide ? "md:col-span-2" : "md:col-span-1"
-              } ${
-                tile.accent
-                  ? "bg-dipon-accent hover:bg-dipon-accent-deep"
-                  : "bg-[#1a2832] hover:bg-[#223540]"
-              }`}
+              delay={(index % 3) * 100}
+              className={tile.wide ? "md:col-span-2" : "md:col-span-1"}
             >
+              <Link
+                href={tile.href}
+                className={`group relative flex h-full min-h-[clamp(200px,26vw,300px)] flex-col justify-end overflow-hidden p-6 no-underline transition-colors duration-300 sm:p-7 ${
+                  tile.accent
+                    ? "bg-dipon-accent hover:bg-dipon-accent-deep"
+                    : "bg-[#1a2832] hover:bg-[#223540]"
+                }`}
+              >
               <Shapes index={index} accent={tile.accent} />
               <div className="relative z-10 flex items-end justify-between gap-4">
                 <span
@@ -106,7 +109,8 @@ export default function ExploreGrid() {
                   }`}
                 />
               </div>
-            </Link>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </div>
