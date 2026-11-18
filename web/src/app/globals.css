@@ -160,15 +160,20 @@ html.lenis body {
   clip-path: inset(0 0 0 0);
 }
 
-/* Section stacking — only the chosen .stack-pin sections pin while the next
-   section slides up over them (hero, one mid-page moment, and the closing CTA).
-   The rest scroll normally. */
+/* Section stacking. Every stack child is its own stacking context (isolate) and
+   opaque, so a pinned section never bleeds its content through the one sliding
+   over it. Only .stack-pin sections pin; the next section slides up over them as
+   a clean card (with a soft top shadow). The rest scroll normally. */
+.stack > * {
+  isolation: isolate;
+  position: relative;
+}
 .stack > .stack-pin {
   position: sticky;
   top: 0;
 }
 .stack > .stack-pin + * {
-  box-shadow: 0 -22px 46px -26px rgba(16, 25, 31, 0.34);
+  box-shadow: 0 -24px 50px -24px rgba(16, 25, 31, 0.4);
 }
 @media (prefers-reduced-motion: reduce) {
   .stack > .stack-pin {

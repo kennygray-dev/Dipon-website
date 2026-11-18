@@ -194,7 +194,7 @@ export default async function ServicePage({
           </div>
         </section>
 
-        <CtaBand className="-mt-16 max-[760px]:mt-0" />
+        <CtaBand />
       </main>
       <Footer />
     </div>

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowIcon, BurgerIcon, CaretIcon, CloseIcon, HardHatIcon } from "./icons";
+import { ArrowIcon, BurgerIcon, CaretIcon, CloseIcon } from "./icons";
 
 type MegaLink = { title: string; href: string; desc: string; num?: string };
 type MegaGroup = {
@@ -219,7 +219,6 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
             }`}
             href="/contact"
           >
-            <HardHatIcon size={16} className="shrink-0 opacity-90" />
             Discuss Your Next Project
             <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0.5">
               <ArrowIcon width={14} height={6} />
@@ -303,7 +302,6 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
             href="/contact"
             onClick={closeDrawer}
           >
-            <HardHatIcon size={16} className="shrink-0 opacity-90" />
             Discuss Your Next Project <ArrowIcon width={16} height={7} />
           </a>
         </div>

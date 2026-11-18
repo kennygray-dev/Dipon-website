@@ -22,19 +22,15 @@ export default function Home() {
           </div>
           <Overview />
           <Subsidiaries />
-          <div className="stack-pin">
-            <Industries />
-          </div>
+          <Industries />
           <Projects />
           <Sustainability />
           <StatBand />
           <Leadership />
-          <div className="stack-pin">
-            <CtaBand />
-          </div>
-          <Footer />
+          <CtaBand />
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

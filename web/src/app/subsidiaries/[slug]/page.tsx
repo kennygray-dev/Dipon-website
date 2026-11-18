@@ -138,7 +138,7 @@ export default async function SubsidiaryPage({
           </div>
         </section>
 
-        <CtaBand className="-mt-16 max-[760px]:mt-0" />
+        <CtaBand />
       </main>
       <Footer />
     </div>

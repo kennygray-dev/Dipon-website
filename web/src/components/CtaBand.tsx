@@ -17,7 +17,7 @@ export default function CtaBand({ className = "" }: { className?: string }) {
   return (
     <section
       id="cta"
-      className={`relative isolate overflow-hidden px-gutter pt-[clamp(90px,10vw,130px)] pb-[clamp(56px,7vw,84px)] text-white [clip-path:polygon(0_64px,100%_0,100%_100%,0_100%)] max-[760px]:[clip-path:none] ${className}`}
+      className={`relative isolate -mt-[clamp(28px,4vw,60px)] overflow-hidden px-gutter pt-[clamp(90px,10vw,130px)] pb-[clamp(56px,7vw,84px)] text-white [clip-path:polygon(0_64px,100%_0,100%_100%,0_100%)] max-[760px]:mt-0 max-[760px]:[clip-path:none] ${className}`}
     >
       {/* Background photo grid */}
       <div className="absolute inset-0 -z-20 grid h-full grid-cols-4 [grid-auto-rows:1fr] sm:grid-cols-8">
