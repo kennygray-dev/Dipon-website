@@ -56,6 +56,7 @@ export default async function SubsidiaryPage({
           intro={subsidiary.intro}
           image={subsidiary.heroImage}
           imageAlt={subsidiary.name}
+          featured={{ label: "Part Of", title: "The DIPON Group", href: "/about" }}
         />
 
         <section className={section}>

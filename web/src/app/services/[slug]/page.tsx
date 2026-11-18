@@ -56,6 +56,11 @@ export default async function ServicePage({
           intro={service.intro}
           image={service.heroImage}
           imageAlt={`DIPON Group: ${service.title}`}
+          featured={{
+            label: "Delivered By",
+            title: subsidiary ? subsidiary.short : service.deliveredBy,
+            href: subsidiary ? `/subsidiaries/${subsidiary.slug}` : "/subsidiaries",
+          }}
         />
 
         <section className={section}>

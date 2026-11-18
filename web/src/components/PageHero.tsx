@@ -1,90 +1,110 @@
+import Link from "next/link";
 import Eyebrow from "./Eyebrow";
-import Heading from "./Heading";
 import Reveal from "./Reveal";
+import { ArrowIcon } from "./icons";
 import { wrap, leadLight } from "@/lib/styles";
 
 const GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
+type Featured = { label: string; title: string; href: string };
+
+// Inner-page masthead: a solid navy block carries the title and intro, an
+// oversized faint brand geometry sits on the right, and — when a page supplies
+// one — a photo band drops below with a "featured" card straddling the seam.
 export default function PageHero({
   eyebrow: eyebrowText,
   title,
   intro,
   image,
   imageAlt,
+  featured,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
   image?: string;
   imageAlt?: string;
+  featured?: Featured;
 }) {
   return (
     <section className="relative overflow-hidden bg-dipon-blue">
-      {/* Faint brand mesh */}
-      <div aria-hidden="true" data-open data-parallax="0.09" className="pointer-events-none absolute inset-0 opacity-[0.09]">
-        <svg width="100%" height="100%" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" fill="none">
-          <path d="M1440 -40 L1100 260 L1100 640" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M1440 -40 L1300 340" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M1100 260 L860 60" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M1100 640 L820 500" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M1300 340 L1100 640" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M-40 700 L260 480 L560 620" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M260 480 L220 220" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M640 40 L760 180 L680 340" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M760 180 L940 220" stroke="#FFF9EB" strokeWidth="1.5" />
-          <circle cx="1100" cy="260" r="3.5" fill="#FFF9EB" />
-          <circle cx="1300" cy="340" r="3.5" fill="#FFF9EB" />
-          <circle cx="1100" cy="640" r="3.5" fill="#FFF9EB" />
-          <circle cx="860" cy="60" r="3.5" fill="#FFF9EB" />
-          <circle cx="820" cy="500" r="3.5" fill="#FFF9EB" />
-          <circle cx="260" cy="480" r="3.5" fill="#FFF9EB" />
-          <circle cx="220" cy="220" r="3.5" fill="#FFF9EB" />
-          <circle cx="760" cy="180" r="3.5" fill="#FFF9EB" />
-          <circle cx="940" cy="220" r="3.5" fill="#FFF9EB" />
+      {/* Oversized faint brand geometry, anchored to the right of the block */}
+      <div
+        aria-hidden="true"
+        data-open
+        data-parallax="0.08"
+        className="pointer-events-none absolute top-0 right-0 h-full w-[min(680px,64%)] opacity-[0.08]"
+      >
+        <svg width="100%" height="100%" viewBox="0 0 680 760" preserveAspectRatio="xMidYMid slice" fill="none">
+          <path d="M700 -20 L420 240 L470 560 L720 700" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M420 240 L700 360" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M420 240 L180 80" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M470 560 L220 420" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M470 560 L560 780" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M700 360 L470 560" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M220 420 L180 80" stroke="#FFF9EB" strokeWidth="1.5" />
+          <path d="M220 420 L20 560" stroke="#FFF9EB" strokeWidth="1.5" />
+          <circle cx="420" cy="240" r="4" fill="#FFF9EB" />
+          <circle cx="700" cy="360" r="4" fill="#FFF9EB" />
+          <circle cx="470" cy="560" r="4" fill="#FFF9EB" />
+          <circle cx="180" cy="80" r="4" fill="#FFF9EB" />
+          <circle cx="220" cy="420" r="4" fill="#FFF9EB" />
         </svg>
       </div>
 
-      {/* Clean photo panel — right side on desktop, blended into the navy */}
-      {image && (
-        <Reveal
-          delay={120}
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46%] overflow-hidden lg:block"
-        >
-          <img src={image} alt={imageAlt ?? ""} className="hero-kenburns absolute inset-0 h-full w-full object-cover" />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-r from-dipon-blue via-dipon-blue/55 to-transparent"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 opacity-[0.4] mix-blend-overlay"
-            style={{ backgroundImage: GRAIN }}
-          />
-        </Reveal>
-      )}
-
-      <div className="relative px-gutter pt-[clamp(150px,17vw,212px)] pb-8 lg:pb-[clamp(72px,9vw,112px)]">
+      {/* Text block */}
+      <div
+        className={`relative px-gutter pt-[clamp(140px,16vw,200px)] ${
+          image ? "pb-[clamp(44px,6vw,80px)]" : "pb-[clamp(56px,8vw,112px)]"
+        }`}
+      >
         <div className={wrap}>
-          <Reveal className={`max-w-[900px] ${image ? "lg:max-w-[560px]" : ""}`}>
+          <Reveal className="max-w-[880px]">
             <Eyebrow light>{eyebrowText}</Eyebrow>
-            <Heading as="h1" light accentRest size="text-[clamp(38px,5.4vw,66px)]">
+            <h1 className="mt-3.5 text-balance font-display text-[clamp(33px,5.2vw,66px)] font-extrabold leading-[1.02] tracking-[-1.5px] text-dipon-cream">
               {title}
-            </Heading>
-            <p className={`${leadLight} mt-5 max-w-[680px]`}>{intro}</p>
+            </h1>
+            <p className={`${leadLight} mt-5 max-w-[600px]`}>{intro}</p>
           </Reveal>
         </div>
       </div>
 
-      {/* Mobile photo band */}
+      {/* Photo band + floating featured card */}
       {image && (
-        <Reveal delay={150} className="relative aspect-[16/9] w-full overflow-hidden lg:hidden">
-          <img src={image} alt={imageAlt ?? ""} className="hero-kenburns absolute inset-0 h-full w-full object-cover" />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/20 to-transparent"
-          />
-        </Reveal>
+        <div className="relative">
+          <Reveal
+            delay={120}
+            className="relative block aspect-[16/9] w-full overflow-hidden sm:aspect-[16/7] lg:aspect-[16/6]"
+          >
+            <img src={image} alt={imageAlt ?? ""} className="hero-kenburns absolute inset-0 h-full w-full object-cover" />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-dipon-blue/30 to-transparent" />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 opacity-[0.35] mix-blend-overlay"
+              style={{ backgroundImage: GRAIN }}
+            />
+          </Reveal>
+
+          {featured && (
+            <Link
+              href={featured.href}
+              className="group mx-gutter mt-5 block border border-black/5 bg-dipon-cream p-6 no-underline shadow-[0_18px_44px_-20px_rgba(16,25,31,0.45)] transition-transform duration-300 hover:-translate-y-0.5 lg:absolute lg:top-0 lg:right-[max(clamp(20px,5vw,60px),calc((100%-1320px)/2))] lg:mx-0 lg:mt-0 lg:w-[360px] lg:-translate-y-1/2 lg:p-7 lg:hover:-translate-y-[calc(50%+2px)]"
+            >
+              <p className="font-label text-[11px] font-semibold tracking-[1.6px] text-dipon-accent uppercase">
+                {featured.label}
+              </p>
+              <div className="mt-3 flex items-center justify-between gap-5">
+                <h3 className="font-display text-[clamp(18px,1.7vw,22px)] font-bold leading-[1.15] tracking-[-0.3px] text-dipon-primary">
+                  {featured.title}
+                </h3>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
+                  <ArrowIcon width={16} height={7} />
+                </span>
+              </div>
+            </Link>
+          )}
+        </div>
       )}
     </section>
   );
