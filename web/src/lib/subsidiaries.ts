@@ -40,7 +40,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     serviceSlugs: ["construction-civil-engineering"],
     imageQuery: "construction",
     imageLock: 32,
-    heroImage: "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    heroImage: "https://images.pexels.com/photos/30396647/pexels-photo-30396647.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "dipon-global-resources",
@@ -64,7 +64,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     serviceSlugs: ["trading-supply-chain", "real-estate-property", "environmental-services", "transportation-logistics", "agriculture"],
     imageQuery: "warehouse",
     imageLock: 71,
-    heroImage: "https://images.pexels.com/photos/31445085/pexels-photo-31445085.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    heroImage: "https://images.pexels.com/photos/36143083/pexels-photo-36143083.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "dipon-infrastructure",
@@ -89,7 +89,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     serviceSlugs: ["renewable-energy-power", "real-estate-property", "environmental-services"],
     imageQuery: "solar",
     imageLock: 51,
-    heroImage: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    heroImage: "https://images.pexels.com/photos/40747788/pexels-photo-40747788.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
 ];
 

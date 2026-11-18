@@ -49,7 +49,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Construction Limited",
     imageQuery: "construction",
     imageLock: 32,
-    heroImage: "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    heroImage: "https://images.pexels.com/photos/17297091/pexels-photo-17297091.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "renewable-energy-power",
@@ -73,7 +73,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Infrastructure Limited",
     imageQuery: "solar",
     imageLock: 51,
-    heroImage: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    heroImage: "https://images.pexels.com/photos/38804912/pexels-photo-38804912.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "real-estate-property",
@@ -97,7 +97,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "apartment",
     imageLock: 20,
-    heroImage: "https://images.pexels.com/photos/18153132/pexels-photo-18153132.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    heroImage: "https://images.pexels.com/photos/37224965/pexels-photo-37224965.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "environmental-services",
@@ -121,7 +121,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "cleaning",
     imageLock: 45,
-    heroImage: "https://images.pexels.com/photos/33691597/pexels-photo-33691597.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    heroImage: "https://images.pexels.com/photos/18414281/pexels-photo-18414281.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "trading-supply-chain",
@@ -145,7 +145,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "warehouse",
     imageLock: 71,
-    heroImage: "https://images.pexels.com/photos/31445085/pexels-photo-31445085.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    heroImage: "https://images.pexels.com/photos/19574416/pexels-photo-19574416.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "transportation-logistics",
@@ -169,7 +169,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "truck",
     imageLock: 63,
-    heroImage: "https://images.pexels.com/photos/36228061/pexels-photo-36228061.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    heroImage: "https://images.pexels.com/photos/28264496/pexels-photo-28264496.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "agriculture",
@@ -193,7 +193,7 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "farm",
     imageLock: 84,
-    heroImage: "https://images.pexels.com/photos/33786603/pexels-photo-33786603.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    heroImage: "https://images.pexels.com/photos/27879118/pexels-photo-27879118.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
 ];
 
