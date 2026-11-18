@@ -23,7 +23,7 @@ const IMAGES = {
 
 export default function Overview() {
   return (
-    <section id="overview" className={section}>
+    <section id="overview" className={`${section} bg-dipon-page`}>
       <div className={wrap}>
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.6fr_0.85fr] lg:gap-16">
           <Reveal from="left" className="flex flex-col gap-7">

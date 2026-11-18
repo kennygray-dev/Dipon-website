@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowIcon, BurgerIcon, CaretIcon, CloseIcon } from "./icons";
+import { ArrowIcon, BurgerIcon, CaretIcon, CloseIcon, HardHatIcon } from "./icons";
 
 type MegaLink = { title: string; href: string; desc: string; num?: string };
 type MegaGroup = {
@@ -214,12 +214,16 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
         </nav>
         <div className="flex shrink-0 items-center">
           <a
-            className={`inline-flex items-center gap-2 rounded-full border border-transparent bg-dipon-accent px-5 py-2.5 font-body text-sm text-white no-underline transition-all duration-300 max-[1080px]:hidden hover:bg-dipon-accent-deep [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1 ${
+            className={`group inline-flex items-center gap-2.5 rounded-full border border-transparent bg-dipon-accent py-1.5 pr-1.5 pl-5 font-body text-sm font-medium text-white no-underline transition-[background-color,transform] duration-300 max-[1080px]:hidden hover:-translate-y-0.5 hover:bg-dipon-accent-deep ${
               hideCta ? "pointer-events-none opacity-0" : "opacity-100"
             }`}
             href="/contact"
           >
-            Discuss Your Next Project <ArrowIcon width={16} height={7} />
+            <HardHatIcon size={16} className="shrink-0 opacity-90" />
+            Discuss Your Next Project
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0.5">
+              <ArrowIcon width={14} height={6} />
+            </span>
           </a>
           <button
             className={`-mr-2.5 hidden cursor-pointer items-center justify-center border-0 bg-none p-2.5 max-[1080px]:inline-flex ${isSolid ? "text-dipon-primary" : "text-dipon-cream"}`}
@@ -299,6 +303,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
             href="/contact"
             onClick={closeDrawer}
           >
+            <HardHatIcon size={16} className="shrink-0 opacity-90" />
             Discuss Your Next Project <ArrowIcon width={16} height={7} />
           </a>
         </div>

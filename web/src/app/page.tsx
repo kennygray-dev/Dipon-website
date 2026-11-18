@@ -16,17 +16,25 @@ export default function Home() {
     <div className={root}>
       <Header />
       <main id="top">
-        <Hero />
-        <Overview />
-        <Subsidiaries />
-        <Industries />
-        <Projects />
-        <Sustainability />
-        <StatBand />
-        <Leadership />
-        <CtaBand />
+        <div className="stack">
+          <div className="stack-pin">
+            <Hero />
+          </div>
+          <Overview />
+          <Subsidiaries />
+          <div className="stack-pin">
+            <Industries />
+          </div>
+          <Projects />
+          <Sustainability />
+          <StatBand />
+          <Leadership />
+          <div className="stack-pin">
+            <CtaBand />
+          </div>
+          <Footer />
+        </div>
       </main>
-      <Footer />
     </div>
   );
 }

@@ -187,6 +187,27 @@ export function BuildIcon({ size = 18 }: { size?: number }) {
   );
 }
 
+export function HardHatIcon({ size = 18, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d="M2.5 18.5h19" />
+      <path d="M4.5 18.5v-2.2a7.5 7.5 0 0 1 15 0v2.2" />
+      <path d="M9.6 8.4V6a1.1 1.1 0 0 1 1.1-1.1h2.6A1.1 1.1 0 0 1 14.4 6v2.4" />
+    </svg>
+  );
+}
+
 export function DiagonalArrowIcon({ size = 16 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

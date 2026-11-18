@@ -60,7 +60,7 @@ body {
   background: var(--color-bg-page);
   color: var(--color-text-primary);
   font-family: var(--font-body);
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -158,6 +158,22 @@ html.lenis body {
 }
 [data-open].js-open.is-open {
   clip-path: inset(0 0 0 0);
+}
+
+/* Section stacking — only the chosen .stack-pin sections pin while the next
+   section slides up over them (hero, one mid-page moment, and the closing CTA).
+   The rest scroll normally. */
+.stack > .stack-pin {
+  position: sticky;
+  top: 0;
+}
+.stack > .stack-pin + * {
+  box-shadow: 0 -22px 46px -26px rgba(16, 25, 31, 0.34);
+}
+@media (prefers-reduced-motion: reduce) {
+  .stack > .stack-pin {
+    position: static;
+  }
 }
 
 @layer base {
