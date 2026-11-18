@@ -17,7 +17,9 @@ export default function Home() {
       <Header />
       <main id="top">
         <div className="stack">
-          <Hero />
+          <div className="stack-pin">
+            <Hero />
+          </div>
           <Overview />
           <Subsidiaries />
           <Industries />
@@ -25,10 +27,12 @@ export default function Home() {
           <Sustainability />
           <StatBand />
           <Leadership />
-          <CtaBand />
+          <div className="stack-pin">
+            <CtaBand />
+          </div>
+          <Footer />
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

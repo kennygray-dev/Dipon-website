@@ -160,16 +160,18 @@ html.lenis body {
   clip-path: inset(0 0 0 0);
 }
 
-/* Stacking sections — each pins at the top and the next slides up over it. */
-.stack > * {
+/* Stacking "cards" only at the top (hero) and the end (CTA + footer):
+   those pin while the neighbouring section slides up over them. */
+.stack > .stack-pin {
   position: sticky;
   top: 0;
-  box-shadow: 0 -18px 44px -26px rgba(16, 25, 31, 0.3);
+}
+.stack > .stack-pin + * {
+  box-shadow: 0 -20px 44px -26px rgba(16, 25, 31, 0.32);
 }
 @media (prefers-reduced-motion: reduce) {
-  .stack > * {
+  .stack > .stack-pin {
     position: static;
-    box-shadow: none;
   }
 }
 
