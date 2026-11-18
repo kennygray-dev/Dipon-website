@@ -73,22 +73,28 @@ export default function PageHero({
           </Reveal>
 
           {featured && (
-            <Link
-              href={featured.href}
-              className="group mx-gutter mt-5 block border border-black/5 bg-dipon-cream p-6 no-underline shadow-[0_18px_44px_-20px_rgba(16,25,31,0.45)] transition-transform duration-300 hover:-translate-y-0.5 lg:absolute lg:top-0 lg:right-[max(clamp(20px,5vw,60px),calc((100%-1320px)/2))] lg:mx-0 lg:mt-0 lg:w-[360px] lg:-translate-y-1/2 lg:p-7 lg:hover:-translate-y-[calc(50%+2px)]"
+            <Reveal
+              fadeOnly
+              delay={150}
+              className="mx-gutter mt-5 block lg:absolute lg:top-0 lg:right-[max(clamp(20px,5vw,60px),calc((100%-1320px)/2))] lg:mx-0 lg:mt-0 lg:w-[360px] lg:-translate-y-1/2"
             >
-              <p className="font-label text-[11px] font-semibold tracking-[1.6px] text-dipon-accent uppercase">
-                {featured.label}
-              </p>
-              <div className="mt-3 flex items-center justify-between gap-5">
-                <h3 className="font-display text-[clamp(18px,1.7vw,22px)] font-bold leading-[1.15] tracking-[-0.3px] text-dipon-primary">
-                  {featured.title}
-                </h3>
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-dipon-accent text-white transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
-                  <ArrowIcon width={16} height={7} />
-                </span>
-              </div>
-            </Link>
+              <Link
+                href={featured.href}
+                className="group block w-full border border-black/5 bg-dipon-cream p-6 no-underline shadow-[0_18px_44px_-20px_rgba(16,25,31,0.45)] transition-transform duration-300 hover:-translate-y-0.5 lg:p-7"
+              >
+                <p className="font-label text-[11px] font-semibold tracking-[1.6px] text-dipon-accent uppercase">
+                  {featured.label}
+                </p>
+                <div className="mt-3 flex items-center justify-between gap-5">
+                  <h3 className="font-display text-[clamp(18px,1.7vw,22px)] font-bold leading-[1.15] tracking-[-0.3px] text-dipon-primary">
+                    {featured.title}
+                  </h3>
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-dipon-accent text-white transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
+                    <ArrowIcon width={16} height={7} />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
           )}
         </div>
       )}

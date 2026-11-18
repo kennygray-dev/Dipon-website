@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Industries from "@/components/Industries";
 import Leadership from "@/components/Leadership";
-import Overview from "@/components/Overview";
 import Projects from "@/components/Projects";
 import StatBand from "@/components/StatBand";
 import Subsidiaries from "@/components/Subsidiaries";
@@ -20,7 +19,6 @@ export default function Home() {
           <div className="stack-pin">
             <Hero />
           </div>
-          <Overview />
           <Subsidiaries />
           <Industries />
           <Projects />

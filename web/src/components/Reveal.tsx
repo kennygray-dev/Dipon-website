@@ -21,12 +21,18 @@ export default function Reveal({
   className = "",
   delay = 0,
   from = "bottom",
+  fadeOnly = false,
 }: {
   children: ReactNode;
   as?: ElementType;
   className?: string;
   delay?: number;
   from?: RevealFrom;
+  // fadeOnly animates opacity + blur with NO transform — safe for absolutely
+  // positioned / backdrop-blurred cards whose own transforms must be preserved.
+  // It also plays a gentle entrance on load when already in view (handy for
+  // above-the-fold cards a scroll-reveal would otherwise skip).
+  fadeOnly?: boolean;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
   // Default to visible so the server-rendered HTML — and the very first paint,
@@ -51,7 +57,10 @@ export default function Reveal({
 
     const rect = el.getBoundingClientRect();
     const alreadyInView = rect.top < window.innerHeight * 1.08 && rect.bottom > 0;
-    if (alreadyInView) return;
+    // Default reveals skip when already visible (avoids a transform flash). A
+    // fadeOnly reveal instead still primes + animates: the observer fires right
+    // away for an in-view element, so its fade plays as a gentle load entrance.
+    if (alreadyInView && !fadeOnly) return;
 
     setAnimated(true);
     setVisible(false);
@@ -77,10 +86,17 @@ export default function Reveal({
       style={delay && animated ? { transitionDelay: `${delay}ms` } : undefined}
       className={cn(
         animated &&
-          "transition-[opacity,transform,filter] duration-[1100ms] ease-[var(--ease-premium)] max-md:duration-[450ms] max-md:[transition-delay:0ms]! motion-reduce:transition-none motion-reduce:blur-none",
-        visible
-          ? "translate-x-0 translate-y-0 scale-100 opacity-100 blur-none"
-          : cn(HIDDEN_BY_FROM[from], "scale-[0.985] opacity-0 blur-[2px] max-md:scale-100 max-md:blur-none"),
+          cn(
+            fadeOnly ? "transition-[opacity,filter]" : "transition-[opacity,transform,filter]",
+            "duration-[1100ms] ease-[var(--ease-premium)] max-md:duration-[450ms] max-md:[transition-delay:0ms]! motion-reduce:transition-none motion-reduce:blur-none"
+          ),
+        fadeOnly
+          ? visible
+            ? "opacity-100 blur-none"
+            : "opacity-0 blur-[3px] max-md:blur-none"
+          : visible
+            ? "translate-x-0 translate-y-0 scale-100 opacity-100 blur-none"
+            : cn(HIDDEN_BY_FROM[from], "scale-[0.985] opacity-0 blur-[2px] max-md:scale-100 max-md:blur-none"),
         className
       )}
     >

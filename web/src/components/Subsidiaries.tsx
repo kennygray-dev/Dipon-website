@@ -14,7 +14,7 @@ const SUBSIDIARIES = [
     short: "Construction",
     desc: "Civil engineering, building construction, and general contracting.",
     badge: "Core Build",
-    image: "https://images.pexels.com/photos/8961260/pexels-photo-8961260.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/30396647/pexels-photo-30396647.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     num: "02",
@@ -23,7 +23,7 @@ const SUBSIDIARIES = [
     short: "Global Resources",
     desc: "Trading, supply chain, real estate, agriculture, and logistics.",
     badge: "Supply Chain",
-    image: "https://images.pexels.com/photos/31445085/pexels-photo-31445085.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/36143083/pexels-photo-36143083.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     num: "03",
@@ -32,7 +32,7 @@ const SUBSIDIARIES = [
     short: "Infrastructure",
     desc: "Renewable energy, power infrastructure, housing development, and environmental services.",
     badge: "Power & Property",
-    image: "https://images.pexels.com/photos/18332045/pexels-photo-18332045.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/40747788/pexels-photo-40747788.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
 ];
 
@@ -41,11 +41,12 @@ export default function Subsidiaries() {
     <section id="subsidiaries" className={`${section} bg-dipon-surface`}>
       <div className={wrap}>
         <Reveal className="mb-12 max-w-[640px]">
-          <Eyebrow>DIPON Group structure</Eyebrow>
-          <Heading>Three Companies, One Accountable Group</Heading>
+          <Eyebrow>About DIPON Group</Eyebrow>
+          <Heading>One accountable group, across the full build lifecycle.</Heading>
           <p className={`${lead} mt-5`}>
-            Each subsidiary is built for depth in its field, while the Group keeps them accountable to a single
-            standard.
+            DIPON Group Limited is a Nigerian-owned conglomerate delivering construction, renewable energy, real
+            estate, and supply chain solutions through three specialized companies, each built for depth in its
+            field while the Group keeps them accountable to a single standard.
           </p>
         </Reveal>
 
