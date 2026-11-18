@@ -17,9 +17,9 @@ const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 const SERVICE_OPTIONS = ["General inquiry", ...SERVICES.map((s) => s.title)];
 
 const inputClass =
-  "w-full border border-[rgba(35,61,76,0.14)] bg-dipon-surface px-4 py-3 font-body text-[15px] text-dipon-primary outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent focus:bg-white focus:ring-2 focus:ring-dipon-accent/25 aria-[invalid=true]:border-red-500";
-const labelClass = "mb-1.5 block font-body text-[13px] font-medium text-dipon-secondary";
-const errorClass = "mt-1 font-body text-[12px] text-red-600";
+  "w-full border border-white/20 bg-white/10 px-4 py-3 font-body text-[15px] text-dipon-cream outline-none transition-[border-color,background-color,box-shadow] duration-200 placeholder:text-dipon-cream/45 focus:border-dipon-accent focus:bg-white/[0.16] focus:ring-2 focus:ring-dipon-accent/25 aria-[invalid=true]:border-red-400 [&>option]:text-dipon-primary";
+const labelClass = "mb-1.5 block font-body text-[13px] font-medium text-dipon-cream/80";
+const errorClass = "mt-1 font-body text-[12px] text-red-400";
 const contactChip =
   "inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-3.5 py-2 font-body text-[13.5px] text-dipon-cream no-underline transition-colors duration-200 hover:border-white/45 hover:bg-white/10";
 const mapsUrl = (query: string) =>
@@ -86,19 +86,19 @@ export default function ContactForm() {
           </div>
 
           {/* Feedback form — first on mobile ( to match the card's top edge), floating card on desktop */}
-          <div className="relative z-20 order-1 w-full bg-white px-5 py-8 sm:px-6 lg:order-none lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
+          <div className="relative z-20 order-1 w-full border border-white/15 bg-white/[0.08] px-5 py-8 backdrop-blur-2xl sm:px-6 lg:order-none lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-dipon-accent to-transparent lg:hidden" />
-            <LogoMark className="absolute top-[clamp(24px,3vw,36px)] right-[clamp(24px,3vw,36px)] h-6 w-auto" />
+            <LogoMark light className="absolute top-[clamp(24px,3vw,36px)] right-[clamp(24px,3vw,36px)] h-6 w-auto" />
             {submitted ? (
               <div role="status">
-                <Eyebrow>Thank You</Eyebrow>
-                <h3 className="my-3 mb-2.5 font-display text-2xl font-bold tracking-[-0.4px] text-dipon-primary">
+                <Eyebrow light>Thank You</Eyebrow>
+                <h3 className="my-3 mb-2.5 font-display text-2xl font-bold tracking-[-0.4px] text-dipon-cream">
                   We&rsquo;ve got your project details.
                 </h3>
-                <p className="m-0 font-body text-[15px] leading-[1.6] text-dipon-secondary">
+                <p className="m-0 font-body text-[15px] leading-[1.6] text-dipon-cream/80">
                   Thanks for reaching out. Our team will review what you sent and be in touch shortly.
                 </p>
               </div>
@@ -211,7 +211,7 @@ export default function ContactForm() {
                 </div>
 
                 {state.status === "error" && !state.errors && (
-                  <p role="alert" className="font-body text-[13px] text-red-600">
+                  <p role="alert" className="font-body text-[13px] text-red-400">
                     {state.message}
                   </p>
                 )}
@@ -220,9 +220,9 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={pending}
-                    className="group inline-flex shrink-0 items-stretch overflow-hidden bg-dipon-primary transition-transform duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="group inline-flex shrink-0 items-stretch overflow-hidden bg-white transition-transform duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    <span className="flex items-center px-6 py-3 font-label text-[11px] font-semibold tracking-[1.2px] text-white! uppercase">
+                    <span className="flex items-center px-6 py-3 font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-primary! uppercase">
                       {pending ? "Sending…" : "Send Message"}
                     </span>
                     <span className="flex w-[46px] shrink-0 items-center justify-center bg-dipon-accent text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">

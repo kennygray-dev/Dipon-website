@@ -1,5 +1,4 @@
 import type { ComponentType } from "react";
-import BuildingMotif from "./BuildingMotif";
 import Eyebrow from "./Eyebrow";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
@@ -70,30 +69,25 @@ export default function DarkFeatureGrid({
           <Heading light>{heading}</Heading>
         </Reveal>
         <div
-          className={`grid grid-cols-1 gap-px border border-[rgba(255,249,235,0.12)] bg-[rgba(255,249,235,0.12)] sm:grid-cols-2 ${COLS_CLASS[columns] ?? COLS_CLASS[4]}`}
+          className={`grid grid-cols-1 gap-4 sm:grid-cols-2 ${COLS_CLASS[columns] ?? COLS_CLASS[4]}`}
         >
           {items.map((item, i) => (
             <Reveal key={item.title} delay={(i % columns) * 110}>
-              <div className="group relative flex h-full flex-col items-center gap-3 overflow-hidden bg-dipon-blue-alt px-6 py-8 text-center transition-colors duration-300 hover:bg-dipon-blue">
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"
-                  style={{ backgroundImage: GRAIN_TEXTURE }}
-                />
-                <BuildingMotif className="pointer-events-none absolute right-0 bottom-0 h-[86px] w-[104px] text-dipon-accent opacity-[0.22] transition-opacity duration-300 group-hover:opacity-0" />
+              <div className="group relative flex h-full min-h-[248px] flex-col bg-white px-7 py-8 transition-transform duration-300 hover:-translate-y-1">
+                <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] bg-dipon-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 {item.Icon ? (
-                  <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(255,249,235,0.1)] text-dipon-cream">
+                  <span className="flex h-12 w-12 items-center justify-center bg-dipon-accent/10 text-dipon-accent">
                     <item.Icon size={20} />
                   </span>
                 ) : (
-                  <span className="relative z-10 font-display text-2xl font-extrabold text-dipon-cream">
+                  <span className="font-display text-[26px] font-extrabold leading-none text-dipon-accent">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 )}
-                <h3 className="relative z-10 font-display text-[15.5px] font-bold text-dipon-cream">{item.title}</h3>
-                <p className="relative z-10 m-0 max-w-[240px] font-body text-[13.5px] leading-[1.6] text-[rgba(255,249,235,0.94)]">
-                  {item.desc}
-                </p>
+                <div className="mt-auto pt-8">
+                  <h3 className="font-display text-[17px] font-bold leading-[1.2] text-dipon-primary">{item.title}</h3>
+                  <p className="mt-2.5 m-0 font-body text-[13.5px] leading-[1.6] text-dipon-secondary">{item.desc}</p>
+                </div>
               </div>
             </Reveal>
           ))}
