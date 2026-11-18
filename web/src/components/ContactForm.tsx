@@ -220,11 +220,13 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={pending}
-                    className="group inline-flex shrink-0 items-center gap-3 rounded-full bg-dipon-primary py-3 pr-3 pl-6 font-label text-[11px] font-semibold tracking-[1.2px] text-white! uppercase transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(35,61,76,0.28)] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="group inline-flex shrink-0 items-stretch overflow-hidden bg-dipon-primary transition-transform duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    {pending ? "Sending…" : "Send Message"}
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
-                      <ArrowIcon width={12} height={5} />
+                    <span className="flex items-center px-6 py-3 font-label text-[11px] font-semibold tracking-[1.2px] text-white! uppercase">
+                      {pending ? "Sending…" : "Send Message"}
+                    </span>
+                    <span className="flex w-[46px] shrink-0 items-center justify-center bg-dipon-accent text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
+                      <ArrowIcon width={16} height={7} />
                     </span>
                   </button>
                 </div>

@@ -1,9 +1,9 @@
-import Link from "next/link";
+import CtaButton from "./CtaButton";
 import BuildingMotif from "./BuildingMotif";
 import Eyebrow from "./Eyebrow";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
-import { ArrowIcon, GlobeIcon, GridIcon, LeafIcon, LinkIcon, PartnershipIcon, ShieldIcon } from "./icons";
+import { GlobeIcon, GridIcon, LeafIcon, LinkIcon, PartnershipIcon, ShieldIcon } from "./icons";
 import { section, wrap } from "@/lib/styles";
 
 const REASONS = [
@@ -113,15 +113,7 @@ export default function WhyChoose() {
           })}
         </div>
         <div className="mt-11 flex justify-center">
-          <Link
-            href="/contact"
-            className="group inline-flex w-fit items-center rounded-full bg-white py-1.5 pr-1.5 pl-6 font-body text-sm font-medium text-dipon-primary! no-underline transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(0,0,0,0.25)]"
-          >
-            Discuss Your Next Project
-            <span className="ml-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
-              <ArrowIcon width={16} height={7} />
-            </span>
-          </Link>
+          <CtaButton href="/contact" label="Discuss Your Next Project" variant="light" />
         </div>
       </div>
     </section>

@@ -194,12 +194,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
                   </div>
                   {group.railLinkLabel && group.railHref && (
                     <div className="mt-6 flex justify-center border-t border-[rgba(35,61,76,0.1)] pt-6">
-                      <a
-                        className="group/rail inline-flex w-fit items-center gap-2.5 rounded-full border border-[rgba(35,61,76,0.16)] px-5 py-2.5 font-body text-sm text-dipon-primary no-underline transition-colors duration-200 hover:border-dipon-primary hover:bg-dipon-primary hover:text-white [&_.arrow]:transition-transform [&_.arrow]:duration-200 group-hover/rail:[&_.arrow]:translate-x-1"
-                        href={group.railHref}
-                      >
-                        {group.railLinkLabel} <ArrowIcon width={16} height={7} />
-                      </a>
+                      <CtaButton href={group.railHref} label={group.railLinkLabel} variant="outline" size="sm" />
                     </div>
                   )}
                 </div>
@@ -218,6 +213,7 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
             href="/contact"
             label="Discuss Your Next Project"
             variant="accent"
+            size="sm"
             className={`max-[1080px]:hidden ${hideCta ? "pointer-events-none opacity-0" : "opacity-100"}`}
           />
           <button

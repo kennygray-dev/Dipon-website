@@ -1,9 +1,8 @@
-import Link from "next/link";
+import CtaButton from "./CtaButton";
 import Eyebrow from "./Eyebrow";
 import GeometricOverlay from "./GeometricOverlay";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
-import { ArrowIcon } from "./icons";
 import { section, wrap, leadLight } from "@/lib/styles";
 
 // Fill in real figures when available; rows with a "[…]" placeholder value are
@@ -66,15 +65,7 @@ export default function Sustainability() {
                   ))}
                 </div>
               )}
-              <Link
-                href="/services/renewable-energy-power"
-                className="group inline-flex w-fit items-center rounded-full bg-white py-1.5 pr-1.5 pl-6 font-body text-sm font-medium text-dipon-primary! no-underline transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(0,0,0,0.25)]"
-              >
-                Explore Our Commitment
-                <span className="ml-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
-                  <ArrowIcon width={16} height={7} />
-                </span>
-              </Link>
+              <CtaButton href="/services/renewable-energy-power" label="Explore Our Commitment" variant="light" />
             </div>
           </div>
         </Reveal>

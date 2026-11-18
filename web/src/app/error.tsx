@@ -50,16 +50,16 @@ export default function Error({
         <button
           type="button"
           onClick={() => unstable_retry()}
-          className="group inline-flex w-fit cursor-pointer items-center rounded-full bg-white py-1.5 pr-1.5 pl-6 font-body text-sm font-medium text-dipon-primary! no-underline transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(0,0,0,0.3)]"
+          className="group inline-flex w-fit cursor-pointer items-stretch overflow-hidden bg-white transition-transform duration-300 hover:-translate-y-0.5"
         >
-          Try again
-          <span className="ml-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
+          <span className="flex items-center px-[22px] py-3.5 font-body text-sm font-medium text-dipon-primary!">Try again</span>
+          <span className="flex w-[46px] shrink-0 items-center justify-center bg-dipon-accent text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
             <ArrowIcon width={16} height={7} />
           </span>
         </button>
         <Link
           href="/"
-          className="inline-flex w-fit items-center rounded-full border border-white/25 px-6 py-3 font-body text-sm font-medium text-dipon-cream no-underline transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent hover:text-white"
+          className="inline-flex w-fit items-center border border-white/25 px-6 py-3.5 font-body text-sm font-medium text-dipon-cream no-underline transition-colors duration-200 hover:border-dipon-accent hover:bg-dipon-accent hover:text-white"
         >
           Back to Home
         </Link>

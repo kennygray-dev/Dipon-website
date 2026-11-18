@@ -1,8 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
+import CtaButton from "./CtaButton";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
-import { ArrowIcon } from "./icons";
 import founderPhoto from "@/assets/team/oliver-ibeh.jpg";
 import founderSquare from "@/assets/team/oliver-ibeh-square.jpg";
 import { section, wrap } from "@/lib/styles";
@@ -52,12 +51,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
               Mr. Oliver Ibeh · Founder, DIPON Group
             </div>
             {showLink && (
-              <Link
-                href="/about"
-                className="group inline-flex w-fit items-center gap-2.5 rounded-full border border-[rgba(35,61,76,0.16)] px-6 py-3 font-body text-sm text-dipon-primary no-underline transition-colors duration-200 hover:border-dipon-primary hover:bg-dipon-primary hover:text-white [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
-              >
-                Meet Our Leadership <ArrowIcon width={16} height={7} />
-              </Link>
+              <CtaButton href="/about" label="Meet Our Leadership" variant="outline" />
             )}
           </Reveal>
           <Reveal from="right" delay={40} className="relative order-first aspect-[4/5] overflow-hidden md:order-none">

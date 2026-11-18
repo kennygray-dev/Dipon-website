@@ -1,9 +1,9 @@
-import Link from "next/link";
+import CtaButton from "./CtaButton";
 import Eyebrow from "./Eyebrow";
 import GeometricOverlay from "./GeometricOverlay";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
-import { ArrowIcon, BuildIcon, GlobeIcon, LeafIcon } from "./icons";
+import { BuildIcon, GlobeIcon, LeafIcon } from "./icons";
 import { section, wrap } from "@/lib/styles";
 
 const IMAGES = {
@@ -35,15 +35,7 @@ export default function Overview() {
                 estate, and supply chain solutions through three specialized companies.
               </p>
             </div>
-            <Link
-              href="/about"
-              className="group inline-flex w-fit items-center rounded-full bg-dipon-primary py-1.5 pr-1.5 pl-6 font-body text-sm font-medium text-white! no-underline transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(35,61,76,0.28)]"
-            >
-              <span className="text-white!">Learn More About Us</span>
-              <span className="ml-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-dipon-accent-deep">
-                <ArrowIcon width={16} height={7} />
-              </span>
-            </Link>
+            <CtaButton href="/about" label="Learn More About Us" variant="primary" />
           </Reveal>
 
           <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:aspect-[6/5] lg:grid-cols-2 lg:grid-rows-2">
