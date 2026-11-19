@@ -30,7 +30,7 @@ export default function ServicesPage() {
           <div className={wrap}>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
               {SERVICES.map((service, i) => (
-                <Reveal key={service.slug} delay={(i % 3) * 110} className="aspect-[4/5] overflow-hidden">
+                <Reveal key={service.slug} delay={(i % 3) * 110} from={i % 2 === 0 ? "bottom" : "top"} className="aspect-[4/5] overflow-hidden">
                   <PhotoTile
                     href={`/services/${service.slug}`}
                     image={service.heroImage}

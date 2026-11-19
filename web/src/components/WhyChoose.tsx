@@ -89,7 +89,7 @@ export default function WhyChoose() {
           {REASONS.map((reason, i) => {
             const Icon = reason.icon;
             return (
-              <Reveal key={reason.title} delay={(i % 3) * 110}>
+              <Reveal key={reason.title} delay={(i % 3) * 110} from={i % 2 === 0 ? "bottom" : "top"}>
                 <div className="group relative flex h-full flex-col items-center gap-3 overflow-hidden bg-dipon-blue-alt px-6 py-8 text-center transition-colors duration-300 hover:bg-dipon-blue">
                   <div
                     aria-hidden="true"

@@ -189,6 +189,31 @@ img.object-cover:not(.grayscale) {
   filter: saturate(1.12) contrast(1.05) brightness(0.98) sepia(0.06);
 }
 
+/* Page transition — on each navigation the page content eases up into place
+   with a smooth, decelerating curve (no fade). Only main/footer animate, so the
+   fixed header stays anchored; `backwards` fill primes the start without leaving
+   a transform behind (which would otherwise disturb the sticky hero stacking). */
+@keyframes page-rise {
+  from {
+    transform: translate3d(0, 46px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.page-enter main,
+.page-enter > div > footer,
+.page-enter footer {
+  animation: page-rise 720ms var(--ease-premium) backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-enter main,
+  .page-enter > div > footer,
+  .page-enter footer {
+    animation: none;
+  }
+}
+
 @layer base {
   a {
     color: inherit;

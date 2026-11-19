@@ -72,7 +72,7 @@ export default function DarkFeatureGrid({
           className={`grid grid-cols-1 gap-4 sm:grid-cols-2 ${COLS_CLASS[columns] ?? COLS_CLASS[4]}`}
         >
           {items.map((item, i) => (
-            <Reveal key={item.title} delay={(i % columns) * 110}>
+            <Reveal key={item.title} delay={(i % columns) * 110} from={i % 2 === 0 ? "bottom" : "top"}>
               <div className="group relative flex h-full min-h-[248px] flex-col bg-white px-7 py-8 transition-transform duration-300 hover:-translate-y-1">
                 <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] bg-dipon-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 {item.Icon ? (
