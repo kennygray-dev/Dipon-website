@@ -164,36 +164,37 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
                 if (!e.currentTarget.contains(e.relatedTarget as Node)) setActiveGroup(null);
               }}
             >
-              <Link
-                href={group.href}
+              <button
+                type="button"
+                onClick={() => setActiveGroup((g) => (g === group.key ? null : group.key))}
                 className={`inline-flex cursor-pointer items-center gap-1.5 border-0 bg-none py-3 font-body text-sm no-underline transition-[color,opacity] duration-200 ${navTextClass} ${navTextHasHover} group-hover:!text-dipon-accent-deep group-hover:!opacity-100 group-focus-within:!text-dipon-accent-deep group-focus-within:!opacity-100`}
                 aria-haspopup="true"
                 aria-expanded={activeGroup === group.key}
               >
                 {group.label}
                 <CaretIcon className="transition-transform duration-300 ease-[var(--ease-premium)] group-hover:rotate-180 group-focus-within:rotate-180" />
-              </Link>
+              </button>
               <div
                 role="menu"
                 aria-label={group.label}
-                className="pointer-events-none absolute inset-x-0 top-full border-t border-[rgba(35,61,76,0.14)] bg-white px-gutter pt-10 pb-11 opacity-0 invisible -translate-y-3 scale-[0.99] shadow-[0_28px_48px_-16px_rgba(35,61,76,0.16)] [transition:opacity_420ms_var(--ease-premium),transform_420ms_var(--ease-premium),visibility_0s_linear_420ms] group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:!opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:!opacity-100 max-[1080px]:hidden before:absolute before:inset-x-0 before:bottom-full before:h-7 before:content-['']"
+                className="pointer-events-none absolute inset-x-0 top-full border-t border-[rgba(35,61,76,0.14)] bg-white px-gutter pt-[52px] pb-14 opacity-0 invisible -translate-y-3 scale-[0.99] shadow-[0_28px_48px_-16px_rgba(35,61,76,0.16)] [transition:opacity_420ms_var(--ease-premium),transform_420ms_var(--ease-premium),visibility_0s_linear_420ms] group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:!opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:!opacity-100 max-[1080px]:hidden before:absolute before:inset-x-0 before:bottom-full before:h-7 before:content-['']"
               >
                 <div className="mx-auto max-w-[1320px]">
-                  <div className="flex flex-wrap justify-center gap-x-12 gap-y-1">
+                  <div className="flex flex-wrap justify-center gap-x-14 gap-y-1">
                     {group.links.map((link, i) => (
                       <a
-                        className="group/link flex w-[300px] items-center gap-4 border-b border-[rgba(35,61,76,0.1)] py-[15px] no-underline transition-[padding-left] duration-200 last:border-b-0 hover:pl-1"
+                        className="group/link flex w-[340px] items-center gap-4 border-b border-[rgba(35,61,76,0.1)] py-[18px] no-underline transition-[padding-left] duration-200 last:border-b-0 hover:pl-1"
                         href={link.href}
                         key={link.title}
                       >
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-dipon-surface font-label text-[11px] font-bold text-dipon-accent-deep transition-colors duration-200 group-hover/link:bg-dipon-accent group-hover/link:text-white">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-dipon-surface font-label text-[11px] font-bold text-dipon-accent-deep transition-colors duration-200 group-hover/link:bg-dipon-accent group-hover/link:text-white">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="block font-display text-[14.5px] font-semibold tracking-[-0.1px] text-dipon-primary">
+                          <span className="block font-display text-[15.5px] font-semibold tracking-[-0.1px] text-dipon-primary">
                             {link.title}
                           </span>
-                          <span className="block truncate font-body text-[12px] leading-[1.4] text-dipon-secondary">
+                          <span className="block truncate font-body text-[12.5px] leading-[1.4] text-dipon-secondary">
                             {link.desc}
                           </span>
                         </span>

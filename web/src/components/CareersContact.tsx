@@ -73,7 +73,7 @@ export default function CareersContact() {
           </div>
 
           {/* Introduction form — edge-to-edge on mobile, floating card on desktop */}
-          <Reveal fadeOnly delay={120} className="relative z-20 w-full border border-white/20 bg-white/[0.16] px-5 py-8 backdrop-blur-2xl backdrop-saturate-150 sm:px-6 lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
+          <Reveal fadeOnly delay={120} className="relative z-20 w-full border border-dipon-cream/25 bg-dipon-surface/[0.16] px-5 py-8 backdrop-blur-2xl backdrop-saturate-150 sm:px-6 lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-dipon-accent to-transparent lg:hidden" />
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-dipon-accent to-transparent lg:hidden" />
