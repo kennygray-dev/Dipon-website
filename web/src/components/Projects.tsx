@@ -119,9 +119,9 @@ export default function Projects() {
       let p = total > 0 ? -oRect.top / total : 0;
       p = Math.max(0, Math.min(1, p));
 
-      // The zoom-out finishes in the first ~55% of the pin, then the full grid
-      // dwells (held, pinned) for the rest — about a screen of "full grid" time.
-      const zp = Math.min(1, p / 0.55);
+      // Three frames across the pin: hold the full image (p 0→0.3), zoom out
+      // (0.3→0.65), then hold the full grid (0.65→1). Each phase ≈ one screen.
+      const zp = Math.max(0, Math.min(1, (p - 0.3) / 0.35));
       const sRect = stage.getBoundingClientRect();
       const slotR = slot.getBoundingClientRect();
       const lerp = (a: number, b: number) => a + (b - a) * zp;
@@ -164,7 +164,7 @@ export default function Projects() {
       </div>
 
       {/* Desktop: pinned zoom-out — one full image resolves into the mosaic */}
-      <div ref={outerRef} className="relative hidden h-[300vh] lg:block motion-reduce:lg:hidden">
+      <div ref={outerRef} className="relative hidden h-[400vh] lg:block motion-reduce:lg:hidden">
         <div className="sticky top-0 h-screen overflow-hidden">
           <div ref={stageRef} className="relative h-full w-full">
             {/* Final mosaic — full-bleed, edge to edge (the featured cell is an empty placeholder) */}
