@@ -12,7 +12,6 @@ import { CONTACT_EMAIL, MAP_QUERY, OFFICES } from "@/lib/site";
 import { section, wrap } from "@/lib/styles";
 
 const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&z=16&output=embed`;
-const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAP_QUERY)}`;
 
 const SERVICE_OPTIONS = ["General inquiry", ...SERVICES.map((s) => s.title)];
 
@@ -54,28 +53,9 @@ export default function ContactForm() {
               referrerPolicy="no-referrer-when-downgrade"
               title="DIPON Group head office, Garki 2, Abuja"
             />
-            {/* Subtle bottom gradient only — keeps the heading legible while the map shows its true colors */}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-            {/* Location marker — clickable, opens the head office in Google Maps */}
-            <a
-              href={MAP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open DIPON head office location in Google Maps"
-              className="group absolute left-1/2 top-1/2 z-10"
-            >
-              <span className="pointer-events-none absolute left-0 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-dipon-accent/40 animate-ping motion-reduce:hidden" />
-              <svg
-                width="28"
-                height="38"
-                viewBox="0 0 28 38"
-                fill="none"
-                className="absolute left-0 top-0 -translate-x-1/2 -translate-y-full drop-shadow-[0_5px_10px_rgba(0,0,0,0.5)] transition-transform duration-200 group-hover:scale-110"
-              >
-                <path d="M14 0C6.3 0 0 6.3 0 14c0 9.3 14 24 14 24s14-14.7 14-24C28 6.3 21.7 0 14 0Z" fill="#fd802e" />
-                <circle cx="14" cy="14" r="5.5" fill="#1c313d" />
-              </svg>
-            </a>
+            {/* Dim so the map recedes behind the form */}
+            <div className="pointer-events-none absolute inset-0 bg-dipon-blue/55" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/55 via-transparent to-transparent" />
             {/* Heading — bottom-left, clear of the floating form card */}
             <div className="absolute bottom-6 left-6 z-10 sm:left-8">
               <h3 className="max-w-[280px] text-balance font-display text-[clamp(26px,3.4vw,40px)] font-extrabold leading-[1.05] text-dipon-cream">
