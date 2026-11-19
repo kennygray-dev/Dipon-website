@@ -29,7 +29,7 @@ export default function DarkFeatureGrid({
 }) {
   return (
     <section
-      className="relative overflow-hidden bg-dipon-blue px-[clamp(20px,5vw,60px)] pt-[clamp(108px,13vw,160px)] pb-[clamp(72px,9vw,120px)] [clip-path:polygon(0_64px,100%_0,100%_calc(100%-64px),0_100%)] max-[760px]:pt-[clamp(72px,9vw,120px)] max-[760px]:[clip-path:none]"
+      className="relative overflow-hidden bg-dipon-blue px-[clamp(20px,5vw,60px)] py-[clamp(80px,9vw,120px)]"
     >
       {/* Oversized DIPON "D" mark watermark — the same branded treatment as the nav menu */}
       <div

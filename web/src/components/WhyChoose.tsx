@@ -42,7 +42,7 @@ const REASONS = [
 export default function WhyChoose() {
   return (
     <section
-      className={`relative overflow-hidden bg-dipon-blue [clip-path:polygon(0_64px,100%_0,100%_calc(100%-64px),0_100%)] max-[760px]:[clip-path:none] ${section}`}
+      className={`relative overflow-hidden bg-dipon-blue ${section}`}
     >
       <div aria-hidden="true" className="absolute top-0 right-0 h-full w-[46%] opacity-50">
         <svg width="100%" height="100%" viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice">
