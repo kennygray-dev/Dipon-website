@@ -119,14 +119,17 @@ export default function Projects() {
       let p = total > 0 ? -oRect.top / total : 0;
       p = Math.max(0, Math.min(1, p));
 
+      // The zoom-out finishes in the first ~55% of the pin, then the full grid
+      // dwells (held, pinned) for the rest — about a screen of "full grid" time.
+      const zp = Math.min(1, p / 0.55);
       const sRect = stage.getBoundingClientRect();
       const slotR = slot.getBoundingClientRect();
-      const lerp = (a: number, b: number) => a + (b - a) * p;
+      const lerp = (a: number, b: number) => a + (b - a) * zp;
       feat.style.left = `${lerp(0, slotR.left - sRect.left)}px`;
       feat.style.top = `${lerp(0, slotR.top - sRect.top)}px`;
       feat.style.width = `${lerp(sRect.width, slotR.width)}px`;
       feat.style.height = `${lerp(sRect.height, slotR.height)}px`;
-      feat.style.setProperty("--label-o", String(Math.max(0, Math.min(1, (p - 0.55) / 0.3))));
+      feat.style.setProperty("--label-o", String(Math.max(0, Math.min(1, (zp - 0.7) / 0.3))));
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(apply);
@@ -161,19 +164,17 @@ export default function Projects() {
       </div>
 
       {/* Desktop: pinned zoom-out — one full image resolves into the mosaic */}
-      <div ref={outerRef} className="relative hidden h-[230vh] lg:block motion-reduce:lg:hidden">
+      <div ref={outerRef} className="relative hidden h-[300vh] lg:block motion-reduce:lg:hidden">
         <div className="sticky top-0 h-screen overflow-hidden">
           <div ref={stageRef} className="relative h-full w-full">
-            {/* Final mosaic (featured cell is an empty placeholder the overlay lands in) */}
-            <div className="absolute inset-0 flex items-center justify-center px-[clamp(12px,2vw,28px)]">
-              <div className="grid h-[82vh] max-h-[780px] w-full grid-cols-4 grid-rows-3 gap-3">
-                <div ref={slotRef} className="col-span-2 row-span-2" aria-hidden="true" />
-                {rest.map((p) => (
-                  <div key={p.title} className={p.span}>
-                    <Tile p={p} />
-                  </div>
-                ))}
-              </div>
+            {/* Final mosaic — full-bleed, edge to edge (the featured cell is an empty placeholder) */}
+            <div className="absolute inset-0 grid grid-cols-4 grid-rows-3 gap-2">
+              <div ref={slotRef} className="col-span-2 row-span-2" aria-hidden="true" />
+              {rest.map((p) => (
+                <div key={p.title} className={p.span}>
+                  <Tile p={p} />
+                </div>
+              ))}
             </div>
             {/* The featured image, interpolated from full-screen to its slot */}
             <div
