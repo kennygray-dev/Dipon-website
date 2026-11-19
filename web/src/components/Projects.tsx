@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import Reveal from "./Reveal";
-import ScrollRevealText from "./ScrollRevealText";
-import { ArrowIcon, LogoMotif } from "./icons";
+import { ArrowIcon } from "./icons";
 import { wrap } from "@/lib/styles";
 
 type Project = {
@@ -68,6 +67,8 @@ const PROJECTS: Project[] = [
   },
 ];
 
+const STATEMENT = "We build, power, supply, and develop across Nigeria — one accountable group behind every project.";
+
 function Tile({ p }: { p: Project }) {
   return (
     <Link href={p.href} className="group relative block h-full w-full overflow-hidden no-underline">
@@ -97,6 +98,9 @@ export default function Projects() {
   const stageRef = useRef<HTMLDivElement | null>(null);
   const slotRef = useRef<HTMLDivElement | null>(null);
   const featRef = useRef<HTMLDivElement | null>(null);
+  const textRef = useRef<HTMLDivElement | null>(null);
+  const viewAllRef = useRef<HTMLDivElement | null>(null);
+  const collapsedRef = useRef(false);
 
   useEffect(() => {
     const canRun =
@@ -111,25 +115,40 @@ export default function Projects() {
       const stage = stageRef.current;
       const slot = slotRef.current;
       const feat = featRef.current;
-      if (!outer || !stage || !slot || !feat) return;
+      const text = textRef.current;
+      const viewAll = viewAllRef.current;
+      if (!outer || !stage || !slot || !feat || !text || !viewAll) return;
 
       const vh = window.innerHeight;
       const oRect = outer.getBoundingClientRect();
       const total = outer.offsetHeight - vh;
-      let p = total > 0 ? -oRect.top / total : 0;
-      p = Math.max(0, Math.min(1, p));
+      const p = total > 0 ? Math.max(0, Math.min(1, -oRect.top / total)) : 0;
 
-      // Three frames across the pin: hold the full image (p 0→0.3), zoom out
-      // (0.3→0.65), then hold the full grid (0.65→1). Each phase ≈ one screen.
-      const zp = Math.max(0, Math.min(1, (p - 0.3) / 0.35));
+      // One-shot snap with hysteresis: the image holds full, and a single scroll
+      // past the threshold collapses it fully into the grid (CSS-animated), not
+      // a scrubbed shrink. Scrolling back up restores the full image.
+      let c = collapsedRef.current;
+      if (!c && p > 0.42) c = true;
+      else if (c && p < 0.32) c = false;
+      collapsedRef.current = c;
+
       const sRect = stage.getBoundingClientRect();
-      const slotR = slot.getBoundingClientRect();
-      const lerp = (a: number, b: number) => a + (b - a) * zp;
-      feat.style.left = `${lerp(0, slotR.left - sRect.left)}px`;
-      feat.style.top = `${lerp(0, slotR.top - sRect.top)}px`;
-      feat.style.width = `${lerp(sRect.width, slotR.width)}px`;
-      feat.style.height = `${lerp(sRect.height, slotR.height)}px`;
-      feat.style.setProperty("--label-o", String(Math.max(0, Math.min(1, (zp - 0.7) / 0.3))));
+      if (c) {
+        const slotR = slot.getBoundingClientRect();
+        feat.style.left = `${slotR.left - sRect.left}px`;
+        feat.style.top = `${slotR.top - sRect.top}px`;
+        feat.style.width = `${slotR.width}px`;
+        feat.style.height = `${slotR.height}px`;
+        text.style.opacity = "0";
+        viewAll.style.opacity = "1";
+      } else {
+        feat.style.left = "0px";
+        feat.style.top = "0px";
+        feat.style.width = `${sRect.width}px`;
+        feat.style.height = `${sRect.height}px`;
+        text.style.opacity = "1";
+        viewAll.style.opacity = "0";
+      }
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(apply);
@@ -146,28 +165,11 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative overflow-x-clip bg-[#15242d]">
-      {/* Oversized DIPON "D" mark watermark */}
-      <div aria-hidden="true" className="pointer-events-none absolute top-0 -right-[6%] h-[80vh] opacity-[0.05]">
-        <LogoMotif className="h-full w-auto" />
-      </div>
-
-      {/* Heading */}
-      <div className={`${wrap} relative px-[clamp(20px,5vw,60px)] pt-[clamp(72px,9vw,120px)] pb-[clamp(28px,4vw,48px)]`}>
-        <p className="mb-4 font-label text-[11px] font-semibold tracking-[0.18em] text-dipon-accent uppercase">
-          Featured Work
-        </p>
-        <ScrollRevealText
-          as="h2"
-          text="We build, power, supply, and develop across Nigeria — one accountable group behind every project."
-          className="max-w-[900px] text-balance font-display text-[clamp(26px,3.8vw,46px)] font-bold leading-[1.18] tracking-[-0.5px] text-white"
-        />
-      </div>
-
-      {/* Desktop: pinned zoom-out — one full image resolves into the mosaic */}
-      <div ref={outerRef} className="relative hidden h-[400vh] lg:block motion-reduce:lg:hidden">
+      {/* Desktop: full-screen image frame → one-shot collapse into the full-bleed grid */}
+      <div ref={outerRef} className="relative hidden h-[300vh] lg:block motion-reduce:lg:hidden">
         <div className="sticky top-0 h-screen overflow-hidden">
           <div ref={stageRef} className="relative h-full w-full">
-            {/* Final mosaic — full-bleed, edge to edge (the featured cell is an empty placeholder) */}
+            {/* Full-bleed grid (featured cell is an empty placeholder) */}
             <div className="absolute inset-0 grid grid-cols-4 grid-rows-3 gap-2">
               <div ref={slotRef} className="col-span-2 row-span-2" aria-hidden="true" />
               {rest.map((p) => (
@@ -176,43 +178,70 @@ export default function Projects() {
                 </div>
               ))}
             </div>
-            {/* The featured image, interpolated from full-screen to its slot */}
+
+            {/* Featured image: snaps from full-screen to its slot in one animated step */}
             <div
               ref={featRef}
-              className="absolute z-10 overflow-hidden [--label-o:0]"
+              className="absolute z-10 overflow-hidden transition-[left,top,width,height] duration-[800ms] ease-[var(--ease-premium)]"
               style={{ left: 0, top: 0, width: "100%", height: "100%" }}
             >
               <Link href={featured.href} className="group block h-full w-full no-underline">
                 <img src={featured.image} alt={featured.alt} className="absolute inset-0 h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/25" />
-                <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-5 opacity-[var(--label-o)]">
-                  <span className="font-label text-[10px] font-semibold tracking-[0.14em] text-dipon-accent uppercase">
-                    {featured.category}
-                  </span>
-                  <h3 className="font-display text-[17px] font-bold leading-[1.15] text-white">{featured.title}</h3>
+                {/* All the heading info lives inside the image, fading out on collapse */}
+                <div
+                  ref={textRef}
+                  className="pointer-events-none absolute inset-0 flex flex-col justify-end p-[clamp(28px,6vw,88px)] transition-opacity duration-500"
+                  style={{ opacity: 1 }}
+                >
+                  <p className="mb-4 font-label text-[12px] font-semibold tracking-[0.2em] text-dipon-accent uppercase">
+                    Featured Work
+                  </p>
+                  <h2 className="max-w-[16ch] text-balance font-display text-[clamp(30px,4.4vw,60px)] font-bold leading-[1.08] tracking-[-0.5px] text-white">
+                    {STATEMENT}
+                  </h2>
                 </div>
+              </Link>
+            </div>
+
+            {/* View all — subtle corner link, fades in with the grid */}
+            <div
+              ref={viewAllRef}
+              className="pointer-events-none absolute right-6 bottom-5 z-20 transition-opacity duration-500"
+              style={{ opacity: 0 }}
+            >
+              <Link
+                href="/services"
+                className="group pointer-events-auto inline-flex items-center gap-2 font-label text-[11px] font-semibold tracking-[0.14em] text-white/80 uppercase no-underline transition-colors duration-200 hover:text-white [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
+              >
+                <span className="underline-offset-4 group-hover:underline">View All Services</span>
+                <ArrowIcon width={13} height={6} />
               </Link>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile / reduced-motion: static mosaic */}
-      <div className={`${wrap} relative px-[clamp(20px,5vw,60px)] lg:hidden motion-reduce:lg:block`}>
-        <div className="grid grid-cols-2 gap-3 [grid-auto-rows:44vw] sm:gap-4 md:grid-cols-4 md:[grid-auto-rows:200px]">
+      {/* Mobile / reduced-motion: heading + static mosaic */}
+      <div className={`${wrap} relative px-[clamp(20px,5vw,60px)] py-[clamp(72px,9vw,120px)] lg:hidden motion-reduce:lg:block`}>
+        <div className="mb-9 max-w-[640px]">
+          <p className="mb-3 font-label text-[11px] font-semibold tracking-[0.18em] text-dipon-accent uppercase">
+            Featured Work
+          </p>
+          <h2 className="text-balance font-display text-[clamp(24px,6vw,34px)] font-bold leading-[1.15] tracking-[-0.5px] text-white">
+            {STATEMENT}
+          </h2>
+        </div>
+        <div className="grid grid-cols-2 gap-3 [grid-auto-rows:44vw]">
           {PROJECTS.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 3) * 90} from={i % 2 === 0 ? "left" : "right"} className={`h-full ${p.span}`}>
+            <Reveal key={p.title} delay={(i % 3) * 90} from={i % 2 === 0 ? "left" : "right"} className="h-full">
               <Tile p={p} />
             </Reveal>
           ))}
         </div>
-      </div>
-
-      {/* View all */}
-      <div className={`${wrap} relative px-[clamp(20px,5vw,60px)] pt-[clamp(28px,4vw,48px)] pb-[clamp(72px,9vw,120px)]`}>
         <Link
           href="/services"
-          className="group inline-flex w-fit items-center gap-2 font-label text-[11px] font-semibold tracking-[0.14em] text-dipon-accent uppercase no-underline [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
+          className="group mt-9 inline-flex w-fit items-center gap-2 font-label text-[11px] font-semibold tracking-[0.14em] text-dipon-accent uppercase no-underline [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
         >
           <span className="underline-offset-4 group-hover:underline">View All Services</span>
           <ArrowIcon width={14} height={6} />
