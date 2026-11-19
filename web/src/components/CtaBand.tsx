@@ -1,39 +1,20 @@
 import CtaButton from "./CtaButton";
 import Reveal from "./Reveal";
-import { LogoMark } from "./icons";
-
-const TILE_IMAGES = [
-  "https://images.pexels.com/photos/30396647/pexels-photo-30396647.jpeg?auto=compress&cs=tinysrgb&w=600",
-  "https://images.pexels.com/photos/38804912/pexels-photo-38804912.jpeg?auto=compress&cs=tinysrgb&w=600",
-  "https://images.pexels.com/photos/40747788/pexels-photo-40747788.jpeg?auto=compress&cs=tinysrgb&w=600",
-  "https://images.pexels.com/photos/36143083/pexels-photo-36143083.jpeg?auto=compress&cs=tinysrgb&w=600",
-  "https://images.pexels.com/photos/28264496/pexels-photo-28264496.jpeg?auto=compress&cs=tinysrgb&w=600",
-  "https://images.pexels.com/photos/27879118/pexels-photo-27879118.jpeg?auto=compress&cs=tinysrgb&w=600",
-  "https://images.pexels.com/photos/6729421/pexels-photo-6729421.jpeg?auto=compress&cs=tinysrgb&w=600",
-  "https://images.pexels.com/photos/17297091/pexels-photo-17297091.jpeg?auto=compress&cs=tinysrgb&w=600",
-];
+import { LogoMark, LogoMotif } from "./icons";
 
 export default function CtaBand({ className = "" }: { className?: string }) {
   return (
     <section
       id="cta"
-      className={`relative isolate -mt-[clamp(28px,4vw,60px)] overflow-hidden px-gutter pt-[clamp(90px,10vw,130px)] pb-[clamp(56px,7vw,84px)] text-white [clip-path:polygon(0_64px,100%_0,100%_100%,0_100%)] max-[760px]:mt-0 max-[760px]:[clip-path:none] ${className}`}
+      className={`relative isolate -mt-[clamp(28px,4vw,60px)] overflow-hidden bg-dipon-blue px-gutter pt-[clamp(90px,10vw,130px)] pb-[clamp(56px,7vw,84px)] text-white [clip-path:polygon(0_64px,100%_0,100%_100%,0_100%)] max-[760px]:mt-0 max-[760px]:[clip-path:none] ${className}`}
     >
-      {/* Background photo grid */}
-      <div className="absolute inset-0 -z-20 grid h-full grid-cols-4 [grid-auto-rows:1fr] sm:grid-cols-8">
-        {Array.from({ length: 24 }).map((_, i) => (
-          <div key={i} className="relative overflow-hidden border border-black/25">
-            <img
-              src={TILE_IMAGES[i % TILE_IMAGES.length]}
-              alt=""
-              aria-hidden="true"
-              className="h-full w-full object-cover grayscale"
-            />
-          </div>
-        ))}
+      {/* Oversized DIPON "D" mark watermark */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/2 -right-[4%] -z-10 h-[170%] -translate-y-1/2 opacity-[0.06]"
+      >
+        <LogoMotif className="h-full w-auto" />
       </div>
-      <div className="absolute inset-0 -z-10 bg-dipon-blue/93" />
-      <div className="absolute inset-0 -z-10 bg-black/25" />
 
       <Reveal className="mx-auto flex w-full max-w-[1100px] flex-col gap-10">
         <div className="text-left">
