@@ -104,6 +104,8 @@ export default function Hero() {
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-r from-dipon-blue/90 via-dipon-blue/72 to-dipon-blue/55 lg:w-[66%] lg:from-dipon-blue/92 lg:via-dipon-blue/55 lg:to-transparent"
         />
+        {/* Subtle overall dim so the hero imagery recedes a touch */}
+        <div aria-hidden="true" className="absolute inset-0 bg-dipon-blue/25" />
 
         {/* Subtle geometry, anchored bottom-right of the tinted zone */}
         <div aria-hidden="true" data-open data-parallax="0.1" className="pointer-events-none absolute inset-0 opacity-[0.08]">
