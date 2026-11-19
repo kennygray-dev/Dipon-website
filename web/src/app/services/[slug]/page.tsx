@@ -77,7 +77,7 @@ export default async function ServicePage({
               </Reveal>
               <Reveal delay={150} className="relative aspect-[6/5] overflow-hidden">
                 <img
-                  src={service.heroImage}
+                  src={service.bodyImage ?? service.heroImage}
                   alt={`DIPON Group ${service.title.toLowerCase()} work`}
                   className="h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
                 />

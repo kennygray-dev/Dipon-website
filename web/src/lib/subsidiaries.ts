@@ -15,6 +15,8 @@ export type Subsidiary = {
   imageQuery: string;
   imageLock: number;
   heroImage: string;
+  /** A different image used inside the page body, so it doesn't repeat the header. */
+  bodyImage?: string;
 };
 
 export const SUBSIDIARIES: Subsidiary[] = [
@@ -36,11 +38,14 @@ export const SUBSIDIARIES: Subsidiary[] = [
       { title: "Building Construction", desc: "Residential, commercial, and institutional buildings, foundation to finish." },
       { title: "Structural Fabrication", desc: "Steel and structural work engineered to specification." },
       { title: "General Contracting", desc: "Single-point contracting that keeps every trade accountable." },
+      { title: "Project Management", desc: "Scheduling, coordination, and quality control across trades." },
+      { title: "Renovation & Fit-out", desc: "Refurbishment and fit-out of existing buildings." },
     ],
     serviceSlugs: ["construction-civil-engineering"],
     imageQuery: "construction",
     imageLock: 32,
     heroImage: "https://images.pexels.com/photos/30396647/pexels-photo-30396647.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    bodyImage: "https://images.pexels.com/photos/17297091/pexels-photo-17297091.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "dipon-global-resources",
@@ -60,11 +65,14 @@ export const SUBSIDIARIES: Subsidiary[] = [
       { title: "Real Estate & Property", desc: "Housing and property developed to occupancy." },
       { title: "Transportation & Logistics", desc: "Movement of goods, materials, and equipment." },
       { title: "Agriculture", desc: "Agricultural production and supply." },
+      { title: "Procurement & Warehousing", desc: "Sourcing, storage, and inventory handling at scale." },
+      { title: "Environmental Services", desc: "Junk removal, waste management, janitorial, and housekeeping." },
     ],
     serviceSlugs: ["trading-supply-chain", "real-estate-property", "environmental-services", "transportation-logistics", "agriculture"],
     imageQuery: "warehouse",
     imageLock: 71,
     heroImage: "https://images.pexels.com/photos/36143083/pexels-photo-36143083.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    bodyImage: "https://images.pexels.com/photos/6563903/pexels-photo-6563903.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "dipon-infrastructure",
@@ -85,11 +93,13 @@ export const SUBSIDIARIES: Subsidiary[] = [
       { title: "Public Lighting", desc: "Solar and grid street lighting for estates and roads." },
       { title: "Housing Development", desc: "Residential development delivered to occupancy." },
       { title: "Environmental Services", desc: "Junk removal, waste management, janitorial, and housekeeping." },
+      { title: "Energy Advisory", desc: "Sizing and planning to match power supply to real demand." },
     ],
     serviceSlugs: ["renewable-energy-power", "real-estate-property", "environmental-services"],
     imageQuery: "solar",
     imageLock: 51,
     heroImage: "https://images.pexels.com/photos/40747788/pexels-photo-40747788.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    bodyImage: "https://images.pexels.com/photos/38804912/pexels-photo-38804912.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
 ];
 

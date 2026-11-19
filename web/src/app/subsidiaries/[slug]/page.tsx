@@ -74,7 +74,7 @@ export default async function SubsidiaryPage({
                 ))}
                 <div className="relative aspect-[16/8] overflow-hidden">
                   <img
-                    src={subsidiary.heroImage}
+                    src={subsidiary.bodyImage ?? subsidiary.heroImage}
                     alt={`${subsidiary.name} work`}
                     className="h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
                   />

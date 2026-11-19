@@ -14,6 +14,8 @@ export type Service = {
   imageQuery: string;
   imageLock: number;
   heroImage: string;
+  /** A different image used inside the page body, so it doesn't repeat the header. */
+  bodyImage?: string;
 };
 
 /** Shared one-line description of each subsidiary, keyed by name. */
@@ -45,11 +47,14 @@ export const SERVICES: Service[] = [
       { title: "Building Construction", desc: "Residential, commercial, and institutional buildings from foundation to finish." },
       { title: "Roads & Infrastructure", desc: "Access roads, pavements, and the civil infrastructure that supports them." },
       { title: "Structural Fabrication", desc: "Steel and structural fabrication engineered to specification." },
+      { title: "Project Management", desc: "On-site coordination, scheduling, and quality control across every trade." },
+      { title: "Renovation & Remodeling", desc: "Upgrades, refurbishment, and fit-out of existing structures." },
     ],
     deliveredBy: "DIPON Construction Limited",
     imageQuery: "construction",
     imageLock: 32,
     heroImage: "https://images.pexels.com/photos/17297091/pexels-photo-17297091.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    bodyImage: "https://images.pexels.com/photos/30396647/pexels-photo-30396647.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "renewable-energy-power",
@@ -69,11 +74,14 @@ export const SERVICES: Service[] = [
       { title: "Street & Public Lighting", desc: "Solar and grid street lighting for estates, roads, and communities." },
       { title: "Power Infrastructure", desc: "Distribution, backup, and power systems built for reliability." },
       { title: "Energy Advisory", desc: "Sizing and planning to match power supply to real demand." },
+      { title: "Backup & Storage", desc: "Battery storage and backup systems for uninterrupted supply." },
+      { title: "Maintenance & Monitoring", desc: "Servicing and performance monitoring that keep systems at peak output." },
     ],
     deliveredBy: "DIPON Infrastructure Limited",
     imageQuery: "solar",
     imageLock: 51,
     heroImage: "https://images.pexels.com/photos/38804912/pexels-photo-38804912.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    bodyImage: "https://images.pexels.com/photos/6729421/pexels-photo-6729421.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "real-estate-property",
@@ -93,11 +101,14 @@ export const SERVICES: Service[] = [
       { title: "Commercial Property", desc: "Offices and commercial spaces built and fitted for occupancy." },
       { title: "Land & Site Development", desc: "Acquisition, planning, and servicing of development land." },
       { title: "Project Delivery", desc: "End-to-end delivery coordinated with construction and power teams." },
+      { title: "Facility Management", desc: "Ongoing management and upkeep of completed developments." },
+      { title: "Property Advisory", desc: "Feasibility, planning, and advisory for property investments." },
     ],
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "apartment",
     imageLock: 20,
     heroImage: "https://images.pexels.com/photos/37224965/pexels-photo-37224965.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    bodyImage: "https://images.pexels.com/photos/40747788/pexels-photo-40747788.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "environmental-services",
@@ -117,11 +128,14 @@ export const SERVICES: Service[] = [
       { title: "Waste Management", desc: "Collection, sorting, and safe disposal that keeps sites clean and compliant." },
       { title: "Janitorial Services", desc: "Routine and deep cleaning for offices, commercial, and institutional spaces." },
       { title: "Housekeeping", desc: "Day-to-day upkeep that keeps homes and facilities spotless and in order." },
+      { title: "Facility Maintenance", desc: "Scheduled upkeep that keeps buildings running and presentable." },
+      { title: "Grounds & Exterior Care", desc: "Outdoor cleaning, grounds upkeep, and overall site presentation." },
     ],
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "cleaning",
     imageLock: 45,
     heroImage: "https://images.pexels.com/photos/18414281/pexels-photo-18414281.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    bodyImage: "https://images.pexels.com/photos/7300719/pexels-photo-7300719.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "trading-supply-chain",
@@ -141,11 +155,14 @@ export const SERVICES: Service[] = [
       { title: "Materials Supply", desc: "Construction and industrial materials delivered to site." },
       { title: "Product Marketing", desc: "Distribution and marketing of goods to market." },
       { title: "Procurement", desc: "Sourcing and procurement managed against project schedules." },
+      { title: "Warehousing & Storage", desc: "Secure storage and inventory handling for stock and materials." },
+      { title: "Vendor Management", desc: "Qualified supplier networks managed for quality and price." },
     ],
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "warehouse",
     imageLock: 71,
     heroImage: "https://images.pexels.com/photos/19574416/pexels-photo-19574416.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    bodyImage: "https://images.pexels.com/photos/36143083/pexels-photo-36143083.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "transportation-logistics",
@@ -165,11 +182,14 @@ export const SERVICES: Service[] = [
       { title: "Equipment Movement", desc: "Transport of plant and heavy equipment to site." },
       { title: "Distribution", desc: "Last-mile delivery and distribution of products." },
       { title: "Logistics Planning", desc: "Coordination of movement against project timelines." },
+      { title: "Fleet Services", desc: "Managed vehicles and drivers for scheduled and ad-hoc movement." },
+      { title: "Project Logistics", desc: "End-to-end logistics for large or time-critical project loads." },
     ],
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "truck",
     imageLock: 63,
     heroImage: "https://images.pexels.com/photos/28264496/pexels-photo-28264496.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    bodyImage: "https://images.pexels.com/photos/6563903/pexels-photo-6563903.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "agriculture",
@@ -189,6 +209,8 @@ export const SERVICES: Service[] = [
       { title: "Supply & Distribution", desc: "Getting produce to market through Group logistics." },
       { title: "Inputs & Materials", desc: "Supply of agricultural inputs and materials." },
       { title: "Value Chain Development", desc: "Building out the links between production and market." },
+      { title: "Farm Inputs Supply", desc: "Seeds, fertilizer, and equipment supplied to growers." },
+      { title: "Storage & Aggregation", desc: "Aggregation and storage that steady supply to market." },
     ],
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "farm",
