@@ -28,7 +28,7 @@ const INDUSTRIES = [
   {
     slug: "environmental-services",
     title: "Environmental Services",
-    image: "https://images.pexels.com/photos/18414281/pexels-photo-18414281.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/9222622/pexels-photo-9222622.jpeg?auto=compress&cs=tinysrgb&w=1200",
     tint: "navy",
   },
   {

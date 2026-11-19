@@ -44,7 +44,7 @@ const SLIDES: Slide[] = [
     by: "DIPON Infrastructure",
     desc: "Junk removal, waste management, janitorial, and housekeeping that keep sites clean and healthy.",
     category: "Junk, Waste & Cleaning",
-    image: "https://images.pexels.com/photos/7300719/pexels-photo-7300719.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    image: "https://images.pexels.com/photos/33691603/pexels-photo-33691603.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Group project: environmental and janitorial services",
   },
   {
@@ -77,12 +77,6 @@ export default function Projects() {
       id="projects"
       className="relative overflow-hidden bg-[#15242d] px-[clamp(20px,5vw,60px)] py-[clamp(72px,9vw,120px)]"
     >
-      {/* Soft accent glow, bottom-left, to break the flat navy */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-40 -left-32 h-[520px] w-[520px] rounded-full bg-dipon-accent/10 blur-[120px]"
-      />
-
       {/* Oversized DIPON "D" mark watermark — matches the nav menu / feature band */}
       <div
         aria-hidden="true"

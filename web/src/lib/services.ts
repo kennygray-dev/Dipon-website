@@ -134,8 +134,8 @@ export const SERVICES: Service[] = [
     deliveredBy: "DIPON Global Resources Limited",
     imageQuery: "cleaning",
     imageLock: 45,
-    heroImage: "https://images.pexels.com/photos/18414281/pexels-photo-18414281.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    bodyImage: "https://images.pexels.com/photos/7300719/pexels-photo-7300719.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    heroImage: "https://images.pexels.com/photos/33691603/pexels-photo-33691603.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    bodyImage: "https://images.pexels.com/photos/9222622/pexels-photo-9222622.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "trading-supply-chain",

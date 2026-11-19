@@ -3,7 +3,7 @@ import Eyebrow from "./Eyebrow";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
 import { LogoMotif } from "./icons";
-import { section, wrap } from "@/lib/styles";
+import { wrap } from "@/lib/styles";
 
 const GRAIN_TEXTURE =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
@@ -29,7 +29,7 @@ export default function DarkFeatureGrid({
 }) {
   return (
     <section
-      className={`relative overflow-hidden bg-dipon-blue [clip-path:polygon(0_64px,100%_0,100%_calc(100%-64px),0_100%)] max-[760px]:[clip-path:none] ${section}`}
+      className="relative overflow-hidden bg-dipon-blue px-[clamp(20px,5vw,60px)] pt-[clamp(108px,13vw,160px)] pb-[clamp(72px,9vw,120px)] [clip-path:polygon(0_64px,100%_0,100%_calc(100%-64px),0_100%)] max-[760px]:pt-[clamp(72px,9vw,120px)] max-[760px]:[clip-path:none]"
     >
       {/* Oversized DIPON "D" mark watermark — the same branded treatment as the nav menu */}
       <div

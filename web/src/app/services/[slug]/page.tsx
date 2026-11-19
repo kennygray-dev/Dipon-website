@@ -118,9 +118,14 @@ export default async function ServicePage({
               <Eyebrow>More Services</Eyebrow>
               <Heading>Explore what else we deliver, across the Group.</Heading>
             </Reveal>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            <div className="mx-auto grid max-w-[980px] grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
               {others.map((other, i) => (
-                <Reveal key={other.slug} delay={(i % 5) * 100} className="aspect-[3/4] overflow-hidden">
+                <Reveal
+                  key={other.slug}
+                  delay={(i % 3) * 90}
+                  from={i % 2 === 0 ? "left" : "right"}
+                  className="aspect-[4/5] overflow-hidden"
+                >
                   <PhotoTile
                     href={`/services/${other.slug}`}
                     image={other.heroImage}

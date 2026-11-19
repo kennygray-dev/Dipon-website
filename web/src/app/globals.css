@@ -83,7 +83,9 @@ body {
   }
 }
 .wordmark-word {
-  animation: wordmark-wipe 1700ms cubic-bezier(0.65, 0, 0.35, 1) both;
+  /* `backwards` (not `both`) so no clip-path lingers after the wipe — otherwise
+     inset(0) would crop glyph descenders like the "g" in "Blog". */
+  animation: wordmark-wipe 1700ms cubic-bezier(0.65, 0, 0.35, 1) backwards;
 }
 .wordmark-sub {
   animation: wordmark-fade 800ms var(--ease-premium) 450ms both;
