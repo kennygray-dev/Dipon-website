@@ -41,8 +41,8 @@ export default function PageHero({
 
       {/* Text block */}
       <div
-        className={`relative px-gutter pt-[clamp(140px,16vw,200px)] ${
-          image ? "pb-[clamp(44px,6vw,80px)]" : "pb-[clamp(56px,8vw,112px)]"
+        className={`relative px-gutter pt-[clamp(112px,12vw,150px)] ${
+          image ? "pb-[clamp(40px,5vw,66px)]" : "pb-[clamp(52px,7vw,96px)]"
         }`}
       >
         <div className={wrap}>
@@ -61,7 +61,7 @@ export default function PageHero({
         <div className="relative">
           <Reveal
             delay={120}
-            className="relative block aspect-[16/9] w-full overflow-hidden sm:aspect-[16/7] lg:aspect-[16/6]"
+            className="relative block h-[clamp(240px,40vh,440px)] w-full overflow-hidden"
           >
             <img src={image} alt={imageAlt ?? ""} className="hero-kenburns absolute inset-0 h-full w-full object-cover" />
             <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-dipon-blue/30 to-transparent" />

@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import CtaButton from "./CtaButton";
-import { ArrowIcon, BurgerIcon, CaretIcon, CloseIcon } from "./icons";
+import Socials from "./Socials";
+import { ArrowIcon, BurgerIcon, CaretIcon, CloseIcon, LogoMotif } from "./icons";
 
 type MegaLink = { title: string; href: string; desc: string; num?: string };
 type MegaGroup = {
@@ -240,53 +241,86 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
         </div>
       </header>
 
-      <div
-        className={`fixed inset-0 z-[70] bg-[rgba(20,28,33,0.5)] transition-opacity duration-[280ms] ease-[var(--ease-standard)] ${
-          drawerOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-        }`}
-        onClick={closeDrawer}
-        aria-hidden={!drawerOpen}
-      />
       <nav
-        className={`fixed top-0 right-0 bottom-0 z-[75] flex w-[min(360px,86vw)] flex-col overflow-y-auto bg-white transition-transform duration-[320ms] ease-[var(--ease-standard)] ${
-          drawerOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 z-[75] flex flex-col overflow-y-auto overflow-x-hidden bg-dipon-blue transition-[opacity,transform] duration-[460ms] ease-[var(--ease-premium)] ${
+          drawerOpen ? "menu-open pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-5 opacity-0"
         }`}
         aria-label="Mobile"
         aria-hidden={!drawerOpen}
       >
-        <div className="flex items-center justify-between border-b border-[rgba(35,61,76,0.14)] px-5 py-4">
-          <Image src="/assets/dipon-logo-dark.svg" alt="DIPON Group" width={493} height={142} className="h-[26px] w-auto" />
-          <button className="-mr-2.5 cursor-pointer border-0 bg-none p-2.5 text-dipon-primary" aria-label="Close menu" onClick={closeDrawer}>
+        {/* Faint DIPON mark watermark */}
+        <div aria-hidden="true" className="pointer-events-none absolute top-1/2 -right-[16%] h-[128%] -translate-y-1/2 opacity-[0.06]">
+          <LogoMotif className="h-full w-auto" />
+        </div>
+
+        <div className="relative flex items-center justify-between px-5 py-4">
+          <Image src="/assets/dipon-logo-light.svg" alt="DIPON Group" width={493} height={142} className="h-[26px] w-auto" />
+          <button
+            className="-mr-2.5 cursor-pointer border-0 bg-none p-2.5 text-dipon-cream transition-transform duration-200 hover:rotate-90"
+            aria-label="Close menu"
+            onClick={closeDrawer}
+          >
             <CloseIcon />
           </button>
         </div>
-        <div>
-          {MEGA_GROUPS.map((group) => {
+
+        <div className="relative flex flex-1 flex-col px-5 pt-3 pb-2">
+          {MEGA_GROUPS.map((group, gi) => {
             const isOpen = openGroup === group.key;
             return (
-              <div className="border-b border-[rgba(35,61,76,0.14)]" key={group.key}>
+              <div
+                className="menu-item border-b border-white/10"
+                style={{ animationDelay: `${gi * 70 + 110}ms` }}
+                key={group.key}
+              >
                 <button
-                  className="flex w-full cursor-pointer items-center justify-between border-0 bg-none px-5 py-[18px] font-body text-[15px] font-medium text-dipon-primary"
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 border-0 bg-none py-[18px] text-left"
                   aria-expanded={isOpen}
                   onClick={() => setOpenGroup(isOpen ? null : group.key)}
                 >
-                  {group.label}
-                  <span className={`transition-transform duration-[220ms] ease-[var(--ease-standard)] ${isOpen ? "rotate-180" : ""}`}>
+                  <span className="font-display text-[27px] font-bold tracking-[-0.6px] text-dipon-cream">{group.label}</span>
+                  <span
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 text-dipon-accent transition-transform duration-[300ms] ease-[var(--ease-premium)] ${
+                      isOpen ? "rotate-180 bg-dipon-accent text-white" : ""
+                    }`}
+                  >
                     <CaretIcon />
                   </span>
                 </button>
-                <div className={`grid transition-[grid-template-rows] duration-[260ms] ease-[var(--ease-standard)] ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                <div className={`grid transition-[grid-template-rows] duration-[340ms] ease-[var(--ease-premium)] ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                   <div className="overflow-hidden">
-                    {group.links.map((link) => (
-                      <a
-                        className="block px-5 py-3 pl-8 font-body text-sm text-dipon-secondary no-underline hover:text-dipon-accent-deep"
-                        href={link.href}
-                        key={link.title}
-                        onClick={closeDrawer}
-                      >
-                        {link.title}
-                      </a>
-                    ))}
+                    <div className="flex flex-col gap-2 pt-1 pb-5">
+                      {group.links.map((link, li) => (
+                        <a
+                          className="group/ml flex items-center gap-3.5 border border-white/10 bg-white/[0.035] px-4 py-3.5 no-underline transition-[background-color,border-color,transform] duration-200 active:scale-[0.99] hover:-translate-y-0.5 hover:border-dipon-accent/40 hover:bg-white/[0.07]"
+                          href={link.href}
+                          key={link.title}
+                          onClick={closeDrawer}
+                        >
+                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-dipon-accent/15 font-label text-[11px] font-bold text-dipon-accent transition-colors duration-200 group-hover/ml:bg-dipon-accent group-hover/ml:text-white">
+                            {String(li + 1).padStart(2, "0")}
+                          </span>
+                          <span className="min-w-0 flex-1">
+                            <span className="block font-display text-[14.5px] font-semibold tracking-[-0.1px] text-dipon-cream transition-colors group-hover/ml:text-dipon-accent">
+                              {link.title}
+                            </span>
+                            <span className="mt-0.5 block truncate font-body text-[11.5px] leading-[1.4] text-dipon-cream/45">{link.desc}</span>
+                          </span>
+                          <span className="text-dipon-cream/35 transition-[color,transform] duration-200 group-hover/ml:translate-x-0.5 group-hover/ml:text-dipon-accent">
+                            <ArrowIcon width={13} height={6} />
+                          </span>
+                        </a>
+                      ))}
+                      {group.railLinkLabel && group.railHref && (
+                        <a
+                          href={group.railHref}
+                          onClick={closeDrawer}
+                          className="mt-1.5 inline-flex w-fit items-center gap-2 font-label text-[11px] font-semibold tracking-[1.3px] text-dipon-accent uppercase no-underline"
+                        >
+                          {group.railLinkLabel} <ArrowIcon width={13} height={6} />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -294,20 +328,22 @@ export default function Header({ heroIsDark = true }: { heroIsDark?: boolean }) 
           })}
           <Link
             href="/blog"
-            className="block border-b border-[rgba(35,61,76,0.14)] px-5 py-[18px] font-body text-[15px] font-medium text-dipon-primary no-underline"
             onClick={closeDrawer}
+            className="menu-item border-b border-white/10 py-[18px] font-display text-[27px] font-bold tracking-[-0.6px] text-dipon-cream no-underline"
+            style={{ animationDelay: `${MEGA_GROUPS.length * 70 + 110}ms` }}
           >
             Blog
           </Link>
         </div>
-        <div className="mt-auto border-t border-[rgba(35,61,76,0.14)] p-5">
-          <CtaButton
-            href="/contact"
-            label="Discuss Your Next Project"
-            variant="accent"
-            full
-            onClick={closeDrawer}
-          />
+
+        <div
+          className="menu-item relative mt-auto px-5 pt-5 pb-9"
+          style={{ animationDelay: `${(MEGA_GROUPS.length + 1) * 70 + 110}ms` }}
+        >
+          <CtaButton href="/contact" label="Discuss Your Next Project" variant="accent" full bold onClick={closeDrawer} />
+          <div className="mt-6 border-t border-white/10 pt-6">
+            <Socials label="Follow Us" />
+          </div>
         </div>
       </nav>
     </>

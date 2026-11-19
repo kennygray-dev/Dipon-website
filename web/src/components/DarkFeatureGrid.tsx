@@ -2,6 +2,7 @@ import type { ComponentType } from "react";
 import Eyebrow from "./Eyebrow";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
+import { LogoMotif } from "./icons";
 import { section, wrap } from "@/lib/styles";
 
 const GRAIN_TEXTURE =
@@ -30,30 +31,14 @@ export default function DarkFeatureGrid({
     <section
       className={`relative overflow-hidden bg-dipon-blue [clip-path:polygon(0_64px,100%_0,100%_calc(100%-64px),0_100%)] max-[760px]:[clip-path:none] ${section}`}
     >
-      <div aria-hidden="true" className="absolute top-0 right-0 h-full w-[46%] opacity-50">
-        <svg width="100%" height="100%" viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice">
-          <path d="M360 0 L600 360 L600 0 Z" fill="#FD802E" opacity="0.05" />
-          <path d="M480 700 L600 470 L600 700 Z" fill="#FFFFFF" opacity="0.03" />
-        </svg>
-      </div>
-
-      {/* Faint line geometry spanning the whole section */}
-      <div aria-hidden="true" data-open data-parallax="0.08" className="pointer-events-none absolute inset-0 opacity-[0.07]">
-        <svg width="100%" height="100%" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none">
-          <path d="M-40 40 L340 40 L440 330 L60 330 Z" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M340 40 L520 200" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M60 330 L-100 470" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M1240 660 L1220 260" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M1240 660 L980 160" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M1240 660 L700 260" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M1220 260 L980 160" stroke="#FFF9EB" strokeWidth="1.5" />
-          <path d="M980 160 L700 260" stroke="#FFF9EB" strokeWidth="1.5" />
-          <circle cx="340" cy="40" r="3.5" fill="#FFF9EB" />
-          <circle cx="60" cy="330" r="3.5" fill="#FFF9EB" />
-          <circle cx="1220" cy="260" r="3.5" fill="#FFF9EB" />
-          <circle cx="980" cy="160" r="3.5" fill="#FFF9EB" />
-          <circle cx="700" cy="260" r="3.5" fill="#FFF9EB" />
-        </svg>
+      {/* Oversized DIPON "D" mark watermark — the same branded treatment as the nav menu */}
+      <div
+        aria-hidden="true"
+        data-open
+        data-parallax="0.08"
+        className="pointer-events-none absolute top-1/2 -right-[6%] h-[155%] -translate-y-1/2 opacity-[0.06]"
+      >
+        <LogoMotif className="h-full w-auto" />
       </div>
 
       {/* Grain texture */}

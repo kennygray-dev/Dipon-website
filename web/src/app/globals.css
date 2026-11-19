@@ -214,6 +214,27 @@ img.object-cover:not(.grayscale) {
   }
 }
 
+/* Mobile full-screen menu — items rise in with a staggered, premium entrance
+   (per-item delay set inline). Backwards fill holds the hidden start state. */
+@keyframes menu-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.menu-open .menu-item {
+  animation: menu-rise 520ms var(--ease-premium) backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-open .menu-item {
+    animation: none;
+  }
+}
+
 @layer base {
   a {
     color: inherit;
