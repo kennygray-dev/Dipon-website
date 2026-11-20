@@ -94,7 +94,7 @@ export default function Projects() {
   const featured = PROJECTS[0];
   const rest = PROJECTS.slice(1);
 
-  const outerRef = useRef<HTMLDivElement | null>(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
   const slotRef = useRef<HTMLDivElement | null>(null);
   const featRef = useRef<HTMLDivElement | null>(null);
@@ -108,15 +108,17 @@ export default function Projects() {
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!canRun) return;
 
-    // ── Discrete "pages" via gesture snapping ──────────────────────────────
-    // The section pins, and each full scroll gesture advances exactly one step:
-    //   step 0 = one full-bleed image   →   step 1 = the full grid   →   exit.
-    // While pinned we pause Lenis and swallow the wheel/touch/key gesture, so
-    // the page never scrubs — it holds each frame until the *next* gesture.
+    // ── Full-screen "pages" that grab and HOLD ─────────────────────────────
+    // The section is exactly one viewport tall. The instant it rises to fill the
+    // screen it snaps into place and FREEZES the page (Lenis stopped) — it then
+    // holds, perfectly still, until a deliberate scroll gesture advances it:
+    //   step 0 = one full-bleed image  →  step 1 = the full grid  →  release.
+    // The page literally cannot move while held, so nothing ever scrubs past; a
+    // gesture advances exactly one step, and the last one slides to the next
+    // screen.
     const LAST_STEP = 1;
     let step = 0;
-    let locked = false;
-    let wasPinned = false;
+    let active = false;
     let justReleased = false;
     let cooling = false;
     let lastY = window.scrollY;
@@ -136,7 +138,7 @@ export default function Projects() {
     };
     const scrollSmooth = (y: number) => {
       const l = lenis();
-      if (l) l.scrollTo(y, { force: true, duration: 0.7 });
+      if (l) l.scrollTo(y, { force: true, duration: 0.8 });
       else window.scrollTo({ top: y, behavior: "smooth" });
     };
 
@@ -169,38 +171,29 @@ export default function Projects() {
       }
     };
 
-    const lockAt = (enterStep: number) => {
-      const outer = outerRef.current;
-      if (!outer) return;
+    // Snap the section to fill the screen exactly, then freeze the page so it
+    // holds, held at `enterStep`, until the next deliberate gesture.
+    const grab = (enterStep: number) => {
+      const section = sectionRef.current;
+      if (!section) return;
       step = enterStep;
-      const alignY = getY() + outer.getBoundingClientRect().top; // where outer.top === 0
-      scrollToY(alignY);
-      lenis()?.stop();
-      locked = true;
+      const absTop = getY() + section.getBoundingClientRect().top; // section top in doc space
+      scrollToY(absTop); // snap it to fill the viewport exactly
+      lenis()?.stop(); // and freeze — the page cannot move until release()
+      active = true;
       applyStep();
     };
 
     const release = (dir: number) => {
-      const outer = outerRef.current;
-      locked = false;
-      wasPinned = true; // still inside the pin range; the exit slide must not re-lock
-      lenis()?.start();
-      if (outer) {
-        const vh = window.innerHeight;
-        const base = getY() + outer.getBoundingClientRect().top; // absolute top of outer
-        if (dir > 0) {
-          // Snap to the last pinned frame (grid still full-screen), then slide the
-          // next section up into view — one clean "page turn" on this one gesture.
-          const unpin = base + outer.offsetHeight - vh;
-          scrollToY(unpin);
-          requestAnimationFrame(() => scrollSmooth(unpin + vh));
-        } else {
-          scrollToY(base);
-          requestAnimationFrame(() => scrollSmooth(base - vh));
-        }
-      }
+      const section = sectionRef.current;
+      active = false;
       justReleased = true;
-      window.setTimeout(() => (justReleased = false), 750);
+      window.setTimeout(() => (justReleased = false), 900); // cover the whole exit slide
+      lenis()?.start();
+      if (!section) return;
+      const vh = window.innerHeight;
+      const absTop = getY() + section.getBoundingClientRect().top;
+      scrollSmooth(dir > 0 ? absTop + vh : absTop - vh); // slide to the next / previous screen
     };
 
     const tryStep = (dir: number) => {
@@ -217,7 +210,7 @@ export default function Projects() {
     };
 
     const onWheel = (e: WheelEvent) => {
-      if (!locked) return;
+      if (!active) return;
       e.preventDefault();
       if (Math.abs(e.deltaY) < 6) return;
       tryStep(e.deltaY > 0 ? 1 : -1);
@@ -228,17 +221,17 @@ export default function Projects() {
       touchY = e.touches[0]?.clientY ?? 0;
     };
     const onTouchMove = (e: TouchEvent) => {
-      if (!locked) return;
+      if (!active) return;
       e.preventDefault();
     };
     const onTouchEnd = (e: TouchEvent) => {
-      if (!locked) return;
+      if (!active) return;
       const dy = touchY - (e.changedTouches[0]?.clientY ?? touchY);
       if (Math.abs(dy) > 36) tryStep(dy > 0 ? 1 : -1);
     };
 
     const onKey = (e: KeyboardEvent) => {
-      if (!locked) return;
+      if (!active) return;
       if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
         e.preventDefault();
         tryStep(1);
@@ -249,20 +242,24 @@ export default function Projects() {
     };
 
     const onScroll = () => {
-      const outer = outerRef.current;
-      if (!outer || locked) {
-        lastY = getY();
+      const section = sectionRef.current;
+      const y = getY();
+      if (!section || active || justReleased) {
+        lastY = y;
         return;
       }
       const vh = window.innerHeight;
-      const oRect = outer.getBoundingClientRect();
-      const pinnedNow = oRect.top <= 0 && oRect.bottom >= vh;
-      const goingDown = getY() >= lastY;
-      if (pinnedNow && !wasPinned && !justReleased) {
-        lockAt(goingDown ? 0 : LAST_STEP);
+      const r = section.getBoundingClientRect();
+      const goingDown = y >= lastY;
+      lastY = y;
+      // Grab as the section rises to dominate the viewport. Scrolling down we
+      // enter on the image (step 0); scrolling up (coming back from below) we
+      // enter on the grid (last step). The wide windows never miss the moment.
+      if (goingDown && r.top <= vh * 0.4 && r.top > -vh * 0.6) {
+        grab(0);
+      } else if (!goingDown && r.bottom >= vh * 0.6 && r.bottom < vh * 1.6) {
+        grab(LAST_STEP);
       }
-      wasPinned = pinnedNow;
-      lastY = getY();
     };
 
     applyStep();
@@ -287,59 +284,57 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative overflow-x-clip bg-[#15242d]">
-      {/* Desktop: full-screen image frame → one-shot collapse into the full-bleed grid */}
-      <div ref={outerRef} className="relative hidden h-[300vh] lg:block motion-reduce:lg:hidden">
-        <div className="sticky top-0 h-screen overflow-hidden">
-          <div ref={stageRef} className="relative h-full w-full">
-            {/* Full-bleed grid (featured cell is an empty placeholder) */}
-            <div ref={gridRef} className="proj-grid absolute inset-0 grid grid-cols-4 grid-rows-3 gap-2">
-              <div ref={slotRef} className="col-span-2 row-span-2" aria-hidden="true" />
-              {rest.map((p) => (
-                <div key={p.title} className={`proj-tile ${p.span}`}>
-                  <Tile p={p} />
-                </div>
-              ))}
-            </div>
+      {/* Desktop: one full screen that grabs and holds — image, then grid */}
+      <div ref={sectionRef} className="relative hidden h-screen overflow-hidden lg:block motion-reduce:lg:hidden">
+        <div ref={stageRef} className="relative h-full w-full">
+          {/* Full-bleed grid (featured cell is an empty placeholder) */}
+          <div ref={gridRef} className="proj-grid absolute inset-0 grid grid-cols-4 grid-rows-3 gap-2">
+            <div ref={slotRef} className="col-span-2 row-span-2" aria-hidden="true" />
+            {rest.map((p) => (
+              <div key={p.title} className={`proj-tile ${p.span}`}>
+                <Tile p={p} />
+              </div>
+            ))}
+          </div>
 
-            {/* Featured image: snaps from full-screen to its slot in one animated step */}
-            <div
-              ref={featRef}
-              className="absolute z-10 overflow-hidden transition-[left,top,width,height] duration-[800ms] ease-[var(--ease-premium)]"
-              style={{ left: 0, top: 0, width: "100%", height: "100%" }}
-            >
-              <Link href={featured.href} className="group block h-full w-full no-underline">
-                <img src={featured.image} alt={featured.alt} className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/25" />
-                {/* All the heading info lives inside the image, fading out on collapse */}
-                <div
-                  ref={textRef}
-                  className="pointer-events-none absolute inset-0 flex flex-col justify-end p-[clamp(28px,6vw,88px)] transition-opacity duration-500"
-                  style={{ opacity: 1 }}
-                >
-                  <p className="mb-4 font-label text-[12px] font-semibold tracking-[0.2em] text-dipon-accent uppercase">
-                    Featured Work
-                  </p>
-                  <h2 className="max-w-[16ch] text-balance font-display text-[clamp(30px,4.4vw,60px)] font-bold leading-[1.08] tracking-[-0.5px] text-white">
-                    {STATEMENT}
-                  </h2>
-                </div>
-              </Link>
-            </div>
-
-            {/* View all — subtle corner link, fades in with the grid */}
-            <div
-              ref={viewAllRef}
-              className="pointer-events-none absolute right-6 bottom-5 z-20 transition-opacity duration-500"
-              style={{ opacity: 0 }}
-            >
-              <Link
-                href="/services"
-                className="group pointer-events-auto inline-flex items-center gap-2 font-label text-[11px] font-semibold tracking-[0.14em] text-white/80 uppercase no-underline transition-colors duration-200 hover:text-white [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
+          {/* Featured image: morphs from full-screen to its slot in one animated step */}
+          <div
+            ref={featRef}
+            className="absolute z-10 overflow-hidden transition-[left,top,width,height] duration-[800ms] ease-[var(--ease-premium)]"
+            style={{ left: 0, top: 0, width: "100%", height: "100%" }}
+          >
+            <Link href={featured.href} className="group block h-full w-full no-underline">
+              <img src={featured.image} alt={featured.alt} className="absolute inset-0 h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/25" />
+              {/* All the heading info lives inside the image, fading out on collapse */}
+              <div
+                ref={textRef}
+                className="pointer-events-none absolute inset-0 flex flex-col justify-end p-[clamp(28px,6vw,88px)] transition-opacity duration-500"
+                style={{ opacity: 1 }}
               >
-                <span className="underline-offset-4 group-hover:underline">View All Services</span>
-                <ArrowIcon width={13} height={6} />
-              </Link>
-            </div>
+                <p className="mb-4 font-label text-[12px] font-semibold tracking-[0.2em] text-dipon-accent uppercase">
+                  Featured Work
+                </p>
+                <h2 className="max-w-[16ch] text-balance font-display text-[clamp(30px,4.4vw,60px)] font-bold leading-[1.08] tracking-[-0.5px] text-white">
+                  {STATEMENT}
+                </h2>
+              </div>
+            </Link>
+          </div>
+
+          {/* View all — subtle corner link, fades in with the grid */}
+          <div
+            ref={viewAllRef}
+            className="pointer-events-none absolute right-6 bottom-5 z-20 transition-opacity duration-500"
+            style={{ opacity: 0 }}
+          >
+            <Link
+              href="/services"
+              className="group pointer-events-auto inline-flex items-center gap-2 font-label text-[11px] font-semibold tracking-[0.14em] text-white/80 uppercase no-underline transition-colors duration-200 hover:text-white [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
+            >
+              <span className="underline-offset-4 group-hover:underline">View All Services</span>
+              <ArrowIcon width={13} height={6} />
+            </Link>
           </div>
         </div>
       </div>
