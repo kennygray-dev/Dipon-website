@@ -120,8 +120,16 @@ export default function Projects() {
     let step = 0;
     let active = false;
     let justReleased = false;
-    let cooling = false;
     let lastY = window.scrollY;
+    // One step per *gesture*: a single trackpad swipe fires a long burst of wheel
+    // events (momentum), so we accept a step only while `armed`, disarm on it, and
+    // re-arm only once the wheel has gone quiet for a beat (the gesture has ended).
+    let armed = false;
+    let quietTimer = 0;
+    const rearmWhenQuiet = () => {
+      window.clearTimeout(quietTimer);
+      quietTimer = window.setTimeout(() => (armed = true), 170);
+    };
 
     type Lenis = {
       scroll: number;
@@ -178,9 +186,13 @@ export default function Projects() {
       if (!section) return;
       step = enterStep;
       const absTop = getY() + section.getBoundingClientRect().top; // section top in doc space
-      scrollToY(absTop); // snap it to fill the viewport exactly
-      lenis()?.stop(); // and freeze — the page cannot move until release()
+      lenis()?.stop(); // freeze first — the page cannot move until release()
+      scrollToY(absTop); // then force it to fill the viewport exactly (force works while stopped)
       active = true;
+      // Disarm so the rest of the *entry* gesture's momentum can't immediately
+      // step past the image; re-arm only after the wheel settles.
+      armed = false;
+      rearmWhenQuiet();
       applyStep();
     };
 
@@ -198,40 +210,41 @@ export default function Projects() {
 
     const tryStep = (dir: number) => {
       const next = step + dir;
-      // Exiting the section is always allowed — never gated by the step cooldown,
-      // or the final gesture gets swallowed and the section needs an extra nudge.
       if (next < 0) return release(-1);
       if (next > LAST_STEP) return release(1);
-      if (cooling) return;
       step = next;
       applyStep();
-      cooling = true;
-      window.setTimeout(() => (cooling = false), 560);
     };
 
     const onWheel = (e: WheelEvent) => {
       if (!active) return;
-      e.preventDefault();
-      if (Math.abs(e.deltaY) < 6) return;
+      e.preventDefault(); // hold the page still for the whole gesture
+      rearmWhenQuiet(); // keep pushing re-arm out until the wheel settles
+      if (!armed || Math.abs(e.deltaY) < 4) return;
+      armed = false; // consume: exactly one step for this gesture
       tryStep(e.deltaY > 0 ? 1 : -1);
     };
 
     let touchY = 0;
     const onTouchStart = (e: TouchEvent) => {
       touchY = e.touches[0]?.clientY ?? 0;
+      if (active) armed = true; // a fresh touch gesture may advance one step
     };
     const onTouchMove = (e: TouchEvent) => {
       if (!active) return;
       e.preventDefault();
     };
     const onTouchEnd = (e: TouchEvent) => {
-      if (!active) return;
+      if (!active || !armed) return;
       const dy = touchY - (e.changedTouches[0]?.clientY ?? touchY);
-      if (Math.abs(dy) > 36) tryStep(dy > 0 ? 1 : -1);
+      if (Math.abs(dy) > 36) {
+        armed = false;
+        tryStep(dy > 0 ? 1 : -1);
+      }
     };
 
     const onKey = (e: KeyboardEvent) => {
-      if (!active) return;
+      if (!active || e.repeat) return;
       if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
         e.preventDefault();
         tryStep(1);
@@ -252,13 +265,11 @@ export default function Projects() {
       const r = section.getBoundingClientRect();
       const goingDown = y >= lastY;
       lastY = y;
-      // Grab as the section rises to dominate the viewport. Scrolling down we
-      // enter on the image (step 0); scrolling up (coming back from below) we
-      // enter on the grid (last step). The wide windows never miss the moment.
-      if (goingDown && r.top <= vh * 0.4 && r.top > -vh * 0.6) {
-        grab(0);
-      } else if (!goingDown && r.bottom >= vh * 0.6 && r.bottom < vh * 1.6) {
-        grab(LAST_STEP);
+      // Grab right as the section crosses to fill the screen (its top reaching 0),
+      // so the snap is a few pixels, never a jump. Scrolling down enters on the
+      // image (step 0); scrolling up (coming back from below) enters on the grid.
+      if (r.top <= 0 && r.top > -vh * 0.85) {
+        grab(goingDown ? 0 : LAST_STEP);
       }
     };
 
@@ -278,6 +289,7 @@ export default function Projects() {
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("touchend", onTouchEnd);
       window.removeEventListener("keydown", onKey);
+      window.clearTimeout(quietTimer);
       lenis()?.start();
     };
   }, []);
