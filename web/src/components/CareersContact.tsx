@@ -9,7 +9,7 @@ import Heading from "./Heading";
 import Reveal from "./Reveal";
 import Socials from "./Socials";
 import { ArrowIcon, LogoMark, MailIcon, PhoneIcon, PinIcon } from "./icons";
-import { CAREERS_EMAIL, OFFICES } from "@/lib/site";
+import { CAREERS_EMAIL, OFFICES, SOCIAL_LINKS } from "@/lib/site";
 import { section, wrap, lead } from "@/lib/styles";
 
 const HEAD_OFFICE = OFFICES[0];
@@ -31,8 +31,6 @@ const inputClass =
   "w-full border border-[rgba(35,61,76,0.16)] bg-white px-4 py-3 font-body text-[15px] text-dipon-primary outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent focus:ring-2 focus:ring-dipon-accent/25 aria-[invalid=true]:border-red-500";
 const labelClass = "mb-1.5 block font-body text-[13px] font-medium text-dipon-secondary";
 const errorClass = "mt-1 font-body text-[12px] text-red-600";
-const contactChip =
-  "inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-3.5 py-2 font-body text-[13.5px] text-dipon-cream no-underline transition-colors duration-200 hover:border-white/45 hover:bg-white/10";
 const mapsUrl = (query: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 
@@ -61,9 +59,10 @@ export default function CareersContact() {
           </p>
         </Reveal>
 
-        <Reveal className="relative bg-dipon-blue">
-          {/* Photo */}
-          <div className="relative h-[280px] overflow-hidden sm:h-[340px] lg:h-[380px]">
+        {/* min-h on desktop so the tall floating form is fully contained */}
+        <Reveal className="relative bg-dipon-blue lg:min-h-[780px]">
+          {/* Photo — taller, immersive band */}
+          <div className="relative h-[280px] overflow-hidden sm:h-[340px] lg:h-[580px]">
             <img src={PHOTO} alt="DIPON Group team" className="absolute inset-0 h-full w-full object-cover" />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/10 to-dipon-blue/35" />
             <GeometricOverlay />
@@ -208,66 +207,94 @@ export default function CareersContact() {
             )}
           </Reveal>
 
-          {/* Contacts / socials — grouped bottom-left, clear of the floating form */}
-          <div className="flex flex-col gap-8 border-t border-white/10 px-6 py-9 sm:flex-row sm:flex-wrap sm:gap-12 lg:max-w-[calc(100%-480px)] lg:flex-nowrap lg:items-start lg:gap-16 lg:px-8">
-            <div>
-              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
-                Prefer To Talk?
-              </span>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <a href={`tel:${HEAD_OFFICE.phoneHref}`} className={contactChip}>
-                  <span className="text-dipon-accent">
-                    <PhoneIcon />
-                  </span>
-                  {HEAD_OFFICE.phoneDisplay}
-                </a>
-                {HEAD_OFFICE.extraPhones?.map((p) => (
-                  <a key={p.href} href={`tel:${p.href}`} className={contactChip}>
-                    <span className="text-dipon-accent">
-                      <PhoneIcon />
-                    </span>
-                    {p.display}
-                  </a>
-                ))}
-                {CAREERS_EMAIL && (
-                  <a href={`mailto:${CAREERS_EMAIL}`} className={contactChip}>
-                    <span className="text-dipon-accent">
-                      <MailIcon />
-                    </span>
-                    {CAREERS_EMAIL}
-                  </a>
+          {/* Head Office address stays in the card; the actionable details live
+              in the boxless panel below. */}
+          <div className="border-t border-white/10 px-6 py-9 lg:max-w-[calc(100%-480px)] lg:px-8">
+            <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
+              Head Office
+            </span>
+            <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/80">
+              {HEAD_OFFICE.lines.map((line) => (
+                <span key={line}>
+                  {line}
+                  <br />
+                </span>
+              ))}
+              {HEAD_OFFICE.country}
+            </p>
+          </div>
+        </Reveal>
+
+        {/* Reach us directly — boxless, matches the contact page */}
+        <Reveal className="mt-10 lg:mt-14">
+          <div className="mb-6">
+            <Eyebrow>Reach Us Directly</Eyebrow>
+          </div>
+
+          <div className="grid gap-10 md:grid-cols-2 md:gap-0">
+            {/* Call */}
+            <div className="md:pr-12">
+              <div className="flex items-center justify-between gap-3 border-b border-[rgba(35,61,76,0.12)] pb-3">
+                <span className="font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-accent uppercase">
+                  Head Office
+                </span>
+                <span className="font-body text-[12px] text-dipon-tertiary">{HEAD_OFFICE.country}</span>
+              </div>
+              <div className="mt-6 flex flex-col gap-4">
+                {[{ display: HEAD_OFFICE.phoneDisplay, href: HEAD_OFFICE.phoneHref }, ...(HEAD_OFFICE.extraPhones ?? [])].map(
+                  (p) => (
+                    <a key={p.href} href={`tel:${p.href}`} className="group flex w-fit items-center gap-3.5 no-underline">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent/10 text-dipon-accent transition-colors duration-200 group-hover:bg-dipon-accent group-hover:text-white">
+                        <PhoneIcon />
+                      </span>
+                      <span className="font-body text-[22px] font-bold leading-none tracking-[-0.2px] text-dipon-primary transition-colors duration-200 group-hover:text-dipon-accent">
+                        {p.display}
+                      </span>
+                    </a>
+                  )
                 )}
               </div>
+              <a
+                href={mapsUrl([...HEAD_OFFICE.lines, HEAD_OFFICE.country].join(", "))}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-6 inline-flex items-center gap-2 font-label text-[11px] font-semibold tracking-[1px] text-dipon-secondary uppercase no-underline transition-colors duration-200 hover:text-dipon-accent [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
+              >
+                <span className="text-dipon-accent">
+                  <PinIcon />
+                </span>
+                <span className="underline-offset-4 group-hover:underline">Get directions</span>
+                <ArrowIcon width={13} height={6} />
+              </a>
             </div>
-            <div>
-              <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
-                Head Office
-              </span>
-              <p className="mt-3 font-body text-[14px] leading-[1.7] text-dipon-cream/80">
-                {HEAD_OFFICE.lines.map((line) => (
-                  <span key={line}>
-                    {line}
-                    <br />
+
+            {/* Email */}
+            {CAREERS_EMAIL && (
+              <div className="md:border-l md:border-[rgba(35,61,76,0.12)] md:pl-12">
+                <div className="flex items-center gap-3 border-b border-[rgba(35,61,76,0.12)] pb-3">
+                  <span className="font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-accent uppercase">
+                    Email Us
                   </span>
-                ))}
-                {HEAD_OFFICE.country}
-              </p>
-              <div className="mt-3">
-                <a
-                  href={mapsUrl([...HEAD_OFFICE.lines, HEAD_OFFICE.country].join(", "))}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={contactChip}
-                >
-                  <span className="text-dipon-accent">
-                    <PinIcon />
-                  </span>
-                  Directions
-                </a>
+                </div>
+                <div className="mt-6">
+                  <a href={`mailto:${CAREERS_EMAIL}`} className="group flex w-fit items-center gap-3.5 no-underline">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent/10 text-dipon-accent transition-colors duration-200 group-hover:bg-dipon-accent group-hover:text-white">
+                      <MailIcon />
+                    </span>
+                    <span className="font-body text-[20px] font-bold tracking-[-0.2px] text-dipon-primary transition-colors duration-200 group-hover:text-dipon-accent">
+                      {CAREERS_EMAIL}
+                    </span>
+                  </a>
+                </div>
               </div>
-            </div>
-            <Socials label="Follow Us" />
+            )}
           </div>
+
+          {SOCIAL_LINKS.length > 0 && (
+            <div className="mt-8 flex flex-col items-start gap-3 border-t border-[rgba(35,61,76,0.12)] pt-8">
+              <Socials label="Follow Us" />
+            </div>
+          )}
         </Reveal>
       </div>
     </section>
