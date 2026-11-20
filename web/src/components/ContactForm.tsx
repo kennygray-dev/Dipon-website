@@ -248,29 +248,33 @@ export default function ContactForm() {
             <Eyebrow>Reach Us Directly</Eyebrow>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {OFFICES.map((office) => (
+          {/* No boxes — open, editorial layout separated by hairline rules */}
+          <div className="grid gap-10 md:grid-cols-2 md:gap-0">
+            {OFFICES.map((office, i) => (
               <div
                 key={office.label}
-                className="flex flex-col border border-[rgba(35,61,76,0.1)] bg-white p-6 transition-shadow duration-300 hover:shadow-[0_18px_44px_-26px_rgba(20,28,33,0.5)] sm:p-7"
+                className={i === 0 ? "md:pr-12" : "md:border-l md:border-[rgba(35,61,76,0.12)] md:pl-12"}
               >
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center justify-between gap-3 border-b border-[rgba(35,61,76,0.12)] pb-3">
                   <span className="font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-accent uppercase">
                     {office.label}
                   </span>
                   <span className="font-body text-[12px] text-dipon-tertiary">{office.country}</span>
                 </div>
-                <div className="mt-5 flex flex-col gap-3">
+                {/* Phone numbers are the focus here — large and bold */}
+                <div className="mt-6 flex flex-col gap-4">
                   {[{ display: office.phoneDisplay, href: office.phoneHref }, ...(office.extraPhones ?? [])].map((p) => (
                     <a
                       key={p.href}
                       href={`tel:${p.href}`}
-                      className="group inline-flex w-fit items-center gap-3 font-body text-[16px] font-medium text-dipon-primary no-underline transition-colors duration-200 hover:text-dipon-accent"
+                      className="group flex w-fit items-center gap-3.5 no-underline"
                     >
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-dipon-accent/10 text-dipon-accent transition-colors duration-200 group-hover:bg-dipon-accent group-hover:text-white">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent/10 text-dipon-accent transition-colors duration-200 group-hover:bg-dipon-accent group-hover:text-white">
                         <PhoneIcon />
                       </span>
-                      {p.display}
+                      <span className="font-body text-[22px] font-bold leading-none tracking-[-0.2px] text-dipon-primary transition-colors duration-200 group-hover:text-dipon-accent">
+                        {p.display}
+                      </span>
                     </a>
                   ))}
                 </div>
@@ -291,29 +295,29 @@ export default function ContactForm() {
           </div>
 
           {CONTACT_EMAIL && (
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="group mt-4 flex items-center justify-between gap-4 bg-dipon-blue p-6 no-underline transition-shadow duration-300 hover:shadow-[0_18px_44px_-24px_rgba(20,28,33,0.65)] sm:p-7"
-            >
-              <span className="flex items-center gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-dipon-accent/15 text-dipon-accent transition-colors duration-200 group-hover:bg-dipon-accent group-hover:text-white">
+            <div className="mt-10 flex flex-col items-start gap-4 border-t border-[rgba(35,61,76,0.12)] pt-8">
+              <span className="font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-secondary uppercase">
+                Email Us
+              </span>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="group inline-flex w-fit items-center gap-3.5 no-underline"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dipon-accent/10 text-dipon-accent transition-colors duration-200 group-hover:bg-dipon-accent group-hover:text-white">
                   <MailIcon />
                 </span>
-                <span className="block">
-                  <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/60 uppercase">
-                    Email Us
-                  </span>
-                  <span className="mt-1 block font-body text-[16px] font-medium text-dipon-cream">{CONTACT_EMAIL}</span>
+                <span className="font-body text-[20px] font-bold tracking-[-0.2px] text-dipon-primary transition-colors duration-200 group-hover:text-dipon-accent">
+                  {CONTACT_EMAIL}
                 </span>
-              </span>
-              <span className="hidden shrink-0 text-dipon-accent transition-transform duration-200 group-hover:translate-x-1 sm:block">
-                <ArrowIcon width={16} height={7} />
-              </span>
-            </a>
+                <span className="text-dipon-accent transition-transform duration-200 group-hover:translate-x-1">
+                  <ArrowIcon width={15} height={7} />
+                </span>
+              </a>
+            </div>
           )}
 
           {SOCIAL_LINKS.length > 0 && (
-            <div className="mt-4 border border-[rgba(35,61,76,0.1)] bg-white p-6 sm:p-7">
+            <div className="mt-8 flex flex-col items-start gap-3">
               <Socials label="Follow Us" />
             </div>
           )}
