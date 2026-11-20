@@ -101,7 +101,6 @@ export default function Projects() {
   const textRef = useRef<HTMLDivElement | null>(null);
   const viewAllRef = useRef<HTMLDivElement | null>(null);
   const gridRef = useRef<HTMLDivElement | null>(null);
-  const collapsedRef = useRef(false);
 
   useEffect(() => {
     const canRun =
@@ -109,33 +108,38 @@ export default function Projects() {
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!canRun) return;
 
-    let raf = 0;
-    const apply = () => {
-      raf = 0;
-      const outer = outerRef.current;
+    // ── Discrete "pages" via gesture snapping ──────────────────────────────
+    // The section pins, and each full scroll gesture advances exactly one step:
+    //   step 0 = one full-bleed image   →   step 1 = the full grid   →   exit.
+    // While pinned we pause Lenis and swallow the wheel/touch/key gesture, so
+    // the page never scrubs — it holds each frame until the *next* gesture.
+    const LAST_STEP = 1;
+    let step = 0;
+    let locked = false;
+    let wasPinned = false;
+    let justReleased = false;
+    let cooling = false;
+    let lastY = window.scrollY;
+
+    type Lenis = { scroll: number; stop: () => void; start: () => void; scrollTo: (t: number, o?: { immediate?: boolean }) => void };
+    const lenis = () => (window as unknown as { __lenis?: Lenis }).__lenis;
+    const getY = () => lenis()?.scroll ?? window.scrollY;
+    const scrollToY = (y: number) => {
+      const l = lenis();
+      if (l) l.scrollTo(y, { immediate: true });
+      else window.scrollTo(0, y);
+    };
+
+    const applyStep = () => {
       const stage = stageRef.current;
       const slot = slotRef.current;
       const feat = featRef.current;
       const text = textRef.current;
       const viewAll = viewAllRef.current;
       const grid = gridRef.current;
-      if (!outer || !stage || !slot || !feat || !text || !viewAll || !grid) return;
-
-      const vh = window.innerHeight;
-      const oRect = outer.getBoundingClientRect();
-      const total = outer.offsetHeight - vh;
-      const p = total > 0 ? Math.max(0, Math.min(1, -oRect.top / total)) : 0;
-
-      // One-shot snap with hysteresis: the image holds full, and a single scroll
-      // past the threshold collapses it fully into the grid (CSS-animated), not
-      // a scrubbed shrink. Scrolling back up restores the full image.
-      let c = collapsedRef.current;
-      if (!c && p > 0.42) c = true;
-      else if (c && p < 0.32) c = false;
-      collapsedRef.current = c;
-
+      if (!stage || !slot || !feat || !text || !viewAll || !grid) return;
       const sRect = stage.getBoundingClientRect();
-      if (c) {
+      if (step >= 1) {
         const slotR = slot.getBoundingClientRect();
         feat.style.left = `${slotR.left - sRect.left}px`;
         feat.style.top = `${slotR.top - sRect.top}px`;
@@ -154,16 +158,108 @@ export default function Projects() {
         grid.classList.remove("is-open");
       }
     };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(apply);
+
+    const lockAt = (enterStep: number) => {
+      const outer = outerRef.current;
+      if (!outer) return;
+      step = enterStep;
+      const alignY = getY() + outer.getBoundingClientRect().top; // where outer.top === 0
+      scrollToY(alignY);
+      lenis()?.stop();
+      locked = true;
+      applyStep();
     };
-    apply();
+
+    const release = (dir: number) => {
+      const outer = outerRef.current;
+      locked = false;
+      lenis()?.start();
+      if (outer) {
+        const base = getY() + outer.getBoundingClientRect().top;
+        // Down → land at the section's tail (next section revealed); up → just above it.
+        scrollToY(dir > 0 ? base + (outer.offsetHeight - window.innerHeight) : base - window.innerHeight * 0.9);
+      }
+      justReleased = true;
+      window.setTimeout(() => (justReleased = false), 220);
+    };
+
+    const tryStep = (dir: number) => {
+      if (cooling) return;
+      const next = step + dir;
+      if (next < 0) return release(-1);
+      if (next > LAST_STEP) return release(1);
+      step = next;
+      applyStep();
+      cooling = true;
+      window.setTimeout(() => (cooling = false), 820);
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      if (!locked) return;
+      e.preventDefault();
+      if (Math.abs(e.deltaY) < 6) return;
+      tryStep(e.deltaY > 0 ? 1 : -1);
+    };
+
+    let touchY = 0;
+    const onTouchStart = (e: TouchEvent) => {
+      touchY = e.touches[0]?.clientY ?? 0;
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      if (!locked) return;
+      e.preventDefault();
+    };
+    const onTouchEnd = (e: TouchEvent) => {
+      if (!locked) return;
+      const dy = touchY - (e.changedTouches[0]?.clientY ?? touchY);
+      if (Math.abs(dy) > 36) tryStep(dy > 0 ? 1 : -1);
+    };
+
+    const onKey = (e: KeyboardEvent) => {
+      if (!locked) return;
+      if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
+        e.preventDefault();
+        tryStep(1);
+      } else if (e.key === "ArrowUp" || e.key === "PageUp") {
+        e.preventDefault();
+        tryStep(-1);
+      }
+    };
+
+    const onScroll = () => {
+      const outer = outerRef.current;
+      if (!outer || locked) {
+        lastY = getY();
+        return;
+      }
+      const vh = window.innerHeight;
+      const oRect = outer.getBoundingClientRect();
+      const pinnedNow = oRect.top <= 0 && oRect.bottom >= vh;
+      const goingDown = getY() >= lastY;
+      if (pinnedNow && !wasPinned && !justReleased) {
+        lockAt(goingDown ? 0 : LAST_STEP);
+      }
+      wasPinned = pinnedNow;
+      lastY = getY();
+    };
+
+    applyStep();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", applyStep);
+    window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
+    window.addEventListener("touchend", onTouchEnd, { passive: true });
+    window.addEventListener("keydown", onKey);
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (raf) cancelAnimationFrame(raf);
+      window.removeEventListener("resize", applyStep);
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend", onTouchEnd);
+      window.removeEventListener("keydown", onKey);
+      lenis()?.start();
     };
   }, []);
 

@@ -45,6 +45,9 @@ export default function ScrollMotion() {
     };
 
     const lenis = new Lenis({ duration: 1.05, smoothWheel: true, touchMultiplier: 1.6 });
+    // Expose the instance so a pinned, scroll-jacked section (e.g. Featured Work)
+    // can pause/resume inertia scrolling while it steps through its own "pages".
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
     lenis.on("scroll", update);
 
     let rafId = 0;
@@ -64,6 +67,7 @@ export default function ScrollMotion() {
       cancelAnimationFrame(kick);
       clearTimeout(t);
       lenis.destroy();
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
     };
   }, []);
 
