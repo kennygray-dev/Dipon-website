@@ -269,6 +269,28 @@ img.object-cover:not(.grayscale) {
   }
 }
 
+/* Featured Work photos — a slow ambient "breathing" zoom (same spirit as the
+   hero) so the images drift gently instead of sitting static, full-screen and
+   in the grid alike. Each tile gets a negative, varied delay so they're out of
+   sync rather than pulsing together. */
+@keyframes proj-breathe {
+  from {
+    transform: scale(1.03) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.11) translate3d(-1.2%, -1%, 0);
+  }
+}
+.proj-breathe {
+  animation: proj-breathe 19s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .proj-breathe {
+    animation: none;
+  }
+}
+
 @layer base {
   a {
     color: inherit;

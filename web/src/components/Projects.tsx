@@ -69,10 +69,15 @@ const PROJECTS: Project[] = [
 
 const STATEMENT = "We build, power, supply, and develop across Nigeria as one accountable group behind every project.";
 
-function Tile({ p }: { p: Project }) {
+function Tile({ p, delay = "0s" }: { p: Project; delay?: string }) {
   return (
     <div className="relative h-full w-full overflow-hidden">
-      <img src={p.image} alt={p.alt} className="absolute inset-0 h-full w-full object-cover" />
+      <img
+        src={p.image}
+        alt={p.alt}
+        style={{ animationDelay: delay }}
+        className="proj-breathe absolute inset-0 h-full w-full object-cover"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
       <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-1 p-4 sm:p-5">
         <span className="font-label text-[10px] font-semibold tracking-[0.14em] text-dipon-accent uppercase">
@@ -99,6 +104,7 @@ export default function Projects() {
   const slotRef = useRef<HTMLDivElement | null>(null);
   const featRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
+  const featCapRef = useRef<HTMLDivElement | null>(null);
   const viewAllRef = useRef<HTMLDivElement | null>(null);
   const gridRef = useRef<HTMLDivElement | null>(null);
 
@@ -124,9 +130,10 @@ export default function Projects() {
       const slot = slotRef.current;
       const feat = featRef.current;
       const text = textRef.current;
+      const featCap = featCapRef.current;
       const viewAll = viewAllRef.current;
       const grid = gridRef.current;
-      if (!stage || !slot || !feat || !text || !viewAll || !grid) return;
+      if (!stage || !slot || !feat || !text || !featCap || !viewAll || !grid) return;
       step = next;
       const sRect = stage.getBoundingClientRect();
       if (next >= 1) {
@@ -135,7 +142,8 @@ export default function Projects() {
         feat.style.top = `${slotR.top - sRect.top}px`;
         feat.style.width = `${slotR.width}px`;
         feat.style.height = `${slotR.height}px`;
-        text.style.opacity = "0";
+        text.style.opacity = "0"; // big statement fades out
+        featCap.style.opacity = "1"; // small service label fades in
         viewAll.style.opacity = "1";
         grid.classList.add("is-open");
       } else {
@@ -144,6 +152,7 @@ export default function Projects() {
         feat.style.width = `${sRect.width}px`;
         feat.style.height = `${sRect.height}px`;
         text.style.opacity = "1";
+        featCap.style.opacity = "0";
         viewAll.style.opacity = "0";
         grid.classList.remove("is-open");
       }
@@ -190,9 +199,10 @@ export default function Projects() {
             {/* Full-bleed grid (featured cell is an empty placeholder) */}
             <div ref={gridRef} className="proj-grid absolute inset-0 grid grid-cols-4 grid-rows-3 gap-2">
               <div ref={slotRef} className="col-span-2 row-span-2" aria-hidden="true" />
-              {rest.map((p) => (
+              {rest.map((p, i) => (
                 <div key={p.title} className={`proj-tile ${p.span}`}>
-                  <Tile p={p} />
+                  {/* Negative, varied delay so the tiles breathe out of sync */}
+                  <Tile p={p} delay={`-${i * 3.5}s`} />
                 </div>
               ))}
             </div>
@@ -206,7 +216,11 @@ export default function Projects() {
             {/* The first page is a full-image preview/statement — the photo is
                 not a link; it simply holds while you take it in. */}
             <div className="relative h-full w-full">
-              <img src={featured.image} alt={featured.alt} className="absolute inset-0 h-full w-full object-cover" />
+              <img
+                src={featured.image}
+                alt={featured.alt}
+                className="proj-breathe absolute inset-0 h-full w-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/25" />
               {/* All the heading info lives inside the image, fading out on collapse */}
               <div
@@ -220,6 +234,23 @@ export default function Projects() {
                 <h2 className="max-w-[16ch] text-balance font-display text-[clamp(30px,4.4vw,60px)] font-bold leading-[1.08] tracking-[-0.5px] text-white">
                   {STATEMENT}
                 </h2>
+              </div>
+              {/* Service name for the featured cell — hidden full-screen, fades in
+                  once it collapses into the grid so it reads like the other tiles. */}
+              <div
+                ref={featCapRef}
+                className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col items-start gap-1 p-4 transition-opacity duration-500 sm:p-5"
+                style={{ opacity: 0 }}
+              >
+                <span className="font-label text-[10px] font-semibold tracking-[0.14em] text-dipon-accent uppercase">
+                  {featured.category}
+                </span>
+                <Link
+                  href={featured.href}
+                  className="pointer-events-auto w-fit text-balance font-display text-[15px] font-bold leading-[1.15] text-white no-underline underline-offset-[5px] transition-colors duration-200 hover:text-dipon-accent hover:underline sm:text-[17px]"
+                >
+                  {featured.title}
+                </Link>
               </div>
             </div>
           </div>
@@ -255,7 +286,7 @@ export default function Projects() {
         <div className="grid grid-cols-2 gap-3 [grid-auto-rows:44vw]">
           {PROJECTS.map((p, i) => (
             <Reveal key={p.title} delay={(i % 3) * 90} from={i % 2 === 0 ? "left" : "right"} className="h-full">
-              <Tile p={p} />
+              <Tile p={p} delay={`-${i * 3.5}s`} />
             </Reveal>
           ))}
         </div>
