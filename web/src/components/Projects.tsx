@@ -121,17 +121,22 @@ export default function Projects() {
     let cooling = false;
     let lastY = window.scrollY;
 
-    type Lenis = { scroll: number; stop: () => void; start: () => void; scrollTo: (t: number, o?: { immediate?: boolean }) => void };
+    type Lenis = {
+      scroll: number;
+      stop: () => void;
+      start: () => void;
+      scrollTo: (t: number, o?: { immediate?: boolean; force?: boolean; duration?: number }) => void;
+    };
     const lenis = () => (window as unknown as { __lenis?: Lenis }).__lenis;
     const getY = () => lenis()?.scroll ?? window.scrollY;
     const scrollToY = (y: number) => {
       const l = lenis();
-      if (l) l.scrollTo(y, { immediate: true });
+      if (l) l.scrollTo(y, { immediate: true, force: true });
       else window.scrollTo(0, y);
     };
     const scrollSmooth = (y: number) => {
       const l = lenis();
-      if (l) l.scrollTo(y);
+      if (l) l.scrollTo(y, { force: true, duration: 0.7 });
       else window.scrollTo({ top: y, behavior: "smooth" });
     };
 
@@ -195,18 +200,20 @@ export default function Projects() {
         }
       }
       justReleased = true;
-      window.setTimeout(() => (justReleased = false), 400);
+      window.setTimeout(() => (justReleased = false), 750);
     };
 
     const tryStep = (dir: number) => {
-      if (cooling) return;
       const next = step + dir;
+      // Exiting the section is always allowed — never gated by the step cooldown,
+      // or the final gesture gets swallowed and the section needs an extra nudge.
       if (next < 0) return release(-1);
       if (next > LAST_STEP) return release(1);
+      if (cooling) return;
       step = next;
       applyStep();
       cooling = true;
-      window.setTimeout(() => (cooling = false), 820);
+      window.setTimeout(() => (cooling = false), 560);
     };
 
     const onWheel = (e: WheelEvent) => {
