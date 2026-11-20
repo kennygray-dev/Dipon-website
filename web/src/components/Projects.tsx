@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import Snap from "lenis/snap";
 import Reveal from "./Reveal";
 import { ArrowIcon } from "./icons";
 import { wrap } from "@/lib/styles";
@@ -94,7 +95,7 @@ export default function Projects() {
   const featured = PROJECTS[0];
   const rest = PROJECTS.slice(1);
 
-  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const outerRef = useRef<HTMLDivElement | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
   const slotRef = useRef<HTMLDivElement | null>(null);
   const featRef = useRef<HTMLDivElement | null>(null);
@@ -108,49 +109,17 @@ export default function Projects() {
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!canRun) return;
 
-    // ── Full-screen "pages" that grab and HOLD ─────────────────────────────
-    // The section is exactly one viewport tall. The instant it rises to fill the
-    // screen it snaps into place and FREEZES the page (Lenis stopped) — it then
-    // holds, perfectly still, until a deliberate scroll gesture advances it:
-    //   step 0 = one full-bleed image  →  step 1 = the full grid  →  release.
-    // The page literally cannot move while held, so nothing ever scrubs past; a
-    // gesture advances exactly one step, and the last one slides to the next
-    // screen.
-    const LAST_STEP = 1;
-    let step = 0;
-    let active = false;
-    let justReleased = false;
-    let lastY = window.scrollY;
-    // One step per *gesture*: a single trackpad swipe fires a long burst of wheel
-    // events (momentum), so we accept a step only while `armed`, disarm on it, and
-    // re-arm only once the wheel has gone quiet for a beat (the gesture has ended).
-    let armed = false;
-    let quietTimer = 0;
-    const rearmWhenQuiet = () => {
-      window.clearTimeout(quietTimer);
-      quietTimer = window.setTimeout(() => (armed = true), 170);
-    };
+    // ── Smooth "pages" via scroll SNAPPING (never freezing) ────────────────
+    // The section pins for two screens of scroll. Smooth scrolling stays fully
+    // in play — Lenis just gently SETTLES onto one page at a time (proximity
+    // snap): page 1 = one full-bleed image, page 2 = the full grid, then on to
+    // the rest of the site. Crossing the midpoint flips image<->grid in one
+    // clean animated step (no half-sized scrubbing). The scroll is never locked,
+    // so it never feels stuck and never needs a re-scroll.
+    let step = -1; // force the first applyStep to take effect
+    let raf = 0;
 
-    type Lenis = {
-      scroll: number;
-      stop: () => void;
-      start: () => void;
-      scrollTo: (t: number, o?: { immediate?: boolean; force?: boolean; duration?: number }) => void;
-    };
-    const lenis = () => (window as unknown as { __lenis?: Lenis }).__lenis;
-    const getY = () => lenis()?.scroll ?? window.scrollY;
-    const scrollToY = (y: number) => {
-      const l = lenis();
-      if (l) l.scrollTo(y, { immediate: true, force: true });
-      else window.scrollTo(0, y);
-    };
-    const scrollSmooth = (y: number) => {
-      const l = lenis();
-      if (l) l.scrollTo(y, { force: true, duration: 0.8 });
-      else window.scrollTo({ top: y, behavior: "smooth" });
-    };
-
-    const applyStep = () => {
+    const applyStep = (next: number) => {
       const stage = stageRef.current;
       const slot = slotRef.current;
       const feat = featRef.current;
@@ -158,8 +127,9 @@ export default function Projects() {
       const viewAll = viewAllRef.current;
       const grid = gridRef.current;
       if (!stage || !slot || !feat || !text || !viewAll || !grid) return;
+      step = next;
       const sRect = stage.getBoundingClientRect();
-      if (step >= 1) {
+      if (next >= 1) {
         const slotR = slot.getBoundingClientRect();
         feat.style.left = `${slotR.left - sRect.left}px`;
         feat.style.top = `${slotR.top - sRect.top}px`;
@@ -179,135 +149,90 @@ export default function Projects() {
       }
     };
 
-    // Snap the section to fill the screen exactly, then freeze the page so it
-    // holds, held at `enterStep`, until the next deliberate gesture.
-    const grab = (enterStep: number) => {
-      const section = sectionRef.current;
-      if (!section) return;
-      step = enterStep;
-      const absTop = getY() + section.getBoundingClientRect().top; // section top in doc space
-      lenis()?.stop(); // freeze first — the page cannot move until release()
-      scrollToY(absTop); // then force it to fill the viewport exactly (force works while stopped)
-      active = true;
-      // Disarm so the rest of the *entry* gesture's momentum can't immediately
-      // step past the image; re-arm only after the wheel settles.
-      armed = false;
-      rearmWhenQuiet();
-      applyStep();
+    const getY = () => (window as unknown as { __lenis?: { scroll: number } }).__lenis?.scroll ?? window.scrollY;
+    const progress = () => {
+      const outer = outerRef.current;
+      if (!outer) return 0;
+      const pinRange = outer.offsetHeight - window.innerHeight;
+      const top = outer.getBoundingClientRect().top;
+      return pinRange > 0 ? Math.max(0, Math.min(1, -top / pinRange)) : 0;
     };
 
-    const release = (dir: number) => {
-      const section = sectionRef.current;
-      active = false;
-      justReleased = true;
-      window.setTimeout(() => (justReleased = false), 900); // cover the whole exit slide
-      lenis()?.start();
-      if (!section) return;
-      const vh = window.innerHeight;
-      const absTop = getY() + section.getBoundingClientRect().top;
-      scrollSmooth(dir > 0 ? absTop + vh : absTop - vh); // slide to the next / previous screen
+    const compute = () => {
+      raf = 0;
+      const p = progress();
+      // Hysteresis around the midpoint: decisive flip, no flicker.
+      const want = step >= 1 ? (p < 0.45 ? 0 : 1) : p > 0.55 ? 1 : 0;
+      if (want !== step) applyStep(want);
     };
-
-    const tryStep = (dir: number) => {
-      const next = step + dir;
-      if (next < 0) return release(-1);
-      if (next > LAST_STEP) return release(1);
-      step = next;
-      applyStep();
-    };
-
-    const onWheel = (e: WheelEvent) => {
-      if (!active) return;
-      e.preventDefault(); // hold the page still for the whole gesture
-      rearmWhenQuiet(); // keep pushing re-arm out until the wheel settles
-      if (!armed || Math.abs(e.deltaY) < 4) return;
-      armed = false; // consume: exactly one step for this gesture
-      tryStep(e.deltaY > 0 ? 1 : -1);
-    };
-
-    let touchY = 0;
-    const onTouchStart = (e: TouchEvent) => {
-      touchY = e.touches[0]?.clientY ?? 0;
-      if (active) armed = true; // a fresh touch gesture may advance one step
-    };
-    const onTouchMove = (e: TouchEvent) => {
-      if (!active) return;
-      e.preventDefault();
-    };
-    const onTouchEnd = (e: TouchEvent) => {
-      if (!active || !armed) return;
-      const dy = touchY - (e.changedTouches[0]?.clientY ?? touchY);
-      if (Math.abs(dy) > 36) {
-        armed = false;
-        tryStep(dy > 0 ? 1 : -1);
-      }
-    };
-
-    const onKey = (e: KeyboardEvent) => {
-      if (!active || e.repeat) return;
-      if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
-        e.preventDefault();
-        tryStep(1);
-      } else if (e.key === "ArrowUp" || e.key === "PageUp") {
-        e.preventDefault();
-        tryStep(-1);
-      }
-    };
-
     const onScroll = () => {
-      const section = sectionRef.current;
-      const y = getY();
-      if (!section || active || justReleased) {
-        lastY = y;
+      if (!raf) raf = requestAnimationFrame(compute);
+    };
+
+    // Lenis proximity snap — two snap points: full image & full grid. Proximity
+    // (not mandatory) so it only settles near those points and never hijacks the
+    // rest of the page.
+    let snap: Snap | null = null;
+    let removers: Array<() => void> = [];
+    const setupSnap = () => {
+      const outer = outerRef.current;
+      if (!snap || !outer) return;
+      removers.forEach((r) => r());
+      removers = [];
+      const absTop = getY() + outer.getBoundingClientRect().top;
+      const pinRange = outer.offsetHeight - window.innerHeight;
+      removers.push(snap.add(Math.round(absTop))); // page 1 — image
+      removers.push(snap.add(Math.round(absTop + pinRange))); // page 2 — grid
+    };
+
+    let tries = 0;
+    const initSnap = () => {
+      const l = (window as unknown as { __lenis?: unknown }).__lenis;
+      if (!l) {
+        if (tries++ < 90) requestAnimationFrame(initSnap);
         return;
       }
-      const vh = window.innerHeight;
-      const r = section.getBoundingClientRect();
-      const goingDown = y >= lastY;
-      lastY = y;
-      // Grab right as the section crosses to fill the screen (its top reaching 0),
-      // so the snap is a few pixels, never a jump. Scrolling down enters on the
-      // image (step 0); scrolling up (coming back from below) enters on the grid.
-      if (r.top <= 0 && r.top > -vh * 0.85) {
-        grab(goingDown ? 0 : LAST_STEP);
-      }
+      snap = new Snap(l as never, {
+        type: "proximity",
+        duration: 0.8,
+        easing: (t: number) => 1 - Math.pow(1 - t, 3),
+      });
+      setupSnap();
     };
 
-    applyStep();
+    const onResize = () => {
+      applyStep(progress() > 0.5 ? 1 : 0);
+      setupSnap();
+    };
+
+    applyStep(0);
+    initSnap();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", applyStep);
-    window.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("touchstart", onTouchStart, { passive: true });
-    window.addEventListener("touchmove", onTouchMove, { passive: false });
-    window.addEventListener("touchend", onTouchEnd, { passive: true });
-    window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", applyStep);
-      window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("touchstart", onTouchStart);
-      window.removeEventListener("touchmove", onTouchMove);
-      window.removeEventListener("touchend", onTouchEnd);
-      window.removeEventListener("keydown", onKey);
-      window.clearTimeout(quietTimer);
-      lenis()?.start();
+      window.removeEventListener("resize", onResize);
+      if (raf) cancelAnimationFrame(raf);
+      removers.forEach((r) => r());
+      snap?.destroy();
     };
   }, []);
 
   return (
     <section id="projects" className="relative overflow-x-clip bg-[#15242d]">
-      {/* Desktop: one full screen that grabs and holds — image, then grid */}
-      <div ref={sectionRef} className="relative hidden h-screen overflow-hidden lg:block motion-reduce:lg:hidden">
-        <div ref={stageRef} className="relative h-full w-full">
-          {/* Full-bleed grid (featured cell is an empty placeholder) */}
-          <div ref={gridRef} className="proj-grid absolute inset-0 grid grid-cols-4 grid-rows-3 gap-2">
-            <div ref={slotRef} className="col-span-2 row-span-2" aria-hidden="true" />
-            {rest.map((p) => (
-              <div key={p.title} className={`proj-tile ${p.span}`}>
-                <Tile p={p} />
-              </div>
-            ))}
-          </div>
+      {/* Desktop: pins for two screens; snaps page-by-page (image → grid) */}
+      <div ref={outerRef} className="relative hidden h-[200vh] lg:block motion-reduce:lg:hidden">
+        <div className="sticky top-0 h-screen overflow-hidden">
+          <div ref={stageRef} className="relative h-full w-full">
+            {/* Full-bleed grid (featured cell is an empty placeholder) */}
+            <div ref={gridRef} className="proj-grid absolute inset-0 grid grid-cols-4 grid-rows-3 gap-2">
+              <div ref={slotRef} className="col-span-2 row-span-2" aria-hidden="true" />
+              {rest.map((p) => (
+                <div key={p.title} className={`proj-tile ${p.span}`}>
+                  <Tile p={p} />
+                </div>
+              ))}
+            </div>
 
           {/* Featured image: morphs from full-screen to its slot in one animated step */}
           <div
@@ -347,6 +272,7 @@ export default function Projects() {
               <span className="underline-offset-4 group-hover:underline">View All Services</span>
               <ArrowIcon width={13} height={6} />
             </Link>
+          </div>
           </div>
         </div>
       </div>
