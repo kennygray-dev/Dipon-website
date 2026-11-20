@@ -41,9 +41,12 @@ export default function ContactForm() {
           <Eyebrow>Get in Touch</Eyebrow>
         </Reveal>
 
-        <Reveal className="relative flex flex-col bg-dipon-blue">
-          {/* Map — mobile: sits between the form and the address block; desktop: back on top, unchanged */}
-          <div className="relative order-2 h-[210px] overflow-hidden bg-dipon-blue sm:h-[260px] lg:order-none lg:h-[360px]">
+        {/* min-h on desktop so the tall floating form card is fully contained and
+            never spills over onto the panel below */}
+        <Reveal className="relative flex flex-col bg-dipon-blue lg:min-h-[780px]">
+          {/* Map — mobile: sits between the form and the address block; desktop: a
+              taller, more immersive band on top */}
+          <div className="relative order-2 h-[210px] overflow-hidden bg-dipon-blue sm:h-[260px] lg:order-none lg:h-[580px]">
             <iframe
               src={MAP_EMBED_SRC}
               className="absolute inset-0 h-full w-full [transform:translateZ(0)] [backface-visibility:hidden]"
