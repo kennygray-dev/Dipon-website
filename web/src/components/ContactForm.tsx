@@ -8,7 +8,7 @@ import Reveal from "./Reveal";
 import Socials from "./Socials";
 import { ArrowIcon, LogoMark, MailIcon, PhoneIcon, PinIcon } from "./icons";
 import { SERVICES } from "@/lib/services";
-import { CONTACT_EMAIL, MAP_QUERY, OFFICES } from "@/lib/site";
+import { CONTACT_EMAIL, MAP_QUERY, OFFICES, SOCIAL_LINKS } from "@/lib/site";
 import { section, wrap } from "@/lib/styles";
 
 const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&z=16&output=embed`;
@@ -19,8 +19,6 @@ const inputClass =
   "w-full border border-[rgba(35,61,76,0.16)] bg-white px-4 py-3 font-body text-[15px] text-dipon-primary outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-dipon-tertiary focus:border-dipon-accent focus:ring-2 focus:ring-dipon-accent/25 aria-[invalid=true]:border-red-500";
 const labelClass = "mb-1.5 block font-body text-[13px] font-medium text-dipon-secondary";
 const errorClass = "mt-1 font-body text-[12px] text-red-600";
-const contactChip =
-  "inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-3.5 py-2 font-body text-[13.5px] text-dipon-cream no-underline transition-colors duration-200 hover:border-white/45 hover:bg-white/10";
 const mapsUrl = (query: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 
@@ -213,10 +211,11 @@ export default function ContactForm() {
             )}
           </Reveal>
 
-          {/* Offices / email / socials — grouped bottom-left, clear of the floating form */}
+          {/* Offices — addresses only (the actionable details live in the
+              "Reach us directly" panel below). Head Office + Arizona stay here. */}
           <div className="order-3 border-t border-white/10 px-6 py-9 lg:order-none lg:max-w-[calc(100%-460px)] lg:px-8">
             <div className="flex flex-col divide-y divide-white/15 sm:flex-row sm:divide-y-0 sm:divide-x">
-              {OFFICES.map((office, i) => (
+              {OFFICES.map((office) => (
                 <div
                   key={office.label}
                   className="py-6 first:pt-0 last:pb-0 sm:py-0 sm:px-8 sm:first:pl-0 sm:last:pr-0"
@@ -233,58 +232,88 @@ export default function ContactForm() {
                     ))}
                     {office.country}
                   </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    <a href={`tel:${office.phoneHref}`} className={contactChip}>
-                      <span className="text-dipon-accent">
-                        <PhoneIcon />
-                      </span>
-                      {office.phoneDisplay}
-                    </a>
-                    {office.extraPhones?.map((p) => (
-                      <a key={p.href} href={`tel:${p.href}`} className={contactChip}>
-                        <span className="text-dipon-accent">
-                          <PhoneIcon />
-                        </span>
-                        {p.display}
-                      </a>
-                    ))}
-                    {i === 0 && (
-                      <a
-                        href={mapsUrl([...office.lines, office.country].join(", "))}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={contactChip}
-                      >
-                        <span className="text-dipon-accent">
-                          <PinIcon />
-                        </span>
-                        Directions
-                      </a>
-                    )}
-                  </div>
                 </div>
               ))}
             </div>
+          </div>
+        </Reveal>
 
-            <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-8">
-              {CONTACT_EMAIL && (
-                <div>
-                  <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/70 uppercase">
+        {/* Reach us directly — phones, directions, email on their own clean,
+            modern panel beneath the map/form card. */}
+        <Reveal className="mt-10 lg:mt-14">
+          <div className="mb-6">
+            <Eyebrow>Reach Us Directly</Eyebrow>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {OFFICES.map((office) => (
+              <div
+                key={office.label}
+                className="flex flex-col border border-[rgba(35,61,76,0.1)] bg-white p-6 transition-shadow duration-300 hover:shadow-[0_18px_44px_-26px_rgba(20,28,33,0.5)] sm:p-7"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className="font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-accent uppercase">
+                    {office.label}
+                  </span>
+                  <span className="font-body text-[12px] text-dipon-tertiary">{office.country}</span>
+                </div>
+                <div className="mt-5 flex flex-col gap-3">
+                  {[{ display: office.phoneDisplay, href: office.phoneHref }, ...(office.extraPhones ?? [])].map((p) => (
+                    <a
+                      key={p.href}
+                      href={`tel:${p.href}`}
+                      className="group inline-flex w-fit items-center gap-3 font-body text-[16px] font-medium text-dipon-primary no-underline transition-colors duration-200 hover:text-dipon-accent"
+                    >
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-dipon-accent/10 text-dipon-accent transition-colors duration-200 group-hover:bg-dipon-accent group-hover:text-white">
+                        <PhoneIcon />
+                      </span>
+                      {p.display}
+                    </a>
+                  ))}
+                </div>
+                <a
+                  href={mapsUrl([...office.lines, office.country].join(", "))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-6 inline-flex items-center gap-2 font-label text-[11px] font-semibold tracking-[1px] text-dipon-secondary uppercase no-underline transition-colors duration-200 hover:text-dipon-accent [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1"
+                >
+                  <span className="text-dipon-accent">
+                    <PinIcon />
+                  </span>
+                  <span className="underline-offset-4 group-hover:underline">Get directions</span>
+                  <ArrowIcon width={13} height={6} />
+                </a>
+              </div>
+            ))}
+          </div>
+
+          {CONTACT_EMAIL && (
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="group mt-4 flex items-center justify-between gap-4 bg-dipon-blue p-6 no-underline transition-shadow duration-300 hover:shadow-[0_18px_44px_-24px_rgba(20,28,33,0.65)] sm:p-7"
+            >
+              <span className="flex items-center gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-dipon-accent/15 text-dipon-accent transition-colors duration-200 group-hover:bg-dipon-accent group-hover:text-white">
+                  <MailIcon />
+                </span>
+                <span className="block">
+                  <span className="block font-label text-[11px] font-semibold tracking-[1.2px] text-dipon-cream/60 uppercase">
                     Email Us
                   </span>
-                  <div className="mt-3">
-                    <a href={`mailto:${CONTACT_EMAIL}`} className={contactChip}>
-                      <span className="text-dipon-accent">
-                        <MailIcon />
-                      </span>
-                      {CONTACT_EMAIL}
-                    </a>
-                  </div>
-                </div>
-              )}
+                  <span className="mt-1 block font-body text-[16px] font-medium text-dipon-cream">{CONTACT_EMAIL}</span>
+                </span>
+              </span>
+              <span className="hidden shrink-0 text-dipon-accent transition-transform duration-200 group-hover:translate-x-1 sm:block">
+                <ArrowIcon width={16} height={7} />
+              </span>
+            </a>
+          )}
+
+          {SOCIAL_LINKS.length > 0 && (
+            <div className="mt-4 border border-[rgba(35,61,76,0.1)] bg-white p-6 sm:p-7">
               <Socials label="Follow Us" />
             </div>
-          </div>
+          )}
         </Reveal>
       </div>
     </section>
