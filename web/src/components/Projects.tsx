@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import Snap from "lenis/snap";
 import Reveal from "./Reveal";
 import { ArrowIcon } from "./icons";
 import { wrap } from "@/lib/styles";
@@ -72,22 +71,22 @@ const STATEMENT = "We build, power, supply, and develop across Nigeria as one ac
 
 function Tile({ p }: { p: Project }) {
   return (
-    <Link href={p.href} className="group relative block h-full w-full overflow-hidden no-underline">
-      <img
-        src={p.image}
-        alt={p.alt}
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[650ms] ease-[var(--ease-premium)] group-hover:scale-105"
-      />
+    <div className="relative h-full w-full overflow-hidden">
+      <img src={p.image} alt={p.alt} className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
-      <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-4 sm:p-5">
+      <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-1 p-4 sm:p-5">
         <span className="font-label text-[10px] font-semibold tracking-[0.14em] text-dipon-accent uppercase">
           {p.category}
         </span>
-        <h3 className="text-balance font-display text-[15px] font-bold leading-[1.15] text-white sm:text-[17px]">
+        {/* Only the title is a link — the photo itself isn't clickable */}
+        <Link
+          href={p.href}
+          className="w-fit text-balance font-display text-[15px] font-bold leading-[1.15] text-white no-underline underline-offset-[5px] transition-colors duration-200 hover:text-dipon-accent hover:underline sm:text-[17px]"
+        >
           {p.title}
-        </h3>
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 }
 
@@ -109,13 +108,14 @@ export default function Projects() {
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!canRun) return;
 
-    // ── Smooth "pages" via scroll SNAPPING (never freezing) ────────────────
-    // The section pins for two screens of scroll. Smooth scrolling stays fully
-    // in play — Lenis just gently SETTLES onto one page at a time (proximity
-    // snap): page 1 = one full-bleed image, page 2 = the full grid, then on to
-    // the rest of the site. Crossing the midpoint flips image<->grid in one
-    // clean animated step (no half-sized scrubbing). The scroll is never locked,
-    // so it never feels stuck and never needs a re-scroll.
+    // ── Smooth "pages" via a TALL PINNED section (never freezing) ──────────
+    // The section pins for three screens of scroll, so each page gets a WHOLE
+    // screen of scroll to itself. Smooth scrolling stays fully in play —
+    // nothing is ever locked — but because of that per-page distance, page 1
+    // (one full-bleed image) HOLDS as you scroll before page 2 (the full grid)
+    // takes over, which then HOLDS too, before the rest of the site scrolls on.
+    // Crossing the midpoint flips image<->grid in one clean animated step (no
+    // half-sized scrubbing), and the wide dead-zones on either side are the hold.
     let step = -1; // force the first applyStep to take effect
     let raf = 0;
 
@@ -149,7 +149,6 @@ export default function Projects() {
       }
     };
 
-    const getY = () => (window as unknown as { __lenis?: { scroll: number } }).__lenis?.scroll ?? window.scrollY;
     const progress = () => {
       const outer = outerRef.current;
       if (!outer) return 0;
@@ -161,67 +160,31 @@ export default function Projects() {
     const compute = () => {
       raf = 0;
       const p = progress();
-      // Hysteresis around the midpoint: decisive flip, no flicker.
+      // Hysteresis around the midpoint: decisive flip, no flicker. The wide
+      // dead-zones on either side (0→0.45 and 0.55→1) are the "hold" — the image,
+      // then the grid, each stays put for a full screen of scrolling.
       const want = step >= 1 ? (p < 0.45 ? 0 : 1) : p > 0.55 ? 1 : 0;
       if (want !== step) applyStep(want);
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(compute);
     };
-
-    // Lenis proximity snap — two snap points: full image & full grid. Proximity
-    // (not mandatory) so it only settles near those points and never hijacks the
-    // rest of the page.
-    let snap: Snap | null = null;
-    let removers: Array<() => void> = [];
-    const setupSnap = () => {
-      const outer = outerRef.current;
-      if (!snap || !outer) return;
-      removers.forEach((r) => r());
-      removers = [];
-      const absTop = getY() + outer.getBoundingClientRect().top;
-      const pinRange = outer.offsetHeight - window.innerHeight;
-      removers.push(snap.add(Math.round(absTop))); // page 1 — image
-      removers.push(snap.add(Math.round(absTop + pinRange))); // page 2 — grid
-    };
-
-    let tries = 0;
-    const initSnap = () => {
-      const l = (window as unknown as { __lenis?: unknown }).__lenis;
-      if (!l) {
-        if (tries++ < 90) requestAnimationFrame(initSnap);
-        return;
-      }
-      snap = new Snap(l as never, {
-        type: "proximity",
-        duration: 0.8,
-        easing: (t: number) => 1 - Math.pow(1 - t, 3),
-      });
-      setupSnap();
-    };
-
-    const onResize = () => {
-      applyStep(progress() > 0.5 ? 1 : 0);
-      setupSnap();
-    };
+    const onResize = () => applyStep(progress() > 0.5 ? 1 : 0);
 
     applyStep(0);
-    initSnap();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
       if (raf) cancelAnimationFrame(raf);
-      removers.forEach((r) => r());
-      snap?.destroy();
     };
   }, []);
 
   return (
     <section id="projects" className="relative overflow-x-clip bg-[#15242d]">
-      {/* Desktop: pins for two screens; snaps page-by-page (image → grid) */}
-      <div ref={outerRef} className="relative hidden h-[200vh] lg:block motion-reduce:lg:hidden">
+      {/* Desktop: pins for three screens so each page holds (image → grid → on) */}
+      <div ref={outerRef} className="relative hidden h-[300vh] lg:block motion-reduce:lg:hidden">
         <div className="sticky top-0 h-screen overflow-hidden">
           <div ref={stageRef} className="relative h-full w-full">
             {/* Full-bleed grid (featured cell is an empty placeholder) */}
@@ -240,7 +203,9 @@ export default function Projects() {
             className="absolute z-10 overflow-hidden transition-[left,top,width,height] duration-[800ms] ease-[var(--ease-premium)]"
             style={{ left: 0, top: 0, width: "100%", height: "100%" }}
           >
-            <Link href={featured.href} className="group block h-full w-full no-underline">
+            {/* The first page is a full-image preview/statement — the photo is
+                not a link; it simply holds while you take it in. */}
+            <div className="relative h-full w-full">
               <img src={featured.image} alt={featured.alt} className="absolute inset-0 h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/25" />
               {/* All the heading info lives inside the image, fading out on collapse */}
@@ -256,7 +221,7 @@ export default function Projects() {
                   {STATEMENT}
                 </h2>
               </div>
-            </Link>
+            </div>
           </div>
 
           {/* View all — subtle corner link, fades in with the grid */}
