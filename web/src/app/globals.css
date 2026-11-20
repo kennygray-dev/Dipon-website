@@ -237,6 +237,40 @@ img.object-cover:not(.grayscale) {
   }
 }
 
+/* Featured Work mosaic — tiles grow in smoothly (staggered) when the full image
+   collapses into the grid, so the grid "opens" rather than popping in. */
+.proj-tile {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 760ms var(--ease-premium), transform 760ms var(--ease-premium);
+}
+.proj-grid.is-open .proj-tile {
+  opacity: 1;
+  transform: scale(1);
+}
+.proj-grid.is-open .proj-tile:nth-child(2) {
+  transition-delay: 40ms;
+}
+.proj-grid.is-open .proj-tile:nth-child(3) {
+  transition-delay: 95ms;
+}
+.proj-grid.is-open .proj-tile:nth-child(4) {
+  transition-delay: 150ms;
+}
+.proj-grid.is-open .proj-tile:nth-child(5) {
+  transition-delay: 205ms;
+}
+.proj-grid.is-open .proj-tile:nth-child(6) {
+  transition-delay: 260ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  .proj-tile {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 @layer base {
   a {
     color: inherit;

@@ -67,7 +67,7 @@ const PROJECTS: Project[] = [
   },
 ];
 
-const STATEMENT = "We build, power, supply, and develop across Nigeria — one accountable group behind every project.";
+const STATEMENT = "We build, power, supply, and develop across Nigeria as one accountable group behind every project.";
 
 function Tile({ p }: { p: Project }) {
   return (
@@ -100,6 +100,7 @@ export default function Projects() {
   const featRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
   const viewAllRef = useRef<HTMLDivElement | null>(null);
+  const gridRef = useRef<HTMLDivElement | null>(null);
   const collapsedRef = useRef(false);
 
   useEffect(() => {
@@ -117,7 +118,8 @@ export default function Projects() {
       const feat = featRef.current;
       const text = textRef.current;
       const viewAll = viewAllRef.current;
-      if (!outer || !stage || !slot || !feat || !text || !viewAll) return;
+      const grid = gridRef.current;
+      if (!outer || !stage || !slot || !feat || !text || !viewAll || !grid) return;
 
       const vh = window.innerHeight;
       const oRect = outer.getBoundingClientRect();
@@ -141,6 +143,7 @@ export default function Projects() {
         feat.style.height = `${slotR.height}px`;
         text.style.opacity = "0";
         viewAll.style.opacity = "1";
+        grid.classList.add("is-open");
       } else {
         feat.style.left = "0px";
         feat.style.top = "0px";
@@ -148,6 +151,7 @@ export default function Projects() {
         feat.style.height = `${sRect.height}px`;
         text.style.opacity = "1";
         viewAll.style.opacity = "0";
+        grid.classList.remove("is-open");
       }
     };
     const onScroll = () => {
@@ -170,10 +174,10 @@ export default function Projects() {
         <div className="sticky top-0 h-screen overflow-hidden">
           <div ref={stageRef} className="relative h-full w-full">
             {/* Full-bleed grid (featured cell is an empty placeholder) */}
-            <div className="absolute inset-0 grid grid-cols-4 grid-rows-3 gap-2">
+            <div ref={gridRef} className="proj-grid absolute inset-0 grid grid-cols-4 grid-rows-3 gap-2">
               <div ref={slotRef} className="col-span-2 row-span-2" aria-hidden="true" />
               {rest.map((p) => (
-                <div key={p.title} className={p.span}>
+                <div key={p.title} className={`proj-tile ${p.span}`}>
                   <Tile p={p} />
                 </div>
               ))}
