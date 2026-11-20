@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Zalando_Sans, Zalando_Sans_Expanded } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import ScrollMotion from "@/components/ScrollMotion";
+import BackToTop from "@/components/BackToTop";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL, SOCIAL_URLS } from "@/lib/site";
 import "./globals.css";
 
@@ -64,6 +65,7 @@ export default function RootLayout({
         />
         <ScrollMotion />
         {children}
+        <BackToTop />
         <Analytics />
       </body>
     </html>
