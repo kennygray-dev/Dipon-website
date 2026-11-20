@@ -129,6 +129,11 @@ export default function Projects() {
       if (l) l.scrollTo(y, { immediate: true });
       else window.scrollTo(0, y);
     };
+    const scrollSmooth = (y: number) => {
+      const l = lenis();
+      if (l) l.scrollTo(y);
+      else window.scrollTo({ top: y, behavior: "smooth" });
+    };
 
     const applyStep = () => {
       const stage = stageRef.current;
@@ -173,14 +178,24 @@ export default function Projects() {
     const release = (dir: number) => {
       const outer = outerRef.current;
       locked = false;
+      wasPinned = true; // still inside the pin range; the exit slide must not re-lock
       lenis()?.start();
       if (outer) {
-        const base = getY() + outer.getBoundingClientRect().top;
-        // Down → land at the section's tail (next section revealed); up → just above it.
-        scrollToY(dir > 0 ? base + (outer.offsetHeight - window.innerHeight) : base - window.innerHeight * 0.9);
+        const vh = window.innerHeight;
+        const base = getY() + outer.getBoundingClientRect().top; // absolute top of outer
+        if (dir > 0) {
+          // Snap to the last pinned frame (grid still full-screen), then slide the
+          // next section up into view — one clean "page turn" on this one gesture.
+          const unpin = base + outer.offsetHeight - vh;
+          scrollToY(unpin);
+          requestAnimationFrame(() => scrollSmooth(unpin + vh));
+        } else {
+          scrollToY(base);
+          requestAnimationFrame(() => scrollSmooth(base - vh));
+        }
       }
       justReleased = true;
-      window.setTimeout(() => (justReleased = false), 220);
+      window.setTimeout(() => (justReleased = false), 400);
     };
 
     const tryStep = (dir: number) => {
