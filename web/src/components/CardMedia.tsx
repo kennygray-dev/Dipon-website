@@ -1,11 +1,15 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 // Card media: the image shows by default; on hover (desktop) a short muted clip
 // fades in and plays, pausing when the pointer leaves. `preload="none"` + play-
 // on-hover keeps the page light — nothing downloads or decodes until you hover,
 // and only one clip plays at a time. Mobile (no hover) just shows the image.
+//
+// The play/pause listeners are bound to the card's `.group` ancestor (the Link),
+// not this span — the card's gradient overlays sit on top of the span as
+// siblings, so a hover never "enters" the span itself.
 export default function CardMedia({
   image,
   alt,
@@ -17,23 +21,30 @@ export default function CardMedia({
   video?: string;
   imgClassName?: string;
 }) {
-  const ref = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const rootRef = useRef<HTMLSpanElement>(null);
 
-  const play = () => {
-    const v = ref.current;
-    if (v) v.play().catch(() => {});
-  };
-  const stop = () => {
-    const v = ref.current;
-    if (v) v.pause();
-  };
+  useEffect(() => {
+    if (!video) return;
+    const host = rootRef.current?.closest(".group") as HTMLElement | null;
+    const v = videoRef.current;
+    if (!host || !v) return;
+    const play = () => {
+      v.play().catch(() => {});
+    };
+    const stop = () => {
+      v.pause();
+    };
+    host.addEventListener("mouseenter", play);
+    host.addEventListener("mouseleave", stop);
+    return () => {
+      host.removeEventListener("mouseenter", play);
+      host.removeEventListener("mouseleave", stop);
+    };
+  }, [video]);
 
   return (
-    <span
-      className="absolute inset-0 block"
-      onMouseEnter={video ? play : undefined}
-      onMouseLeave={video ? stop : undefined}
-    >
+    <span ref={rootRef} className="absolute inset-0 block">
       <img
         src={image}
         alt={alt}
@@ -41,7 +52,7 @@ export default function CardMedia({
       />
       {video && (
         <video
-          ref={ref}
+          ref={videoRef}
           muted
           loop
           playsInline
