@@ -96,7 +96,7 @@ export default function Reveal({
             : "opacity-0"
           : visible
             ? "translate-x-0 translate-y-0 scale-100 opacity-100"
-            : cn(HIDDEN_BY_FROM[from], "scale-[0.96] opacity-0 max-md:scale-[0.98]"),
+            : cn(HIDDEN_BY_FROM[from], "scale-[0.92] opacity-0 max-md:scale-[0.96]"),
         className
       )}
     >
