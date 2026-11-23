@@ -20,7 +20,11 @@ export type SocialPlatform = "x" | "linkedin" | "facebook" | "instagram";
 export type SocialLink = { platform: SocialPlatform; url: string; label: string };
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  // e.g. { platform: "linkedin", url: "https://www.linkedin.com/company/…", label: "LinkedIn" },
+  // PLACEHOLDER profiles — replace each `url` with DIPON's real handle.
+  { platform: "linkedin", url: "https://www.linkedin.com/company/dipon-group-limited", label: "LinkedIn" },
+  { platform: "instagram", url: "https://www.instagram.com/dipongrouplimited", label: "Instagram" },
+  { platform: "x", url: "https://x.com/dipongroup", label: "X (Twitter)" },
+  { platform: "facebook", url: "https://www.facebook.com/dipongrouplimited", label: "Facebook" },
 ];
 
 // Derived — feeds the Organization schema's sameAs.

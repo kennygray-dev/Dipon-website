@@ -23,11 +23,10 @@ export default function Footer() {
       <div className={wrap}>
         <div className="grid grid-cols-1 items-start gap-x-14 gap-y-12 border-b border-[rgba(255,249,235,0.16)] pb-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.8fr_1fr_1.3fr_1.1fr_1.2fr]">
           <div>
-            <Image src="/assets/dipon-logo-light.svg" alt="DIPON Group" width={493} height={142} className="block h-[34px] w-auto" />
-            <p className="mt-5 max-w-[280px] font-body text-sm leading-[1.65] text-[rgba(255,249,235,0.85)]">
+            <p className="max-w-[280px] font-body text-sm leading-[1.65] text-[rgba(255,249,235,0.85)]">
               Building Sustainable Infrastructure and Business Solutions for Africa&rsquo;s Future.
             </p>
-            <Socials className="mt-5" />
+            <Socials label="Follow Us" className="mt-6" />
           </div>
           <nav aria-label="Company">
             <div className={footerHead}>Company</div>
@@ -94,7 +93,20 @@ export default function Footer() {
             </div>
           </nav>
         </div>
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
+        {/* Brand band — big statement + large logo, inspired by the reference */}
+        <div className="mt-12 flex flex-col gap-9 md:mt-16 md:flex-row md:items-center md:justify-between">
+          <p className="max-w-[20ch] text-balance font-display text-[clamp(30px,5vw,56px)] font-bold leading-[1.05] tracking-[-0.6px] text-dipon-cream">
+            One Group. Every Stage of the Build.
+          </p>
+          <Image
+            src="/assets/dipon-logo-light.svg"
+            alt="DIPON Group"
+            width={493}
+            height={142}
+            className="h-[54px] w-auto shrink-0 opacity-95 md:h-[72px]"
+          />
+        </div>
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[rgba(255,249,235,0.16)] pt-8">
           <span className="font-label text-xs tracking-[0.6px] text-[rgba(255,249,235,0.85)]">
             © {new Date().getFullYear()} DIPON Group Limited. All rights reserved.
           </span>
