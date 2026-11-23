@@ -1,111 +1,57 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import CtaButton from "./CtaButton";
 import Socials from "./Socials";
 
-type Slide = { src: string; alt: string; position: string; video?: string };
-
-const SLIDES: Slide[] = [
-  {
-    video: "/hero/construction.mp4",
-    src: "/hero/construction-poster.jpg",
-    alt: "DIPON Group Limited: construction worker on a build site",
-    position: "center",
-  },
-  {
-    src: "https://images.pexels.com/photos/6563903/pexels-photo-6563903.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "DIPON Global Resources Limited: freight and supply chain operations on the road",
-    position: "center",
-  },
-  {
-    src: "https://images.pexels.com/photos/38804912/pexels-photo-38804912.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "DIPON Infrastructure Limited: solar power and public lighting",
-    position: "center",
-  },
-];
-
-// The photo slides rotate on a fixed timer; the video slide plays through once
-// and advances the moment it ends (so it never loops mid-shot).
-const SLIDE_INTERVAL_MS = 7000;
-// How far each photo zooms over its time on screen.
-const ZOOM_MS = SLIDE_INTERVAL_MS + 900;
+const HERO_VIDEO = "/hero/construction.mp4";
+const HERO_POSTER = "/hero/construction-poster.jpg";
 
 export default function Hero() {
-  const [activeSlide, setActiveSlide] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const next = () => setActiveSlide((i) => (i + 1) % SLIDES.length);
-
   // Safari ignores the React `muted` attribute and blocks autoplay. Set muted
-  // imperatively once so playback is allowed.
+  // imperatively once so playback is allowed, then kick off playback.
   useEffect(() => {
     const v = videoRef.current;
-    if (v) v.muted = true;
-  }, []);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    // Video slide: replay from the start, play once, and let `onEnded` advance.
-    if (SLIDES[activeSlide].video) {
-      if (v) {
-        v.currentTime = 0;
-        v.play().catch(() => {});
-      }
-      return;
+    if (v) {
+      v.muted = true;
+      v.play().catch(() => {});
     }
-    const timer = setTimeout(next, SLIDE_INTERVAL_MS);
-    return () => clearTimeout(timer);
-  }, [activeSlide]);
+  }, []);
 
   return (
     <section className="bg-dipon-blue">
       <div className="relative min-h-dvh overflow-hidden lg:min-h-screen">
-        {/* Full-bleed carousel — nudged right on desktop so the subject sits clear of the text,
-            with the left edge masked so it dissolves softly into the navy instead of a hard seam */}
-        <div className="absolute inset-0 lg:translate-x-[16%] lg:[mask-image:linear-gradient(to_right,transparent_0%,#000_26%)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,#000_26%)]">
-        {SLIDES.map((slide, i) => {
-          const base = "absolute inset-0 h-full w-full object-cover will-change-transform";
-          const vis = i === activeSlide ? "opacity-100" : "opacity-0";
-          return slide.video ? (
-            <video
-              key={slide.src}
-              ref={videoRef}
-              autoPlay
-              muted
-              playsInline
-              preload="auto"
-              poster={slide.src}
-              aria-hidden="true"
-              onEnded={next}
-              style={{ objectPosition: slide.position, transition: "opacity 900ms var(--ease-standard)" }}
-              className={`${base} ${vis}`}
-            >
-              <source src={slide.video} type="video/mp4" />
-            </video>
-          ) : (
-            <img
-              key={slide.src}
-              src={slide.src}
-              alt={slide.alt}
-              style={{
-                objectPosition: slide.position,
-                transform: i === activeSlide ? "scale(1.12)" : "scale(1)",
-                transition: `opacity 900ms var(--ease-standard), transform ${ZOOM_MS}ms ease-out`,
-              }}
-              className={`${base} ${vis}`}
-            />
-          );
-        })}
+        {/* Full-bleed footage — nudged right on desktop so the subject sits clear
+            of the headline, its left edge masked so it dissolves into the navy. */}
+        <div className="absolute inset-0 lg:translate-x-[14%] lg:[mask-image:linear-gradient(to_right,transparent_0%,#000_30%)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,#000_30%)]">
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={HERO_POSTER}
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src={HERO_VIDEO} type="video/mp4" />
+          </video>
         </div>
 
-        {/* Single DIPON-blue wash — the one legibility layer, left-weighted so the photo stays bright on the right */}
+        {/* Legibility — smooth navy gradients: a left wash under the headline and a
+            soft lift from the bottom for the caption. No flat dim, so the footage
+            stays rich on the right. */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-dipon-blue/90 via-dipon-blue/72 to-dipon-blue/55 lg:w-[66%] lg:from-dipon-blue/92 lg:via-dipon-blue/55 lg:to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-dipon-blue via-dipon-blue/70 via-[42%] to-transparent to-[82%]"
         />
-        {/* Subtle overall dim so the hero imagery recedes a touch */}
-        <div aria-hidden="true" className="absolute inset-0 bg-dipon-blue/25" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-dipon-blue/80 via-dipon-blue/20 to-transparent"
+        />
 
         {/* Subtle geometry, anchored bottom-right of the tinted zone */}
         <div aria-hidden="true" data-open data-parallax="0.1" className="pointer-events-none absolute inset-0 opacity-[0.08]">
@@ -124,24 +70,6 @@ export default function Hero() {
             <circle cx="120" cy="260" r="3.5" fill="#FFF9EB" />
             <circle cx="140" cy="620" r="3.5" fill="#FFF9EB" />
           </svg>
-        </div>
-
-        {/* Carousel bars — horizontal row under the headline on mobile, vertical on the right edge from lg up */}
-        <div className="absolute right-1/2 bottom-6 z-20 flex translate-x-1/2 items-center gap-[7px] lg:top-1/2 lg:right-6 lg:bottom-auto lg:translate-x-0 lg:-translate-y-1/2 lg:flex-col">
-          {SLIDES.map((slide, i) => (
-            <button
-              key={slide.src}
-              type="button"
-              aria-label={`Show slide ${i + 1}`}
-              aria-current={i === activeSlide}
-              onClick={() => setActiveSlide(i)}
-              className={`cursor-pointer rounded-full border-0 bg-none p-0 transition-all duration-300 ease-[var(--ease-standard)] lg:w-[5px] ${
-                i === activeSlide
-                  ? "h-[5px] w-5 bg-white/85 lg:h-5 lg:w-[5px]"
-                  : "h-[5px] w-[5px] bg-white/40 hover:bg-white/60 lg:h-[5px] lg:w-[5px]"
-              }`}
-            />
-          ))}
         </div>
 
         {/* Everything below fits on the first screen: headline block on top, caption/socials on the bottom */}
