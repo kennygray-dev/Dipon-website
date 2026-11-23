@@ -51,13 +51,8 @@ export default function Subsidiaries() {
         </Reveal>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
-          {SUBSIDIARIES.map((sub, i) => (
-            <Reveal
-              key={sub.slug}
-              delay={i * 130}
-              from={i % 2 === 0 ? "bottom" : "top"}
-              className="aspect-[6/5] overflow-hidden"
-            >
+          {SUBSIDIARIES.map((sub) => (
+            <Reveal key={sub.slug} className="aspect-[6/5] overflow-hidden">
               <Link href={`/subsidiaries/${sub.slug}`} className="group relative flex h-full w-full flex-col no-underline">
                 <img
                   src={sub.image}

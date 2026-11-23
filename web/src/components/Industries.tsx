@@ -69,15 +69,10 @@ export default function Industries() {
           </p>
         </Reveal>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
-          {INDUSTRIES.map((ind, i) => {
+          {INDUSTRIES.map((ind) => {
             const desc = SERVICES.find((s) => s.slug === ind.slug)?.summary ?? "";
             return (
-              <Reveal
-                key={ind.slug}
-                delay={(i % 3) * 110}
-                from={i % 2 === 0 ? "bottom" : "top"}
-                className="aspect-square overflow-hidden"
-              >
+              <Reveal key={ind.slug} className="aspect-square overflow-hidden">
                 <Link href={`/services/${ind.slug}`} className="group relative flex h-full w-full flex-col no-underline">
                   <img
                     src={ind.image}

@@ -88,7 +88,7 @@ export default function Reveal({
         animated &&
           cn(
             fadeOnly ? "transition-opacity" : "transition-[opacity,transform]",
-            "duration-[900ms] ease-[var(--ease-premium)] max-md:duration-[560ms] max-md:[transition-delay:0ms]! motion-reduce:transition-none"
+            "duration-[600ms] ease-[var(--ease-premium)] max-md:duration-[460ms] max-md:[transition-delay:0ms]! motion-reduce:transition-none"
           ),
         fadeOnly
           ? visible
