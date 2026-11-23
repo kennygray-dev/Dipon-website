@@ -3,7 +3,6 @@ import CtaButton from "./CtaButton";
 import Eyebrow from "./Eyebrow";
 import CardMedia from "./CardMedia";
 import Heading from "./Heading";
-import Opening from "./Opening";
 import Reveal from "./Reveal";
 import { ArrowIcon, LogoMark } from "./icons";
 import { section, wrap, lead } from "@/lib/styles";
@@ -55,46 +54,47 @@ export default function Subsidiaries() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
+        {/* Expanding focus panels — full images on a subtle grid, tight spacing.
+            The centre is larger; hovering any panel grows it and eases the others
+            back, like a focus carousel. */}
+        <Reveal fadeOnly className="sector-row flex flex-col gap-3 md:h-[clamp(400px,44vw,520px)] md:flex-row md:gap-2">
           {SUBSIDIARIES.map((sub, i) => (
-            <Opening key={sub.slug} delay={i * 130} className="aspect-[6/5] overflow-hidden">
-              <Link href={`/subsidiaries/${sub.slug}`} className="group relative flex h-full w-full flex-col no-underline">
-                <CardMedia image={sub.image} alt={`DIPON Group: ${sub.name}`} video={sub.video} />
-                <div className="absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b from-[#233d4c]/60 via-transparent to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />
-                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/88 via-black/30 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/35 opacity-100 transition-opacity duration-400 ease-[var(--ease-premium)] lg:opacity-0 lg:group-hover:opacity-100" />
+            <Link
+              key={sub.slug}
+              href={`/subsidiaries/${sub.slug}`}
+              className={`sector-panel group relative block h-[64vw] max-h-[400px] overflow-hidden no-underline md:h-full md:max-h-none ${
+                i === 1 ? "is-center" : ""
+              }`}
+            >
+              <CardMedia image={sub.image} alt={`DIPON Group: ${sub.name}`} video={sub.video} />
+              {/* legibility wash */}
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/88 via-black/35 to-black/15" />
+              {/* subtle grid, like the reference */}
+              <div aria-hidden="true" className="sector-grid pointer-events-none absolute inset-0" />
 
-                <span className="relative z-10 m-3.5 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-white/95 p-[6px] shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
-                  <LogoMark className="h-full w-full" />
+              {/* top — name + mark */}
+              <div className="absolute inset-x-0 top-0 z-10 flex items-start justify-between p-5 sm:p-6">
+                <span className="max-w-[72%] text-balance font-display text-[clamp(20px,2vw,27px)] font-bold leading-[1.1] text-white">
+                  {sub.short}
                 </span>
+                <LogoMark light className="mt-1 h-6 w-auto shrink-0 opacity-90" />
+              </div>
 
-                <div className="relative z-10 mt-auto flex flex-col gap-2 p-4">
-                  <span className="font-label text-[10px] font-semibold tracking-[1px] text-white/85 uppercase">
-                    {sub.badge}
-                  </span>
-                  <div>
-                    <h3 className="text-balance font-display text-[17px] leading-[1.15] font-bold text-white sm:text-[19px]">
-                      {sub.short}
-                    </h3>
-                    <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-400 ease-[var(--ease-premium)] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr]">
-                      <div className="overflow-hidden">
-                        <p className="mt-1.5 font-body text-[12.5px] leading-[1.4] text-white/90">{sub.desc}</p>
-                        <span className="relative z-20 mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-dipon-accent bg-dipon-accent px-3.5 py-1.5 font-label text-[10px] font-semibold text-white shadow-[0_2px_10px_rgba(253,128,46,0.35)] transition-colors duration-200 group-hover:bg-dipon-accent-deep group-hover:border-dipon-accent-deep sm:text-[11px]">
-                          Read More <ArrowIcon width={12} height={5} />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-end border-t border-white/25 pt-2.5">
-                    <span className="font-label text-[10px] font-medium tracking-[0.8px] text-white/85 uppercase">
-                      DIPON Group
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            </Opening>
+              {/* bottom — badge + statement + read more (statement fades in on focus) */}
+              <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2.5 p-5 sm:p-6">
+                <span className="font-label text-[10px] font-semibold tracking-[1.3px] text-dipon-accent uppercase">
+                  {sub.badge}
+                </span>
+                <p className="sector-desc max-w-[34ch] font-body text-[13.5px] leading-[1.5] text-white/90">
+                  {sub.desc}
+                </p>
+                <span className="sector-desc mt-1 inline-flex w-fit items-center gap-2 font-label text-[10px] font-semibold tracking-[1px] text-white uppercase [&_.arrow]:transition-transform [&_.arrow]:duration-300 [&_.arrow]:ease-[var(--ease-premium)] group-hover:[&_.arrow]:translate-x-[3px]">
+                  Read More <ArrowIcon width={13} height={6} />
+                </span>
+              </div>
+            </Link>
           ))}
-        </div>
+        </Reveal>
 
         <Reveal>
           <CtaButton href="/subsidiaries" label="See All Companies" variant="primary" className="mt-10" />
