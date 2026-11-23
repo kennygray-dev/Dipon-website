@@ -22,6 +22,18 @@ export default function ScrollMotion() {
     openEls.forEach((el) => el.classList.add("js-open")); // arm the closed state
     const parallaxEls = Array.from(document.querySelectorAll<HTMLElement>("[data-parallax]"));
 
+    // "Opening" reveal: cards/images wipe open as they enter view. Arm the closed
+    // state; anything already on screen opens immediately so there's no flash.
+    const revealEls = new Set(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    revealEls.forEach((el) => {
+      el.classList.add("js-reveal");
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.98 && r.bottom > 0) {
+        el.classList.add("reveal-in");
+        revealEls.delete(el);
+      }
+    });
+
     const update = () => {
       const h = window.innerHeight;
 
@@ -31,6 +43,15 @@ export default function ScrollMotion() {
         if (r.top < h * 0.92 && r.bottom > h * 0.04) {
           el.classList.add("is-open");
           openEls.delete(el);
+        }
+      }
+
+      // "Opening" reveal: wipe cards/images open as they scroll into view.
+      for (const el of Array.from(revealEls)) {
+        const r = el.getBoundingClientRect();
+        if (r.top < h * 0.9 && r.bottom > h * 0.04) {
+          el.classList.add("reveal-in");
+          revealEls.delete(el);
         }
       }
 

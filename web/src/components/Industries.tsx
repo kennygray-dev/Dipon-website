@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Eyebrow from "./Eyebrow";
 import Heading from "./Heading";
+import Opening from "./Opening";
 import Reveal from "./Reveal";
 import { ArrowIcon, LogoMark } from "./icons";
 import { SERVICES } from "@/lib/services";
@@ -72,12 +73,7 @@ export default function Industries() {
           {INDUSTRIES.map((ind, i) => {
             const desc = SERVICES.find((s) => s.slug === ind.slug)?.summary ?? "";
             return (
-              <Reveal
-                key={ind.slug}
-                delay={(i % 3) * 110}
-                from={i % 2 === 0 ? "bottom" : "top"}
-                className="aspect-square overflow-hidden"
-              >
+              <Opening key={ind.slug} delay={(i % 3) * 110} className="aspect-square overflow-hidden">
                 <Link href={`/services/${ind.slug}`} className="group relative flex h-full w-full flex-col no-underline">
                   <img
                     src={ind.image}
@@ -113,7 +109,7 @@ export default function Industries() {
                     </div>
                   </div>
                 </Link>
-              </Reveal>
+              </Opening>
             );
           })}
         </div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import CtaButton from "./CtaButton";
 import Eyebrow from "./Eyebrow";
 import Heading from "./Heading";
+import Opening from "./Opening";
 import Reveal from "./Reveal";
 import { ArrowIcon, LogoMark } from "./icons";
 import { section, wrap, lead } from "@/lib/styles";
@@ -52,12 +53,7 @@ export default function Subsidiaries() {
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
           {SUBSIDIARIES.map((sub, i) => (
-            <Reveal
-              key={sub.slug}
-              delay={i * 130}
-              from={i % 2 === 0 ? "bottom" : "top"}
-              className="aspect-[6/5] overflow-hidden"
-            >
+            <Opening key={sub.slug} delay={i * 130} className="aspect-[6/5] overflow-hidden">
               <Link href={`/subsidiaries/${sub.slug}`} className="group relative flex h-full w-full flex-col no-underline">
                 <img
                   src={sub.image}
@@ -96,7 +92,7 @@ export default function Subsidiaries() {
                   </div>
                 </div>
               </Link>
-            </Reveal>
+            </Opening>
           ))}
         </div>
 

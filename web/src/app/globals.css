@@ -291,6 +291,29 @@ img.object-cover:not(.grayscale) {
   }
 }
 
+/* "Opening" reveal — cards and images wipe open from the top as they scroll into
+   view (Dribbble-style). Armed (.js-reveal) and toggled (.reveal-in) by
+   ScrollMotion's scroll/rAF loop, so it never gets stuck. Default (no JS or
+   reduced motion) shows the content normally. */
+[data-reveal].js-reveal {
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  transition:
+    clip-path 880ms var(--ease-premium),
+    opacity 600ms var(--ease-premium);
+}
+[data-reveal].js-reveal.reveal-in {
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal].js-reveal {
+    clip-path: none;
+    opacity: 1;
+    transition: none;
+  }
+}
+
 @layer base {
   a {
     color: inherit;
