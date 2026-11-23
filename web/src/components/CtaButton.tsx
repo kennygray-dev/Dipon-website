@@ -35,7 +35,7 @@ export default function CtaButton({
       <Link
         href={href}
         onClick={onClick}
-        className={`group inline-flex items-center gap-3 border border-[rgba(35,61,76,0.22)] ${bodyPad} font-body text-sm ${weight} text-dipon-primary! no-underline transition-colors duration-200 hover:border-dipon-primary hover:bg-dipon-primary hover:text-white! [&_.arrow]:transition-transform [&_.arrow]:duration-200 hover:[&_.arrow]:translate-x-1 ${
+        className={`group inline-flex items-center gap-3 border border-[rgba(35,61,76,0.22)] ${bodyPad} font-body text-sm ${weight} text-dipon-primary! no-underline transition-colors duration-300 hover:border-dipon-primary hover:bg-dipon-primary hover:text-white! [&_.arrow]:transition-transform [&_.arrow]:duration-300 [&_.arrow]:ease-[var(--ease-premium)] group-hover:[&_.arrow]:translate-x-[3px] ${
           full ? "w-full justify-center" : "w-fit"
         } ${className}`}
       >
@@ -54,7 +54,7 @@ export default function CtaButton({
     <Link
       href={href}
       onClick={onClick}
-      className={`group inline-flex items-stretch overflow-hidden no-underline transition-transform duration-300 hover:-translate-y-0.5 ${
+      className={`group inline-flex items-stretch overflow-hidden no-underline transition-transform duration-300 ease-[var(--ease-premium)] hover:-translate-y-0.5 ${
         full ? "w-full" : "w-fit"
       } ${body} ${className}`}
     >
@@ -66,7 +66,7 @@ export default function CtaButton({
         {label}
       </span>
       <span
-        className={`flex ${boxW} shrink-0 items-center justify-center text-white! transition-[background-color,transform] duration-300 group-hover:translate-x-0.5 ${box}`}
+        className={`flex ${boxW} shrink-0 items-center justify-center text-white! transition-[background-color] duration-300 [&_.arrow]:transition-transform [&_.arrow]:duration-300 [&_.arrow]:ease-[var(--ease-premium)] group-hover:[&_.arrow]:translate-x-[3px] ${box}`}
       >
         <ArrowIcon width={16} height={7} />
       </span>
