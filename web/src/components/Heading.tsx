@@ -28,6 +28,7 @@ export default function Heading({
   const restColor = accentRest ? "text-dipon-accent" : light ? "text-dipon-cream/78" : "text-dipon-secondary";
   return (
     <Tag
+      data-parallax="0.05"
       className={`${marginTop} text-balance font-display ${size} font-extrabold leading-[1.05] ${
         light ? "text-dipon-cream" : "text-dipon-primary"
       } ${className}`}

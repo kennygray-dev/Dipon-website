@@ -1,62 +1,58 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 // Site-wide motion controller:
 //  • Lenis smooth (inertia) scrolling.
 //  • Parallax drift for any [data-parallax] element (speed from the attribute).
 //  • Diagonal "wipe-open" reveal for the brand mesh/line layers ([data-open]).
-// Both reveal and parallax are driven from the scroll/rAF loop using
-// getBoundingClientRect (which ignores clip-path, so a clipped-closed line layer
-// is still detected as it enters view). Disabled under prefers-reduced-motion.
+//  • "Opening" clip reveal for cards/images ([data-reveal]).
+// All driven from the scroll/rAF loop using getBoundingClientRect (which ignores
+// clip-path, so a clipped-closed element is still detected as it enters view).
+// Elements are (re)collected on first load AND after every client-side route
+// change, so reveals/parallax work on navigation too. Disabled under
+// prefers-reduced-motion.
+const prefersReduced = () =>
+  typeof window !== "undefined" &&
+  typeof window.matchMedia === "function" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 export default function ScrollMotion() {
+  const openRef = useRef<Set<HTMLElement>>(new Set());
+  const parallaxRef = useRef<HTMLElement[]>([]);
+  const revealRef = useRef<Set<HTMLElement>>(new Set());
+  const updateRef = useRef<() => void>(() => {});
+  const pathname = usePathname();
+
+  // Lenis + the scroll/rAF loop — created once and left running.
   useEffect(() => {
-    const reduce =
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
-
-    const openEls = new Set(document.querySelectorAll<HTMLElement>("[data-open]"));
-    openEls.forEach((el) => el.classList.add("js-open")); // arm the closed state
-    const parallaxEls = Array.from(document.querySelectorAll<HTMLElement>("[data-parallax]"));
-
-    // "Opening" reveal: cards/images wipe open as they enter view. Arm the closed
-    // state; anything already on screen opens immediately so there's no flash.
-    const revealEls = new Set(document.querySelectorAll<HTMLElement>("[data-reveal]"));
-    revealEls.forEach((el) => {
-      el.classList.add("js-reveal");
-      const r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.98 && r.bottom > 0) {
-        el.classList.add("reveal-in");
-        revealEls.delete(el);
-      }
-    });
+    if (prefersReduced()) return;
 
     const update = () => {
       const h = window.innerHeight;
 
-      // Reveal: open the diagonal lines once they enter the viewport.
-      for (const el of Array.from(openEls)) {
+      // Diagonal brand lines wipe open once in view.
+      for (const el of Array.from(openRef.current)) {
         const r = el.getBoundingClientRect();
         if (r.top < h * 0.92 && r.bottom > h * 0.04) {
           el.classList.add("is-open");
-          openEls.delete(el);
+          openRef.current.delete(el);
         }
       }
 
-      // "Opening" reveal: wipe cards/images open as they scroll into view.
-      for (const el of Array.from(revealEls)) {
+      // Cards/images wipe open once in view.
+      for (const el of Array.from(revealRef.current)) {
         const r = el.getBoundingClientRect();
         if (r.top < h * 0.9 && r.bottom > h * 0.04) {
           el.classList.add("reveal-in");
-          revealEls.delete(el);
+          revealRef.current.delete(el);
         }
       }
 
-      // Parallax: translate marked layers at a fraction of scroll for depth.
-      for (const el of parallaxEls) {
+      // Parallax: translate marked elements at a fraction of scroll for depth.
+      for (const el of parallaxRef.current) {
         const r = el.getBoundingClientRect();
         if (r.bottom < -200 || r.top > h + 200) continue;
         const speed = parseFloat(el.dataset.parallax || "0.1");
@@ -64,10 +60,10 @@ export default function ScrollMotion() {
         el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
       }
     };
+    updateRef.current = update;
 
     const lenis = new Lenis({ duration: 1.05, smoothWheel: true, touchMultiplier: 1.6 });
-    // Expose the instance so a pinned, scroll-jacked section (e.g. Featured Work)
-    // can pause/resume inertia scrolling while it steps through its own "pages".
+    // Expose the instance so other components can drive/read the scroll.
     (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
     lenis.on("scroll", update);
 
@@ -78,19 +74,49 @@ export default function ScrollMotion() {
     };
     rafId = requestAnimationFrame(raf);
 
-    // Run early so above-the-fold lines open on load, and parallax is set.
-    update();
-    const kick = requestAnimationFrame(update);
-    const t = setTimeout(update, 140);
-
     return () => {
       cancelAnimationFrame(rafId);
-      cancelAnimationFrame(kick);
-      clearTimeout(t);
       lenis.destroy();
       delete (window as unknown as { __lenis?: Lenis }).__lenis;
+      updateRef.current = () => {};
     };
   }, []);
+
+  // Collect + arm the animated elements — on first load and after each navigation.
+  useEffect(() => {
+    if (prefersReduced()) return;
+
+    const open = new Set<HTMLElement>();
+    document.querySelectorAll<HTMLElement>("[data-open]").forEach((el) => {
+      if (!el.classList.contains("is-open")) {
+        el.classList.add("js-open"); // arm the closed state
+        open.add(el);
+      }
+    });
+    openRef.current = open;
+
+    parallaxRef.current = Array.from(document.querySelectorAll<HTMLElement>("[data-parallax]"));
+
+    const reveal = new Set<HTMLElement>();
+    document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
+      el.classList.add("js-reveal"); // arm the clipped state
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.98 && r.bottom > 0) {
+        el.classList.add("reveal-in"); // already on screen — open immediately, no flash
+      } else {
+        reveal.add(el);
+      }
+    });
+    revealRef.current = reveal;
+
+    // Run the loop once (and shortly after) so above-the-fold items settle.
+    const kick = requestAnimationFrame(() => updateRef.current());
+    const t = setTimeout(() => updateRef.current(), 140);
+    return () => {
+      cancelAnimationFrame(kick);
+      clearTimeout(t);
+    };
+  }, [pathname]);
 
   return null;
 }

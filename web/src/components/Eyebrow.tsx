@@ -11,6 +11,7 @@ export default function Eyebrow({
 }) {
   return (
     <span
+      data-parallax="0.025"
       className={`mb-[18px] inline-flex w-fit items-center gap-2.5 rounded-full border px-4 py-[9px] font-label text-[13px] leading-none ${
         light ? "border-white/20 bg-white/10 text-white/85" : "border-[rgba(35,61,76,0.14)] bg-white text-dipon-secondary"
       } ${className}`}
