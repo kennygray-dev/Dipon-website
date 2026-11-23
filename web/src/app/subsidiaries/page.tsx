@@ -3,8 +3,8 @@ import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import WordmarkHero from "@/components/WordmarkHero";
+import Opening from "@/components/Opening";
 import PhotoTile from "@/components/PhotoTile";
-import Reveal from "@/components/Reveal";
 import { SUBSIDIARIES } from "@/lib/subsidiaries";
 import { root, section, wrap } from "@/lib/styles";
 
@@ -30,7 +30,7 @@ export default function SubsidiariesPage() {
           <div className={wrap}>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
               {SUBSIDIARIES.map((subsidiary, i) => (
-                <Reveal key={subsidiary.slug} delay={i * 130} from={i % 2 === 0 ? "bottom" : "top"} className="aspect-[6/5] overflow-hidden">
+                <Opening key={subsidiary.slug} delay={i * 130} className="aspect-[6/5] overflow-hidden">
                   <PhotoTile
                     href={`/subsidiaries/${subsidiary.slug}`}
                     image={subsidiary.heroImage}
@@ -39,7 +39,7 @@ export default function SubsidiariesPage() {
                     desc={subsidiary.summary}
                     className="h-full w-full"
                   />
-                </Reveal>
+                </Opening>
               ))}
             </div>
           </div>

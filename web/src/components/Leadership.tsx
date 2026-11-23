@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CtaButton from "./CtaButton";
 import Eyebrow from "./Eyebrow";
+import Opening from "./Opening";
 import Reveal from "./Reveal";
 import founderPhoto from "@/assets/team/oliver-ibeh.jpg";
 import founderSquare from "@/assets/team/oliver-ibeh-square.jpg";
@@ -54,7 +55,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
               <CtaButton href="/about" label="Meet Our Leadership" variant="outline" />
             )}
           </Reveal>
-          <Reveal from="right" delay={40} className="relative order-first aspect-[4/5] overflow-hidden md:order-none">
+          <Opening delay={40} className="relative order-first aspect-[4/5] overflow-hidden md:order-none">
             <Image
               src={founderPhoto}
               alt="Mr. Oliver Ibeh, Founder of DIPON Group"
@@ -63,7 +64,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
               sizes="(max-width: 768px) 100vw, 38vw"
               className="object-cover"
             />
-          </Reveal>
+          </Opening>
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import { initialContactState } from "@/lib/contact";
 import Eyebrow from "./Eyebrow";
 import GeometricOverlay from "./GeometricOverlay";
 import Heading from "./Heading";
+import Opening from "./Opening";
 import Reveal from "./Reveal";
 import Socials from "./Socials";
 import { ArrowIcon, LogoMark, MailIcon, PhoneIcon, PinIcon } from "./icons";
@@ -62,14 +63,14 @@ export default function CareersContact() {
         {/* min-h on desktop so the tall floating form is fully contained */}
         <Reveal className="relative bg-dipon-blue lg:min-h-[780px]">
           {/* Photo — taller, immersive band */}
-          <div className="relative h-[280px] overflow-hidden sm:h-[340px] lg:h-[580px]">
+          <Opening className="relative h-[280px] overflow-hidden sm:h-[340px] lg:h-[580px]">
             <img src={PHOTO} alt="DIPON Group team" className="absolute inset-0 h-full w-full object-cover" />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue via-dipon-blue/10 to-dipon-blue/35" />
             <GeometricOverlay />
             <h3 className="absolute bottom-7 left-6 z-10 max-w-[60%] text-balance font-display text-[clamp(24px,3.2vw,36px)] font-extrabold leading-[1.05] text-dipon-cream sm:left-8">
               Meet the team
             </h3>
-          </div>
+          </Opening>
 
           {/* Introduction form — edge-to-edge on mobile, floating card on desktop */}
           <Reveal fadeOnly delay={120} className="relative z-20 w-full border border-[rgba(35,61,76,0.08)] bg-white px-5 py-8 sm:px-6 lg:absolute lg:top-10 lg:right-10 lg:mb-0 lg:w-[400px] lg:p-[clamp(24px,3vw,36px)] lg:shadow-[0_4px_16px_rgba(20,28,33,0.2),0_20px_45px_-14px_rgba(20,28,33,0.5),0_40px_80px_-24px_rgba(20,28,33,0.35)] xl:w-[440px]">

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Opening from "@/components/Opening";
 import PhotoTile from "@/components/PhotoTile";
-import Reveal from "@/components/Reveal";
 import WordmarkHero from "@/components/WordmarkHero";
 import { formatBlogDate } from "@/lib/blog";
 import { urlForImage } from "@/sanity/image";
@@ -41,7 +41,7 @@ export default async function BlogPage() {
             ) : (
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
                 {posts.map((post, i) => (
-                  <Reveal key={post._id} delay={(i % 3) * 110} className="aspect-[4/5] overflow-hidden">
+                  <Opening key={post._id} delay={(i % 3) * 110} className="aspect-[4/5] overflow-hidden">
                     <PhotoTile
                       href={`/blog/${post.slug}`}
                       image={post.mainImage ? urlForImage(post.mainImage).width(800).height(1000).fit("crop").url() : ""}
@@ -52,7 +52,7 @@ export default async function BlogPage() {
                       footerRight={formatBlogDate(post.publishedAt)}
                       className="h-full w-full"
                     />
-                  </Reveal>
+                  </Opening>
                 ))}
               </div>
             )}

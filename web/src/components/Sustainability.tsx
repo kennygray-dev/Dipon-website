@@ -2,6 +2,7 @@ import CtaButton from "./CtaButton";
 import Eyebrow from "./Eyebrow";
 import GeometricOverlay from "./GeometricOverlay";
 import Heading from "./Heading";
+import Opening from "./Opening";
 import Reveal from "./Reveal";
 import { section, wrap, leadLight } from "@/lib/styles";
 
@@ -22,8 +23,8 @@ export default function Sustainability() {
   return (
     <section id="sustainability" className={`${section} bg-dipon-page`}>
       <div className={wrap}>
-        <Reveal className="grid grid-cols-1 items-stretch gap-[clamp(28px,4vw,44px)] md:grid-cols-[0.54fr_0.46fr] md:gap-[2px]">
-          <div className="relative aspect-[4/5] overflow-hidden md:aspect-auto md:h-full md:min-h-[420px]">
+        <Reveal fadeOnly className="grid grid-cols-1 items-stretch gap-[clamp(28px,4vw,44px)] md:grid-cols-[0.54fr_0.46fr] md:gap-[2px]">
+          <Opening className="relative aspect-[4/5] overflow-hidden md:aspect-auto md:h-full md:min-h-[420px]">
             <img
               src={SUSTAINABILITY_IMAGE}
               alt="Solar and renewable energy infrastructure"
@@ -33,7 +34,7 @@ export default function Sustainability() {
             <span className="absolute top-5 left-5 inline-flex items-center rounded-full bg-white/95 px-4 py-2 font-label text-[11px] font-semibold tracking-[0.8px] text-dipon-primary uppercase shadow-[0_2px_8px_rgba(0,0,0,0.12)]">
               Renewable Energy
             </span>
-          </div>
+          </Opening>
           <div className="relative flex flex-col justify-center overflow-hidden bg-gradient-to-b from-[#2b4a5b] via-dipon-blue to-dipon-blue-alt py-[clamp(36px,5vw,56px)] pr-[clamp(24px,4vw,48px)] pl-[clamp(24px,4vw,48px)] md:pl-[clamp(32px,4vw,56px)]">
             <div
               aria-hidden="true"
