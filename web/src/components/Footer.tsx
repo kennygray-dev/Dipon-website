@@ -7,10 +7,10 @@ import { wrap } from "@/lib/styles";
 import Socials from "./Socials";
 
 const footerLink =
-  "font-body text-sm leading-[1.5] text-dipon-cream no-underline opacity-[0.82] transition-opacity hover:opacity-100";
+  "inline-block font-body text-sm leading-[1.5] text-dipon-cream no-underline opacity-75 transition-[opacity,transform,color] duration-200 hover:translate-x-[3px] hover:opacity-100 hover:text-dipon-cream";
 const footerHead =
-  "mb-5 font-label text-[11px] font-semibold uppercase tracking-[1.4px] text-dipon-accent";
-const footerList = "m-0 flex list-none flex-col gap-[14px] p-0";
+  "mb-6 flex items-center gap-2.5 font-label text-[11px] font-semibold uppercase tracking-[1.4px] text-dipon-accent before:h-[2px] before:w-4 before:rounded-full before:bg-dipon-accent before:content-['']";
+const footerList = "m-0 flex list-none flex-col gap-4 p-0";
 
 const LEGAL_LINKS = [
   { label: "Privacy Policy", href: "/privacy-policy" },
@@ -19,9 +19,14 @@ const LEGAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-dipon-blue-alt px-gutter pt-[clamp(76px,9vw,116px)] pb-11 text-dipon-cream">
+    <footer className="relative overflow-hidden bg-dipon-blue-alt px-gutter pt-[clamp(76px,9vw,116px)] pb-11 text-dipon-cream">
+      {/* subtle accent line framing the top edge */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[rgba(253,128,46,0.4)] to-transparent"
+      />
       <div className={wrap}>
-        <div className="grid grid-cols-1 items-start gap-x-14 gap-y-12 border-b border-[rgba(255,249,235,0.16)] pb-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.8fr_1fr_1.3fr_1.1fr_1.2fr]">
+        <div className="grid grid-cols-1 items-start gap-x-16 gap-y-14 border-b border-[rgba(255,249,235,0.14)] pb-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.8fr_1fr_1.3fr_1.1fr_1.2fr]">
           <div>
             <p className="max-w-[280px] font-body text-sm leading-[1.65] text-[rgba(255,249,235,0.85)]">
               Building Sustainable Infrastructure and Business Solutions for Africa&rsquo;s Future.
@@ -93,9 +98,9 @@ export default function Footer() {
             </div>
           </nav>
         </div>
-        {/* Brand band — big statement + large logo, inspired by the reference */}
+        {/* Brand band — statement recedes as a quiet watermark; logo stays the anchor */}
         <div className="mt-12 flex flex-col gap-9 md:mt-16 md:flex-row md:items-center md:justify-between">
-          <p className="max-w-[20ch] text-balance font-display text-[clamp(30px,5vw,56px)] font-bold leading-[1.05] tracking-[-0.6px] text-dipon-cream">
+          <p className="max-w-[20ch] text-balance font-display text-[clamp(28px,4.6vw,52px)] font-semibold leading-[1.04] tracking-[-0.6px] text-[rgba(255,249,235,0.22)]">
             One Group. Every Stage of the Build.
           </p>
           <Image
@@ -103,7 +108,7 @@ export default function Footer() {
             alt="DIPON Group"
             width={493}
             height={142}
-            className="h-[54px] w-auto shrink-0 opacity-95 md:h-[72px]"
+            className="h-[52px] w-auto shrink-0 opacity-80 md:h-[66px]"
           />
         </div>
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[rgba(255,249,235,0.16)] pt-8">
