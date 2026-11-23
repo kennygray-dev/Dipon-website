@@ -1,10 +1,12 @@
 import Link from "next/link";
+import CardMedia from "./CardMedia";
 import { ArrowIcon, LogoMark } from "./icons";
 
 export default function PhotoTile({
   href,
   image,
   imageAlt,
+  video,
   label,
   title,
   desc,
@@ -15,6 +17,7 @@ export default function PhotoTile({
   href: string;
   image: string;
   imageAlt: string;
+  video?: string;
   label?: string;
   title: string;
   desc?: string;
@@ -24,11 +27,7 @@ export default function PhotoTile({
 }) {
   return (
     <Link href={href} className={`group relative flex h-full w-full flex-col no-underline ${className}`}>
-      <img
-        src={image}
-        alt={imageAlt}
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] group-hover:scale-105"
-      />
+      <CardMedia image={image} alt={imageAlt} video={video} />
       <div className="absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b from-[#233d4c]/60 via-transparent to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />
       <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/88 via-black/30 to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/35 opacity-100 transition-opacity duration-400 ease-[var(--ease-premium)] lg:opacity-0 lg:group-hover:opacity-100" />

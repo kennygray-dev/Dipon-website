@@ -28,6 +28,18 @@ export const SUBSIDIARY_BLURBS: Record<string, string> = {
     "The Group's power and property arm: renewable energy, power infrastructure, housing development, and environmental services.",
 };
 
+// Short hover-preview clips per service (self-hosted in /public/cards), keyed by
+// slug so cards across the site (homepage, services list) share one source.
+export const SERVICE_VIDEOS: Record<string, string> = {
+  "construction-civil-engineering": "/cards/construction.mp4",
+  "renewable-energy-power": "/cards/power.mp4",
+  "real-estate-property": "/cards/realestate.mp4",
+  "environmental-services": "/cards/environmental.mp4",
+  "trading-supply-chain": "/cards/warehouse.mp4",
+  "transportation-logistics": "/cards/trade.mp4",
+  agriculture: "/cards/agriculture.mp4",
+};
+
 export const SERVICES: Service[] = [
   {
     slug: "construction-civil-engineering",

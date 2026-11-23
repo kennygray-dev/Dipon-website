@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Opening from "@/components/Opening";
 import PhotoTile from "@/components/PhotoTile";
 import WordmarkHero from "@/components/WordmarkHero";
-import { SERVICES } from "@/lib/services";
+import { SERVICES, SERVICE_VIDEOS } from "@/lib/services";
 import { root, section, wrap } from "@/lib/styles";
 
 export const metadata: Metadata = {
@@ -35,6 +35,7 @@ export default function ServicesPage() {
                     href={`/services/${service.slug}`}
                     image={service.heroImage}
                     imageAlt={`DIPON Group: ${service.title}`}
+                    video={SERVICE_VIDEOS[service.slug]}
                     title={service.title}
                     desc={service.summary}
                     className="h-full w-full"

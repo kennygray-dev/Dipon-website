@@ -1,10 +1,11 @@
 import Link from "next/link";
+import CardMedia from "./CardMedia";
 import Eyebrow from "./Eyebrow";
 import Heading from "./Heading";
 import Opening from "./Opening";
 import Reveal from "./Reveal";
 import { ArrowIcon, LogoMark } from "./icons";
-import { SERVICES } from "@/lib/services";
+import { SERVICES, SERVICE_VIDEOS } from "@/lib/services";
 import { section, wrap, lead } from "@/lib/styles";
 
 const INDUSTRIES = [
@@ -75,11 +76,7 @@ export default function Industries() {
             return (
               <Opening key={ind.slug} delay={(i % 3) * 110} className="aspect-square overflow-hidden">
                 <Link href={`/services/${ind.slug}`} className="group relative flex h-full w-full flex-col no-underline">
-                  <img
-                    src={ind.image}
-                    alt={`DIPON Group: ${ind.title}`}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] group-hover:scale-105"
-                  />
+                  <CardMedia image={ind.image} alt={`DIPON Group: ${ind.title}`} video={SERVICE_VIDEOS[ind.slug]} />
                   <div
                     className={`absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b ${TINTS[ind.tint as "navy" | "orange"]} to-transparent transition-opacity duration-400 ease-[var(--ease-premium)] lg:group-hover:opacity-0`}
                   />
