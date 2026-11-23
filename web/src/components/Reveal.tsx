@@ -22,7 +22,6 @@ export default function Reveal({
   delay = 0,
   from = "bottom",
   fadeOnly = false,
-  mask = false,
 }: {
   children: ReactNode;
   as?: ElementType;
@@ -34,10 +33,6 @@ export default function Reveal({
   // It also plays a gentle entrance on load when already in view (handy for
   // above-the-fold cards a scroll-reveal would otherwise skip).
   fadeOnly?: boolean;
-  // mask: a clip-path "unmask" — the element opens from the top edge down as it
-  // enters view (great for images/photos). Touches only clip-path, so inner
-  // hover-zoom transforms keep working. Put it on the image's framed container.
-  mask?: boolean;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
   // Default to visible so the server-rendered HTML — and the very first paint,
@@ -92,25 +87,16 @@ export default function Reveal({
       className={cn(
         animated &&
           cn(
-            mask
-              ? "transition-[clip-path] duration-[1100ms] ease-[var(--ease-premium)]"
-              : cn(
-                  fadeOnly ? "transition-opacity" : "transition-[opacity,transform]",
-                  "duration-[900ms] ease-[var(--ease-premium)] max-md:duration-[560ms]"
-                ),
-            "max-md:[transition-delay:0ms]! motion-reduce:transition-none"
+            fadeOnly ? "transition-opacity" : "transition-[opacity,transform]",
+            "duration-[900ms] ease-[var(--ease-premium)] max-md:duration-[560ms] max-md:[transition-delay:0ms]! motion-reduce:transition-none"
           ),
-        mask
+        fadeOnly
           ? visible
-            ? "[clip-path:inset(0)]"
-            : "[clip-path:inset(0_0_100%_0)]"
-          : fadeOnly
-            ? visible
-              ? "opacity-100"
-              : "opacity-0"
-            : visible
-              ? "translate-x-0 translate-y-0 scale-100 opacity-100"
-              : cn(HIDDEN_BY_FROM[from], "scale-[0.92] opacity-0 max-md:scale-[0.96]"),
+            ? "opacity-100"
+            : "opacity-0"
+          : visible
+            ? "translate-x-0 translate-y-0 scale-100 opacity-100"
+            : cn(HIDDEN_BY_FROM[from], "scale-[0.92] opacity-0 max-md:scale-[0.96]"),
         className
       )}
     >

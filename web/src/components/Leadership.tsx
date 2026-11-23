@@ -54,7 +54,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
               <CtaButton href="/about" label="Meet Our Leadership" variant="outline" />
             )}
           </Reveal>
-          <Reveal mask delay={40} className="relative order-first aspect-[4/5] overflow-hidden md:order-none">
+          <Reveal from="right" delay={40} className="relative order-first aspect-[4/5] overflow-hidden md:order-none">
             <Image
               src={founderPhoto}
               alt="Mr. Oliver Ibeh, Founder of DIPON Group"

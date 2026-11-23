@@ -74,8 +74,8 @@ export default function Industries() {
             return (
               <Reveal
                 key={ind.slug}
-                mask
                 delay={(i % 3) * 110}
+                from={i % 2 === 0 ? "bottom" : "top"}
                 className="aspect-square overflow-hidden"
               >
                 <Link href={`/services/${ind.slug}`} className="group relative flex h-full w-full flex-col no-underline">

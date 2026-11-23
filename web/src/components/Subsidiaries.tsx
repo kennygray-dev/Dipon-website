@@ -54,8 +54,8 @@ export default function Subsidiaries() {
           {SUBSIDIARIES.map((sub, i) => (
             <Reveal
               key={sub.slug}
-              mask
               delay={i * 130}
+              from={i % 2 === 0 ? "bottom" : "top"}
               className="aspect-[6/5] overflow-hidden"
             >
               <Link href={`/subsidiaries/${sub.slug}`} className="group relative flex h-full w-full flex-col no-underline">
