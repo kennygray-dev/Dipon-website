@@ -7,7 +7,7 @@ import { wrap } from "@/lib/styles";
 import Socials from "./Socials";
 
 const footerLink =
-  "inline-block font-body text-sm leading-[1.5] text-dipon-cream no-underline opacity-75 transition-[opacity,transform,color] duration-200 hover:translate-x-[3px] hover:opacity-100 hover:text-dipon-cream";
+  "inline-block font-body text-sm leading-[1.5] text-dipon-cream no-underline opacity-75 transition-[opacity,transform,color] duration-[520ms] ease-[var(--ease-bounce)] hover:translate-x-[4px] hover:opacity-100 hover:text-dipon-cream";
 const footerHead =
   "mb-6 flex items-center gap-2.5 font-label text-[11px] font-semibold uppercase tracking-[1.4px] text-dipon-accent before:h-[2px] before:w-4 before:rounded-full before:bg-dipon-accent before:content-['']";
 const footerList = "m-0 flex list-none flex-col gap-4 p-0";

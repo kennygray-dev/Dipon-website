@@ -18,6 +18,7 @@
   --spacing-section: clamp(72px, 9vw, 120px);
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-premium: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.45, 0.64, 1);
 }
 
 :root {
@@ -295,20 +296,47 @@ img.object-cover:not(.grayscale) {
    view (Dribbble-style). Armed (.js-reveal) and toggled (.reveal-in) by
    ScrollMotion's scroll/rAF loop, so it never gets stuck. Default (no JS or
    reduced motion) shows the content normally. */
-[data-reveal].js-reveal {
+[data-reveal]:not(.heading-rise).js-reveal {
   clip-path: inset(0 0 100% 0);
   opacity: 0;
   transition:
     clip-path 880ms var(--ease-premium),
     opacity 600ms var(--ease-premium);
 }
-[data-reveal].js-reveal.reveal-in {
+[data-reveal]:not(.heading-rise).js-reveal.reveal-in {
   clip-path: inset(0 0 0 0);
   opacity: 1;
 }
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal].js-reveal {
+  [data-reveal]:not(.heading-rise).js-reveal {
     clip-path: none;
+    opacity: 1;
+    transition: none;
+  }
+}
+
+/* Section headings "open" on scroll — each line rises + fades in, staggered.
+   Gated behind .js-reveal so without JS the heading is simply visible. The
+   per-line transform composes with the heading's own parallax drift (which
+   lives on the parent element), so the two never fight. */
+.heading-rise.js-reveal .ho-line {
+  display: block;
+  transform: translateY(32px);
+  opacity: 0;
+  transition:
+    transform 850ms var(--ease-premium),
+    opacity 850ms var(--ease-premium);
+}
+.heading-rise.js-reveal .ho-line + .ho-line {
+  transition-delay: 110ms;
+}
+.heading-rise.js-reveal.reveal-in .ho-line {
+  transform: translateY(0);
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .heading-rise.js-reveal .ho-line {
+    transform: none;
     opacity: 1;
     transition: none;
   }

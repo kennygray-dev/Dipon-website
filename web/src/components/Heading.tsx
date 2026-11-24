@@ -29,17 +29,13 @@ export default function Heading({
   return (
     <Tag
       data-parallax="0.05"
-      className={`${marginTop} text-balance font-display ${size} font-extrabold leading-[1.05] ${
+      data-reveal
+      className={`heading-rise ${marginTop} font-display ${size} font-extrabold leading-[1.05] ${
         light ? "text-dipon-cream" : "text-dipon-primary"
       } ${className}`}
     >
-      {first}
-      {rest && (
-        <>
-          <br />
-          <span className={restColor}>{rest}</span>
-        </>
-      )}
+      <span className="ho-line block text-balance">{first}</span>
+      {rest && <span className={`ho-line block text-balance ${restColor}`}>{rest}</span>}
     </Tag>
   );
 }

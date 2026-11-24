@@ -1,8 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
+
+// Run the arming pass before paint on the client (so armed-closed state is never
+// flashed), and harmlessly fall back to useEffect during SSR.
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 // Site-wide motion controller:
 //  • Lenis smooth (inertia) scrolling.
@@ -83,7 +87,10 @@ export default function ScrollMotion() {
   }, []);
 
   // Collect + arm the animated elements — on first load and after each navigation.
-  useEffect(() => {
+  // Armed BEFORE paint (layout effect) so the closed state is never flashed, then
+  // the rAF loop opens whatever is in view — so items that are already on screen on
+  // load still play the reveal (the veil), not just ones scrolled into view.
+  useIsomorphicLayoutEffect(() => {
     if (prefersReduced()) return;
 
     const open = new Set<HTMLElement>();
@@ -99,19 +106,16 @@ export default function ScrollMotion() {
 
     const reveal = new Set<HTMLElement>();
     document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
-      el.classList.add("js-reveal"); // arm the clipped state
-      const r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.98 && r.bottom > 0) {
-        el.classList.add("reveal-in"); // already on screen — open immediately, no flash
-      } else {
-        reveal.add(el);
-      }
+      if (el.classList.contains("reveal-in")) return;
+      el.classList.add("js-reveal"); // arm the clipped/closed state before paint
+      reveal.add(el);
     });
     revealRef.current = reveal;
 
-    // Run the loop once (and shortly after) so above-the-fold items settle.
+    // Open whatever is already in view on the next frame (so the veil plays on
+    // load too), then the scroll loop handles the rest.
     const kick = requestAnimationFrame(() => updateRef.current());
-    const t = setTimeout(() => updateRef.current(), 140);
+    const t = setTimeout(() => updateRef.current(), 160);
     return () => {
       cancelAnimationFrame(kick);
       clearTimeout(t);

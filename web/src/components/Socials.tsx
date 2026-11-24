@@ -34,7 +34,7 @@ export default function Socials({ label, className = "" }: { label?: string; cla
               aria-label={aria}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 text-dipon-cream/80 transition-[transform,border-color,color] duration-300 ease-[var(--ease-premium)] hover:-translate-y-[3px] hover:border-white/55 hover:text-dipon-cream"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 text-dipon-cream/80 transition-[transform,border-color,color] duration-[520ms] ease-[var(--ease-bounce)] hover:-translate-y-[4px] hover:border-white/55 hover:text-dipon-cream"
             >
               <Icon />
             </a>
