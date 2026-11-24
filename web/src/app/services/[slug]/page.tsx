@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import GeometricOverlay from "@/components/GeometricOverlay";
 import Header from "@/components/Header";
 import Heading from "@/components/Heading";
+import Opening from "@/components/Opening";
 import PageHero from "@/components/PageHero";
 import PhotoTile from "@/components/PhotoTile";
 import Reveal from "@/components/Reveal";
@@ -75,15 +76,15 @@ export default async function ServicePage({
                   </p>
                 ))}
               </Reveal>
-              <Reveal delay={150} className="relative aspect-[6/5] overflow-hidden">
+              <Opening delay={150} className="relative aspect-[6/5] overflow-hidden">
                 <img
                   src={service.bodyImage ?? service.heroImage}
                   alt={`DIPON Group ${service.title.toLowerCase()} work`}
-                  className="h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
+                  className="h-full w-full object-cover"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/60 via-dipon-blue/15 to-transparent" />
                 <GeometricOverlay />
-              </Reveal>
+              </Opening>
             </div>
           </div>
         </section>
@@ -98,7 +99,7 @@ export default async function ServicePage({
                 <Heading>{`${subsidiary ? subsidiary.short : service.deliveredBy}, the team behind this work.`}</Heading>
                 <p className={`${lead} mt-5`}>{SUBSIDIARY_BLURBS[service.deliveredBy]}</p>
               </Reveal>
-              <Reveal delay={150} className="aspect-[6/5] overflow-hidden">
+              <Opening delay={150} className="aspect-[6/5] overflow-hidden">
                 <PhotoTile
                   href={subsidiary ? `/subsidiaries/${subsidiary.slug}` : "/subsidiaries"}
                   image={subsidiary?.heroImage ?? service.heroImage}
@@ -107,7 +108,7 @@ export default async function ServicePage({
                   desc={SUBSIDIARY_BLURBS[service.deliveredBy]}
                   className="h-full w-full"
                 />
-              </Reveal>
+              </Opening>
             </div>
           </div>
         </section>
@@ -120,12 +121,7 @@ export default async function ServicePage({
             </Reveal>
             <div className="mx-auto grid max-w-[980px] grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
               {others.map((other, i) => (
-                <Reveal
-                  key={other.slug}
-                  delay={(i % 3) * 90}
-                  from={i % 2 === 0 ? "left" : "right"}
-                  className="aspect-[4/5] overflow-hidden"
-                >
+                <Opening key={other.slug} delay={(i % 3) * 90} className="aspect-[4/5] overflow-hidden">
                   <PhotoTile
                     href={`/services/${other.slug}`}
                     image={other.heroImage}
@@ -134,7 +130,7 @@ export default async function ServicePage({
                     desc={other.summary}
                     className="h-full w-full"
                   />
-                </Reveal>
+                </Opening>
               ))}
             </div>
           </div>

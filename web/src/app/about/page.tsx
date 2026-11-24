@@ -7,6 +7,7 @@ import GeometricOverlay from "@/components/GeometricOverlay";
 import Header from "@/components/Header";
 import Heading from "@/components/Heading";
 import Founder from "@/components/Founder";
+import Opening from "@/components/Opening";
 import { BuildIcon, HouseIcon, LeafIcon, LinkIcon, PartnershipIcon, ShieldIcon } from "@/components/icons";
 import WordmarkHero from "@/components/WordmarkHero";
 import Reveal from "@/components/Reveal";
@@ -92,42 +93,42 @@ export default function AboutPage() {
               </Reveal>
 
               <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:aspect-[6/5] lg:grid-cols-2 lg:grid-rows-2">
-                <Reveal from="right" className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:row-span-2">
+                <Opening className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:row-span-2">
                   <img
                     src={OVERVIEW_IMAGES.vertical.src}
                     alt={OVERVIEW_IMAGES.vertical.alt}
-                    className="h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
+                    className="h-full w-full object-cover"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/35 via-transparent to-transparent" />
                   <GeometricOverlay />
                   <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-dipon-primary shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                     <BuildIcon size={15} />
                   </span>
-                </Reveal>
-                <Reveal from="right" delay={150} className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
+                </Opening>
+                <Opening delay={150} className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
                   <img
                     src={OVERVIEW_IMAGES.horizontalTop.src}
                     alt={OVERVIEW_IMAGES.horizontalTop.alt}
-                    className="h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
+                    className="h-full w-full object-cover"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/35 via-transparent to-transparent" />
                   <GeometricOverlay />
                   <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-dipon-primary shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                     <HouseIcon size={15} />
                   </span>
-                </Reveal>
-                <Reveal from="right" delay={300} className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
+                </Opening>
+                <Opening delay={300} className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
                   <img
                     src={OVERVIEW_IMAGES.horizontalBottom.src}
                     alt={OVERVIEW_IMAGES.horizontalBottom.alt}
-                    className="h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-standard)] hover:scale-105"
+                    className="h-full w-full object-cover"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dipon-blue/35 via-transparent to-transparent" />
                   <GeometricOverlay />
                   <span aria-hidden="true" className="absolute right-3 bottom-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-dipon-primary shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                     <LeafIcon size={15} />
                   </span>
-                </Reveal>
+                </Opening>
               </div>
             </div>
           </div>
