@@ -69,8 +69,6 @@ export default function Subsidiaries() {
               <CardMedia image={sub.image} alt={`DIPON Group: ${sub.name}`} video={sub.video} />
               {/* legibility wash */}
               <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/88 via-black/35 to-black/15" />
-              {/* subtle grid, like the reference */}
-              <div aria-hidden="true" className="sector-grid pointer-events-none absolute inset-0" />
 
               {/* top — name + mark */}
               <div className="absolute inset-x-0 top-0 z-10 flex items-start justify-between p-5 sm:p-6">

@@ -45,25 +45,23 @@ export default function CardMedia({
 
   return (
     <span ref={rootRef} className="absolute inset-0 block">
-      <img
-        src={image}
-        alt={alt}
-        className={`absolute inset-0 h-full w-full object-cover transition-transform duration-[650ms] ease-[var(--ease-premium)] group-hover:scale-105 ${imgClassName}`}
-      />
+      <img src={image} alt={alt} className={`absolute inset-0 h-full w-full object-cover ${imgClassName}`} />
       {video && (
         <video
           ref={videoRef}
           muted
           loop
           playsInline
-          preload="none"
+          preload="metadata"
           poster={image}
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-[600ms] ease-[var(--ease-premium)] group-hover:opacity-100 motion-reduce:hidden"
+          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-[450ms] ease-[var(--ease-premium)] group-hover:opacity-100 motion-reduce:hidden"
         >
           <source src={video} type="video/mp4" />
         </video>
       )}
+      {/* Subtle grid texture on every card's media */}
+      <span aria-hidden="true" className="sector-grid pointer-events-none absolute inset-0" />
     </span>
   );
 }
