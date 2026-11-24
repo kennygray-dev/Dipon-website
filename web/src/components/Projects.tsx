@@ -222,6 +222,8 @@ export default function Projects() {
                 className="proj-breathe absolute inset-0 h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/25" />
+              {/* faint grid — stays on the big image and on the collapsed cell */}
+              <div aria-hidden="true" className="sector-grid pointer-events-none absolute inset-0" />
               {/* All the heading info lives inside the image, fading out on collapse */}
               <div
                 ref={textRef}

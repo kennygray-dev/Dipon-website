@@ -37,8 +37,12 @@ export default function CtaBand({ className = "" }: { className?: string }) {
 
       <Reveal className="mx-auto flex w-full max-w-[1100px] flex-col gap-10">
         <div className="text-left">
-          <h2 className="max-w-[620px] text-balance font-display text-[clamp(28px,4vw,50px)] font-extrabold leading-[1.12] tracking-[-1px] text-white">
-            Let&rsquo;s talk about your <span className="text-dipon-accent">next project.</span>
+          <h2
+            data-reveal
+            className="heading-rise max-w-[620px] font-display text-[clamp(28px,4vw,50px)] font-extrabold leading-[1.12] tracking-[-1px] text-white"
+          >
+            <span className="ho-line block text-balance">Let&rsquo;s talk about your</span>
+            <span className="ho-line block text-dipon-accent">next project.</span>
           </h2>
           <p className="mt-4 max-w-[440px] text-pretty font-body text-[15px] leading-[1.65] text-white/88">
             Tell us what you need built, supplied, powered, or developed, we&rsquo;ll get the right people at the

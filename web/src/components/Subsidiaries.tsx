@@ -57,11 +57,12 @@ export default function Subsidiaries() {
         {/* Expanding focus panels — full images on a subtle grid, tight spacing.
             The centre is larger; hovering any panel grows it and eases the others
             back, like a focus carousel. */}
-        <Reveal fadeOnly className="sector-row flex flex-col gap-3 md:h-[clamp(400px,44vw,520px)] md:flex-row md:gap-2">
+        <div className="sector-row flex flex-col gap-3 md:h-[clamp(400px,44vw,520px)] md:flex-row md:gap-2">
           {SUBSIDIARIES.map((sub, i) => (
             <Link
               key={sub.slug}
               href={`/subsidiaries/${sub.slug}`}
+              data-reveal
               className={`sector-panel group relative block h-[64vw] max-h-[400px] overflow-hidden no-underline md:h-full md:max-h-none ${
                 i === 1 ? "is-center" : ""
               }`}
@@ -92,7 +93,7 @@ export default function Subsidiaries() {
               </div>
             </Link>
           ))}
-        </Reveal>
+        </div>
 
         <Reveal>
           <CtaButton href="/subsidiaries" label="See All Companies" variant="primary" className="mt-10" />
