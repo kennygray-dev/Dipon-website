@@ -3,6 +3,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
 import { CONTACT_EMAIL } from "@/lib/site";
 import { root, section, wrap } from "@/lib/styles";
 
@@ -30,16 +31,16 @@ export default function TermsOfServicePage() {
         <section className={section}>
           <div className={`${wrap} max-w-[820px]`}>
             <div className="flex flex-col gap-10">
-              <div>
+              <Reveal>
                 <h2 className={h2}>Agreement to these terms</h2>
                 <p className={body}>
                   By accessing or using dipongrouplimited.com (&ldquo;this site&rdquo;), you agree to these Terms of
                   Service. If you do not agree with them, please do not use the site. We may update these terms from
                   time to time; continuing to use the site after a change means you accept the updated terms.
                 </p>
-              </div>
+              </Reveal>
 
-              <div>
+              <Reveal>
                 <h2 className={h2}>Who we are</h2>
                 <p className={body}>
                   This site is operated by DIPON Group Limited (&ldquo;DIPON&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;,
@@ -48,9 +49,9 @@ export default function TermsOfServicePage() {
                   Limited, and DIPON Infrastructure Limited, each registered in Nigeria under the Companies and
                   Allied Matters Act, 2020.
                 </p>
-              </div>
+              </Reveal>
 
-              <div>
+              <Reveal>
                 <h2 className={h2}>Use of the site</h2>
                 <p className={body}>
                   You may use this site for lawful, informational purposes, to learn about our group, our services,
@@ -67,9 +68,9 @@ export default function TermsOfServicePage() {
                 <p className={li}>
                   &bull; copy, scrape, or reproduce the site&rsquo;s content except as permitted below.
                 </p>
-              </div>
+              </Reveal>
 
-              <div>
+              <Reveal>
                 <h2 className={h2}>Information is not a binding offer</h2>
                 <p className={body}>
                   The content on this site, including descriptions of our services, projects, and capabilities, is
@@ -78,9 +79,9 @@ export default function TermsOfServicePage() {
                   agreement signed by both parties; nothing on this site, and no form submission, creates a contract
                   for services on its own.
                 </p>
-              </div>
+              </Reveal>
 
-              <div>
+              <Reveal>
                 <h2 className={h2}>Intellectual property</h2>
                 <p className={body}>
                   The DIPON name and logo, together with the content, design, text, graphics, and layout of this
@@ -89,9 +90,9 @@ export default function TermsOfServicePage() {
                   not reproduce, republish, or use our content or branding for commercial purposes without our prior
                   written permission.
                 </p>
-              </div>
+              </Reveal>
 
-              <div>
+              <Reveal>
                 <h2 className={h2}>Accuracy and availability</h2>
                 <p className={body}>
                   We aim to keep the information on this site accurate and current, but we provide it &ldquo;as
@@ -99,9 +100,9 @@ export default function TermsOfServicePage() {
                   suspend, or withdraw any part of the site at any time without notice, and we do not guarantee that
                   it will always be available or uninterrupted.
                 </p>
-              </div>
+              </Reveal>
 
-              <div>
+              <Reveal>
                 <h2 className={h2}>Third-party links and embeds</h2>
                 <p className={body}>
                   This site may link to, or embed content from, third-party services, for example, the Google Maps
@@ -109,9 +110,9 @@ export default function TermsOfServicePage() {
                   content, accuracy, or data practices. Following an external link is at your own discretion and is
                   subject to that third party&rsquo;s own terms.
                 </p>
-              </div>
+              </Reveal>
 
-              <div>
+              <Reveal>
                 <h2 className={h2}>Limitation of liability</h2>
                 <p className={body}>
                   To the fullest extent permitted by law, DIPON Group Limited and its companies will not be liable for any
@@ -119,9 +120,9 @@ export default function TermsOfServicePage() {
                   information it contains. Nothing in these terms excludes or limits any liability that cannot lawfully
                   be excluded or limited.
                 </p>
-              </div>
+              </Reveal>
 
-              <div>
+              <Reveal>
                 <h2 className={h2}>Privacy</h2>
                 <p className={body}>
                   Your use of this site is also governed by our{" "}
@@ -130,17 +131,17 @@ export default function TermsOfServicePage() {
                   </Link>
                   , which explains how we handle the information you provide through our contact and careers forms.
                 </p>
-              </div>
+              </Reveal>
 
-              <div>
+              <Reveal>
                 <h2 className={h2}>Governing law</h2>
                 <p className={body}>
                   These terms are governed by the laws of the Federal Republic of Nigeria, and any dispute relating to
                   them or to your use of this site is subject to the jurisdiction of the Nigerian courts.
                 </p>
-              </div>
+              </Reveal>
 
-              <div>
+              <Reveal>
                 <h2 className={h2}>Contact</h2>
                 <p className={body}>
                   Questions about these terms? Reach us at{" "}
@@ -150,7 +151,7 @@ export default function TermsOfServicePage() {
                   .
                 </p>
                 <p className={`${body} text-[13px] text-dipon-tertiary`}>Last updated: August 2026.</p>
-              </div>
+              </Reveal>
             </div>
           </div>
         </section>
