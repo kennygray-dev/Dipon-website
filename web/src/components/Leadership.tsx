@@ -13,7 +13,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
   return (
     <section
       id="careers"
-      className={`${section} relative overflow-hidden bg-dipon-blue lg:flex lg:min-h-screen lg:flex-col lg:justify-center`}
+      className={`${section} relative overflow-hidden bg-dipon-blue lg:flex lg:min-h-screen lg:flex-col lg:justify-center lg:py-[clamp(40px,5vh,72px)]`}
     >
       <SectionTexture side="right" />
       <div className={`${wrap} relative z-10 w-full`}>
