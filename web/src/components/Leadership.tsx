@@ -3,6 +3,7 @@ import CtaButton from "./CtaButton";
 import Eyebrow from "./Eyebrow";
 import Opening from "./Opening";
 import Reveal from "./Reveal";
+import ScrollRevealText from "./ScrollRevealText";
 import founderPhoto from "@/assets/team/oliver-ibeh.jpg";
 import founderSquare from "@/assets/team/oliver-ibeh-square.jpg";
 import { section, wrap } from "@/lib/styles";
@@ -44,10 +45,12 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
             <span aria-hidden="true" className="block font-display text-[64px] leading-none font-black text-dipon-accent/25">
               &ldquo;
             </span>
-            <blockquote className="-mt-6 mb-6 text-pretty font-display text-[clamp(24px,2.8vw,34px)] font-semibold leading-[1.25] tracking-[-0.6px] text-dipon-primary">
-              I built DIPON so that one group answers for the whole project (design, build, and power)
-              instead of a chain of vendors pointing at each other when something slips.
-            </blockquote>
+            <ScrollRevealText
+              as="blockquote"
+              dim={0.24}
+              text="I built DIPON so that one group answers for the whole project (design, build, and power) instead of a chain of vendors pointing at each other when something slips."
+              className="-mt-6 mb-6 text-pretty font-display text-[clamp(24px,2.8vw,34px)] font-semibold leading-[1.25] tracking-[-0.6px] text-dipon-primary"
+            />
             <div className="mb-[26px] font-label text-[13px] font-semibold uppercase tracking-[0.6px] text-dipon-secondary">
               Mr. Oliver Ibeh · Founder, DIPON Group
             </div>

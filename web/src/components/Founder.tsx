@@ -2,6 +2,7 @@ import Image from "next/image";
 import Eyebrow from "./Eyebrow";
 import Opening from "./Opening";
 import Reveal from "./Reveal";
+import ScrollRevealText from "./ScrollRevealText";
 import founderPhoto from "@/assets/team/oliver-ibeh.jpg";
 import { section, wrap } from "@/lib/styles";
 
@@ -85,13 +86,11 @@ export default function Founder() {
               ))}
             </ul>
 
-            <p className="font-body text-[15px] leading-[1.7] text-dipon-secondary sm:text-[16px]">
-              By holding construction, commercial, and power capability under one founder, Mr. Ibeh built DIPON to
-              remove the coordination risk that fragments most large projects, so clients answer to one
-              accountable group rather than a chain of disconnected vendors. It is the same conviction that grew a
-              single Arizona service company into a trusted institution, now directed toward building the
-              infrastructure of Africa&rsquo;s future.
-            </p>
+            <ScrollRevealText
+              dim={0.26}
+              text="By holding construction, commercial, and power capability under one founder, Mr. Ibeh built DIPON to remove the coordination risk that fragments most large projects, so clients answer to one accountable group rather than a chain of disconnected vendors. It is the same conviction that grew a single Arizona service company into a trusted institution, now directed toward building the infrastructure of Africa’s future."
+              className="font-body text-[15px] leading-[1.7] text-dipon-secondary sm:text-[16px]"
+            />
           </Reveal>
         </div>
       </div>

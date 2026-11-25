@@ -107,6 +107,7 @@ export default function Projects() {
   const featCapRef = useRef<HTMLDivElement | null>(null);
   const viewAllRef = useRef<HTMLDivElement | null>(null);
   const gridRef = useRef<HTMLDivElement | null>(null);
+  const featGridRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const canRun =
@@ -133,6 +134,7 @@ export default function Projects() {
       const featCap = featCapRef.current;
       const viewAll = viewAllRef.current;
       const grid = gridRef.current;
+      const featGrid = featGridRef.current;
       if (!stage || !slot || !feat || !text || !featCap || !viewAll || !grid) return;
       step = next;
       const sRect = stage.getBoundingClientRect();
@@ -145,6 +147,7 @@ export default function Projects() {
         text.style.opacity = "0"; // big statement fades out
         featCap.style.opacity = "1"; // small service label fades in
         viewAll.style.opacity = "1";
+        if (featGrid) featGrid.style.opacity = "0"; // grid only on the big image
         grid.classList.add("is-open");
       } else {
         feat.style.left = "0px";
@@ -154,6 +157,7 @@ export default function Projects() {
         text.style.opacity = "1";
         featCap.style.opacity = "0";
         viewAll.style.opacity = "0";
+        if (featGrid) featGrid.style.opacity = "1";
         grid.classList.remove("is-open");
       }
     };
@@ -222,8 +226,13 @@ export default function Projects() {
                 className="proj-breathe absolute inset-0 h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/25" />
-              {/* faint grid — stays on the big image and on the collapsed cell */}
-              <div aria-hidden="true" className="sector-grid pointer-events-none absolute inset-0" />
+              {/* faint grid — on the big image only; fades out as it collapses into the grid cell */}
+              <div
+                ref={featGridRef}
+                aria-hidden="true"
+                className="sector-grid pointer-events-none absolute inset-0 transition-opacity duration-500"
+                style={{ opacity: 1 }}
+              />
               {/* All the heading info lives inside the image, fading out on collapse */}
               <div
                 ref={textRef}
