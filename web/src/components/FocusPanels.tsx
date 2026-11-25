@@ -3,7 +3,7 @@ import Eyebrow from "./Eyebrow";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
 import { LogoMark } from "./icons";
-import { section, wrap, lead } from "@/lib/styles";
+import { section, wrap, leadLight } from "@/lib/styles";
 
 // Full-bleed Pexels URL for a photo id (plain <img>, so no next/image domain config).
 const px = (id: string) =>
@@ -54,12 +54,12 @@ export default function FocusPanels({
 
   let idx = -1;
   return (
-    <section className={`${section} bg-dipon-surface`}>
+    <section className={`${section} bg-dipon-blue`}>
       <div className={wrap}>
         <Reveal className="mb-10 max-w-[640px] md:mb-12">
-          <Eyebrow>{eyebrow}</Eyebrow>
-          <Heading>{heading}</Heading>
-          {intro && <p className={`${lead} mt-5`}>{intro}</p>}
+          <Eyebrow light>{eyebrow}</Eyebrow>
+          <Heading light>{heading}</Heading>
+          {intro && <p className={`${leadLight} mt-5`}>{intro}</p>}
         </Reveal>
 
         <div className="flex flex-col gap-3 md:gap-4">
