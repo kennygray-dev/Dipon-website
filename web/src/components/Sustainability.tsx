@@ -52,6 +52,11 @@ export default function Sustainability() {
                 deliver construction and infrastructure projects, from solar-powered sites to street lighting and
                 power infrastructure for the communities we build in.
               </p>
+              <p className={`${leadLight} mb-7`}>
+                Designing power in from the start means buildings are handed over ready to run, with supply sized to
+                real demand and renewable generation holding down running costs for years after completion, the kind
+                of saving that only shows up when energy is planned alongside the build rather than added at the end.
+              </p>
               {SHOWN_STATS.length > 0 && (
                 <div className="mb-8 grid grid-cols-3 gap-5 border-t border-[rgba(255,249,235,0.16)] pt-6">
                   {SHOWN_STATS.map((stat) => (

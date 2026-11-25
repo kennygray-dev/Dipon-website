@@ -52,6 +52,12 @@ export default function Subsidiaries() {
             estate, and supply chain solutions through three specialized companies, each built for depth in its
             field while the Group keeps them accountable to a single standard.
           </p>
+          <p className={`${lead} mt-4`}>
+            The advantage is in how they work together: one company builds, another supplies and moves the
+            materials, a third powers and maintains the finished site, so a project can run end to end without the
+            handoffs between unrelated firms that usually cost time and money. Clients deal with the Group, not a
+            chain of subcontractors.
+          </p>
         </Reveal>
 
         {/* Expanding focus panels — full images on a subtle grid, tight spacing.

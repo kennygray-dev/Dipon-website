@@ -32,6 +32,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     overview: [
       "DIPON Construction Limited delivers civil engineering, building construction, and general contracting. It's the company that turns designs into structures: roads, buildings, and the civil works beneath them.",
       "Because it sits inside a group that also supplies materials and delivers power, projects move forward without the handoffs between unrelated firms that usually cause delay.",
+      "Work runs to one standard of workmanship and safety, with a single point of accountability from the first survey through to final handover. Clients deal with the Group rather than coordinating a chain of subcontractors themselves, and the same team that sets the programme is the one answerable for meeting it.",
     ],
     focus: [
       { title: "Civil Engineering", desc: "Roads, drainage, earthworks, and the civil backbone of every site." },
@@ -59,6 +60,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     overview: [
       "DIPON Global Resources Limited runs the Group's commercial operations: import and export, materials supply, real estate, agriculture, and logistics. It keeps sites stocked, moves what needs moving, and develops property through to occupancy.",
       "Sitting close to the Group's own construction demand, it plans supply and logistics against real project needs, not guesswork.",
+      "The same reach that keeps sites supplied also serves clients outside the Group: sourcing materials, developing property, and moving goods for customers who want one dependable partner rather than a different vendor for every stage. Buying, storing, and delivering under one roof keeps margins tight and lead times short.",
     ],
     focus: [
       { title: "Trading & Supply Chain", desc: "Import, export, and materials supply across sectors." },
@@ -86,6 +88,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     overview: [
       "DIPON Infrastructure Limited delivers renewable energy, power infrastructure, housing development, and environmental services. It's the company that energizes projects, builds places for people to live, and keeps spaces clean, safe, and well-kept.",
       "By planning power alongside construction, it gets sites energized on schedule and lowers running costs over the life of a project.",
+      "Because power is designed in from the start rather than bolted on at the end, buildings are handed over ready to run, with supply sized to real demand and renewable generation reducing what projects spend on energy for years afterward. The same company then keeps those places clean, lit, and maintained once people move in.",
     ],
     focus: [
       { title: "Renewable Energy", desc: "Solar generation for buildings, sites, and communities." },
