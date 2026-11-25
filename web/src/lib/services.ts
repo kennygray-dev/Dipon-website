@@ -53,6 +53,7 @@ export const SERVICES: Service[] = [
     overview: [
       "DIPON Construction delivers civil engineering, building construction, and general contracting as the Group's core build capability. We take on roads, structures, and buildings as a single accountable contractor rather than a chain of vendors.",
       "Because design, build, and power sit inside one group, work moves forward without the coordination risk that usually stalls a site.",
+      "Every project runs to one standard of workmanship and safety, with a single point of accountability from the first survey to final handover, so clients deal with the Group rather than a tangle of subcontractors. We work across public and private projects, scaling the same disciplined approach from individual buildings to multi-site civil works.",
     ],
     capabilities: [
       { title: "Civil Works & Earthworks", desc: "Site preparation, drainage, and groundworks for projects of every scale." },
@@ -80,6 +81,7 @@ export const SERVICES: Service[] = [
     overview: [
       "DIPON Infrastructure delivers renewable energy and power infrastructure, from solar systems to public lighting. Power is planned alongside construction so sites are energized on schedule.",
       "This is sustainability treated as a delivery discipline: reliable systems that lower running costs and carbon over the life of a project.",
+      "Whether it's a standalone solar installation, street lighting for an estate, or power infrastructure for a larger development, systems are sized to real demand and built to keep running with minimal intervention. Because the same group handles the civil and electrical work, power is integrated cleanly into the build rather than retrofitted afterward.",
     ],
     capabilities: [
       { title: "Solar Power Systems", desc: "Design, supply, and installation of solar generation for buildings and sites." },
@@ -107,6 +109,7 @@ export const SERVICES: Service[] = [
     overview: [
       "DIPON develops real estate and housing with the build and power capability of the wider Group behind it. A development can move from land to occupancy without handing off between unrelated firms.",
       "The result is property delivered on a single accountable timeline, with construction and infrastructure coordinated from day one.",
+      "From site selection and feasibility through construction, power, and handover, each stage is managed under one roof, which keeps timelines tighter and quality consistent. The aim is property that's genuinely ready for occupancy, not a shell left waiting on other trades to finish.",
     ],
     capabilities: [
       { title: "Housing Development", desc: "Residential estates and homes developed through to completion." },
@@ -134,6 +137,7 @@ export const SERVICES: Service[] = [
     overview: [
       "Our environmental services build on Bio Janitorial Service, Inc., the Arizona facility-services company our founder started in 1990 and grew into a recognized name in integrated building maintenance. The same standards, quality, reliability, and doing the work better than before, now shape how we care for spaces here.",
       "From junk removal and waste management to janitorial and housekeeping, we keep homes, offices, and commercial sites in order, with teams that show up, follow the details, and leave things properly clean.",
+      "We tailor the work to each space, whether that's a one-off clear-out, routine janitorial rounds, or full facility upkeep, and hold the same standard for a home, an office, or a busy commercial site. Reliability is the point: teams that arrive on time, work to a checklist, and keep spaces consistently clean.",
     ],
     capabilities: [
       { title: "Junk Removal", desc: "Clearing, hauling, and responsible disposal of unwanted items and debris." },
@@ -161,6 +165,7 @@ export const SERVICES: Service[] = [
     overview: [
       "DIPON Global Resources runs the Group's trading and supply chain: import and export, materials supply, and product marketing. It's the commercial engine that keeps sites stocked and partners served.",
       "Sourcing sits close to our own construction demand, so supply is planned against real project needs rather than guesswork.",
+      "Beyond our own projects, we supply materials and products to partners across sectors, drawing on established sourcing channels to keep quality consistent and pricing competitive. Procurement, warehousing, and distribution are handled together, so what's ordered arrives where and when it's needed.",
     ],
     capabilities: [
       { title: "Import & Export", desc: "International sourcing and trade across product categories." },
@@ -188,6 +193,7 @@ export const SERVICES: Service[] = [
     overview: [
       "DIPON Global Resources handles transportation and logistics for the Group and its partners, moving materials, goods, and equipment to where they're needed.",
       "Logistics planned alongside supply and construction means fewer delays at the point that usually costs projects the most: getting materials to site.",
+      "Our fleet and logistics teams move everything from bulk construction materials to heavy equipment and finished goods, across single deliveries or ongoing project supply. Routes and schedules are planned around deadlines, with the flexibility to handle time-critical or outsized loads.",
     ],
     capabilities: [
       { title: "Freight & Haulage", desc: "Road transport of goods and bulk materials." },
@@ -215,6 +221,7 @@ export const SERVICES: Service[] = [
     overview: [
       "DIPON Global Resources extends the Group into agriculture: production and supply that broadens our commercial base and supports local food value chains.",
       "Backed by the Group's logistics and trading capability, agricultural output can move from production to market through channels we already run.",
+      "We focus on production and supply that strengthen local food value chains, from inputs through aggregation and distribution to market. It's a long-term investment in capability that complements the Group's trading and logistics base rather than standing apart from it.",
     ],
     capabilities: [
       { title: "Agricultural Production", desc: "Cultivation and production of agricultural output." },

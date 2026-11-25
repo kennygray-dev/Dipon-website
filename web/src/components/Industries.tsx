@@ -72,7 +72,8 @@ export default function Industries() {
         </Reveal>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
           {INDUSTRIES.map((ind, i) => {
-            const desc = SERVICES.find((s) => s.slug === ind.slug)?.summary ?? "";
+            const svc = SERVICES.find((s) => s.slug === ind.slug);
+            const desc = svc?.intro ?? svc?.summary ?? "";
             return (
               <Opening key={ind.slug} delay={(i % 3) * 110} className="aspect-square overflow-hidden">
                 <Link href={`/services/${ind.slug}`} className="group relative flex h-full w-full flex-col no-underline">
