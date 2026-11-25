@@ -17,6 +17,7 @@ const GRAIN_TEXTURE =
 const TOPICS = [
   {
     badge: "Construction & Civil Engineering",
+    kicker: "Build",
     heading: "We build the civil backbone, end to end.",
     copy: "Roads, drainage, structures, and buildings delivered from groundworks to handover, to one standard of workmanship and safety.",
     href: "/services/construction-civil-engineering",
@@ -25,6 +26,7 @@ const TOPICS = [
   },
   {
     badge: "Renewable Energy & Power",
+    kicker: "Power",
     heading: "Power planned into the build, not bolted on.",
     copy: "Solar, street lighting, and power infrastructure designed alongside construction, so sites are handed over ready to run with lower running costs.",
     href: "/services/renewable-energy-power",
@@ -33,6 +35,7 @@ const TOPICS = [
   },
   {
     badge: "Real Estate & Property",
+    kicker: "Property",
     heading: "Property developed through to occupancy.",
     copy: "Securing land, building, powering, and delivering residential and commercial spaces that are ready to live and work in.",
     href: "/services/real-estate-property",
@@ -41,6 +44,7 @@ const TOPICS = [
   },
   {
     badge: "Trading & Supply Chain",
+    kicker: "Supply Chain",
     heading: "The materials and goods projects depend on.",
     copy: "Import, export, procurement, and warehousing at scale, keeping sites supplied and partners stocked, reliably.",
     href: "/services/trading-supply-chain",
@@ -49,6 +53,7 @@ const TOPICS = [
   },
   {
     badge: "Environmental Services",
+    kicker: "Facilities",
     heading: "Clean, safe, and well-kept, long after handover.",
     copy: "Waste removal, janitorial, and housekeeping that keep buildings and sites running, backed by decades of facility-services experience.",
     href: "/services/environmental-services",
@@ -130,14 +135,19 @@ export default function Sustainability() {
                 />
               </div>
             ))}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
             <GeometricOverlay />
-            <span
-              key={topic.badge}
-              className="topic-rise absolute top-5 left-5 inline-flex items-center rounded-full bg-white/95 px-4 py-2 font-label text-[11px] font-semibold tracking-[0.8px] text-dipon-primary uppercase shadow-[0_2px_8px_rgba(0,0,0,0.12)]"
-            >
-              {topic.badge}
-            </span>
+            {/* Bottom gradient field with the bold, modern name of this topic */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/88 via-black/45 to-transparent px-6 pt-20 pb-6 sm:px-7 sm:pb-7">
+              <div key={active} className="topic-rise">
+                <span className="mb-2 flex items-center gap-2 font-label text-[11px] font-semibold tracking-[1.6px] text-dipon-accent uppercase">
+                  <span className="h-px w-6 bg-dipon-accent" />
+                  {topic.kicker}
+                </span>
+                <h3 className="max-w-[16ch] text-balance font-display text-[clamp(22px,2.6vw,32px)] font-extrabold leading-[1.08] tracking-[-0.5px] text-white">
+                  {topic.badge}
+                </h3>
+              </div>
+            </div>
           </div>
 
           {/* Copy panel */}

@@ -1,24 +1,58 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import CtaButton from "./CtaButton";
 import Socials from "./Socials";
 
-const HERO_VIDEO = "/hero/construction.mp4";
-const HERO_POSTER = "/hero/construction-poster.jpg";
+// The hero cross-fades between a couple of clips so it isn't one static loop.
+const HERO_VIDEOS = [
+  { src: "/hero/construction.mp4", poster: "/hero/construction-poster.jpg" },
+  { src: "/hero/power-aerial.mp4", poster: "/hero/power-aerial-poster.jpg" },
+];
+const SWITCH_MS = 9000;
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [active, setActive] = useState(0);
 
   // Safari ignores the React `muted` attribute and blocks autoplay. Set muted
-  // imperatively once so playback is allowed, then kick off playback.
+  // imperatively, start the first clip, and warm the second so the first
+  // cross-fade is already loaded when it arrives.
   useEffect(() => {
-    const v = videoRef.current;
-    if (v) {
-      v.muted = true;
-      v.play().catch(() => {});
+    const v0 = videoRefs.current[0];
+    if (v0) {
+      v0.muted = true;
+      v0.play().catch(() => {});
     }
+    const warm = window.setTimeout(() => {
+      const v1 = videoRefs.current[1];
+      if (v1) {
+        v1.preload = "auto";
+        v1.load();
+      }
+    }, 3000);
+    return () => window.clearTimeout(warm);
   }, []);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setActive((a) => (a + 1) % HERO_VIDEOS.length);
+    }, SWITCH_MS);
+    return () => window.clearInterval(id);
+  }, []);
+
+  // Only the visible clip plays.
+  useEffect(() => {
+    videoRefs.current.forEach((v, i) => {
+      if (!v) return;
+      v.muted = true;
+      if (i === active) {
+        v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    });
+  }, [active]);
 
   return (
     <section className="bg-dipon-blue">
@@ -26,19 +60,26 @@ export default function Hero() {
         {/* Full-bleed footage — nudged right on desktop so the subject sits clear
             of the headline, its left edge masked so it dissolves into the navy. */}
         <div className="absolute inset-0 lg:translate-x-[14%] lg:[mask-image:linear-gradient(to_right,transparent_0%,#000_30%)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,#000_30%)]">
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster={HERO_POSTER}
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover"
-          >
-            <source src={HERO_VIDEO} type="video/mp4" />
-          </video>
+          {HERO_VIDEOS.map((vid, i) => (
+            <video
+              key={vid.src}
+              ref={(el) => {
+                videoRefs.current[i] = el;
+              }}
+              autoPlay={i === 0}
+              muted
+              loop
+              playsInline
+              preload={i === 0 ? "auto" : "none"}
+              poster={vid.poster}
+              aria-hidden="true"
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ease-[var(--ease-premium)] ${
+                i === active ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <source src={vid.src} type="video/mp4" />
+            </video>
+          ))}
         </div>
 
         {/* Legibility — smooth navy gradients: a left wash under the headline and a
