@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CtaBand from "@/components/CtaBand";
-import DarkFeatureGrid from "@/components/DarkFeatureGrid";
 import Eyebrow from "@/components/Eyebrow";
+import FocusPanels from "@/components/FocusPanels";
 import Footer from "@/components/Footer";
 import GeometricOverlay from "@/components/GeometricOverlay";
 import Header from "@/components/Header";
@@ -89,7 +89,12 @@ export default async function ServicePage({
           </div>
         </section>
 
-        <DarkFeatureGrid eyebrow="Capabilities" heading="What's included." items={service.capabilities} columns={4} />
+        <FocusPanels
+          imageKey={service.slug}
+          eyebrow="Capabilities"
+          heading="What's included."
+          items={service.capabilities}
+        />
 
         <section className={section}>
           <div className={wrap}>

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CtaBand from "@/components/CtaBand";
-import DarkFeatureGrid from "@/components/DarkFeatureGrid";
 import Eyebrow from "@/components/Eyebrow";
+import FocusPanels from "@/components/FocusPanels";
 import Footer from "@/components/Footer";
 import GeometricOverlay from "@/components/GeometricOverlay";
 import Header from "@/components/Header";
@@ -87,11 +87,11 @@ export default async function SubsidiaryPage({
           </div>
         </section>
 
-        <DarkFeatureGrid
+        <FocusPanels
+          imageKey={subsidiary.slug}
           eyebrow="Focus Areas"
           heading="What they do, every day."
           items={subsidiary.focus}
-          columns={4}
         />
 
         <section className={section}>
