@@ -70,7 +70,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
               placeholder="blur"
               fill
               sizes="(max-width: 768px) 100vw, 38vw"
-              className="object-cover"
+              className="object-cover object-top"
             />
           </Opening>
         </div>

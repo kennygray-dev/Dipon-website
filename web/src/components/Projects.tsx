@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import CardMedia from "./CardMedia";
 import Reveal from "./Reveal";
 import { ArrowIcon } from "./icons";
 import { wrap } from "@/lib/styles";
@@ -103,32 +104,15 @@ function Tile({ p, delay = "0s" }: { p: Project; delay?: string }) {
   );
 }
 
-// Grid cell: just a muted clip of work going on — no label or link, so the grid
-// reads as a montage of the Group in motion, not a repeat of the services list.
-// Playback is started/stopped by the scroll controller (plays only on the grid
-// "page") so page one stays smooth and nothing downloads until it's in view.
+// Grid cell: an image of work across the Group that plays a short muted clip on
+// hover (CardMedia handles the image→video hover, bound to the `.group` wrapper).
+// No label or link, so the grid reads as a montage, not a repeat of the services
+// list. Nothing downloads until you hover a tile.
 function GridVideoTile({ p }: { p: Project }) {
   return (
-    <div className="relative h-full w-full overflow-hidden">
-      <video
-        muted
-        loop
-        playsInline
-        preload="none"
-        poster={p.image}
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
-      >
-        <source src={p.video} type="video/mp4" />
-      </video>
-      {/* poster fallback for reduced-motion (video hidden) */}
-      <img
-        src={p.image}
-        alt={p.alt}
-        className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-      <span aria-hidden="true" className="sector-grid pointer-events-none absolute inset-0 opacity-70" />
+    <div className="group relative h-full w-full overflow-hidden">
+      <CardMedia image={p.image} alt={p.alt} video={p.video} />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
     </div>
   );
 }
@@ -174,7 +158,6 @@ export default function Projects() {
       if (!stage || !slot || !feat || !text || !viewAll || !grid) return;
       step = next;
       const sRect = stage.getBoundingClientRect();
-      const gridVideos = grid.querySelectorAll("video");
       if (next >= 1) {
         const slotR = slot.getBoundingClientRect();
         feat.style.left = `${slotR.left - sRect.left}px`;
@@ -185,7 +168,6 @@ export default function Projects() {
         viewAll.style.opacity = "1";
         if (featGrid) featGrid.style.opacity = "0"; // grid only on the big image
         grid.classList.add("is-open");
-        gridVideos.forEach((v) => (v as HTMLVideoElement).play().catch(() => {}));
       } else {
         feat.style.left = "0px";
         feat.style.top = "0px";
@@ -195,7 +177,6 @@ export default function Projects() {
         viewAll.style.opacity = "0";
         if (featGrid) featGrid.style.opacity = "1";
         grid.classList.remove("is-open");
-        gridVideos.forEach((v) => (v as HTMLVideoElement).pause());
       }
     };
 
