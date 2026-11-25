@@ -11,9 +11,12 @@ import { section, wrap } from "@/lib/styles";
 
 export default function Leadership({ showLink = true }: { showLink?: boolean }) {
   return (
-    <section id="careers" className={`${section} relative overflow-hidden bg-dipon-blue`}>
+    <section
+      id="careers"
+      className={`${section} relative overflow-hidden bg-dipon-blue lg:flex lg:min-h-screen lg:flex-col lg:justify-center`}
+    >
       <SectionTexture side="right" />
-      <div className={`${wrap} relative z-10`}>
+      <div className={`${wrap} relative z-10 w-full`}>
         <Reveal className="mb-6 md:mb-8">
           <Eyebrow light>From the Leadership</Eyebrow>
         </Reveal>
@@ -60,7 +63,7 @@ export default function Leadership({ showLink = true }: { showLink?: boolean }) 
               <CtaButton href="/about" label="Meet Our Leadership" variant="light" />
             )}
           </Reveal>
-          <Opening delay={40} className="relative order-first aspect-[4/5] overflow-hidden md:order-none">
+          <Opening delay={40} className="relative order-first aspect-[4/5] overflow-hidden md:order-none md:aspect-auto md:h-[clamp(380px,52vh,540px)]">
             <Image
               src={founderPhoto}
               alt="Mr. Oliver Ibeh, Founder of DIPON Group"

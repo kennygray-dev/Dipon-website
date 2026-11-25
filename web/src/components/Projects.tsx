@@ -12,6 +12,8 @@ type Project = {
   href: string;
   image: string;
   alt: string;
+  /** Short muted clip shown in the grid — "things going on" across the Group. */
+  video: string;
   /** Bento span at md and up. */
   span: string;
 };
@@ -23,6 +25,7 @@ const PROJECTS: Project[] = [
     href: "/services/construction-civil-engineering",
     image: "https://images.pexels.com/photos/30396647/pexels-photo-30396647.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "DIPON Group project: civil engineering and construction site",
+    video: "/cards/construction.mp4",
     span: "md:col-span-2 md:row-span-2",
   },
   {
@@ -31,6 +34,7 @@ const PROJECTS: Project[] = [
     href: "/services/renewable-energy-power",
     image: "https://images.pexels.com/photos/6729421/pexels-photo-6729421.jpeg?auto=compress&cs=tinysrgb&w=1200",
     alt: "DIPON Group project: solar power and public lighting",
+    video: "/cards/power.mp4",
     span: "md:col-span-2",
   },
   {
@@ -39,6 +43,7 @@ const PROJECTS: Project[] = [
     href: "/services/real-estate-property",
     image: "https://images.pexels.com/photos/40747788/pexels-photo-40747788.jpeg?auto=compress&cs=tinysrgb&w=1000",
     alt: "DIPON Group project: residential housing development",
+    video: "/cards/realestate.mp4",
     span: "md:col-span-1",
   },
   {
@@ -47,6 +52,7 @@ const PROJECTS: Project[] = [
     href: "/services/environmental-services",
     image: "https://images.pexels.com/photos/33691603/pexels-photo-33691603.jpeg?auto=compress&cs=tinysrgb&w=1000",
     alt: "DIPON Group project: environmental and janitorial services",
+    video: "/cards/environmental.mp4",
     span: "md:col-span-1",
   },
   {
@@ -55,6 +61,7 @@ const PROJECTS: Project[] = [
     href: "/services/trading-supply-chain",
     image: "https://images.pexels.com/photos/36143083/pexels-photo-36143083.jpeg?auto=compress&cs=tinysrgb&w=1200",
     alt: "DIPON Group project: trading, supply chain, and logistics",
+    video: "/cards/trade.mp4",
     span: "md:col-span-2",
   },
   {
@@ -63,6 +70,7 @@ const PROJECTS: Project[] = [
     href: "/services/agriculture",
     image: "https://images.pexels.com/photos/27879118/pexels-photo-27879118.jpeg?auto=compress&cs=tinysrgb&w=1200",
     alt: "DIPON Group project: agricultural production and supply",
+    video: "/cards/warehouse.mp4",
     span: "md:col-span-2",
   },
 ];
@@ -95,6 +103,36 @@ function Tile({ p, delay = "0s" }: { p: Project; delay?: string }) {
   );
 }
 
+// Grid cell: just a muted clip of work going on — no label or link, so the grid
+// reads as a montage of the Group in motion, not a repeat of the services list.
+// Playback is started/stopped by the scroll controller (plays only on the grid
+// "page") so page one stays smooth and nothing downloads until it's in view.
+function GridVideoTile({ p }: { p: Project }) {
+  return (
+    <div className="relative h-full w-full overflow-hidden">
+      <video
+        muted
+        loop
+        playsInline
+        preload="none"
+        poster={p.image}
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+      >
+        <source src={p.video} type="video/mp4" />
+      </video>
+      {/* poster fallback for reduced-motion (video hidden) */}
+      <img
+        src={p.image}
+        alt={p.alt}
+        className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+      <span aria-hidden="true" className="sector-grid pointer-events-none absolute inset-0 opacity-70" />
+    </div>
+  );
+}
+
 export default function Projects() {
   const featured = PROJECTS[0];
   const rest = PROJECTS.slice(1);
@@ -104,7 +142,6 @@ export default function Projects() {
   const slotRef = useRef<HTMLDivElement | null>(null);
   const featRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
-  const featCapRef = useRef<HTMLDivElement | null>(null);
   const viewAllRef = useRef<HTMLDivElement | null>(null);
   const gridRef = useRef<HTMLDivElement | null>(null);
   const featGridRef = useRef<HTMLDivElement | null>(null);
@@ -131,13 +168,13 @@ export default function Projects() {
       const slot = slotRef.current;
       const feat = featRef.current;
       const text = textRef.current;
-      const featCap = featCapRef.current;
       const viewAll = viewAllRef.current;
       const grid = gridRef.current;
       const featGrid = featGridRef.current;
-      if (!stage || !slot || !feat || !text || !featCap || !viewAll || !grid) return;
+      if (!stage || !slot || !feat || !text || !viewAll || !grid) return;
       step = next;
       const sRect = stage.getBoundingClientRect();
+      const gridVideos = grid.querySelectorAll("video");
       if (next >= 1) {
         const slotR = slot.getBoundingClientRect();
         feat.style.left = `${slotR.left - sRect.left}px`;
@@ -145,20 +182,20 @@ export default function Projects() {
         feat.style.width = `${slotR.width}px`;
         feat.style.height = `${slotR.height}px`;
         text.style.opacity = "0"; // big statement fades out
-        featCap.style.opacity = "1"; // small service label fades in
         viewAll.style.opacity = "1";
         if (featGrid) featGrid.style.opacity = "0"; // grid only on the big image
         grid.classList.add("is-open");
+        gridVideos.forEach((v) => (v as HTMLVideoElement).play().catch(() => {}));
       } else {
         feat.style.left = "0px";
         feat.style.top = "0px";
         feat.style.width = `${sRect.width}px`;
         feat.style.height = `${sRect.height}px`;
         text.style.opacity = "1";
-        featCap.style.opacity = "0";
         viewAll.style.opacity = "0";
         if (featGrid) featGrid.style.opacity = "1";
         grid.classList.remove("is-open");
+        gridVideos.forEach((v) => (v as HTMLVideoElement).pause());
       }
     };
 
@@ -203,10 +240,9 @@ export default function Projects() {
             {/* Full-bleed grid (featured cell is an empty placeholder) */}
             <div ref={gridRef} className="proj-grid absolute inset-0 grid grid-cols-4 grid-rows-3 gap-2">
               <div ref={slotRef} className="col-span-2 row-span-2" aria-hidden="true" />
-              {rest.map((p, i) => (
+              {rest.map((p) => (
                 <div key={p.title} className={`proj-tile ${p.span}`}>
-                  {/* Negative, varied delay so the tiles breathe out of sync */}
-                  <Tile p={p} delay={`-${i * 3.5}s`} />
+                  <GridVideoTile p={p} />
                 </div>
               ))}
             </div>
@@ -220,10 +256,22 @@ export default function Projects() {
             {/* The first page is a full-image preview/statement — the photo is
                 not a link; it simply holds while you take it in. */}
             <div className="relative h-full w-full">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster={featured.image}
+                aria-hidden="true"
+                className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+              >
+                <source src={featured.video} type="video/mp4" />
+              </video>
               <img
                 src={featured.image}
                 alt={featured.alt}
-                className="proj-breathe absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/25" />
               {/* faint grid — on the big image only; fades out as it collapses into the grid cell */}
@@ -245,23 +293,6 @@ export default function Projects() {
                 <h2 className="max-w-[16ch] text-balance font-display text-[clamp(30px,4.4vw,60px)] font-bold leading-[1.08] tracking-[-0.5px] text-white">
                   {STATEMENT}
                 </h2>
-              </div>
-              {/* Service name for the featured cell — hidden full-screen, fades in
-                  once it collapses into the grid so it reads like the other tiles. */}
-              <div
-                ref={featCapRef}
-                className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col items-start gap-1 p-4 transition-opacity duration-500 sm:p-5"
-                style={{ opacity: 0 }}
-              >
-                <span className="font-label text-[10px] font-semibold tracking-[0.14em] text-dipon-accent uppercase">
-                  {featured.category}
-                </span>
-                <Link
-                  href={featured.href}
-                  className="pointer-events-auto w-fit text-balance font-display text-[15px] font-bold leading-[1.15] text-white no-underline underline-offset-[5px] transition-colors duration-200 hover:text-dipon-accent hover:underline sm:text-[17px]"
-                >
-                  {featured.title}
-                </Link>
               </div>
             </div>
           </div>
