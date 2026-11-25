@@ -5,15 +5,18 @@ import CtaButton from "./CtaButton";
 import Socials from "./Socials";
 
 // The hero cross-fades between a couple of clips so it isn't one static loop.
+// Each clip is allowed to play to its natural end (not looped) and only then
+// cuts to the next, so the switch lands on the clean seam instead of mid-loop.
 const HERO_VIDEOS = [
   { src: "/hero/construction.mp4", poster: "/hero/construction-poster.jpg" },
   { src: "/hero/power-aerial.mp4", poster: "/hero/power-aerial-poster.jpg" },
 ];
-const SWITCH_MS = 9000;
 
 export default function Hero() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [active, setActive] = useState(0);
+
+  const advance = () => setActive((a) => (a + 1) % HERO_VIDEOS.length);
 
   // Safari ignores the React `muted` attribute and blocks autoplay. Set muted
   // imperatively, start the first clip, and warm the second so the first
@@ -34,19 +37,17 @@ export default function Hero() {
     return () => window.clearTimeout(warm);
   }, []);
 
-  useEffect(() => {
-    const id = window.setInterval(() => {
-      setActive((a) => (a + 1) % HERO_VIDEOS.length);
-    }, SWITCH_MS);
-    return () => window.clearInterval(id);
-  }, []);
-
-  // Only the visible clip plays.
+  // Only the visible clip plays; it starts from the top each time it comes round.
   useEffect(() => {
     videoRefs.current.forEach((v, i) => {
       if (!v) return;
       v.muted = true;
       if (i === active) {
+        try {
+          v.currentTime = 0;
+        } catch {
+          /* not seekable yet */
+        }
         v.play().catch(() => {});
       } else {
         v.pause();
@@ -68,11 +69,11 @@ export default function Hero() {
               }}
               autoPlay={i === 0}
               muted
-              loop
               playsInline
               preload={i === 0 ? "auto" : "none"}
               poster={vid.poster}
               aria-hidden="true"
+              onEnded={advance}
               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ease-[var(--ease-premium)] ${
                 i === active ? "opacity-100" : "opacity-0"
               }`}

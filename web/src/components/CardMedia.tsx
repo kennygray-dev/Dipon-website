@@ -15,11 +15,14 @@ export default function CardMedia({
   alt,
   video,
   imgClassName = "",
+  showGrid = false,
 }: {
   image: string;
   alt: string;
   video?: string;
   imgClassName?: string;
+  /** Faint grid texture — reserved for the large feature panels, off by default. */
+  showGrid?: boolean;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const rootRef = useRef<HTMLSpanElement>(null);
@@ -60,8 +63,8 @@ export default function CardMedia({
           <source src={video} type="video/mp4" />
         </video>
       )}
-      {/* Subtle grid texture on every card's media */}
-      <span aria-hidden="true" className="sector-grid pointer-events-none absolute inset-0" />
+      {/* Subtle grid texture — only on the large feature panels that opt in */}
+      {showGrid && <span aria-hidden="true" className="sector-grid pointer-events-none absolute inset-0" />}
     </span>
   );
 }

@@ -23,8 +23,8 @@ export default function Home() {
           <Industries />
           <Projects />
           <Sustainability />
-          <StatBand />
           <Leadership />
+          <StatBand />
           <CtaBand />
         </div>
       </main>

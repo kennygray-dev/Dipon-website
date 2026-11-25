@@ -73,7 +73,7 @@ export default function Subsidiaries() {
                 i === 1 ? "is-center" : ""
               }`}
             >
-              <CardMedia image={sub.image} alt={`DIPON Group: ${sub.name}`} video={sub.video} />
+              <CardMedia image={sub.image} alt={`DIPON Group: ${sub.name}`} video={sub.video} showGrid />
               {/* legibility wash */}
               <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/88 via-black/35 to-black/15" />
 

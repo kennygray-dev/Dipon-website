@@ -79,7 +79,7 @@ export default function FocusPanels({
                     data-reveal
                     className="sector-panel group relative block h-[58vw] max-h-[360px] overflow-hidden rounded-[20px] md:h-full md:max-h-none"
                   >
-                    <CardMedia image={image} alt={`DIPON Group: ${item.title}`} />
+                    <CardMedia image={image} alt={`DIPON Group: ${item.title}`} showGrid />
                     {/* legibility wash */}
                     <div
                       aria-hidden="true"
