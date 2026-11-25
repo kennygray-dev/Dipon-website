@@ -2,6 +2,7 @@ import CardMedia from "./CardMedia";
 import Eyebrow from "./Eyebrow";
 import Heading from "./Heading";
 import Reveal from "./Reveal";
+import SectionTexture from "./SectionTexture";
 import { LogoMark } from "./icons";
 import { section, wrap, leadLight } from "@/lib/styles";
 
@@ -54,8 +55,9 @@ export default function FocusPanels({
 
   let idx = -1;
   return (
-    <section className={`${section} bg-dipon-blue`}>
-      <div className={wrap}>
+    <section className={`${section} relative overflow-hidden bg-dipon-blue`}>
+      <SectionTexture side="right" />
+      <div className={`${wrap} relative z-10`}>
         <Reveal className="mb-10 max-w-[640px] md:mb-12">
           <Eyebrow light>{eyebrow}</Eyebrow>
           <Heading light>{heading}</Heading>

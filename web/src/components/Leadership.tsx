@@ -4,14 +4,16 @@ import Eyebrow from "./Eyebrow";
 import Opening from "./Opening";
 import Reveal from "./Reveal";
 import ScrollRevealText from "./ScrollRevealText";
+import SectionTexture from "./SectionTexture";
 import founderPhoto from "@/assets/team/oliver-ibeh.jpg";
 import founderSquare from "@/assets/team/oliver-ibeh-square.jpg";
 import { section, wrap } from "@/lib/styles";
 
 export default function Leadership({ showLink = true }: { showLink?: boolean }) {
   return (
-    <section id="careers" className={`${section} bg-dipon-blue`}>
-      <div className={wrap}>
+    <section id="careers" className={`${section} relative overflow-hidden bg-dipon-blue`}>
+      <SectionTexture side="right" />
+      <div className={`${wrap} relative z-10`}>
         <Reveal className="mb-6 md:mb-8">
           <Eyebrow light>From the Leadership</Eyebrow>
         </Reveal>
